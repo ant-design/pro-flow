@@ -1,18 +1,18 @@
 {
-  "name": "@arvinxu/npm-template",
-  "version": "1.7.0",
-  "description": "a npm develop template",
+  "name": "kitchen-flow-editor",
+  "version": "0.0.0",
+  "description": "A React based Flow Editor",
   "keywords": [
-    "npm",
-    "template"
+    "flow",
+    "editor"
   ],
-  "homepage": "https://github.com/arvinxx/npm-template",
+  "homepage": "https://github.com/arvinxx/kitchen-flow-editor",
   "bugs": {
-    "url": "https://github.com/arvinxx/npm-template/issues/new"
+    "url": "https://github.com/arvinxx/kitchen-flow-editor/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arvinxx/npm-template.git"
+    "url": "https://github.com/arvinxx/kitchen-flow-editor.git"
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",

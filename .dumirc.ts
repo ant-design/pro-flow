@@ -3,7 +3,7 @@ import { homepage } from './package.json';
 
 export default defineConfig({
   themeConfig: {
-    name: '@arvinxu/npm-template',
+    name: 'kitchen-flow-editor',
     github: homepage,
   },
 });

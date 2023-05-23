@@ -12,8 +12,8 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src"],
-      "@arvinxu/npm-template": ["src"],
-      "@arvinxu/npm-template/*": ["src/*", "*"]
+      "kitchen-flow-editor": ["src"],
+      "kitchen-flow-editor/*": ["src/*", "*"]
     }
   }
 }
