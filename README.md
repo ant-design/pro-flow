@@ -1,4 +1,9 @@
-# kitchen-flow-editor
+<p align="center">
+  <img width="160" src="https://gw.alipayobjects.com/mdn/rms_7d1485/afts/img/A*XDYxSJXBjjwAAAAAAAAAAAAAARQnAQ">
+</p>
+<h1 align="center">Kitchen Flow Editor</h1>
+
+<div align="center">
 
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] [![install size][npm-size]][npm-size-url]
 
@@ -25,15 +30,15 @@
 
 <!-- coverage -->
 
-[coverage]: https://codecov.io/gh/arvinxx/kitchen-flow-editor/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/arvinxx/kitchen-flow-editor/branch/master
+[coverage]: https://codecov.io/gh/@ant-design/kitchen-flow-editor/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/@ant-design/kitchen-flow-editor/branch/master
 
 <!-- Github CI -->
 
-[test-ci]: https://github.com/arvinxx/kitchen-flow-editor/workflows/Test%20CI/badge.svg
-[release-ci]: https://github.com/arvinxx/kitchen-flow-editor/workflows/Release%20CI/badge.svg
-[test-ci-url]: https://github.com/arvinxx/kitchen-flow-editor/actions?query=workflow%3ATest%20CI
-[release-ci-url]: https://github.com/arvinxx/kitchen-flow-editor/actions?query=workflow%3ARelease%20CI
+[test-ci]: https://github.com/@ant-design/kitchen-flow-editor/workflows/Test%20CI/badge.svg
+[release-ci]: https://github.com/@ant-design/kitchen-flow-editor/workflows/Release%20CI/badge.svg
+[test-ci-url]: https://github.com/@ant-design/kitchen-flow-editor/actions?query=workflow%3ATest%20CI
+[release-ci-url]: https://github.com/@ant-design/kitchen-flow-editor/actions?query=workflow%3ARelease%20CI
 [download-image]: https://img.shields.io/npm/dm/kitchen-flow-editor.svg?style=flat-square
 [download-url]: https://npmjs.org/package/kitchen-flow-editor
 
