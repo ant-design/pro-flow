@@ -6,13 +6,13 @@
     "flow",
     "editor"
   ],
-  "homepage": "https://github.com/@ant-design/kitchen-flow-editor",
+  "homepage": "https://github.com/ant-design/kitchen-flow-editor",
   "bugs": {
-    "url": "https://github.com/@ant-design/kitchen-flow-editor/issues/new"
+    "url": "https://github.com/ant-design/kitchen-flow-editor/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/@ant-design/kitchen-flow-editor.git"
+    "url": "https://github.com/ant-design/kitchen-flow-editor.git"
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",

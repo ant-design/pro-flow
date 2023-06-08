@@ -6,7 +6,7 @@ hero:
     - text: 快速上手
       link: /guide
     - text: Github
-      link: https://github.com/@ant-design/kitchen-flow-editor
+      link: https://github.com/ant-design/kitchen-flow-editor
 ---
 
 <embed src="../README.md"></embed>
