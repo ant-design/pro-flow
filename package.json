@@ -67,12 +67,12 @@
     "immer": "^10",
     "lodash-es": "^4",
     "lucide-react": "latest",
+    "nanoid": "^4",
     "polished": "^4",
     "react-hotkeys-hook": "^4",
     "react-layout-kit": "^1",
     "reactflow": "^11",
     "use-merge-value": "^1",
-    "uuid": "^9",
     "yjs": "^13",
     "zustand": "^4",
     "zustand-utils": "^1"
@@ -80,6 +80,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17",
     "@testing-library/react": "^13",
+    "@types/lodash-es": "^4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/uuid": "^9",

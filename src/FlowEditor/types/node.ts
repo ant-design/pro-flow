@@ -1,5 +1,5 @@
-import { MetaData } from '@/types/meta';
 import { Node, NodeProps } from 'reactflow';
+import { MetaData } from './meta';
 
 /**
  * 节点状态

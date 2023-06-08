@@ -1,7 +1,8 @@
 import { Edge, Node } from 'reactflow';
-import { v4 as uuid } from 'uuid';
+
 import { StateCreator } from 'zustand';
 
+import { uuid } from '@/FlowEditor/utils/uuid';
 import { ActionPayload } from '../../types';
 import { generateEdgeId } from '../../utils/edge';
 import { FlowEditorStore } from '../actions';

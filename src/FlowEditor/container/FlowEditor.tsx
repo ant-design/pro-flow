@@ -26,7 +26,7 @@ import { flowEditorSelectors, useStore } from '../store';
 
 export const useStyles = createStyles(({ css, token }) => ({
   container: css`
-    background: ${token.colorBgLayoutSecondary};
+    background: ${token.colorBgLayout};
 
     -webkit-font-smoothing: antialiased;
 
