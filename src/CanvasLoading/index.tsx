@@ -1,7 +1,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
 import { rgba } from 'polished';
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { Center } from 'react-layout-kit';
 
 const useStyles = createStyles(
@@ -19,13 +19,28 @@ const useStyles = createStyles(
   `,
 );
 
-const CanvasLoading = () => {
+interface CanvasLoadingProps {
+  children?: ReactNode;
+  loading?: boolean;
+}
+
+const CanvasLoading = memo<CanvasLoadingProps>(({ children, loading }) => {
   const { styles } = useStyles();
-  return (
+
+  const content = (
     <Center className={styles}>
       <LoadingOutlined spin style={{ fontSize: 32, marginBottom: 12 }} /> 画布初始化...
     </Center>
   );
-};
 
-export default memo(CanvasLoading);
+  if (!children) return content;
+
+  return (
+    <>
+      {typeof loading === 'undefined' ? content : loading ? content : null}
+      {children}
+    </>
+  );
+});
+
+export default CanvasLoading;
