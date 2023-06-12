@@ -1,6 +1,6 @@
 {
   "name": "kitchen-flow-editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React based Flow Editor",
   "keywords": [
     "flow",
@@ -60,9 +60,9 @@
   "dependencies": {
     "@ant-design/icons": "^5",
     "@ant-design/pro-editor": "latest",
+    "@babel/runtime": "^7",
     "@floating-ui/react": "^0.24",
     "ahooks": "^3",
-    "antd": "^5",
     "antd-style": "^3",
     "fast-deep-equal": "^3",
     "immer": "^10",
@@ -110,6 +110,11 @@
     "stylelint": "^14",
     "typescript": "^5",
     "vitest": "latest"
+  },
+  "peerDependencies": {
+    "antd": "^5",
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "publishConfig": {
     "access": "public",
