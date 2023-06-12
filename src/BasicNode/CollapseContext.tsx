@@ -1,6 +1,8 @@
 import { memo, ReactNode } from 'react';
 import { create, StoreApi } from 'zustand';
-import { createContext } from 'zustand-utils';
+import { createContext, createStoreUpdater } from 'zustand-utils';
+
+// ============ State ============ //
 
 interface CollapseState {
   collapsedKeys: string[];
@@ -9,6 +11,8 @@ interface CollapseState {
 }
 
 type ControlledState = Partial<Pick<CollapseState, 'collapsedKeys' | 'onCollapsedKeysChange'>>;
+
+// ============ Store ============ //
 
 const createStore = ({ collapsedKeys, onCollapsedKeysChange }: ControlledState) =>
   create<CollapseState>((set, get) => ({
@@ -30,10 +34,33 @@ const createStore = ({ collapsedKeys, onCollapsedKeysChange }: ControlledState) 
 
 export const { useStore, useStoreApi, Provider } = createContext<StoreApi<CollapseState>>();
 
+// ============ Provider ============ //
+
 export interface CollapseProviderProps extends ControlledState {
   children: ReactNode;
+  defaultCollapsedKeys?: string[];
 }
 
-export const CollapseProvider = memo<CollapseProviderProps>(({ children, ...props }) => (
-  <Provider createStore={() => createStore(props)}>{children}</Provider>
-));
+const StoreUpdater = memo<Pick<CollapseProviderProps, 'collapsedKeys'>>(({ collapsedKeys }) => {
+  const storeApi = useStoreApi();
+  const useUpdater = createStoreUpdater(storeApi);
+
+  useUpdater('collapsedKeys', collapsedKeys);
+
+  return null;
+});
+
+export const CollapseProvider = memo<CollapseProviderProps>(
+  ({ children, defaultCollapsedKeys, onCollapsedKeysChange, collapsedKeys }) => (
+    <>
+      <Provider
+        createStore={() =>
+          createStore({ collapsedKeys: defaultCollapsedKeys, onCollapsedKeysChange })
+        }
+      >
+        {children}
+        <StoreUpdater collapsedKeys={collapsedKeys} />
+      </Provider>
+    </>
+  ),
+);

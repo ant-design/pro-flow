@@ -27,8 +27,7 @@ const useStyles = createStyles(({ css, token, prefixCls }) => ({
   `,
 }));
 
-interface BasicNodePreviewProps {
-  id?: string;
+export interface BasicNodePreviewProps {
   /**
    * 标题
    */
@@ -45,11 +44,27 @@ interface BasicNodePreviewProps {
    * 是否激活状态
    */
   active?: boolean;
+  /**
+   * 自定义类名
+   */
   className?: string;
+  /**
+   * 自定义样式
+   */
   style?: CSSProperties;
 
+  /**
+   * 折叠的键数组
+   * @default []
+   */
   collapsedKeys?: string[];
+  /**
+   * 折叠键数组变化时的回调函数
+   */
   onCollapsedKeysChange?: (collapsedKeys: string[]) => void;
+  /**
+   * 标题变化时的回调函数
+   */
   onTitleChange?: (title: string) => void;
 }
 
@@ -83,6 +98,9 @@ const Preview = memo<BasicNodePreviewProps>(
 );
 
 interface BasicNodeProps extends BasicNodePreviewProps {
+  /**
+   * 节点的 id
+   */
   id: string;
 }
 
@@ -90,7 +108,6 @@ const Default = memo<BasicNodeProps>(({ id, onTitleChange, onCollapsedKeysChange
   const editor = useFlowEditor();
   return (
     <Preview
-      id={id}
       onTitleChange={(title) => {
         editor.updateNodeMeta(id, 'title', title);
         onTitleChange?.(title);
@@ -106,7 +123,7 @@ const Default = memo<BasicNodeProps>(({ id, onTitleChange, onCollapsedKeysChange
 }) as (props: BasicNodeProps) => JSX.Element;
 
 interface IBasicNode {
-  (props: BasicNodeProps): JSX.Element;
+  (props: BasicNodeProps): ReactNode;
   Preview: typeof Preview;
 }
 
