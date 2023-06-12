@@ -3,7 +3,7 @@ import { ActionIcon } from '@ant-design/pro-editor';
 import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 
-import { ControlInput, ControlInputProps } from '@/components/ControlInput';
+import { ControlInput, ControlInputProps } from '@/ControlInput';
 
 export type EditableTextProps = ControlInputProps;
 

@@ -51,26 +51,80 @@ export const useNodeFieldStyles = createStyles(({ css, token, cx }) => {
   };
 });
 
+/**
+ * 额外操作选项
+ */
 export interface ExtraAction {
+  /**
+   * 操作标题
+   */
   title?: string;
+  /**
+   * 操作图标
+   */
   icon?: ReactNode;
+  /**
+   * 点击操作时的回调函数
+   */
   onClick?: () => void;
 }
 
-interface ValueItemprops extends PropsWithChildren {
+/**
+ * NodeField 组件的 props
+ */
+export interface NodeFieldProps {
+  /**
+   * 节点的唯一标识符
+   */
   id: string;
+  /**
+   * 节点标题，支持传入 ReactNode
+   */
   title?: ReactNode;
+  /**
+   * 额外的操作按钮，格式为 ExtraAction 数组
+   */
   extra?: ExtraAction[];
+  /**
+   * 是否折叠，默认为 false
+   */
   collapsed?: boolean;
+  /**
+   * 折叠状态改变时的回调函数
+   * @param collapsed - 折叠状态
+   */
   onCollapsedChange?: (collapsed: boolean) => void;
+  /**
+   * 值区域是否使用容器包裹
+   * @default true
+   */
   valueContainer?: boolean;
+  /**
+   * 自定义类名
+   * @param extra - 操作按钮的类名
+   * @param value - 值区域的类名
+   * @param header - 节点头部的类名
+   * @param title - 标题的类名
+   */
   classNames?: { extra?: string; value?: string; header?: string; title?: string };
-
+  /**
+   * 节点的连接点，用于连线
+   * @param source - 源节点的连接点，默认为 true
+   * @param target - 目标节点的连接点，默认为 true
+   */
   handles?: {
     source?: true | string;
     target?: true | string;
   };
+  /**
+   * 自定义样式
+   */
   style?: CSSProperties;
+  className?: string;
+  /**
+   * 子元素
+   */
+  children?: ReactNode;
 }
 
 const NodeFieldContent = memo(
@@ -84,8 +138,9 @@ const NodeFieldContent = memo(
     classNames = {},
     handles = {},
     id,
+    className,
     style,
-  }: ValueItemprops) => {
+  }: NodeFieldProps) => {
     const { styles, theme, cx } = useNodeFieldStyles();
 
     const [collapsedKeys, toggleCollapsedKey] = useStore(
@@ -102,7 +157,7 @@ const NodeFieldContent = memo(
     });
 
     return (
-      <Flexbox gap={12} className={cx(`${prefixCls}-container`)} style={style}>
+      <Flexbox gap={12} className={cx(`${prefixCls}-container`, className)} style={style}>
         {title && (
           <Flexbox
             horizontal
@@ -126,23 +181,19 @@ const NodeFieldContent = memo(
               gap={4}
               className={cx(styles.extra, `${prefixCls}-extra`, classNames?.extra, 'nodrag')}
             >
-              <ConfigProvider
-                theme={{ token: { colorText: theme.colorTextSecondary, fontSize: 12 } }}
-              >
+              <ConfigProvider theme={{ token: { colorText: theme.colorTextSecondary } }}>
                 {isCollapsed
                   ? null
                   : extra &&
                     extra.map((item, index) => (
                       <ActionIcon
                         key={item.title || '' + index}
-                        // size={'small'}
                         icon={item.icon}
                         title={item.title}
                         onClick={item.onClick}
                       />
                     ))}
                 <ActionIcon
-                  // size={'small'}
                   icon={<CaretDownFilled rotate={isCollapsed ? -90 : 0} />}
                   title={isCollapsed ? '展开' : '折起'}
                   onClick={() => {
@@ -190,7 +241,7 @@ const Wrapper = ({ children }: PropsWithChildren) => {
   return <CollapseProvider>{children}</CollapseProvider>;
 };
 
-export const NodeField = memo<ValueItemprops>((props) => (
+export const NodeField = memo<NodeFieldProps>((props) => (
   <Wrapper>
     <NodeFieldContent {...props} />
   </Wrapper>
