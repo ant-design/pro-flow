@@ -24,7 +24,7 @@ jobs:
           build: |
             pnpm i
             pnpm run docs:preview
-          dist: dist
+          dist: docs-dist
 
       - name: Get the preview_url
         run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"

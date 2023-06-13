@@ -10,6 +10,7 @@ export default defineConfig({
   // 部署在非根目录时, base 和 publicPath 都需要配置
   base: isProdSite ? '/kitchen-flow-editor/' : '/',
   publicPath: isProdSite ? '/kitchen-flow-editor/' : '/',
+  outputPath: 'docs-dist',
   favicons: ['https://gw.alipayobjects.com/zos/bmw-prod/51a51720-8a30-4430-b6c9-be5712364f04.svg'],
   themeConfig: {
     name: 'Kitchen Flow Editor',
