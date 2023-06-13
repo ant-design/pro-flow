@@ -1,27 +1,26 @@
 {
   "name": "kitchen-flow-editor",
-  "version": "0.0.1",
+  "version": "0.1.0-alpha.1",
   "description": "A React based Flow Editor",
   "keywords": [
     "flow",
     "editor"
   ],
-  "homepage": "https://github.com/arvinxx/kitchen-flow-editor",
+  "homepage": "https://github.com/ant-design/kitchen-flow-editor",
   "bugs": {
-    "url": "https://github.com/arvinxx/kitchen-flow-editor/issues/new"
+    "url": "https://github.com/ant-design/kitchen-flow-editor/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arvinxx/kitchen-flow-editor.git"
+    "url": "https://github.com/ant-design/kitchen-flow-editor.git"
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
   "sideEffects": false,
-  "main": "lib/index.js",
+  "main": "es/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
-    "lib",
     "es"
   ],
   "scripts": {
@@ -31,6 +30,7 @@
     "clean": "rm -rf es lib dist coverage .dumi/tmp .eslintcache",
     "dev": "dumi dev",
     "docs:build": "dumi build",
+    "docs:preview": "PREVIEW=1 dumi build",
     "doctor": "father doctor",
     "lint": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
     "prepare": "husky install && npm run setup",
@@ -57,14 +57,36 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "dependencies": {
+    "@ant-design/icons": "^5",
+    "@ant-design/pro-editor": "latest",
+    "@babel/runtime": "^7",
+    "@floating-ui/react": "^0.24",
+    "ahooks": "^3",
+    "antd-style": "^3",
+    "fast-deep-equal": "^3",
+    "immer": "^10",
+    "lodash-es": "^4",
+    "lucide-react": "latest",
+    "nanoid": "^4",
+    "polished": "^4",
+    "react-hotkeys-hook": "^4",
+    "react-layout-kit": "^1",
+    "reactflow": "^11",
+    "use-merge-value": "^1",
+    "yjs": "^13",
+    "zustand": "^4",
+    "zustand-utils": "^1"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17",
     "@testing-library/react": "^13",
+    "@types/lodash-es": "^4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^9",
     "@umijs/lint": "^4",
-    "@vitest/coverage-c8": "latest",
-    "antd": "^5",
+    "@vitest/coverage-v8": "latest",
     "commitlint": "^17",
     "commitlint-config-gitmoji": "^2",
     "concurrently": "^7",
@@ -88,6 +110,11 @@
     "stylelint": "^14",
     "typescript": "^5",
     "vitest": "latest"
+  },
+  "peerDependencies": {
+    "antd": "^5",
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "publishConfig": {
     "access": "public",

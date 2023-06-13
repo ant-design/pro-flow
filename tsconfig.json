@@ -11,7 +11,7 @@
     "types": ["vitest/globals"],
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "@/*": ["src"],
+      "@/*": ["./src/*"],
       "kitchen-flow-editor": ["src"],
       "kitchen-flow-editor/*": ["src/*", "*"]
     }
