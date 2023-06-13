@@ -9,6 +9,8 @@
 
 [![Test CI status][test-ci]][test-ci-url] [![Deploy CI][release-ci]][release-ci-url] [![Coverage][coverage]][codecov-url]
 
+[![contributors][contributors-shield]][contributors-url] [![forks][forks-shield]][forks-url] [![stargazers][stargazers-shield]][stargazers-url] [![issues][issues-shield]][issues-url]
+
 [![ docs by dumi][dumi-url]](https://d.umijs.org/) [![Build With father][father-url]](https://github.com/umijs/father/)
 
 <!-- gitpod url -->
@@ -46,7 +48,7 @@
 
 ## 简介
 
-特性示例如下：
+Kitchen Flow Editor 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
 
 - 🎨 **自定义节点类型**：用户可以通过传入自定义 React 组件的方式创建不同类型的节点，从而满足不同的业务需求；
 - 🎉 **灵活的事件处理**：支持用户对节点的拖拽、连接、删除等事件进行自定义处理，满足不同业务场景的需求；
@@ -66,6 +68,57 @@ pnpm i kitchen-flow-editor -S
 
 ### 使用
 
-## License
+## 更新日志
 
-[MIT](./LICENSE)
+详情：[CHANGELOG](./CHANGELOG.md)
+
+## 🤝 Contributing
+
+<!-- CONTRIBUTION GROUP -->
+
+> 📊 Total: <kbd>**1**</kbd>
+
+<a href="https://github.com/arvinxx" title="arvinxx">
+  <img src="https://avatars.githubusercontent.com/u/28616219?v=4" width="50" />
+</a>
+
+<!-- CONTRIBUTION END -->
+
+<div align="right">
+
+[![][back-to-top]](#readme-top)
+
+## </div>
+
+#### 📝 License
+
+Copyright © 2020 - present [Arvin Xu][profile-url]. <br />
+This project is [MIT](./LICENSE) licensed.
+
+<!-- LINK GROUP -->
+
+[profile-url]: https://github.com/arvinxx
+
+<!-- SHIELD LINK GROUP -->
+
+[back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
+
+<!-- contributors -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/ant-design/kitchen-flow-editor.svg?style=flat
+[contributors-url]: https://github.com/ant-design/kitchen-flow-editor/graphs/contributors
+
+<!-- forks -->
+
+[forks-shield]: https://img.shields.io/github/forks/ant-design/kitchen-flow-editor.svg?style=flat
+[forks-url]: https://github.com/ant-design/kitchen-flow-editor/network/members
+
+<!-- stargazers -->
+
+[stargazers-shield]: https://img.shields.io/github/stars/ant-design/kitchen-flow-editor.svg?style=flat
+[stargazers-url]: https://github.com/ant-design/kitchen-flow-editor/stargazers
+
+<!-- issues -->
+
+[issues-shield]: https://img.shields.io/github/issues/ant-design/kitchen-flow-editor.svg?style=flat
+[issues-url]: https://github.com/ant-design/kitchen-flow-editor/issues/new/choose
