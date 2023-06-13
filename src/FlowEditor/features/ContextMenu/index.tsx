@@ -1,4 +1,4 @@
-import ContextMenu from '@/ContextMenu';
+import { ContextMenu } from '@ant-design/pro-editor';
 import { memo } from 'react';
 
 import { useMenuActions } from './useMenuAction';

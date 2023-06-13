@@ -1,6 +1,5 @@
 export { default as BasicNode } from './BasicNode';
 export { default as CanvasLoading } from './CanvasLoading';
-export { default as ContextMenu } from './ContextMenu';
 export * from './ControlInput';
 export { default as EditableText } from './EditableText';
 export * from './FlowEditor';
