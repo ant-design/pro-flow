@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5",
-    "@ant-design/pro-editor": "latest",
+    "@ant-design/pro-editor": "alpha",
     "@babel/runtime": "^7",
     "@floating-ui/react": "^0.24",
     "ahooks": "^3",
