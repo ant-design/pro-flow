@@ -1,12 +1,12 @@
 # Changelog
 
-### [Version&nbsp;0.1.1-beta.1](https://github.com/ant-design/kitchen-flow-editor/compare/v0.1.0...v0.1.1-beta.1)
+### [Version&nbsp;0.1.1](https://github.com/ant-design/kitchen-flow-editor/compare/v0.1.0...v0.1.1)
 
-<sup>Released on **2023-06-13**</sup>
+<sup>Released on **2023-06-14**</sup>
 
 #### 👷 构建系统
 
-- Use ProEditor ContextMenu.
+- Refactor with pro-editor's ContextMenu.
 
 <br/>
 
@@ -15,7 +15,7 @@
 
 #### Build system
 
-- Use ProEditor ContextMenu ([4c1aa48](https://github.com/ant-design/kitchen-flow-editor/commit/4c1aa48))
+- Refactor with pro-editor's ContextMenu ([36ab1df](https://github.com/ant-design/kitchen-flow-editor/commit/36ab1df))
 
 </details>
 
