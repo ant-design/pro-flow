@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkkitchen_flow_editor=self.webpackChunkkitchen_flow_editor||[]).push([[252],{68171:function(f,n,t){t.r(n),t.d(n,{default:function(){return r}});var o=t(29021),u=t(72227),d=t(11527),r=function(){var e=(0,o.pC)();return(0,d.jsx)(u.Z,{children:e})}}}]);
