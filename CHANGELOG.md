@@ -1,5 +1,38 @@
 # Changelog
 
+## [Version&nbsp;0.2.0](https://github.com/ant-design/kitchen-flow-editor/compare/v0.1.1...v0.2.0)
+
+<sup>Released on **2023-06-30**</sup>
+
+#### ✨ 新特性
+
+- Test with pro-editor alpha.
+
+#### 👷 构建系统
+
+- Use ProEditor ContextMenu.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Test with pro-editor alpha ([33b3c03](https://github.com/ant-design/kitchen-flow-editor/commit/33b3c03))
+
+#### Build system
+
+- Use ProEditor ContextMenu ([4c1aa48](https://github.com/ant-design/kitchen-flow-editor/commit/4c1aa48))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.2.0-beta.1](https://github.com/ant-design/kitchen-flow-editor/compare/v0.1.1...v0.2.0-beta.1)
 
 <sup>Released on **2023-06-18**</sup>
