@@ -1,7 +1,7 @@
-import { createStyles } from 'antd-style';
+import { createStyles, cx } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { debounce, throttle } from 'lodash-es';
-import { forwardRef, useEffect, useState } from 'react';
+import { JSXElementConstructor, forwardRef, useEffect, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import ReactFlow, {
   Background,
@@ -54,149 +54,176 @@ export const useStyles = createStyles(({ css, token }) => ({
   `,
 }));
 
+type ComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>> =
+  T extends JSXElementConstructor<infer P>
+    ? P
+    : T extends keyof JSX.IntrinsicElements
+    ? JSX.IntrinsicElements[T]
+    : Record<string, never>;
+
 export interface AppProps {
   nodeTypes?: NodeTypes;
   defaultViewport?: Viewport;
+  contextMenuEnabled?: boolean;
   onNodesInit?: (editor: FlowEditorInstance) => void;
   onNodesInitChange?: (init: boolean) => void;
+  style?: React.CSSProperties;
+  flowProps?: ComponentProps<typeof ReactFlow>;
+  className?: string;
 }
 
-const FlowEditor = forwardRef<any, AppProps>(({ nodeTypes, defaultViewport, onNodesInit }, ref) => {
-  const { theme, styles } = useStyles();
-  const [flowInit, setFlowInit] = useState(false);
+const FlowEditor = forwardRef<any, AppProps>(
+  (
+    {
+      nodeTypes,
+      contextMenuEnabled = true,
+      style,
+      className,
+      flowProps,
+      defaultViewport,
+      onNodesInit,
+    },
+    ref,
+  ) => {
+    const { theme, styles } = useStyles();
+    const [flowInit, setFlowInit] = useState(false);
 
-  const nodes: Node[] = useStore(flowEditorSelectors.nodeList, isEqual);
-  const edges = useStore(flowEditorSelectors.edgeList, isEqual);
-  const editor = useFlowEditor();
-  const [
-    onNodesChange,
-    updateEdgesOnConnection,
-    updateEdgesOnEdgeChange,
-    onViewPortChange,
-    onElementSelectChange,
-    onEdgesChange,
-    dispatchNodes,
-  ] = useStore(
-    (s) => [
-      s.onNodesChange,
-      s.updateEdgesOnConnection,
-      s.updateEdgesOnEdgeChange,
-      s.onViewPortChange,
-      s.onElementSelectChange,
-      s.onEdgesChange,
-      s.dispatchNodes,
-    ],
-    shallow,
-  );
+    const nodes: Node[] = useStore(flowEditorSelectors.nodeList, isEqual);
+    const edges = useStore(flowEditorSelectors.edgeList, isEqual);
+    const editor = useFlowEditor();
+    const [
+      onNodesChange,
+      updateEdgesOnConnection,
+      updateEdgesOnEdgeChange,
+      onViewPortChange,
+      onElementSelectChange,
+      onEdgesChange,
+      dispatchNodes,
+    ] = useStore(
+      (s) => [
+        s.onNodesChange,
+        s.updateEdgesOnConnection,
+        s.updateEdgesOnEdgeChange,
+        s.onViewPortChange,
+        s.onElementSelectChange,
+        s.onEdgesChange,
+        s.dispatchNodes,
+      ],
+      shallow,
+    );
 
-  const instance = useReactFlow();
+    const instance = useReactFlow();
 
-  // 添加快捷键监听
-  useHotkeyManager();
+    // 添加快捷键监听
+    useHotkeyManager();
 
-  // 抛出 viewport 变化的事件
-  useOnViewportChange({
-    onChange: onViewPortChange ? debounce(onViewPortChange, 300) : undefined,
-  });
+    // 抛出 viewport 变化的事件
+    useOnViewportChange({
+      onChange: onViewPortChange ? debounce(onViewPortChange, 300) : undefined,
+    });
 
-  const nodesInitialized = useNodesInitialized();
+    const nodesInitialized = useNodesInitialized();
 
-  useEffect(() => {
-    // 先把画布的 viewport 设置好
-    if (!defaultViewport) {
-      instance.fitView();
-    } else {
-      instance.setViewport(defaultViewport);
-    }
+    useEffect(() => {
+      // 先把画布的 viewport 设置好
+      if (!defaultViewport) {
+        instance.fitView();
+      } else {
+        instance.setViewport(defaultViewport);
+      }
 
-    // 然后设定初始化节点的相关状态
-    if (nodesInitialized) {
-      setFlowInit(true);
-      onNodesInit?.(editor);
-    }
-  }, [nodesInitialized]);
+      // 然后设定初始化节点的相关状态
+      if (nodesInitialized) {
+        setFlowInit(true);
+        onNodesInit?.(editor);
+      }
+    }, [nodesInitialized]);
 
-  return (
-    <Flexbox height={'100%'} width={'100%'} style={{ position: 'relative' }}>
-      {!flowInit && <CanvasLoading />}
-      <ReactFlow
-        nodeTypes={nodeTypes}
-        ref={ref}
-        // 如果外部传入 viewport，则使用外部的 viewport
-        defaultViewport={defaultViewport}
-        // 否则就 fit view
-        fitView={!defaultViewport}
-        fitViewOptions={{ padding: 3 }}
-        nodes={nodes}
-        edges={edges}
-        // snapToGrid
-        snapGrid={[20, 20]}
-        minZoom={0.05}
-        // 画布配置逻辑
-        panOnScroll
-        panOnDrag={false}
-        zoomOnScroll={false}
-        // 选择模式逻辑
-        selectionMode={SelectionMode.Partial}
-        selectionKeyCode={['Meta', 'Shift']}
-        multiSelectionKeyCode={['Meta', 'Shift']}
-        selectNodesOnDrag
-        onNodesChange={(changes) => {
-          // 选择逻辑 nodes 和 edges 一致
-          changes.forEach((c) => {
-            switch (c.type) {
-              case 'add':
-                dispatchNodes({ type: 'addNode', node: c.item });
-                break;
-              case 'position':
-                // 结束拖拽时，会触发一次 position，此时 dragging 为 false
-                if (!c.dragging) break;
+    return (
+      <Flexbox height={'100%'} width={'100%'} style={{ position: 'relative' }}>
+        {!flowInit && <CanvasLoading />}
+        <ReactFlow
+          nodeTypes={nodeTypes}
+          ref={ref}
+          className={cx(styles.container, className)}
+          // 如果外部传入 viewport，则使用外部的 viewport
+          defaultViewport={defaultViewport}
+          // 否则就 fit view
+          fitView={!defaultViewport}
+          fitViewOptions={{ padding: 3 }}
+          nodes={nodes}
+          edges={edges}
+          // snapToGrid
+          snapGrid={[20, 20]}
+          minZoom={0.05}
+          // 画布配置逻辑
+          panOnScroll
+          panOnDrag={false}
+          zoomOnScroll={false}
+          selectionOnDrag
+          style={style}
+          {...flowProps}
+          // 选择模式逻辑
+          selectionMode={SelectionMode.Partial}
+          selectionKeyCode={['Meta', 'Shift']}
+          multiSelectionKeyCode={['Meta', 'Shift']}
+          selectNodesOnDrag
+          onNodesChange={(changes) => {
+            // 选择逻辑 nodes 和 edges 一致
+            changes.forEach((c) => {
+              switch (c.type) {
+                case 'add':
+                  dispatchNodes({ type: 'addNode', node: c.item });
+                  break;
+                case 'position':
+                  // 结束拖拽时，会触发一次 position，此时 dragging 为 false
+                  if (!c.dragging) break;
 
-                dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
+                  dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
 
-                break;
+                  break;
 
-              case 'remove':
-                dispatchNodes({ type: 'deleteNode', id: c.id });
-                break;
-              case 'select':
-                onElementSelectChange(c.id, c.selected);
+                case 'remove':
+                  dispatchNodes({ type: 'deleteNode', id: c.id });
+                  break;
+                case 'select':
+                  onElementSelectChange(c.id, c.selected);
+              }
+            });
+
+            if (onNodesChange) {
+              throttle(onNodesChange, 50)(changes);
             }
-          });
+          }}
+          onEdgesChange={(changes) => {
+            updateEdgesOnEdgeChange(changes);
 
-          if (onNodesChange) {
-            throttle(onNodesChange, 50)(changes);
-          }
-        }}
-        onEdgesChange={(changes) => {
-          updateEdgesOnEdgeChange(changes);
+            // 选择逻辑 nodes 和 edges 一致
+            changes.forEach((c) => {
+              switch (c.type) {
+                case 'select':
+                  onElementSelectChange(c.id, c.selected);
+              }
+            });
 
-          // 选择逻辑 nodes 和 edges 一致
-          changes.forEach((c) => {
-            switch (c.type) {
-              case 'select':
-                onElementSelectChange(c.id, c.selected);
+            if (onEdgesChange) {
+              onEdgesChange(changes);
             }
-          });
-
-          if (onEdgesChange) {
-            onEdgesChange(changes);
-          }
-        }}
-        onConnect={updateEdgesOnConnection}
-        disableKeyboardA11y={true}
-        proOptions={{ hideAttribution: true }}
-        className={styles.container}
-        onNodeDrag={(e) => {
-          console.log(e.altKey, e.shiftKey);
-        }}
-      >
-        <Background color={theme.colorTextQuaternary} variant={BackgroundVariant.Dots} size={2} />
-        <ControlAction />
-        <ContextMenu />
-      </ReactFlow>
-    </Flexbox>
-  );
-});
+          }}
+          onConnect={updateEdgesOnConnection}
+          disableKeyboardA11y={true}
+          proOptions={{ hideAttribution: true }}
+          onNodeDrag={(e) => {
+            console.log(e.altKey, e.shiftKey);
+          }}
+        >
+          <Background color={theme.colorTextQuaternary} variant={BackgroundVariant.Dots} size={2} />
+          <ControlAction />
+          {contextMenuEnabled && <ContextMenu />}
+        </ReactFlow>
+      </Flexbox>
+    );
+  },
+);
 
 export default FlowEditor;
