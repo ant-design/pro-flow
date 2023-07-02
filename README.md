@@ -76,13 +76,16 @@ pnpm i kitchen-flow-editor -S
 
 <!-- CONTRIBUTION GROUP -->
 
-> 📊 Total: <kbd>**2**</kbd>
+> 📊 Total: <kbd>**3**</kbd>
 
 <a href="https://github.com/arvinxx" title="arvinxx">
   <img src="https://avatars.githubusercontent.com/u/28616219?v=4" width="50" />
 </a>
 <a href="https://github.com/meganjohnson96" title="meganjohnson96">
   <img src="https://avatars.githubusercontent.com/u/136729222?v=4" width="50" />
+</a>
+<a href="https://github.com/actions-user" title="actions-user">
+  <img src="https://avatars.githubusercontent.com/u/65916846?v=4" width="50" />
 </a>
 
 <!-- CONTRIBUTION END -->
