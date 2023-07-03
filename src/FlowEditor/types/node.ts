@@ -25,7 +25,7 @@ export interface NodeState {
 /**
  * 流程基础节点数据
  */
-export interface FlowBasicNodeData {
+export interface IFlowBasicNodeData {
   /**
    * 节点id
    */
@@ -42,10 +42,10 @@ export interface FlowBasicNodeData {
 
 // 通用节点的数据结构
 
-export interface FlowNodeData<T = any> extends FlowBasicNodeData {
+export interface IFlowNodeData<T = any> extends IFlowBasicNodeData {
   content: T;
 }
 
-export type FlowBasicNode<T = any> = Node<FlowNodeData<T>>;
+export type IFlowBasicNode<T = any> = Node<IFlowNodeData<T>>;
 
-export type BasicFlowNodeProps<T> = NodeProps<FlowNodeData<T>>;
+export type BasicFlowNodeProps<T> = NodeProps<IFlowNodeData<T>>;

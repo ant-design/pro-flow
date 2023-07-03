@@ -1,10 +1,10 @@
 import { Edge, Node } from 'reactflow';
-import { FlowBasicNode } from './node';
+import { IFlowBasicNode } from './node';
 
 export * from './meta';
 export * from './node';
 
-export type FlattenNodes = Record<string, FlowBasicNode>;
+export type FlattenNodes = Record<string, IFlowBasicNode>;
 export type FlattenEdges = Record<string, Edge>;
 
 export interface FlowTreeNode {
