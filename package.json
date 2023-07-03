@@ -1,6 +1,6 @@
 {
   "name": "kitchen-flow-editor",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A React based Flow Editor",
   "keywords": [
     "flow",
