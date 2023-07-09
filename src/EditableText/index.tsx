@@ -18,8 +18,14 @@ const EditableText = memo<EditableTextProps>(({ value, onChange }: ControlInputP
       value={value as string}
     />
   ) : (
-    <Flexbox gap={8} horizontal>
-      {value}
+    <Flexbox gap={8} align="center" horizontal>
+      <span
+        style={{
+          lineHeight: 1,
+        }}
+      >
+        {value}
+      </span>
       <ActionIcon
         icon={<EditOutlined />}
         onClick={() => {
