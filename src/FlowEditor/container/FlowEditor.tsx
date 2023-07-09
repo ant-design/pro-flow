@@ -61,7 +61,7 @@ type ComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructo
     ? JSX.IntrinsicElements[T]
     : Record<string, never>;
 
-export interface AppProps {
+export interface FlowEditorAppProps {
   nodeTypes?: NodeTypes;
   defaultViewport?: Viewport;
   contextMenuEnabled?: boolean;
@@ -72,7 +72,7 @@ export interface AppProps {
   className?: string;
 }
 
-const FlowEditor = forwardRef<any, AppProps>(
+const FlowEditor = forwardRef<any, FlowEditorAppProps>(
   (
     {
       nodeTypes,
