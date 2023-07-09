@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.3.1](https://github.com/ant-design/kitchen-flow-editor/compare/v0.3.0...v0.3.1)
+
+<sup>Released on **2023-07-09**</sup>
+
+#### 🐛 修复
+
+- 优化 select 等浮层组件的逻辑.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- 优化 select 等浮层组件的逻辑, closes [#5](https://github.com/ant-design/kitchen-flow-editor/issues/5) ([7721d46](https://github.com/ant-design/kitchen-flow-editor/commit/7721d46))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.3.0](https://github.com/ant-design/kitchen-flow-editor/compare/v0.2.0...v0.3.0)
 
 <sup>Released on **2023-07-03**</sup>
