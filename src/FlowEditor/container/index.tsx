@@ -1,11 +1,11 @@
 import { forwardRef } from 'react';
 import { HotkeysProvider } from 'react-hotkeys-hook';
 
-import App, { AppProps } from './FlowEditor';
+import App, { FlowEditorAppProps } from './FlowEditor';
 import { FlowEditorProvider } from './FlowEditorProvider';
 import StoreUpdater, { StoreUpdaterProps } from './StoreUpdater';
 
-export interface FlowEditorProps extends StoreUpdaterProps, AppProps {
+export interface FlowEditorProps extends StoreUpdaterProps, FlowEditorAppProps {
   devtools?: boolean;
 }
 

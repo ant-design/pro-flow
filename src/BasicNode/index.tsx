@@ -1,6 +1,6 @@
-import { Card } from 'antd';
+import { Card, ConfigProvider } from 'antd';
 import { createStyles } from 'antd-style';
-import { CSSProperties, ReactNode, memo } from 'react';
+import { CSSProperties, ReactNode, memo, useRef } from 'react';
 
 import EditableText from '@/EditableText';
 import { useFlowEditor } from '@/hooks/useFlowEditor';
@@ -81,18 +81,30 @@ const Preview = memo<BasicNodePreviewProps>(
     extra,
   }) => {
     const { styles, cx } = useStyles();
+    const cardRef = useRef<HTMLDivElement>(null);
 
     return (
-      <CollapseProvider collapsedKeys={collapsedKeys} onCollapsedKeysChange={onCollapsedKeysChange}>
-        <Card
-          title={<EditableText onChange={onTitleChange} value={title || '基础节点'} />}
-          className={cx(styles.container, active && styles.selected, className)}
-          extra={extra}
-          style={style}
+      <ConfigProvider
+        // 不这样做会导致 select 的下拉菜单被遮挡，并且不会正常放大缩小
+        getPopupContainer={() => {
+          return cardRef.current || document.body;
+        }}
+      >
+        <CollapseProvider
+          collapsedKeys={collapsedKeys}
+          onCollapsedKeysChange={onCollapsedKeysChange}
         >
-          {children}
-        </Card>
-      </CollapseProvider>
+          <Card
+            ref={cardRef}
+            title={<EditableText onChange={onTitleChange} value={title || '基础节点'} />}
+            className={cx(styles.container, active && styles.selected, className)}
+            extra={extra}
+            style={style}
+          >
+            {children}
+          </Card>
+        </CollapseProvider>
+      </ConfigProvider>
     );
   },
 );

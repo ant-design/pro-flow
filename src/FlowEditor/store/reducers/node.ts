@@ -1,7 +1,7 @@
 import { produce } from 'immer';
 import { Node, XYPosition } from 'reactflow';
 
-import { FlattenNodes, FlowBasicNode, MetaData, NodeState } from '../../types';
+import { FlattenNodes, IFlowBasicNode, MetaData, NodeState } from '../../types';
 
 interface AddNodeDispatch {
   type: 'addNode';
@@ -101,7 +101,7 @@ export const nodeReducer = (state: FlattenNodes, action: NodeDispatch): FlattenN
       return produce(state, (draftState) => {
         if (!draftState[action.id]) return;
 
-        const node = draftState[action.id] as FlowBasicNode;
+        const node = draftState[action.id] as IFlowBasicNode;
 
         node.data.state[action.key] = action.value;
       });
@@ -111,7 +111,7 @@ export const nodeReducer = (state: FlattenNodes, action: NodeDispatch): FlattenN
         const { key, id, value } = action;
         if (!draftState[id]) return;
 
-        const node = draftState[id] as FlowBasicNode;
+        const node = draftState[id] as IFlowBasicNode;
 
         if (!node.data.content) {
           node.data.content = { [key]: value };
