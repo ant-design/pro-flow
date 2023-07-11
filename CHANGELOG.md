@@ -1,5 +1,22 @@
 # Changelog
 
+### [Version&nbsp;0.3.2](https://github.com/ant-design/kitchen-flow-editor/compare/v0.3.1...v0.3.2)
+
+<sup>Released on **2023-07-11**</sup>
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.3.1](https://github.com/ant-design/kitchen-flow-editor/compare/v0.3.0...v0.3.1)
 
 <sup>Released on **2023-07-09**</sup>
