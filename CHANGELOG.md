@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.3.3](https://github.com/ant-design/kitchen-flow-editor/compare/v0.3.2...v0.3.3)
+
+<sup>Released on **2023-07-12**</sup>
+
+#### 🐛 修复
+
+- Remobe onNodeDrag.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Remobe onNodeDrag, closes [#6](https://github.com/ant-design/kitchen-flow-editor/issues/6) ([1ab8a5d](https://github.com/ant-design/kitchen-flow-editor/commit/1ab8a5d))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.3.2](https://github.com/ant-design/kitchen-flow-editor/compare/v0.3.1...v0.3.2)
 
 <sup>Released on **2023-07-11**</sup>
