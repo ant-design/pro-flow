@@ -213,9 +213,6 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
           onConnect={updateEdgesOnConnection}
           disableKeyboardA11y={true}
           proOptions={{ hideAttribution: true }}
-          onNodeDrag={(e) => {
-            console.log(e.altKey, e.shiftKey);
-          }}
         >
           <Background color={theme.colorTextQuaternary} variant={BackgroundVariant.Dots} size={2} />
           <ControlAction />
