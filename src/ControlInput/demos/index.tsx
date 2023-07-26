@@ -1,4 +1,4 @@
-import { ControlInput } from 'kitchen-flow-editor';
+import { ControlInput } from 'pro-flow-editor';
 
 export default () => {
   return <ControlInput placeholder={'请输入'} />;

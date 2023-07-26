@@ -1,7 +1,7 @@
 # useFlowEditor
 
 ```ts
-import { useFlowEditor } from 'kitchen-flow-editor';
+import { useFlowEditor } from 'pro-flow-editor';
 
 export default () => {
   const editor = useFlowEditor();

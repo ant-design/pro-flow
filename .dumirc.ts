@@ -8,13 +8,13 @@ const isProdSite = process.env.PREVIEW !== '1' && isProd;
 
 export default defineConfig({
   // 部署在非根目录时, base 和 publicPath 都需要配置
-  base: isProdSite ? '/kitchen-flow-editor/' : '/',
-  publicPath: isProdSite ? '/kitchen-flow-editor/' : '/',
+  base: isProdSite ? '/pro-flow-editor/' : '/',
+  publicPath: isProdSite ? '/pro-flow-editor/' : '/',
   outputPath: 'docs-dist',
-  favicons: ['https://gw.alipayobjects.com/zos/bmw-prod/51a51720-8a30-4430-b6c9-be5712364f04.svg'],
+  favicons: ['https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg'],
   themeConfig: {
-    name: 'Kitchen Flow Editor',
-    logo: 'https://gw.alipayobjects.com/zos/bmw-prod/af1ea898-bf02-45d1-9f30-8ca851c70a5b.svg',
+    name: 'Pro Flow Editor',
+    logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     socialLinks: {
       github: homepage,
     },

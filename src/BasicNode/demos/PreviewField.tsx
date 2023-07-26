@@ -1,4 +1,4 @@
-import { BasicNode, NodeField } from 'kitchen-flow-editor';
+import { BasicNode, NodeField } from 'pro-flow-editor';
 import { memo } from 'react';
 
 const Demo = memo(() => {

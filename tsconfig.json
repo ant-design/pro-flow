@@ -12,8 +12,8 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["./src/*"],
-      "kitchen-flow-editor": ["src"],
-      "kitchen-flow-editor/*": ["src/*", "*"]
+      "pro-flow-editor": ["src"],
+      "pro-flow-editor/*": ["src/*", "*"]
     }
   }
 }

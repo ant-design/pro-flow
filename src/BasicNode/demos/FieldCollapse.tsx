@@ -1,5 +1,5 @@
 import { Button, Divider } from 'antd';
-import { BasicNode, NodeField } from 'kitchen-flow-editor';
+import { BasicNode, NodeField } from 'pro-flow-editor';
 import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 

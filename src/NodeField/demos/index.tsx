@@ -1,4 +1,4 @@
-import { NodeField } from 'kitchen-flow-editor';
+import { NodeField } from 'pro-flow-editor';
 
 export default () => {
   return (

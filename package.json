@@ -1,18 +1,20 @@
 {
-  "name": "kitchen-flow-editor",
+  "name": "@ant-design/pro-flow-editor",
   "version": "0.3.3",
   "description": "A React based Flow Editor",
   "keywords": [
     "flow",
-    "editor"
+    "ant-design",
+    "editor",
+    "canvas"
   ],
-  "homepage": "https://github.com/ant-design/kitchen-flow-editor",
+  "homepage": "https://github.com/ant-design/pro-flow-editor",
   "bugs": {
-    "url": "https://github.com/ant-design/kitchen-flow-editor/issues/new"
+    "url": "https://github.com/ant-design/pro-flow-editor/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/kitchen-flow-editor.git"
+    "url": "https://github.com/ant-design/pro-flow-editor.git"
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",

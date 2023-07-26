@@ -16,7 +16,7 @@ BasicNode 组件提供了 `Preview` 子组件用于画布之外的预览。
 
 ## 搭配 Field 组件使用
 
-kitchen-flow-editor 提供 NodeField 组件，可以搭配 BasicNode 使用，两者关系就像 antd 的 Form 和 Form.Item。
+pro-flow-editor 提供 NodeField 组件，可以搭配 BasicNode 使用，两者关系就像 antd 的 Form 和 Form.Item。
 
 <code src="./demos/PreviewField.tsx"></code>
 

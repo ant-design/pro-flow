@@ -2,7 +2,7 @@
  * iframe: 420
  */
 import { Alert } from 'antd';
-import { CanvasLoading } from 'kitchen-flow-editor';
+import { CanvasLoading } from 'pro-flow-editor';
 import { Flexbox } from 'react-layout-kit';
 
 export default () => (

@@ -1,4 +1,4 @@
-import { BasicNode, TextArea } from 'kitchen-flow-editor';
+import { BasicNode, TextArea } from 'pro-flow-editor';
 import { memo } from 'react';
 
 const String = memo(() => {

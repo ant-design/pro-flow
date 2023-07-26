@@ -3,7 +3,7 @@
  */
 import { DataPreviewer } from '@ant-design/pro-editor';
 import { Button } from 'antd';
-import { FlowStoreProvider, IFlowBasicNode, useFlowEditor } from 'kitchen-flow-editor';
+import { FlowStoreProvider, IFlowBasicNode, useFlowEditor } from 'pro-flow-editor';
 import { useState } from 'react';
 
 const App = () => {

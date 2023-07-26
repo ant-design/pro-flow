@@ -1,7 +1,7 @@
 <p align="center">
-  <img width="160" src="https://gw.alipayobjects.com/mdn/rms_7d1485/afts/img/A*XDYxSJXBjjwAAAAAAAAAAAAAARQnAQ">
+  <img width="160" src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg">
 </p>
-<h1 align="center">Kitchen Flow Editor</h1>
+<h1 align="center">Pro Flow Editor</h1>
 
 <div align="center">
 
@@ -16,7 +16,7 @@
 <!-- gitpod url -->
 
 [gitpod-badge]: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
-[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/kitchen-flow-editor
+[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/pro-flow-editor
 
 <!-- umi url -->
 
@@ -25,30 +25,30 @@
 
 <!-- npm url -->
 
-[npm-image]: http://img.shields.io/npm/v/kitchen-flow-editor.svg?style=flat-square&color=deepgreen&label=latest
-[npm-url]: http://npmjs.org/package/kitchen-flow-editor
-[npm-size]: https://img.shields.io/bundlephobia/minzip/kitchen-flow-editor?color=deepgreen&label=gizpped%20size&style=flat-square
-[npm-size-url]: https://packagephobia.com/result?p=kitchen-flow-editor
+[npm-image]: http://img.shields.io/npm/v/pro-flow-editor.svg?style=flat-square&color=deepgreen&label=latest
+[npm-url]: http://npmjs.org/package/pro-flow-editor
+[npm-size]: https://img.shields.io/bundlephobia/minzip/pro-flow-editor?color=deepgreen&label=gizpped%20size&style=flat-square
+[npm-size-url]: https://packagephobia.com/result?p=pro-flow-editor
 
 <!-- coverage -->
 
-[coverage]: https://codecov.io/gh/ant-design/kitchen-flow-editor/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/ant-design/kitchen-flow-editor/branch/master
+[coverage]: https://codecov.io/gh/ant-design/pro-flow-editor/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/ant-design/pro-flow-editor/branch/master
 
 <!-- Github CI -->
 
-[test-ci]: https://github.com/ant-design/kitchen-flow-editor/workflows/Test%20CI/badge.svg
-[release-ci]: https://github.com/ant-design/kitchen-flow-editor/workflows/Release%20CI/badge.svg
-[test-ci-url]: https://github.com/ant-design/kitchen-flow-editor/actions?query=workflow%3ATest%20CI
-[release-ci-url]: https://github.com/ant-design/kitchen-flow-editor/actions?query=workflow%3ARelease%20CI
-[download-image]: https://img.shields.io/npm/dm/kitchen-flow-editor.svg?style=flat-square
-[download-url]: https://npmjs.org/package/kitchen-flow-editor
+[test-ci]: https://github.com/ant-design/pro-flow-editor/workflows/Test%20CI/badge.svg
+[release-ci]: https://github.com/ant-design/pro-flow-editor/workflows/Release%20CI/badge.svg
+[test-ci-url]: https://github.com/ant-design/pro-flow-editor/actions?query=workflow%3ATest%20CI
+[release-ci-url]: https://github.com/ant-design/pro-flow-editor/actions?query=workflow%3ARelease%20CI
+[download-image]: https://img.shields.io/npm/dm/pro-flow-editor.svg?style=flat-square
+[download-url]: https://npmjs.org/package/pro-flow-editor
 
 </div>
 
 ## 简介
 
-Kitchen Flow Editor 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
+Pro Flow Editor 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
 
 - 🎨 **自定义节点类型**：用户可以通过传入自定义 React 组件的方式创建不同类型的节点，从而满足不同的业务需求；
 - 🎉 **灵活的事件处理**：支持用户对节点的拖拽、连接、删除等事件进行自定义处理，满足不同业务场景的需求；
@@ -63,7 +63,7 @@ Kitchen Flow Editor 是一款基于 react-flow 构建的画布编辑器。具有
 推荐使用 `pnpm` 安装
 
 ```bash
-pnpm i kitchen-flow-editor -S
+pnpm i @ant-design/pro-flow-editor -S
 ```
 
 ### 使用
@@ -114,20 +114,20 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- contributors -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/ant-design/kitchen-flow-editor.svg?style=flat
-[contributors-url]: https://github.com/ant-design/kitchen-flow-editor/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/ant-design/pro-flow-editor.svg?style=flat
+[contributors-url]: https://github.com/ant-design/pro-flow-editor/graphs/contributors
 
 <!-- forks -->
 
-[forks-shield]: https://img.shields.io/github/forks/ant-design/kitchen-flow-editor.svg?style=flat
-[forks-url]: https://github.com/ant-design/kitchen-flow-editor/network/members
+[forks-shield]: https://img.shields.io/github/forks/ant-design/pro-flow-editor.svg?style=flat
+[forks-url]: https://github.com/ant-design/pro-flow-editor/network/members
 
 <!-- stargazers -->
 
-[stargazers-shield]: https://img.shields.io/github/stars/ant-design/kitchen-flow-editor.svg?style=flat
-[stargazers-url]: https://github.com/ant-design/kitchen-flow-editor/stargazers
+[stargazers-shield]: https://img.shields.io/github/stars/ant-design/pro-flow-editor.svg?style=flat
+[stargazers-url]: https://github.com/ant-design/pro-flow-editor/stargazers
 
 <!-- issues -->
 
-[issues-shield]: https://img.shields.io/github/issues/ant-design/kitchen-flow-editor.svg?style=flat
-[issues-url]: https://github.com/ant-design/kitchen-flow-editor/issues/new/choose
+[issues-shield]: https://img.shields.io/github/issues/ant-design/pro-flow-editor.svg?style=flat
+[issues-url]: https://github.com/ant-design/pro-flow-editor/issues/new/choose
