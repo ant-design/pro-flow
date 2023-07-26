@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_ant_design_pro_flow_editor=self.webpackChunk_ant_design_pro_flow_editor||[]).push([[448],{65935:function(c,n,e){e.r(n),e.d(n,{default:function(){return d}});var o=e(28806),a=e(50959),r=function(){var s=(0,o.UO)(),u=s.id,m=(0,o.WF)(),f=m.demos,i=f[u]||{},t=i.component;return t&&(0,a.createElement)(t)},d=r}}]);
