@@ -1,7 +1,7 @@
 # useFlowEditor
 
 ```ts
-import { useFlowEditor } from 'pro-flow-editor';
+import { useFlowEditor } from '@ant-design/pro-flow-editor';
 
 export default () => {
   const editor = useFlowEditor();

@@ -1,5 +1,5 @@
 import { CopyOutlined } from '@ant-design/icons';
-import { NodeField } from 'pro-flow-editor';
+import { NodeField } from '@ant-design/pro-flow-editor';
 
 export default () => {
   return (

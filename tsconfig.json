@@ -12,8 +12,8 @@
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["./src/*"],
-      "pro-flow-editor": ["src"],
-      "pro-flow-editor/*": ["src/*", "*"]
+      "@ant-design/pro-flow-editor": ["src"],
+      "@ant-design/pro-flow-editor/*": ["src/*", "*"]
     }
   }
 }
