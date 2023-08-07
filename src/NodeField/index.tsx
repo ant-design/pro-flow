@@ -6,7 +6,6 @@ import { CSSProperties, memo, PropsWithChildren, ReactNode } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import { Handle, Position } from 'reactflow';
 import useControlledState from 'use-merge-value';
-import { shallow } from 'zustand/shallow';
 
 import { CollapseProvider, useStore, useStoreApi } from '@/BasicNode/CollapseContext';
 
@@ -143,10 +142,10 @@ const NodeFieldContent = memo(
   }: NodeFieldProps) => {
     const { styles, theme, cx } = useNodeFieldStyles();
 
-    const [collapsedKeys, toggleCollapsedKey] = useStore(
-      (s) => [s.collapsedKeys, s.toggleCollapsedKey],
-      shallow,
-    );
+    const [collapsedKeys, toggleCollapsedKey] = useStore((s) => [
+      s.collapsedKeys,
+      s.toggleCollapsedKey,
+    ]);
 
     const [isCollapsed, setCollapsed] = useControlledState<boolean>(collapsedKeys.includes(id), {
       value: typeof collapsed === 'undefined' ? collapsedKeys.includes(id) : collapsed,
