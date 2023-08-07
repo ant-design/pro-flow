@@ -15,7 +15,6 @@ import ReactFlow, {
   useReactFlow,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { shallow } from 'zustand/shallow';
 
 import CanvasLoading from '@/CanvasLoading';
 import ContextMenu from '../features/ContextMenu';
@@ -91,6 +90,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     const nodes: Node[] = useStore(flowEditorSelectors.nodeList, isEqual);
     const edges = useStore(flowEditorSelectors.edgeList, isEqual);
     const editor = useFlowEditor();
+
     const [
       onNodesChange,
       updateEdgesOnConnection,
@@ -99,18 +99,15 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       onElementSelectChange,
       onEdgesChange,
       dispatchNodes,
-    ] = useStore(
-      (s) => [
-        s.onNodesChange,
-        s.updateEdgesOnConnection,
-        s.updateEdgesOnEdgeChange,
-        s.onViewPortChange,
-        s.onElementSelectChange,
-        s.onEdgesChange,
-        s.dispatchNodes,
-      ],
-      shallow,
-    );
+    ] = useStore((s) => [
+      s.onNodesChange,
+      s.updateEdgesOnConnection,
+      s.updateEdgesOnEdgeChange,
+      s.onViewPortChange,
+      s.onElementSelectChange,
+      s.onEdgesChange,
+      s.dispatchNodes,
+    ]);
 
     const instance = useReactFlow();
 

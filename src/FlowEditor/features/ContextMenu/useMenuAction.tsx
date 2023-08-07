@@ -2,7 +2,6 @@ import { ZoomInOutlined, ZoomOutOutlined } from '@ant-design/icons';
 import { BoxSelect, ClipboardList } from 'lucide-react';
 import { useMemo } from 'react';
 import { useReactFlow } from 'reactflow';
-import { shallow } from 'zustand/shallow';
 
 import { useStore } from '../../store';
 
@@ -10,7 +9,7 @@ const size = 16;
 
 export const useMenuActions = () => {
   const instance = useReactFlow();
-  const [selectAll] = useStore((s) => [s.selectAll], shallow);
+  const [selectAll] = useStore((s) => [s.selectAll]);
 
   return useMemo(
     () => ({
