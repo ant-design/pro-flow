@@ -1,5 +1,22 @@
 # Changelog
 
+### [Version&nbsp;0.4.1](https://github.com/ant-design/pro-flow-editor/compare/v0.4.0...v0.4.1)
+
+<sup>Released on **2023-08-07**</sup>
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.4.0](https://github.com/ant-design/pro-flow-editor/compare/v0.3.3...v0.4.0)
 
 <sup>Released on **2023-07-26**</sup>
