@@ -10,8 +10,8 @@ const useStyles = createStyles(({ css, token, prefixCls }) => ({
   container: css`
     will-change: transform;
     width: 100%;
-    max-width: 800px;
-    border: 2px solid ${token.colorBorder};
+    max-width: 600px;
+    border: 1px solid ${token.colorBorder};
     border-radius: 12px;
     .${prefixCls}-card-head {
       padding-right: 16px;
