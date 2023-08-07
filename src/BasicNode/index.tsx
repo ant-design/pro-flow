@@ -3,7 +3,7 @@ import { createStyles } from 'antd-style';
 import { CSSProperties, ReactNode, memo, useRef } from 'react';
 
 import EditableText from '@/EditableText';
-import { useFlowEditor } from '@/hooks/useFlowEditor';
+import { useFlowEditor } from '@/FlowEditor';
 import { CollapseProvider } from './CollapseContext';
 
 const useStyles = createStyles(({ css, token, prefixCls }) => ({
