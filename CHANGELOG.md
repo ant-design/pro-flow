@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.4.2](https://github.com/ant-design/pro-flow-editor/compare/v0.4.1...v0.4.2)
+
+<sup>Released on **2023-08-07**</sup>
+
+#### 🐛 修复
+
+- Compatible with zustand v4.4 usage.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Compatible with zustand v4.4 usage ([b4e0e3e](https://github.com/ant-design/pro-flow-editor/commit/b4e0e3e))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.4.1](https://github.com/ant-design/pro-flow-editor/compare/v0.4.0...v0.4.1)
 
 <sup>Released on **2023-08-07**</sup>
