@@ -25,10 +25,10 @@
 
 <!-- npm url -->
 
-[npm-image]: http://img.shields.io/npm/v/pro-flow-editor.svg?style=flat-square&color=deepgreen&label=latest
-[npm-url]: http://npmjs.org/package/pro-flow-editor
-[npm-size]: https://img.shields.io/bundlephobia/minzip/pro-flow-editor?color=deepgreen&label=gizpped%20size&style=flat-square
-[npm-size-url]: https://packagephobia.com/result?p=pro-flow-editor
+[npm-image]: http://img.shields.io/npm/v/@ant-design/pro-flow-editor.svg?style=flat-square&color=deepgreen&label=latest
+[npm-url]: http://npmjs.org/package/@ant-design/pro-flow-editor
+[npm-size]: https://img.shields.io/bundlephobia/minzip/@ant-design/pro-flow-editor?color=deepgreen&label=gizpped%20size&style=flat-square
+[npm-size-url]: https://packagephobia.com/result?p=@ant-design/pro-flow-editor
 
 <!-- coverage -->
 
@@ -41,8 +41,8 @@
 [release-ci]: https://github.com/ant-design/pro-flow-editor/workflows/Release%20CI/badge.svg
 [test-ci-url]: https://github.com/ant-design/pro-flow-editor/actions?query=workflow%3ATest%20CI
 [release-ci-url]: https://github.com/ant-design/pro-flow-editor/actions?query=workflow%3ARelease%20CI
-[download-image]: https://img.shields.io/npm/dm/pro-flow-editor.svg?style=flat-square
-[download-url]: https://npmjs.org/package/pro-flow-editor
+[download-image]: https://img.shields.io/npm/dm/@ant-design/pro-flow-editor.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@ant-design/pro-flow-editor
 
 </div>
 
