@@ -8,12 +8,12 @@ const isProdSite = process.env.PREVIEW !== '1' && isProd;
 
 export default defineConfig({
   // 部署在非根目录时, base 和 publicPath 都需要配置
-  base: isProdSite ? '/pro-flow-editor/' : '/',
-  publicPath: isProdSite ? '/pro-flow-editor/' : '/',
+  base: isProdSite ? '/pro-flow/' : '/',
+  publicPath: isProdSite ? '/pro-flow/' : '/',
   outputPath: 'docs-dist',
   favicons: ['https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg'],
   themeConfig: {
-    name: 'Pro Flow Editor',
+    name: 'Pro Flow',
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     socialLinks: {
       github: homepage,
