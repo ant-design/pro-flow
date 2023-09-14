@@ -10,7 +10,7 @@ const useStyles = createStyles(({ css }) => ({
   `,
 }));
 
-const NodeList = memo(() => {
+const ProFlowDemo = memo(() => {
   const { styles } = useStyles();
   return (
     <div className={styles.container}>
@@ -21,4 +21,4 @@ const NodeList = memo(() => {
   );
 });
 
-export default NodeList;
+export default ProFlowDemo;
