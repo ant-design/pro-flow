@@ -1,7 +1,7 @@
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
-import { Background, BackgroundVariant } from 'reactflow';
 import ProFlow from '..';
+import { ProFlowNode } from '../constants';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -10,13 +10,54 @@ const useStyles = createStyles(({ css }) => ({
   `,
 }));
 
+const nodes: ProFlowNode[] = [
+  {
+    id: 'a1',
+    type: 'BloodNode',
+    data: {
+      title: 'XXX数据源',
+      describe: 'cksadjfnf',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
+    },
+  },
+  {
+    id: 'a2',
+    type: 'BloodNode',
+    data: {
+      title: 'XXX_API',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      describe: 'XXX_XXX_XXX_API',
+    },
+  },
+  {
+    id: 'a3',
+    type: 'BloodNode',
+    data: {
+      title: 'XXXX产品',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
+      describe: '2031030213014',
+    },
+  },
+];
+
+const edges = [
+  {
+    id: 'a1-a2',
+    source: 'a1',
+    target: 'a2',
+  },
+  {
+    id: 'a2-a3',
+    source: 'a2',
+    target: 'a3',
+  },
+];
+
 const ProFlowDemo = memo(() => {
   const { styles } = useStyles();
   return (
     <div className={styles.container}>
-      <ProFlow>
-        <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
-      </ProFlow>
+      <ProFlow nodes={nodes} edges={edges} />
     </div>
   );
 });

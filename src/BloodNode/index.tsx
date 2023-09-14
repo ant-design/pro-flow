@@ -7,14 +7,14 @@ const useStyles = createStyles(({ css }) => ({
     width: 320px;
     height: 85px;
     display: flex;
-    /* z-index: 10 !important; */
-    /* position: absolute; */
+    z-index: 10 !important;
+    position: absolute;
     border-radius: 12px;
     padding: 16px 12px;
-    background-color: red;
     box-sizing: border-box;
-    /* border: 3px solid white; */
+    border: 3px solid white;
     flex: 1;
+    background-color: white;
 
     .img {
       width: 48px;
@@ -74,11 +74,12 @@ const useStyles = createStyles(({ css }) => ({
 
 interface BloodNodeProps {
   logo: string;
-  title: string;
-  titleFlex: string;
-  description: string;
-  showIcon: boolean;
-  icon: string;
+  title?: string;
+  titleFlex?: string;
+  description?: string;
+  showIcon?: boolean;
+  icon?: string;
+  className?: string;
 }
 
 export interface BloodNodePreviewProps extends BloodNodeProps {
@@ -86,10 +87,6 @@ export interface BloodNodePreviewProps extends BloodNodeProps {
    * 是否激活状态
    */
   active?: boolean;
-  /**
-   * 自定义类名
-   */
-  className?: string;
   /**
    * 自定义样式
    */
@@ -100,8 +97,8 @@ export interface BloodNodePreviewProps extends BloodNodeProps {
   onClick?: () => void;
 }
 
-const Preview = memo<Partial<BloodNodePreviewProps>>(({ title, logo, description }) => {
-  const { styles } = useStyles();
+const Preview = memo<Partial<BloodNodePreviewProps>>(({ title, logo, description, className }) => {
+  const { styles, cx } = useStyles();
   const cardRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -114,7 +111,7 @@ const Preview = memo<Partial<BloodNodePreviewProps>>(({ title, logo, description
       {/* <Card ref={cardRef} title={title} className={} style={style}>
             {children}
           </Card> */}
-      <div className={styles.nodeWrap}>
+      <div className={cx(styles.nodeWrap, className)}>
         <img className={'img'} src={logo} alt="" />
         <div className={'content'}>
           <div className={'title'}>
