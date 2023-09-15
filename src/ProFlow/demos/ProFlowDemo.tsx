@@ -1,7 +1,7 @@
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 import ProFlow from '..';
-import { ProFlowNode } from '../constants';
+import { NodeSelect, ProFlowNode } from '../constants';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -14,6 +14,7 @@ const nodes: ProFlowNode[] = [
   {
     id: 'a1',
     type: 'BloodNode',
+    select: NodeSelect.SELECT,
     data: {
       title: 'XXX数据源',
       describe: 'cksadjfnf',
@@ -23,6 +24,7 @@ const nodes: ProFlowNode[] = [
   {
     id: 'a2',
     type: 'BloodNode',
+    select: NodeSelect.DANGER,
     data: {
       title: 'XXX_API',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
@@ -32,6 +34,7 @@ const nodes: ProFlowNode[] = [
   {
     id: 'a3',
     type: 'BloodNode',
+    select: NodeSelect.WARNING,
     data: {
       title: 'XXXX产品',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',

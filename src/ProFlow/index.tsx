@@ -1,38 +1,11 @@
 import ProFlowController from '@/ProFlowController';
-import { createStyles } from 'antd-style';
 import { useMemo, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
 import ReactFlow, { Background, BackgroundVariant, Edge, Node } from 'reactflow';
 import { ProFLowEdge, ProFlowNode } from './constants';
 import { convertMappingFrom, getRenderData } from './helper';
+import { useStyles } from './styles';
 
 const MIN_ZOOM = 0.1;
-
-const useStyles = createStyles(({ css }) => ({
-  container: css`
-    width: 100%;
-    height: 100%;
-
-    .initialNode {
-      padding: 0;
-      box-sizing: border-box;
-      width: 320px;
-      height: 83px;
-      border: none;
-      box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 8%);
-      border-radius: 8px;
-      cursor: pointer;
-      z-index: 1;
-    }
-
-    .selectable:focus {
-      box-shadow: none !important;
-    }
-
-    .selected {
-      box-shadow: none !important;
-    }
-  `,
-}));
 
 interface ProFlowProps {
   onNodeDragStart: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
@@ -40,14 +13,13 @@ interface ProFlowProps {
   onNodeClick: (event: ReactMouseEvent, node: Node) => void;
   nodes: ProFlowNode[];
   edges: ProFLowEdge[];
-  minZoom?: number;
   className?: string;
   style?: CSSProperties;
-  children?: React.ReactNode;
+  miniMap?: boolean;
 }
 
 const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
-  const { onNodeDragStart, onPaneClick, onNodeClick, nodes, edges } = props;
+  const { onNodeDragStart, onPaneClick, onNodeClick, nodes, edges, miniMap = true } = props;
   const { styles, cx } = useStyles();
   const mapping = convertMappingFrom(nodes!, edges!);
   const renderData = useMemo((): {
@@ -81,7 +53,7 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
       fitView
       minZoom={MIN_ZOOM}
     >
-      <ProFlowController />
+      {miniMap && <ProFlowController />}
       <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
     </ReactFlow>
   );

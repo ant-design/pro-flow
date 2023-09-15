@@ -1,7 +1,19 @@
 import BloodNode from '@/BloodNode';
 import Dagre from '@dagrejs/dagre';
+import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
-import { InitialNode, NodeMapItem, NodeMapping, ProFLowEdge, ProFlowNode } from './constants';
+import {
+  EDGE_DANGER,
+  EDGE_SELECT,
+  EDGE_WARNING,
+  INIT_NODE,
+  InitialNode,
+  NodeMapItem,
+  NodeMapping,
+  NodeSelect,
+  ProFLowEdge,
+  ProFlowNode,
+} from './constants';
 
 function getTypeFromEdge(node: NodeMapItem) {
   if (node.left?.length && node.right?.length) {
@@ -23,6 +35,7 @@ export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[]) {
       id: node.id,
       nodeType: node.type, // BloodNode | BloodGroup
       data: node.data,
+      select: node.select,
       right: [],
       left: [],
     };
@@ -78,6 +91,31 @@ function sortEdges(edges: Edge[]) {
   return [...lowEdges, ...midEdges, ...highEdges];
 }
 
+function getEdgeClsFromNodeSelect(select: NodeSelect) {
+  switch (select) {
+    case NodeSelect.SELECT:
+      return EDGE_SELECT;
+    case NodeSelect.DANGER:
+      return EDGE_DANGER;
+    case NodeSelect.WARNING:
+      return EDGE_WARNING;
+    default:
+      return 'edgeDefault';
+  }
+}
+
+function getRenderEdge(node: NodeMapItem, targetNode: NodeMapItem): Edge {
+  const { id } = node;
+  const { id: targetId, select = NodeSelect.DEFAULT } = targetNode;
+  return {
+    id: `${id}-${targetId}`,
+    source: id!,
+    target: targetId!,
+    type: 'smoothstep',
+    className: getEdgeClsFromNodeSelect(select),
+  };
+}
+
 export const getRenderData = (
   mapping: NodeMapping,
 ): {
@@ -86,10 +124,12 @@ export const getRenderData = (
 } => {
   const renderNodes: Node[] = [];
   const renderEdges: Edge[] = [];
+  // const { styles, cx } = useStyles();
 
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
-
+    const { select = NodeSelect.DEFAULT } = node;
+    console.log(select);
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
@@ -98,29 +138,22 @@ export const getRenderData = (
       type: getTypeFromEdge(node),
       width: 320,
       height: 83,
-      className: `initialNode`,
+      className: cx(INIT_NODE),
       data: {
         label: (
           <BloodNode
             title={node.data!.title!}
             description={node.data!.describe!}
             logo={node.data!.logo!}
+            selectType={select}
           />
         ),
       },
     });
 
     if (node.right!.length) {
-      node.right!.forEach((id: string) => {
-        renderEdges.push({
-          id: `${node.id}-${id}`,
-          source: node.id!,
-          target: id,
-          type: 'smoothstep',
-          className: `${node.selected && mapping[id].selected ? 'initialNode-selected' : ''} ${
-            node.mainDanger || node.subDanger ? 'edgeDanger' : ''
-          }`,
-        });
+      node.right!.forEach((targetId: string) => {
+        renderEdges.push(getRenderEdge(node, mapping[targetId]));
       });
     }
   });
