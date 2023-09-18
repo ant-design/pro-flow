@@ -1,20 +1,20 @@
 {
-  "name": "@ant-design/pro-flow-editor",
-  "version": "0.5.0",
-  "description": "A React based Flow Editor",
+  "name": "@ant-design/pro-flow",
+  "version": "0.6.0",
+  "description": "A React based Flow components",
   "keywords": [
     "flow",
     "ant-design",
     "editor",
     "canvas"
   ],
-  "homepage": "https://github.com/ant-design/pro-flow-editor",
+  "homepage": "https://github.com/ant-design/pro-flow",
   "bugs": {
-    "url": "https://github.com/ant-design/pro-flow-editor/issues/new"
+    "url": "https://github.com/ant-design/pro-flow/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/pro-flow-editor.git"
+    "url": "https://github.com/ant-design/pro-flow.git"
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
@@ -75,7 +75,7 @@
     "polished": "^4",
     "react-hotkeys-hook": "^4",
     "react-layout-kit": "^1",
-    "reactflow": "^11",
+    "reactflow": "^11.8",
     "use-merge-value": "^1",
     "yjs": "^13",
     "zustand": "^4.4.1",

@@ -1,4 +1,4 @@
-import { BasicNode, TextArea } from '@ant-design/pro-flow-editor';
+import { BasicNode, TextArea } from '@ant-design/pro-flow';
 import { memo } from 'react';
 
 const String = memo(() => {

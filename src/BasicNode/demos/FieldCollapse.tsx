@@ -1,4 +1,4 @@
-import { BasicNode, NodeField } from '@ant-design/pro-flow-editor';
+import { BasicNode, NodeField } from '@ant-design/pro-flow';
 import { Button, Divider } from 'antd';
 import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';

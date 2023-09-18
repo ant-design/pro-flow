@@ -1,4 +1,5 @@
 import { NODE_DANGER, NODE_SELECT, NODE_WARNING, NodeSelect } from '@/ProFlow/constants';
+import React from 'react';
 import { useStyles } from './styles';
 
 interface BloodNodeProps {

@@ -1,4 +1,4 @@
-import { BasicNode, NodeField } from '@ant-design/pro-flow-editor';
+import { BasicNode, NodeField } from '@ant-design/pro-flow';
 import { memo } from 'react';
 
 const Demo = memo(() => {
