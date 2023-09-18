@@ -7,7 +7,7 @@ export enum NodeSelect {
   DEFAULT = 'DEFAULT',
 }
 export interface ProFlowNode {
-  id: string;
+  id?: string;
   group?: boolean;
   select?: NodeSelect;
   data: ProFlowNodeData | ProFlowNode[];

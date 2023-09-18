@@ -14,7 +14,7 @@ interface BloodNodeProps {
   selectType?: NodeSelect;
 }
 
-function getClsFromSelectType(select: NodeSelect) {
+export function getClsFromSelectType(select: NodeSelect) {
   switch (select) {
     case NodeSelect.SELECT:
       return NODE_SELECT;

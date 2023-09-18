@@ -143,7 +143,7 @@ export const getRenderData = (
       className: cx(INIT_NODE),
       data: {
         label: node.group ? (
-          <BloodNodeGroup id={node.id!} group={node.group} data={node.data! as ProFlowNode[]} />
+          <BloodNodeGroup group={node.group} data={node.data! as ProFlowNode[]} select={select} />
         ) : (
           <BloodNode
             title={(node.data! as ProFlowNodeData).title!}

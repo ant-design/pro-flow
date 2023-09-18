@@ -1,4 +1,6 @@
-import { NodeMapItem, ProFlowNode, ProFlowNodeData } from '@/ProFlow/constants';
+import { getClsFromSelectType } from '@/BloodNode';
+import { NodeMapItem, NodeSelect, ProFlowNode, ProFlowNodeData } from '@/ProFlow/constants';
+import { cx } from 'antd-style';
 import { useStyles } from './styles';
 
 const convertMappingNode = (nodeList: ProFlowNode[]): NodeMapItem[] => {
@@ -22,10 +24,8 @@ const GroupItem = (node: NodeMapItem) => {
   );
 };
 
-const BloodNodeGroup: React.FC<ProFlowNode> = ({ id, group, data }) => {
+const BloodNodeGroup: React.FC<ProFlowNode> = ({ group, data, select = NodeSelect.SELECT }) => {
   const { styles } = useStyles();
-
-  console.log(id, group, data);
 
   if (!group) {
     return null;
@@ -38,7 +38,7 @@ const BloodNodeGroup: React.FC<ProFlowNode> = ({ id, group, data }) => {
   const nodeList = convertMappingNode(data as ProFlowNode[]);
 
   return (
-    <div className={styles.groupWrap}>
+    <div className={cx(styles.groupWrap, styles[getClsFromSelectType(select)])}>
       {nodeList!.map((_node, index) => {
         const data = _node.data as ProFlowNodeData;
         _node.position = {

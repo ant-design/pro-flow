@@ -105,4 +105,14 @@ export const useStyles = createStyles(({ css }) => ({
     text-align: left;
     margin-top: 11px;
   `,
+  nodeSelected: css`
+    box-shadow: 0 0 0 3px #1677ff, 0 1px 4px 1px rgba(0, 0, 0, 8%) !important;
+  `,
+  nodeDanger: css`
+    box-shadow: 0 0 0 3px #f7636e, 0 1px 4px 1px rgba(0, 0, 0, 8%);
+  `,
+  nodeWarning: css`
+    box-shadow: 0 0 0 3px #ef9d3b, 0 1px 4px 1px rgba(0, 0, 0, 8%) !important;
+  `,
+  nodeDefault: css``,
 }));
