@@ -1,3 +1,4 @@
+import BloodNodeGroup from '@/BloodGroupNode';
 import BloodNode from '@/BloodNode';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
@@ -13,6 +14,7 @@ import {
   NodeSelect,
   ProFLowEdge,
   ProFlowNode,
+  ProFlowNodeData,
 } from './constants';
 
 function getTypeFromEdge(node: NodeMapItem) {
@@ -33,7 +35,7 @@ export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[]) {
   nodes.forEach((node) => {
     mapping[node.id] = {
       id: node.id,
-      nodeType: node.type, // BloodNode | BloodGroup
+      group: node.group,
       data: node.data,
       select: node.select,
       right: [],
@@ -129,7 +131,7 @@ export const getRenderData = (
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
     const { select = NodeSelect.DEFAULT } = node;
-    console.log(select);
+    console.log(node);
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
@@ -140,11 +142,13 @@ export const getRenderData = (
       height: 83,
       className: cx(INIT_NODE),
       data: {
-        label: (
+        label: node.group ? (
+          <BloodNodeGroup id={node.id!} group={node.group} data={node.data! as ProFlowNode[]} />
+        ) : (
           <BloodNode
-            title={node.data!.title!}
-            description={node.data!.describe!}
-            logo={node.data!.logo!}
+            title={(node.data! as ProFlowNodeData).title!}
+            description={(node.data! as ProFlowNodeData).describe!}
+            logo={(node.data! as ProFlowNodeData).logo!}
             selectType={select}
           />
         ),

@@ -8,9 +8,9 @@ export enum NodeSelect {
 }
 export interface ProFlowNode {
   id: string;
-  type: string;
+  group?: boolean;
   select?: NodeSelect;
-  data: ProFlowNodeData;
+  data: ProFlowNodeData | ProFlowNode[];
 }
 
 export interface ProFlowNodeData {
@@ -31,12 +31,13 @@ export interface InitialNode extends Node {
 }
 
 export interface NodeMapItem {
-  id?: string;
+  id: string;
   key?: string;
   left?: string[];
   right?: string[];
   skip?: boolean;
   title?: string;
+  group?: boolean;
   des?: string;
   danger?: boolean;
   dangerCount?: number;
@@ -49,7 +50,8 @@ export interface NodeMapItem {
   mainDanger?: boolean;
   qualityScore?: string;
   subDanger?: boolean;
-  data?: ProFlowNodeData;
+  logo?: string;
+  data: ProFlowNodeData | ProFlowNode[];
   nodeType?: string;
   position?: {
     x: number;
