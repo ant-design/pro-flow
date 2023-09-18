@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.6.0](https://github.com/ant-design/pro-flow/compare/v0.5.0...v0.6.0)
+
+<sup>Released on **2023-09-18**</sup>
+
+#### ✨ 新特性
+
+- Rename to pro-flow.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Rename to pro-flow ([e711ab2](https://github.com/ant-design/pro-flow/commit/e711ab2))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.4.2](https://github.com/ant-design/pro-flow/compare/v0.4.1...v0.4.2)
 
 <sup>Released on **2023-08-07**</sup>
