@@ -51,7 +51,7 @@ const NodeList = memo(() => {
     <div className={cx(styles.container)}>
       {nodeList.map((item) => {
         return (
-          <BloodNode.Preview
+          <BloodNode
             key={item.title}
             className={styles.node}
             title={item.title}
