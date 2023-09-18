@@ -1,7 +1,7 @@
 /**
  * iframe: 420
  */
-import { CanvasLoading } from '@ant-design/pro-flow-editor';
+import { CanvasLoading } from '@ant-design/pro-flow';
 import { Alert } from 'antd';
 import { Flexbox } from 'react-layout-kit';
 

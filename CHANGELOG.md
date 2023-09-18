@@ -1,31 +1,6 @@
 # Changelog
 
-## [Version&nbsp;0.5.0](https://github.com/ant-design/pro-flow-editor/compare/v0.4.2...v0.5.0)
-
-<sup>Released on **2023-09-04**</sup>
-
-#### ✨ 新特性
-
-- Rename to pro-flow.
-
-<br/>
-
-<details>
-<summary><kbd>Improvements and Fixes</kbd></summary>
-
-#### What's improved
-
-- Rename to pro-flow ([c713cc4](https://github.com/ant-design/pro-flow-editor/commit/c713cc4))
-
-</details>
-
-<div align="right">
-
-[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
-
-</div>
-
-### [Version&nbsp;0.4.2](https://github.com/ant-design/pro-flow-editor/compare/v0.4.1...v0.4.2)
+### [Version&nbsp;0.4.2](https://github.com/ant-design/pro-flow/compare/v0.4.1...v0.4.2)
 
 <sup>Released on **2023-08-07**</sup>
 
@@ -40,7 +15,7 @@
 
 #### What's fixed
 
-- Compatible with zustand v4.4 usage ([b4e0e3e](https://github.com/ant-design/pro-flow-editor/commit/b4e0e3e))
+- Compatible with zustand v4.4 usage ([b4e0e3e](https://github.com/ant-design/pro-flow/commit/b4e0e3e))
 
 </details>
 
@@ -50,7 +25,7 @@
 
 </div>
 
-### [Version&nbsp;0.4.1](https://github.com/ant-design/pro-flow-editor/compare/v0.4.0...v0.4.1)
+### [Version&nbsp;0.4.1](https://github.com/ant-design/pro-flow/compare/v0.4.0...v0.4.1)
 
 <sup>Released on **2023-08-07**</sup>
 
@@ -67,7 +42,7 @@
 
 </div>
 
-## [Version&nbsp;0.4.0](https://github.com/ant-design/pro-flow-editor/compare/v0.3.3...v0.4.0)
+## [Version&nbsp;0.4.0](https://github.com/ant-design/pro-flow/compare/v0.3.3...v0.4.0)
 
 <sup>Released on **2023-07-26**</sup>
 
@@ -82,7 +57,7 @@
 
 #### What's improved
 
-- Rename to pro-flow-editor ([e4abc06](https://github.com/ant-design/pro-flow-editor/commit/e4abc06))
+- Rename to pro-flow-editor ([e4abc06](https://github.com/ant-design/pro-flow/commit/e4abc06))
 
 </details>
 
@@ -92,7 +67,7 @@
 
 </div>
 
-### [Version&nbsp;0.3.3](https://github.com/ant-design/pro-flow-editor/compare/v0.3.2...v0.3.3)
+### [Version&nbsp;0.3.3](https://github.com/ant-design/pro-flow/compare/v0.3.2...v0.3.3)
 
 <sup>Released on **2023-07-12**</sup>
 
@@ -107,7 +82,7 @@
 
 #### What's fixed
 
-- Remobe onNodeDrag, closes [#6](https://github.com/ant-design/pro-flow-editor/issues/6) ([1ab8a5d](https://github.com/ant-design/pro-flow-editor/commit/1ab8a5d))
+- Remobe onNodeDrag, closes [#6](https://github.com/ant-design/pro-flow/issues/6) ([1ab8a5d](https://github.com/ant-design/pro-flow/commit/1ab8a5d))
 
 </details>
 
@@ -117,7 +92,7 @@
 
 </div>
 
-### [Version&nbsp;0.3.2](https://github.com/ant-design/pro-flow-editor/compare/v0.3.1...v0.3.2)
+### [Version&nbsp;0.3.2](https://github.com/ant-design/pro-flow/compare/v0.3.1...v0.3.2)
 
 <sup>Released on **2023-07-11**</sup>
 
@@ -134,7 +109,7 @@
 
 </div>
 
-### [Version&nbsp;0.3.1](https://github.com/ant-design/pro-flow-editor/compare/v0.3.0...v0.3.1)
+### [Version&nbsp;0.3.1](https://github.com/ant-design/pro-flow/compare/v0.3.0...v0.3.1)
 
 <sup>Released on **2023-07-09**</sup>
 
@@ -149,7 +124,7 @@
 
 #### What's fixed
 
-- 优化 select 等浮层组件的逻辑, closes [#5](https://github.com/ant-design/pro-flow-editor/issues/5) ([7721d46](https://github.com/ant-design/pro-flow-editor/commit/7721d46))
+- 优化 select 等浮层组件的逻辑, closes [#5](https://github.com/ant-design/pro-flow/issues/5) ([7721d46](https://github.com/ant-design/pro-flow/commit/7721d46))
 
 </details>
 
@@ -159,7 +134,7 @@
 
 </div>
 
-## [Version&nbsp;0.3.0](https://github.com/ant-design/pro-flow-editor/compare/v0.2.0...v0.3.0)
+## [Version&nbsp;0.3.0](https://github.com/ant-design/pro-flow/compare/v0.2.0...v0.3.0)
 
 <sup>Released on **2023-07-03**</sup>
 
@@ -174,7 +149,7 @@
 
 #### What's improved
 
-- 新增 FlowStoreEditor 组件 ([1e4ba5f](https://github.com/ant-design/pro-flow-editor/commit/1e4ba5f))
+- 新增 FlowStoreEditor 组件 ([1e4ba5f](https://github.com/ant-design/pro-flow/commit/1e4ba5f))
 
 </details>
 
@@ -184,7 +159,7 @@
 
 </div>
 
-## [Version&nbsp;0.2.0](https://github.com/ant-design/pro-flow-editor/compare/v0.1.1...v0.2.0)
+## [Version&nbsp;0.2.0](https://github.com/ant-design/pro-flow/compare/v0.1.1...v0.2.0)
 
 <sup>Released on **2023-06-30**</sup>
 
@@ -203,11 +178,11 @@
 
 #### What's improved
 
-- Test with pro-editor alpha ([33b3c03](https://github.com/ant-design/pro-flow-editor/commit/33b3c03))
+- Test with pro-editor alpha ([33b3c03](https://github.com/ant-design/pro-flow/commit/33b3c03))
 
 #### Build system
 
-- Use ProEditor ContextMenu ([4c1aa48](https://github.com/ant-design/pro-flow-editor/commit/4c1aa48))
+- Use ProEditor ContextMenu ([4c1aa48](https://github.com/ant-design/pro-flow/commit/4c1aa48))
 
 </details>
 
@@ -217,7 +192,7 @@
 
 </div>
 
-## [Version&nbsp;0.2.0-beta.1](https://github.com/ant-design/pro-flow-editor/compare/v0.1.1...v0.2.0-beta.1)
+## [Version&nbsp;0.2.0-beta.1](https://github.com/ant-design/pro-flow/compare/v0.1.1...v0.2.0-beta.1)
 
 <sup>Released on **2023-06-18**</sup>
 
@@ -236,11 +211,11 @@
 
 #### What's improved
 
-- Test with pro-editor alpha ([33b3c03](https://github.com/ant-design/pro-flow-editor/commit/33b3c03))
+- Test with pro-editor alpha ([33b3c03](https://github.com/ant-design/pro-flow/commit/33b3c03))
 
 #### Build system
 
-- Use ProEditor ContextMenu ([4c1aa48](https://github.com/ant-design/pro-flow-editor/commit/4c1aa48))
+- Use ProEditor ContextMenu ([4c1aa48](https://github.com/ant-design/pro-flow/commit/4c1aa48))
 
 </details>
 
@@ -250,7 +225,7 @@
 
 </div>
 
-### [Version&nbsp;0.1.1](https://github.com/ant-design/pro-flow-editor/compare/v0.1.0...v0.1.1)
+### [Version&nbsp;0.1.1](https://github.com/ant-design/pro-flow/compare/v0.1.0...v0.1.1)
 
 <sup>Released on **2023-06-14**</sup>
 
@@ -265,7 +240,7 @@
 
 #### Build system
 
-- Refactor with pro-editor's ContextMenu ([36ab1df](https://github.com/ant-design/pro-flow-editor/commit/36ab1df))
+- Refactor with pro-editor's ContextMenu ([36ab1df](https://github.com/ant-design/pro-flow/commit/36ab1df))
 
 </details>
 
@@ -275,7 +250,7 @@
 
 </div>
 
-## [Version&nbsp;0.1.0](https://github.com/ant-design/pro-flow-editor/compare/v0.0.1...v0.1.0)
+## [Version&nbsp;0.1.0](https://github.com/ant-design/pro-flow/compare/v0.0.1...v0.1.0)
 
 <sup>Released on **2023-06-13**</sup>
 
@@ -295,13 +270,13 @@
 
 #### What's improved
 
-- **canvas-loading**: Add loading prop and children support ([057f85f](https://github.com/ant-design/pro-flow-editor/commit/057f85f))
-- Init pro-flow-editor ([9d445ef](https://github.com/ant-design/pro-flow-editor/commit/9d445ef))
-- Init pro-flow-editor v0.1.0, closes [#1](https://github.com/ant-design/pro-flow-editor/issues/1) ([4e502bf](https://github.com/ant-design/pro-flow-editor/commit/4e502bf))
+- **canvas-loading**: Add loading prop and children support ([057f85f](https://github.com/ant-design/pro-flow/commit/057f85f))
+- Init pro-flow-editor ([9d445ef](https://github.com/ant-design/pro-flow/commit/9d445ef))
+- Init pro-flow-editor v0.1.0, closes [#1](https://github.com/ant-design/pro-flow/issues/1) ([4e502bf](https://github.com/ant-design/pro-flow/commit/4e502bf))
 
 #### What's fixed
 
-- 修正基础节点受控折叠的 bug ([aa6535e](https://github.com/ant-design/pro-flow-editor/commit/aa6535e))
+- 修正基础节点受控折叠的 bug ([aa6535e](https://github.com/ant-design/pro-flow/commit/aa6535e))
 
 </details>
 
@@ -311,13 +286,13 @@
 
 </div>
 
-# [0.1.0-alpha.1](https://github.com/ant-design/pro-flow-editor/compare/v0.0.1...v0.1.0-alpha.1) (2023-06-13)
+# [0.1.0-alpha.1](https://github.com/ant-design/pro-flow/compare/v0.0.1...v0.1.0-alpha.1) (2023-06-13)
 
 ### ✨ 新特性
 
-- **canvas-loading**: Add loading prop and children support ([057f85f](https://github.com/ant-design/pro-flow-editor/commit/057f85f))
-- Init pro-flow-editor ([9d445ef](https://github.com/ant-design/pro-flow-editor/commit/9d445ef))
+- **canvas-loading**: Add loading prop and children support ([057f85f](https://github.com/ant-design/pro-flow/commit/057f85f))
+- Init pro-flow-editor ([9d445ef](https://github.com/ant-design/pro-flow/commit/9d445ef))
 
 ### 🐛 修复
 
-- 修正基础节点受控折叠的 bug ([aa6535e](https://github.com/ant-design/pro-flow-editor/commit/aa6535e))
+- 修正基础节点受控折叠的 bug ([aa6535e](https://github.com/ant-design/pro-flow/commit/aa6535e))

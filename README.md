@@ -16,7 +16,7 @@
 <!-- gitpod url -->
 
 [gitpod-badge]: https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod
-[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/pro-flow-editor
+[gitpod-url]: https://gitpod.io/#https://github.com/ant-design/pro-flow
 
 <!-- umi url -->
 
@@ -25,24 +25,24 @@
 
 <!-- npm url -->
 
-[npm-image]: http://img.shields.io/npm/v/@ant-design/pro-flow-editor.svg?style=flat-square&color=deepgreen&label=latest
-[npm-url]: http://npmjs.org/package/@ant-design/pro-flow-editor
-[npm-size]: https://img.shields.io/bundlephobia/minzip/@ant-design/pro-flow-editor?color=deepgreen&label=gizpped%20size&style=flat-square
-[npm-size-url]: https://packagephobia.com/result?p=@ant-design/pro-flow-editor
+[npm-image]: http://img.shields.io/npm/v/@ant-design/pro-flow.svg?style=flat-square&color=deepgreen&label=latest
+[npm-url]: http://npmjs.org/package/@ant-design/pro-flow
+[npm-size]: https://img.shields.io/bundlephobia/minzip/@ant-design/pro-flow?color=deepgreen&label=gizpped%20size&style=flat-square
+[npm-size-url]: https://packagephobia.com/result?p=@ant-design/pro-flow
 
 <!-- coverage -->
 
-[coverage]: https://codecov.io/gh/ant-design/pro-flow-editor/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/ant-design/pro-flow-editor/branch/master
+[coverage]: https://codecov.io/gh/ant-design/pro-flow/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/ant-design/pro-flow/branch/master
 
 <!-- Github CI -->
 
-[test-ci]: https://github.com/ant-design/pro-flow-editor/workflows/Test%20CI/badge.svg
-[release-ci]: https://github.com/ant-design/pro-flow-editor/workflows/Release%20CI/badge.svg
-[test-ci-url]: https://github.com/ant-design/pro-flow-editor/actions?query=workflow%3ATest%20CI
-[release-ci-url]: https://github.com/ant-design/pro-flow-editor/actions?query=workflow%3ARelease%20CI
-[download-image]: https://img.shields.io/npm/dm/@ant-design/pro-flow-editor.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@ant-design/pro-flow-editor
+[test-ci]: https://github.com/ant-design/pro-flow/workflows/Test%20CI/badge.svg
+[release-ci]: https://github.com/ant-design/pro-flow/workflows/Release%20CI/badge.svg
+[test-ci-url]: https://github.com/ant-design/pro-flow/actions?query=workflow%3ATest%20CI
+[release-ci-url]: https://github.com/ant-design/pro-flow/actions?query=workflow%3ARelease%20CI
+[download-image]: https://img.shields.io/npm/dm/@ant-design/pro-flow.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@ant-design/pro-flow
 
 </div>
 
@@ -63,7 +63,7 @@ Pro Flow Editor 是一款基于 react-flow 构建的画布编辑器。具有的�
 推荐使用 `pnpm` 安装
 
 ```bash
-pnpm i @ant-design/pro-flow-editor -S
+pnpm i @ant-design/pro-flow -S
 ```
 
 ### 使用
@@ -114,20 +114,20 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- contributors -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/ant-design/pro-flow-editor.svg?style=flat
-[contributors-url]: https://github.com/ant-design/pro-flow-editor/graphs/contributors
+[contributors-shield]: https://img.shields.io/github/contributors/ant-design/pro-flow.svg?style=flat
+[contributors-url]: https://github.com/ant-design/pro-flow/graphs/contributors
 
 <!-- forks -->
 
-[forks-shield]: https://img.shields.io/github/forks/ant-design/pro-flow-editor.svg?style=flat
-[forks-url]: https://github.com/ant-design/pro-flow-editor/network/members
+[forks-shield]: https://img.shields.io/github/forks/ant-design/pro-flow.svg?style=flat
+[forks-url]: https://github.com/ant-design/pro-flow/network/members
 
 <!-- stargazers -->
 
-[stargazers-shield]: https://img.shields.io/github/stars/ant-design/pro-flow-editor.svg?style=flat
-[stargazers-url]: https://github.com/ant-design/pro-flow-editor/stargazers
+[stargazers-shield]: https://img.shields.io/github/stars/ant-design/pro-flow.svg?style=flat
+[stargazers-url]: https://github.com/ant-design/pro-flow/stargazers
 
 <!-- issues -->
 
-[issues-shield]: https://img.shields.io/github/issues/ant-design/pro-flow-editor.svg?style=flat
-[issues-url]: https://github.com/ant-design/pro-flow-editor/issues/new/choose
+[issues-shield]: https://img.shields.io/github/issues/ant-design/pro-flow.svg?style=flat
+[issues-url]: https://github.com/ant-design/pro-flow/issues/new/choose

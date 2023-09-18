@@ -2,7 +2,7 @@
  * description: FlowStoreProvider 包裹后的子级可以获得 editor 实例，使用 editor 提供的各种数据操作方法
  */
 import { DataPreviewer } from '@ant-design/pro-editor';
-import { FlowStoreProvider, IFlowBasicNode, useFlowEditor } from '@ant-design/pro-flow-editor';
+import { FlowStoreProvider, IFlowBasicNode, useFlowEditor } from '@ant-design/pro-flow';
 import { Button } from 'antd';
 import { useState } from 'react';
 
