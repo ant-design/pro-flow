@@ -63,6 +63,7 @@
     "@ant-design/icons": "^5",
     "@ant-design/pro-editor": "latest",
     "@babel/runtime": "^7",
+    "@dagrejs/dagre": "^1.0.4",
     "@floating-ui/react": "^0.24",
     "ahooks": "^3",
     "antd-style": "^3",
