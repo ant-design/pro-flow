@@ -106,14 +106,15 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   }
 }
 
-function getRenderEdge(node: NodeMapItem, targetNode: NodeMapItem): Edge {
+function getRenderEdge(node: NodeMapItem, targetNode: NodeMapItem) {
   const { id } = node;
   const { id: targetId, select = NodeSelect.DEFAULT } = targetNode;
+
   return {
     id: `${id}-${targetId}`,
     source: id!,
     target: targetId!,
-    type: 'smoothstep',
+    type: 'radiusEdge',
     className: getEdgeClsFromNodeSelect(select),
   };
 }

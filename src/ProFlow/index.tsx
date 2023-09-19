@@ -1,6 +1,7 @@
+import RadiusEdge from '@/BasicEdge';
 import ProFlowController from '@/ProFlowController';
 import React, { useMemo, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
-import ReactFlow, { Background, BackgroundVariant, Edge, Node } from 'reactflow';
+import ReactFlow, { Background, BackgroundVariant, Edge, Node, useEdgesState } from 'reactflow';
 import { ProFLowEdge, ProFlowNode } from './constants';
 import { convertMappingFrom, getRenderData } from './helper';
 import { useStyles } from './styles';
@@ -40,6 +41,10 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
       };
     }
   }, [mapping]);
+  const [_edges] = useEdgesState(renderData.edges);
+
+  console.log(renderData.edges);
+  console.log(_edges);
 
   return (
     <ReactFlow
@@ -49,6 +54,9 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
       onNodeClick={onNodeClick}
       nodes={renderData.nodes}
       edges={renderData.edges}
+      edgeTypes={{
+        radiusEdge: RadiusEdge,
+      }}
       panOnScroll
       fitView
       minZoom={MIN_ZOOM}
