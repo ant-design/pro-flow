@@ -1,6 +1,7 @@
 import { ExpandOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Space, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
+import React from 'react';
 import { MiniMap, useReactFlow, useViewport } from 'reactflow';
 
 const useStyles = createStyles(({ css }) => ({

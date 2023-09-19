@@ -1,5 +1,5 @@
 import ProFlowController from '@/ProFlowController';
-import { useMemo, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
+import React, { useMemo, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
 import ReactFlow, { Background, BackgroundVariant, Edge, Node } from 'reactflow';
 import { ProFLowEdge, ProFlowNode } from './constants';
 import { convertMappingFrom, getRenderData } from './helper';
