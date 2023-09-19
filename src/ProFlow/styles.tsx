@@ -6,6 +6,10 @@ export const useStyles = createStyles(({ css }) => ({
     width: 100%;
     height: 100%;
 
+    .react-flow__attribution {
+      display: none;
+    }
+
     .${INIT_NODE} {
       padding: 0;
       box-sizing: border-box;
