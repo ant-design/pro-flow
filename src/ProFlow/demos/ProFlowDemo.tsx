@@ -30,6 +30,15 @@ const nodes: ProFlowNode[] = [
     },
   },
   {
+    id: 'b1',
+    select: NodeSelect.DANGER,
+    data: {
+      title: 'XXX_API',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      describe: 'XXX_XXX_XXX_API',
+    },
+  },
+  {
     id: 'a3',
     select: NodeSelect.WARNING,
     data: {
@@ -115,6 +124,20 @@ const edges = [
     id: 'a1-a2',
     source: 'a1',
     target: 'a2',
+    type: 'smoothstep',
+    pathOptions: {
+      borderRadius: 20,
+    },
+  },
+  {
+    id: 'a1-b1',
+    source: 'a1',
+    target: 'b1',
+    type: 'smoothstep',
+    pathOptions: {
+      offset: 20,
+      borderRadius: 20,
+    },
   },
   {
     id: 'a2-a3',
