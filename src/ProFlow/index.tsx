@@ -1,7 +1,6 @@
-import RadiusEdge from '@/BasicEdge';
-import ProFlowController from '@/ProFlowController';
 import React, { useMemo, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
 import ReactFlow, { Background, BackgroundVariant, Edge, Node, useEdgesState } from 'reactflow';
+import { ProFlowController, RadiusEdge } from '../index';
 import { ProFLowEdge, ProFlowNode } from './constants';
 import { convertMappingFrom, getRenderData } from './helper';
 import { useStyles } from './styles';

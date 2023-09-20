@@ -1,6 +1,7 @@
 import { getClsFromSelectType } from '@/BloodNode';
 import { NodeMapItem, NodeSelect, ProFlowNode, ProFlowNodeData } from '@/ProFlow/constants';
 import { cx } from 'antd-style';
+import React from 'react';
 import { useStyles } from './styles';
 
 const convertMappingNode = (nodeList: ProFlowNode[]): NodeMapItem[] => {
