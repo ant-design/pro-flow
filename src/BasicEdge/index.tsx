@@ -1,4 +1,3 @@
-import React from 'react';
 import { BaseEdge, EdgeProps, getSmoothStepPath } from 'reactflow';
 
 export default function RadiusEdge({
