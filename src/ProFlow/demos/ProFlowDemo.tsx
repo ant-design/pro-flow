@@ -124,20 +124,11 @@ const edges = [
     id: 'a1-a2',
     source: 'a1',
     target: 'a2',
-    type: 'smoothstep',
-    pathOptions: {
-      borderRadius: 20,
-    },
   },
   {
     id: 'a1-b1',
     source: 'a1',
     target: 'b1',
-    type: 'smoothstep',
-    pathOptions: {
-      offset: 20,
-      borderRadius: 20,
-    },
   },
   {
     id: 'a2-a3',
