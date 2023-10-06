@@ -1,6 +1,6 @@
 import { useMemoizedFn } from 'ahooks';
 import { useMemo } from 'react';
-
+import { ReactFlowInstance } from 'reactflow';
 import { useStoreApi } from '../store';
 import { PublicStoreAction } from '../store/slices';
 import { FlattenEdges, FlattenNodes } from '../types';
@@ -9,6 +9,7 @@ export interface FlowEditorInstance extends PublicStoreAction {
   getFlattenNodes: () => FlattenNodes;
   getFlattenEdges: () => FlattenEdges;
   getSelectedKeys: () => string[];
+  reactflow?: ReactFlowInstance;
 }
 
 export const useFlowEditor = (): FlowEditorInstance => {
