@@ -1,7 +1,6 @@
 import { EdgesSlice, PublicEdgesAction } from './edgesSlice';
 import { GeneralActionSlice, PublicGeneralAction } from './generalActionSlice';
 import { NodesSlice, PublicNodesAction } from './nodesSlice';
-
 export { edgesSlice } from './edgesSlice';
 export { generalActionSlice } from './generalActionSlice';
 export { nodesSlice } from './nodesSlice';
