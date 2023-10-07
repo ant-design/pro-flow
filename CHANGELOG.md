@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.8.0](https://github.com/ant-design/pro-flow/compare/v0.7.0...v0.8.0)
+
+<sup>Released on **2023-10-07**</sup>
+
+#### ✨ 新特性
+
+- **pro-flow-editor**: 导出 api.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **pro-flow-editor**: 导出 api, closes [#14](https://github.com/ant-design/pro-flow/issues/14) ([d00cc7a](https://github.com/ant-design/pro-flow/commit/d00cc7a))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.7.0](https://github.com/ant-design/pro-flow/compare/v0.6.1...v0.7.0)
 
 <sup>Released on **2023-09-20**</sup>
