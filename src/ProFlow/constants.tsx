@@ -1,3 +1,4 @@
+import { ProFlowNode, ProFlowNodeData } from '@/constants';
 import { Node } from 'reactflow';
 
 export enum NodeSelect {
@@ -5,24 +6,6 @@ export enum NodeSelect {
   DANGER = 'DANGER',
   WARNING = 'WARNING',
   DEFAULT = 'DEFAULT',
-}
-export interface ProFlowNode {
-  id: string;
-  group?: boolean;
-  select?: NodeSelect;
-  data: ProFlowNodeData | ProFlowNode[];
-}
-
-export interface ProFlowNodeData {
-  title: string;
-  describe: string;
-  logo: string;
-}
-
-export interface ProFLowEdge {
-  id: string;
-  source: string;
-  target: string;
 }
 
 export interface InitialNode extends Node {

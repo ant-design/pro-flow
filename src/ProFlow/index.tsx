@@ -1,7 +1,6 @@
 import React, { useMemo, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
-import ReactFlow, { Background, BackgroundVariant, Edge, Node, useEdgesState } from 'reactflow';
-import { ProFlowController, RadiusEdge } from '../index';
-import { ProFLowEdge, ProFlowNode } from './constants';
+import ReactFlow, { Background, BackgroundVariant, Edge, Node } from 'reactflow';
+import { ProFlowController, ProFlowEdge, ProFlowNode, RadiusEdge } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
 import { useStyles } from './styles';
 
@@ -12,7 +11,7 @@ interface ProFlowProps {
   onPaneClick: (event: ReactMouseEvent) => void;
   onNodeClick: (event: ReactMouseEvent, node: Node) => void;
   nodes: ProFlowNode[];
-  edges: ProFLowEdge[];
+  edges: ProFlowEdge[];
   className?: string;
   style?: CSSProperties;
   miniMap?: boolean;
@@ -40,10 +39,7 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
       };
     }
   }, [mapping]);
-  const [_edges] = useEdgesState(renderData.edges);
-
-  console.log(renderData.edges);
-  console.log(_edges);
+  // const [_edges] = useEdgesState(renderData.edges);
 
   return (
     <ReactFlow
