@@ -1,24 +1,22 @@
-import React, { useMemo, type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
+import React, { useCallback, useMemo, type MouseEvent as ReactMouseEvent } from 'react';
 import ReactFlow, { Background, BackgroundVariant, Edge, Node } from 'reactflow';
-import { ProFlowController, ProFlowEdge, ProFlowNode, RadiusEdge } from '../index';
+import { ProFlowController, ProFlowProps, RadiusEdge } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
 import { useStyles } from './styles';
 
 const MIN_ZOOM = 0.1;
 
-interface ProFlowProps {
-  onNodeDragStart: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
-  onPaneClick: (event: ReactMouseEvent) => void;
-  onNodeClick: (event: ReactMouseEvent, node: Node) => void;
-  nodes: ProFlowNode[];
-  edges: ProFlowEdge[];
-  className?: string;
-  style?: CSSProperties;
-  miniMap?: boolean;
-}
+const initFn = () => {};
 
 const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
-  const { onNodeDragStart, onPaneClick, onNodeClick, nodes, edges, miniMap = true } = props;
+  const {
+    onNodeDragStart = initFn,
+    onPaneClick = initFn,
+    onNodeClick = initFn,
+    nodes,
+    edges,
+    miniMap = true,
+  } = props;
   const { styles, cx } = useStyles();
   const mapping = convertMappingFrom(nodes!, edges!);
   const renderData = useMemo((): {
@@ -41,12 +39,39 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
   }, [mapping]);
   // const [_edges] = useEdgesState(renderData.edges);
 
+  const handleNodeDragStart = useCallback(
+    (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
+      // TODO: 应当把事件中的 node 转换为 ProFlowNode 透出给用户
+      // const {node} = transformNode(node);
+      onNodeDragStart(event, node, nodes);
+    },
+    [onNodeDragStart],
+  );
+
+  const handlePaneClick = useCallback(
+    (event: ReactMouseEvent) => {
+      // TODO: 应当把事件中的 node 转换为 ProFlowNode 透出给用户
+      // const {node} = transformNode(node);
+      onPaneClick(event);
+    },
+    [onPaneClick],
+  );
+
+  const handleNodeClick = useCallback(
+    (event: ReactMouseEvent, node: Node) => {
+      // TODO: 应当把事件中的 node 转换为 ProFlowNode 透出给用户
+      // const {node} = transformNode(node);
+      onNodeClick(event, node);
+    },
+    [onNodeClick],
+  );
+
   return (
     <ReactFlow
       className={cx(styles.container)}
-      onNodeDragStart={onNodeDragStart}
-      onPaneClick={onPaneClick}
-      onNodeClick={onNodeClick}
+      onNodeDragStart={handleNodeDragStart}
+      onPaneClick={handlePaneClick}
+      onNodeClick={handleNodeClick}
       nodes={renderData.nodes}
       edges={renderData.edges}
       edgeTypes={{
