@@ -1,7 +1,7 @@
+import { NodeSelect, ProFlowNode } from '@/index';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 import ProFlow from '..';
-import { NodeSelect, ProFlowNode } from '../constants';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`

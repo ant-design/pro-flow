@@ -26,6 +26,7 @@ export interface ProFlowEdge {
   target: string;
   type?: EdgeType;
 }
+
 export interface ProFlowNodeData {
   title: string;
   describe: string;
