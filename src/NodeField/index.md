@@ -1,5 +1,6 @@
 ---
-group: 节点
+group:
+  title: 节点
 title: NodeField 节点字段
 description: 展示节点中的单个字段的组件
 ---

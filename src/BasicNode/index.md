@@ -1,5 +1,7 @@
 ---
-group: 节点
+group:
+  title: 节点
+  order: 1
 title: BasicNode 基础节点
 description: 画布中的基础节点容器
 ---
