@@ -25,7 +25,7 @@ export interface ProFlowEdge {
   id: string;
   source: string;
   target: string;
-  select: NodeSelect;
+  select?: NodeSelect;
   type?: EdgeType;
 }
 

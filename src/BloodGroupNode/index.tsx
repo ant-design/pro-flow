@@ -1,6 +1,6 @@
 import { ArtboardTitle, getClsFromSelectType } from '@/BloodNode';
-import { NodeMapItem, NodeSelect, ProFlowNode } from '@/ProFlow/constants';
-import { ProFlowNodeData } from '@/constants';
+import { NodeMapItem, NodeSelect } from '@/ProFlow/constants';
+import { ProFlowNode, ProFlowNodeData } from '@/constants';
 import { cx } from 'antd-style';
 import React from 'react';
 import { useStyles } from './styles';
