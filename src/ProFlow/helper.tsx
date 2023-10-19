@@ -154,6 +154,7 @@ export const getRenderData = (
             data={node.data! as ProFlowNode[]}
             select={select}
             zoom={node.zoom}
+            label={node.label}
           />
         ) : (
           <BloodNode

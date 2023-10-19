@@ -1,8 +1,18 @@
-import { getClsFromSelectType } from '@/BloodNode';
-import { NodeMapItem, NodeSelect, ProFlowNode, ProFlowNodeData } from '@/ProFlow/constants';
+import { ArtboardTitle, getClsFromSelectType } from '@/BloodNode';
+import { NodeMapItem, NodeSelect, ProFlowNode } from '@/ProFlow/constants';
+import { ProFlowNodeData } from '@/constants';
 import { cx } from 'antd-style';
 import React from 'react';
 import { useStyles } from './styles';
+
+export interface BloodNodeGroupProps {
+  id?: string;
+  zoom?: number;
+  label?: string;
+  select?: NodeSelect;
+  data: ProFlowNode[];
+  group: boolean;
+}
 
 const convertMappingNode = (nodeList: ProFlowNode[]): NodeMapItem[] => {
   return nodeList.map((node) => {
@@ -25,7 +35,13 @@ const GroupItem = (node: NodeMapItem) => {
   );
 };
 
-const BloodNodeGroup: React.FC<ProFlowNode> = ({ group, data, select = NodeSelect.SELECT }) => {
+const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
+  group,
+  data,
+  select = NodeSelect.SELECT,
+  zoom = 1,
+  label,
+}) => {
   const { styles } = useStyles();
 
   if (!group) {
@@ -39,27 +55,34 @@ const BloodNodeGroup: React.FC<ProFlowNode> = ({ group, data, select = NodeSelec
   const nodeList = convertMappingNode(data as ProFlowNode[]);
 
   return (
-    <div className={cx(styles.groupWrap, styles[getClsFromSelectType(select)])}>
-      {nodeList!.map((_node, index) => {
-        const data = _node.data as ProFlowNodeData;
-        _node.position = {
-          x: 0,
-          y: 100 * index,
-        };
-        _node.title = data.title;
-        _node.logo = data.logo;
-        _node.des = data.describe;
-        return GroupItem(_node);
-      })}
-      <div className={styles.btnWrap}></div>
-      <div className={styles.btn}>
-        查看更多
-        <img
-          src="https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*W5bAS6ZOqOwAAAAAAAAAAAAADvuvAQ/original"
-          alt=""
-        />
+    <>
+      {label && (
+        <ArtboardTitle zoom={zoom}>
+          {zoom <= 0.1 ? `${String(label).substring(0, 3)}...` : label}
+        </ArtboardTitle>
+      )}
+      <div className={cx(styles.groupWrap, styles[getClsFromSelectType(select)])}>
+        {nodeList!.map((_node, index) => {
+          const data = _node.data as ProFlowNodeData;
+          _node.position = {
+            x: 0,
+            y: 100 * index,
+          };
+          _node.title = data.title;
+          _node.logo = data.logo;
+          _node.des = data.describe;
+          return GroupItem(_node);
+        })}
+        <div className={styles.btnWrap}></div>
+        <div className={styles.btn}>
+          查看更多
+          <img
+            src="https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*W5bAS6ZOqOwAAAAAAAAAAAAADvuvAQ/original"
+            alt=""
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

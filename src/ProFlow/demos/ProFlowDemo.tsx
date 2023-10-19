@@ -52,6 +52,7 @@ const nodes: ProFlowNode[] = [
     id: 'a4',
     group: true,
     select: NodeSelect.WARNING,
+    label: '456',
     data: [
       {
         id: 'a5',

@@ -22,12 +22,12 @@ const zoomNum = (num: number, zoom: number, limitMax?: boolean) => {
   return num / zoom;
 };
 
-const ArtboardTitle = styled.div<{ zoom: number }>`
+export const ArtboardTitle = styled.div<{ zoom: number }>`
   position: absolute;
   z-index: 10;
   top: -${({ zoom }) => zoomNum(24, zoom, true)}px;
   padding: ${({ zoom }) => `${2 / zoom}px ${1 / zoom}px ${2 / zoom}px 0`};
-  color: ${({ theme }) => theme.colorPrimary};
+  color: rgba(0, 0, 0, 0.45);
   border-radius: 4px;
   font-size: ${({ zoom }) => `${14 / zoom}px`};
   white-space: nowrap;
