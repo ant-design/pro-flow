@@ -1,5 +1,93 @@
 # Changelog
 
+## [Version&nbsp;0.8.0](https://github.com/ant-design/pro-flow/compare/v0.7.0...v0.8.0)
+
+<sup>Released on **2023-10-07**</sup>
+
+#### ✨ 新特性
+
+- **pro-flow-editor**: 导出 api.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **pro-flow-editor**: 导出 api, closes [#14](https://github.com/ant-design/pro-flow/issues/14) ([d00cc7a](https://github.com/ant-design/pro-flow/commit/d00cc7a))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+## [Version&nbsp;0.7.0](https://github.com/ant-design/pro-flow/compare/v0.6.1...v0.7.0)
+
+<sup>Released on **2023-09-20**</sup>
+
+#### ✨ 新特性
+
+- Border radius edge, edge border raduis type, eslint config, radius edge memo update, 简化圆角线段组件的 demo 示例.
+
+#### 🐛 修复
+
+- React-flow-attribution remove, 删除不必要的 demo 配置.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Border radius edge ([c37f237](https://github.com/ant-design/pro-flow/commit/c37f237))
+- Edge border raduis type ([3eeb269](https://github.com/ant-design/pro-flow/commit/3eeb269))
+- Eslint config ([5b05c97](https://github.com/ant-design/pro-flow/commit/5b05c97))
+- Radius edge memo update ([b683770](https://github.com/ant-design/pro-flow/commit/b683770))
+- 简化圆角线段组件的 demo 示例 ([0d32bec](https://github.com/ant-design/pro-flow/commit/0d32bec))
+
+#### What's fixed
+
+- React-flow-attribution remove ([d2705e9](https://github.com/ant-design/pro-flow/commit/d2705e9))
+- 删除不必要的 demo 配置 ([bc48d14](https://github.com/ant-design/pro-flow/commit/bc48d14))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version&nbsp;0.6.1](https://github.com/ant-design/pro-flow/compare/v0.6.0...v0.6.1)
+
+<sup>Released on **2023-09-18**</sup>
+
+#### 🐛 修复
+
+- Build.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Build, closes [#12](https://github.com/ant-design/pro-flow/issues/12) ([8638e59](https://github.com/ant-design/pro-flow/commit/8638e59))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.6.0](https://github.com/ant-design/pro-flow/compare/v0.5.0...v0.6.0)
 
 <sup>Released on **2023-09-18**</sup>
