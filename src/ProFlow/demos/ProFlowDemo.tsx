@@ -1,7 +1,7 @@
+import { NodeSelect, ProFlowNode } from '@/index';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 import ProFlow from '..';
-import { NodeSelect, ProFlowNode } from '../constants';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -14,6 +14,7 @@ const nodes: ProFlowNode[] = [
   {
     id: 'a1',
     select: NodeSelect.SELECT,
+    label: '123',
     data: {
       title: 'XXX数据源',
       describe: 'cksadjfnf',
@@ -51,6 +52,7 @@ const nodes: ProFlowNode[] = [
     id: 'a4',
     group: true,
     select: NodeSelect.WARNING,
+    label: '456',
     data: [
       {
         id: 'a5',
@@ -123,21 +125,25 @@ const edges = [
   {
     id: 'a1-a2',
     source: 'a1',
+    select: NodeSelect.WARNING,
     target: 'a2',
   },
   {
     id: 'a1-b1',
     source: 'a1',
+    select: NodeSelect.WARNING,
     target: 'b1',
   },
   {
     id: 'a2-a3',
     source: 'a2',
+    select: NodeSelect.WARNING,
     target: 'a3',
   },
   {
     id: 'a3-a4',
     source: 'a3',
+    select: NodeSelect.WARNING,
     target: 'a4',
   },
 ];

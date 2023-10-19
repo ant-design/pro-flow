@@ -1,5 +1,7 @@
 ---
-group: 基础组件
+group:
+  title: 辅助
+  order: 2
 title: CanvasLoading 画布加载状态
 description: 画布加载状态
 ---

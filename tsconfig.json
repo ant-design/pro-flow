@@ -1,10 +1,5 @@
 {
-  "include": [
-    "src",
-    "tests",
-    ".dumirc.ts",
-    "*.ts"
-  ],
+  "include": ["src", "tests", ".dumirc.ts", "*.ts"],
   "compilerOptions": {
     "strict": true,
     "declaration": true,
@@ -13,23 +8,12 @@
     "resolveJsonModule": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "types": [
-      "vitest/globals"
-    ],
+    "types": ["vitest/globals"],
     "paths": {
-      "@@/*": [
-        ".dumi/tmp/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ],
-      "@ant-design/pro-flow": [
-        "src"
-      ],
-      "@ant-design/pro-flow/*": [
-        "src/*",
-        "*"
-      ]
+      "@@/*": [".dumi/tmp/*"],
+      "@/*": ["./src/*"],
+      "@ant-design/pro-flow": ["src"],
+      "@ant-design/pro-flow/*": ["src/*", "*"]
     }
   }
 }

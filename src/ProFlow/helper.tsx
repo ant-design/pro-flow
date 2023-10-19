@@ -1,5 +1,6 @@
 import BloodNodeGroup from '@/BloodGroupNode';
 import BloodNode from '@/BloodNode';
+import { ProFlowEdge, ProFlowNode, ProFlowNodeData } from '@/constants';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
@@ -12,9 +13,6 @@ import {
   NodeMapItem,
   NodeMapping,
   NodeSelect,
-  ProFLowEdge,
-  ProFlowNode,
-  ProFlowNodeData,
 } from './constants';
 
 function getTypeFromEdge(node: NodeMapItem) {
@@ -30,7 +28,7 @@ function getTypeFromEdge(node: NodeMapItem) {
   return 'default';
 }
 
-export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[]) {
+export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFlowEdge[], zoom: number) {
   const mapping: NodeMapping = {};
   nodes.forEach((node) => {
     mapping[node.id] = {
@@ -40,6 +38,8 @@ export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[]) {
       select: node.select,
       right: [],
       left: [],
+      zoom,
+      label: node.label,
     };
   });
 
@@ -106,33 +106,37 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   }
 }
 
-function getRenderEdge(node: NodeMapItem, targetNode: NodeMapItem) {
-  const { id } = node;
-  const { id: targetId, select = NodeSelect.DEFAULT } = targetNode;
+export function getRenderEdges(edges: ProFlowEdge[]) {
+  return edges.map((edge) => {
+    const { source, target, select = NodeSelect.DEFAULT } = edge;
 
-  return {
-    id: `${id}-${targetId}`,
-    source: id!,
-    target: targetId!,
-    type: 'radiusEdge',
-    className: getEdgeClsFromNodeSelect(select),
-  };
+    return {
+      id: `${source}-${target}`,
+      source,
+      target,
+      type: 'radiusEdge',
+      className: getEdgeClsFromNodeSelect(select),
+    };
+  });
 }
 
 export const getRenderData = (
   mapping: NodeMapping,
+  edges: ProFlowEdge[],
 ): {
   nodes: Node[];
   edges: Edge[];
 } => {
   const renderNodes: Node[] = [];
-  const renderEdges: Edge[] = [];
+  const renderEdges: Edge[] = getRenderEdges(edges);
   // const { styles, cx } = useStyles();
 
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
     const { select = NodeSelect.DEFAULT } = node;
-    console.log(node);
+
+    console.log(node.zoom);
+
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
@@ -149,6 +153,8 @@ export const getRenderData = (
             group={node.group}
             data={node.data! as ProFlowNode[]}
             select={select}
+            zoom={node.zoom}
+            label={node.label}
           />
         ) : (
           <BloodNode
@@ -156,16 +162,12 @@ export const getRenderData = (
             description={(node.data! as ProFlowNodeData).describe!}
             logo={(node.data! as ProFlowNodeData).logo!}
             selectType={select}
+            zoom={node.zoom}
+            label={node.label}
           />
         ),
       },
     });
-
-    if (node.right!.length) {
-      node.right!.forEach((targetId: string) => {
-        renderEdges.push(getRenderEdge(node, mapping[targetId]));
-      });
-    }
   });
 
   const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges);
