@@ -18,6 +18,7 @@ export interface ProFlowNode {
   group?: boolean;
   select?: NodeSelect;
   data: ProFlowNodeData | ProFlowNode[];
+  label?: string;
 }
 
 export interface ProFlowEdge {

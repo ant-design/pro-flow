@@ -14,6 +14,7 @@ const nodes: ProFlowNode[] = [
   {
     id: 'a1',
     select: NodeSelect.SELECT,
+    label: '123',
     data: {
       title: 'XXX数据源',
       describe: 'cksadjfnf',

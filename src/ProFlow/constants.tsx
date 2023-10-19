@@ -36,6 +36,8 @@ export interface NodeMapItem {
   logo?: string;
   data: ProFlowNodeData | ProFlowNode[];
   nodeType?: string;
+  zoom?: number;
+  label?: string;
   position?: {
     x: number;
     y: number;

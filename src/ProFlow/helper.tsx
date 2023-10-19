@@ -30,7 +30,7 @@ function getTypeFromEdge(node: NodeMapItem) {
   return 'default';
 }
 
-export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[]) {
+export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[], zoom: number) {
   const mapping: NodeMapping = {};
   nodes.forEach((node) => {
     mapping[node.id] = {
@@ -40,6 +40,8 @@ export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[]) {
       select: node.select,
       right: [],
       left: [],
+      zoom,
+      label: node.label,
     };
   });
 
@@ -132,7 +134,9 @@ export const getRenderData = (
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
     const { select = NodeSelect.DEFAULT } = node;
-    console.log(node);
+
+    console.log(node.zoom);
+
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
@@ -149,6 +153,7 @@ export const getRenderData = (
             group={node.group}
             data={node.data! as ProFlowNode[]}
             select={select}
+            zoom={node.zoom}
           />
         ) : (
           <BloodNode
@@ -156,6 +161,8 @@ export const getRenderData = (
             description={(node.data! as ProFlowNodeData).describe!}
             logo={(node.data! as ProFlowNodeData).logo!}
             selectType={select}
+            zoom={node.zoom}
+            label={node.label}
           />
         ),
       },

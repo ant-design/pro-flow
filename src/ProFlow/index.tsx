@@ -1,5 +1,12 @@
 import React, { useCallback, useMemo, type MouseEvent as ReactMouseEvent } from 'react';
-import ReactFlow, { Background, BackgroundVariant, Edge, Node } from 'reactflow';
+import ReactFlow, {
+  Background,
+  BackgroundVariant,
+  Edge,
+  Node,
+  ReactFlowProvider,
+  useViewport,
+} from 'reactflow';
 import 'reactflow/dist/style.css';
 import { ProFlowController, ProFlowProps, RadiusEdge } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
@@ -9,7 +16,7 @@ const MIN_ZOOM = 0.1;
 
 const initFn = () => {};
 
-const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
+const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
   const {
     onNodeDragStart = initFn,
     onPaneClick = initFn,
@@ -19,7 +26,8 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
     miniMap = true,
   } = props;
   const { styles, cx } = useStyles();
-  const mapping = convertMappingFrom(nodes!, edges!);
+  const { zoom } = useViewport();
+  const mapping = useMemo(() => convertMappingFrom(nodes!, edges!, zoom), [nodes, edges, zoom]);
   const renderData = useMemo((): {
     nodes: Node[];
     edges: Edge[];
@@ -38,6 +46,7 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
       };
     }
   }, [mapping]);
+
   // const [_edges] = useEdgesState(renderData.edges);
 
   const handleNodeDragStart = useCallback(
@@ -86,6 +95,14 @@ const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
       {miniMap && <ProFlowController />}
       <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
     </ReactFlow>
+  );
+};
+
+const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
+  return (
+    <ReactFlowProvider>
+      <Flow {...props} />
+    </ReactFlowProvider>
   );
 };
 
