@@ -3,6 +3,7 @@ import BloodNode from '@/BloodNode';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
+import { ProFlowEdge } from '..';
 import {
   EDGE_DANGER,
   EDGE_SELECT,
@@ -108,27 +109,29 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   }
 }
 
-function getRenderEdge(node: NodeMapItem, targetNode: NodeMapItem) {
-  const { id } = node;
-  const { id: targetId, select = NodeSelect.DEFAULT } = targetNode;
+export function getRenderEdges(edges: ProFLowEdge[]) {
+  return edges.map((edge) => {
+    const { source, target, select = NodeSelect.DEFAULT } = edge;
 
-  return {
-    id: `${id}-${targetId}`,
-    source: id!,
-    target: targetId!,
-    type: 'radiusEdge',
-    className: getEdgeClsFromNodeSelect(select),
-  };
+    return {
+      id: `${source}-${target}`,
+      source,
+      target,
+      type: 'radiusEdge',
+      className: getEdgeClsFromNodeSelect(select),
+    };
+  });
 }
 
 export const getRenderData = (
   mapping: NodeMapping,
+  edges: ProFlowEdge[],
 ): {
   nodes: Node[];
   edges: Edge[];
 } => {
   const renderNodes: Node[] = [];
-  const renderEdges: Edge[] = [];
+  const renderEdges: Edge[] = getRenderEdges(edges);
   // const { styles, cx } = useStyles();
 
   Object.keys(mapping).forEach((id) => {
@@ -168,12 +171,6 @@ export const getRenderData = (
         ),
       },
     });
-
-    if (node.right!.length) {
-      node.right!.forEach((targetId: string) => {
-        renderEdges.push(getRenderEdge(node, mapping[targetId]));
-      });
-    }
   });
 
   const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges);

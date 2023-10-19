@@ -32,12 +32,11 @@ const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
     nodes: Node[];
     edges: Edge[];
   } => {
-    if (mapping) {
-      const { nodes, edges } = getRenderData(mapping);
-
+    if (mapping && edges!.length) {
+      const { nodes, edges: _edges } = getRenderData(mapping, edges!);
       return {
         nodes,
-        edges,
+        edges: _edges,
       };
     } else {
       return {
@@ -45,7 +44,7 @@ const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
         edges: [],
       };
     }
-  }, [mapping]);
+  }, [mapping, edges]);
 
   // const [_edges] = useEdgesState(renderData.edges);
 

@@ -125,21 +125,25 @@ const edges = [
   {
     id: 'a1-a2',
     source: 'a1',
+    select: NodeSelect.WARNING,
     target: 'a2',
   },
   {
     id: 'a1-b1',
     source: 'a1',
+    select: NodeSelect.WARNING,
     target: 'b1',
   },
   {
     id: 'a2-a3',
     source: 'a2',
+    select: NodeSelect.WARNING,
     target: 'a3',
   },
   {
     id: 'a3-a4',
     source: 'a3',
+    select: NodeSelect.WARNING,
     target: 'a4',
   },
 ];
