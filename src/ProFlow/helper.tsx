@@ -1,9 +1,9 @@
 import BloodNodeGroup from '@/BloodGroupNode';
 import BloodNode from '@/BloodNode';
+import { ProFlowEdge, ProFlowNode, ProFlowNodeData } from '@/constants';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
-import { ProFlowEdge } from '..';
 import {
   EDGE_DANGER,
   EDGE_SELECT,
@@ -13,9 +13,6 @@ import {
   NodeMapItem,
   NodeMapping,
   NodeSelect,
-  ProFLowEdge,
-  ProFlowNode,
-  ProFlowNodeData,
 } from './constants';
 
 function getTypeFromEdge(node: NodeMapItem) {
@@ -31,7 +28,7 @@ function getTypeFromEdge(node: NodeMapItem) {
   return 'default';
 }
 
-export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFLowEdge[], zoom: number) {
+export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFlowEdge[], zoom: number) {
   const mapping: NodeMapping = {};
   nodes.forEach((node) => {
     mapping[node.id] = {
@@ -109,7 +106,7 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   }
 }
 
-export function getRenderEdges(edges: ProFLowEdge[]) {
+export function getRenderEdges(edges: ProFlowEdge[]) {
   return edges.map((edge) => {
     const { source, target, select = NodeSelect.DEFAULT } = edge;
 
