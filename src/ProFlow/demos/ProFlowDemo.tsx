@@ -61,7 +61,7 @@ const nodes: ProFlowNode[] = [
   },
   {
     id: 'b1',
-    select: NodeSelect.DEFAULT,
+    select: NodeSelect.SUB_SELECT,
     data: {
       title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
@@ -83,7 +83,7 @@ const nodes: ProFlowNode[] = [
   },
   {
     id: 'b2',
-    select: NodeSelect.DEFAULT,
+    select: NodeSelect.SUB_DANGER,
     data: {
       title: 'XXX_APIddddddddddddddddddddddddddddddddddddddddddddddddddd_b2',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
@@ -96,7 +96,7 @@ const nodes: ProFlowNode[] = [
   },
   {
     id: 'b3',
-    select: NodeSelect.DEFAULT,
+    select: NodeSelect.SUB_WARNING,
     data: {
       title: 'XXX_API_b3',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',

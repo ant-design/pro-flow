@@ -3,8 +3,11 @@ import { Node } from 'reactflow';
 
 export enum NodeSelect {
   SELECT = 'SELECT',
+  SUB_SELECT = 'SUB_SELECT',
   DANGER = 'DANGER',
+  SUB_DANGER = 'SUB_DANGER',
   WARNING = 'WARNING',
+  SUB_WARNING = 'SUB_WARNING',
   DEFAULT = 'DEFAULT',
 }
 

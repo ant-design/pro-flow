@@ -1,13 +1,15 @@
-import { ProFlowNode, ProFlowNodeData } from '@/constants';
 import { Node } from 'reactflow';
+import { ProFlowNode, ProFlowNodeData } from '../constants';
 
 export enum NodeSelect {
   SELECT = 'SELECT',
+  SUB_SELECT = 'SUB_SELECT',
   DANGER = 'DANGER',
+  SUB_DANGER = 'SUB_DANGER',
   WARNING = 'WARNING',
+  SUB_WARNING = 'SUB_WARNING',
   DEFAULT = 'DEFAULT',
 }
-
 export interface InitialNode extends Node {
   width?: number;
   height?: number;
@@ -47,8 +49,12 @@ export interface NodeMapItem {
 export type NodeMapping = Record<string, NodeMapItem>;
 
 export const NODE_SELECT = 'nodeSelected';
+export const NODE_SUB_SELECT = 'nodeSubSelected';
 export const NODE_DANGER = 'nodeDanger';
+export const NODE_SUB_DANGER = 'nodeSubDanger';
 export const NODE_WARNING = 'nodeWarning';
+export const NODE_SUB_WARNING = 'nodeSubWarning';
+
 export const INIT_NODE = 'initialNode';
 export const NODE_WRAP = 'nodeWrap';
 export const EDGE_SELECT = 'edgeSelected';
