@@ -115,18 +115,44 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   }
 }
 
-export function getRenderEdges(edges: ProFlowEdge[]) {
-  return edges.map((edge) => {
-    const { source, target, select = NodeSelect.DEFAULT } = edge;
+function getEdgeLevel(select: NodeSelect) {
+  switch (select) {
+    case NodeSelect.SELECT:
+      return 6;
+    case NodeSelect.SUB_SELECT:
+      return 5;
+    case NodeSelect.DANGER:
+      return 4;
+    case NodeSelect.SUB_DANGER:
+      return 3;
+    case NodeSelect.WARNING:
+      return 2;
+    case NodeSelect.SUB_WARNING:
+      return 1;
+    default:
+      return 0;
+  }
+}
 
-    return {
-      id: `${source}-${target}`,
-      source,
-      target,
-      type: 'radiusEdge',
-      className: getEdgeClsFromNodeSelect(select),
-    };
-  });
+export function getRenderEdges(edges: ProFlowEdge[]) {
+  console.log(edges);
+  return edges
+    .sort((a, b) => {
+      const aLevel = a.select ? getEdgeLevel(a.select) : 0;
+      const bLevel = b.select ? getEdgeLevel(b.select) : 0;
+      return aLevel - bLevel;
+    })
+    .map((edge) => {
+      const { source, target, select = NodeSelect.DEFAULT } = edge;
+
+      return {
+        id: `${source}-${target}`,
+        source,
+        target,
+        type: 'radiusEdge',
+        className: getEdgeClsFromNodeSelect(select),
+      };
+    });
 }
 
 export const getRenderData = (

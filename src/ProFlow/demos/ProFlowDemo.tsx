@@ -124,7 +124,7 @@ const nodes: ProFlowNode[] = [
   {
     id: 'd1',
     group: true,
-    select: NodeSelect.WARNING,
+    select: NodeSelect.SUB_SELECT,
     label: '456',
     data: [
       {
@@ -198,7 +198,7 @@ const edges = [
   {
     id: 'a1-b1',
     source: 'a1',
-    select: NodeSelect.WARNING,
+    select: NodeSelect.SUB_WARNING,
     target: 'b1',
     type: EdgeType.default,
   },
