@@ -33,6 +33,10 @@ export interface ProFlowNodeData {
   title: string;
   describe: string;
   logo: string;
+  titleSlot?: {
+    type: 'left' | 'right';
+    value: React.ReactNode;
+  };
 }
 
 export interface ProFlowProps {

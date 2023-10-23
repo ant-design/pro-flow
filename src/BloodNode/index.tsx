@@ -14,6 +14,10 @@ interface BloodNodeProps {
   selectType?: NodeSelect;
   zoom?: number;
   label?: string;
+  titleSlot?: {
+    type: 'left' | 'right';
+    value: React.ReactNode;
+  };
 }
 
 const zoomNum = (num: number, zoom: number, limitMax?: boolean) => {
@@ -31,6 +35,20 @@ export const ArtboardTitle = styled.div<{ zoom: number }>`
   border-radius: 4px;
   font-size: ${({ zoom }) => `${14 / zoom}px`};
   white-space: nowrap;
+`;
+
+const TitleSlotLeft = styled.div`
+  width: 28px;
+  height: 28px;
+  margin-left: 8px;
+`;
+
+const TitleSlotRight = styled.div`
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  right: 13px;
+  top: 9px;
 `;
 
 export function getClsFromSelectType(select: NodeSelect) {
@@ -54,10 +72,9 @@ const BloodNode: React.FC<Partial<BloodNodeProps>> = ({
   selectType = NodeSelect.SELECT,
   zoom = 1,
   label,
+  titleSlot,
 }) => {
   const { styles, cx } = useStyles();
-
-  console.log(zoom);
 
   return (
     <>
@@ -71,9 +88,17 @@ const BloodNode: React.FC<Partial<BloodNodeProps>> = ({
         <div className={'content'}>
           <div className={'title'}>
             <span>{title}</span>
-            {/* {mainDanger && <DangerLogo />}
-        {qualityScore && <ApiScore score={parseFloat(qualityScore)} />} */}
+            {!!titleSlot && !!titleSlot.value && titleSlot.type === 'left' && (
+              <TitleSlotLeft>{titleSlot.value}</TitleSlotLeft>
+            )}
+            {!!titleSlot && !!titleSlot.value && titleSlot.type === 'right' && (
+              <TitleSlotLeft>
+                <div style={{ width: '28px' }}></div>
+                <TitleSlotRight>{titleSlot.value}</TitleSlotRight>
+              </TitleSlotLeft>
+            )}
           </div>
+
           <div className={'des'}>{description}</div>
         </div>
       </div>

@@ -135,8 +135,6 @@ export const getRenderData = (
     const node = mapping[id];
     const { select = NodeSelect.DEFAULT } = node;
 
-    console.log(node.zoom);
-
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
@@ -164,6 +162,7 @@ export const getRenderData = (
             selectType={select}
             zoom={node.zoom}
             label={node.label}
+            titleSlot={(node.data! as ProFlowNodeData).titleSlot}
           />
         ),
       },

@@ -1,14 +1,52 @@
-import { NodeSelect, ProFlowNode } from '@/index';
+import { EdgeType, NodeSelect, ProFlowNode } from '@/index';
+import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
+import styled from 'styled-components';
 import ProFlow from '..';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
     width: 100%;
     height: 600px;
+    .ant-progress-text {
+      text-align: center !important;
+    }
   `,
 }));
+
+const ApiScore: React.FC<{ score: number }> = ({ score }) => {
+  return (
+    <Progress
+      style={{
+        fontSize: '6px',
+        textAlign: 'center',
+      }}
+      type="circle"
+      trailColor={'white'}
+      percent={score === 0 ? 1 : score * 20}
+      strokeColor={score * 20 > 60 ? '#30a46c' : '#e5484d'}
+      format={() => `${score}`}
+      size={[28, 6]}
+    />
+  );
+};
+
+const DangerLogo = styled.div`
+  width: 28px;
+  height: 16px;
+  background: #ffeef1;
+  border-radius: 7px;
+
+  margin-top: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 8px;
+    height: 9px;
+  }
+`;
 
 const nodes: ProFlowNode[] = [
   {
@@ -22,25 +60,60 @@ const nodes: ProFlowNode[] = [
     },
   },
   {
-    id: 'a2',
-    select: NodeSelect.DANGER,
-    data: {
-      title: 'XXX_API',
-      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
-    },
-  },
-  {
     id: 'b1',
-    select: NodeSelect.DANGER,
+    select: NodeSelect.DEFAULT,
     data: {
-      title: 'XXX_API',
+      title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      describe: 'XXX_XXX_XXX_API',
+      titleSlot: {
+        type: 'left',
+        value: (
+          <DangerLogo>
+            <img
+              src={
+                'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*wkEJRbSowekAAAAAAAAAAAAADvuvAQ/original'
+              }
+              alt=""
+            />
+          </DangerLogo>
+        ),
+      },
+    },
+  },
+  {
+    id: 'b2',
+    select: NodeSelect.DEFAULT,
+    data: {
+      title: 'XXX_APIddddddddddddddddddddddddddddddddddddddddddddddddddd_b2',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      describe: 'XXX_XXX_XXX_API',
+      titleSlot: {
+        type: 'right',
+        value: <ApiScore score={4} />,
+      },
+    },
+  },
+  {
+    id: 'b3',
+    select: NodeSelect.DEFAULT,
+    data: {
+      title: 'XXX_API_b3',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
       describe: 'XXX_XXX_XXX_API',
     },
   },
   {
-    id: 'a3',
+    id: 'b4',
+    select: NodeSelect.DEFAULT,
+    data: {
+      title: 'XXX_API_b4',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      describe: 'XXX_XXX_XXX_API',
+    },
+  },
+  {
+    id: 'c1',
     select: NodeSelect.WARNING,
     data: {
       title: 'XXXX产品',
@@ -49,7 +122,7 @@ const nodes: ProFlowNode[] = [
     },
   },
   {
-    id: 'a4',
+    id: 'd1',
     group: true,
     select: NodeSelect.WARNING,
     label: '456',
@@ -123,28 +196,68 @@ const nodes: ProFlowNode[] = [
 
 const edges = [
   {
-    id: 'a1-a2',
-    source: 'a1',
-    select: NodeSelect.WARNING,
-    target: 'a2',
-  },
-  {
     id: 'a1-b1',
     source: 'a1',
     select: NodeSelect.WARNING,
     target: 'b1',
+    type: EdgeType.default,
   },
   {
-    id: 'a2-a3',
-    source: 'a2',
+    id: 'a1-b2',
+    source: 'a1',
     select: NodeSelect.WARNING,
-    target: 'a3',
+    target: 'b2',
+    type: EdgeType.default,
   },
   {
-    id: 'a3-a4',
-    source: 'a3',
+    id: 'a1-b3',
+    source: 'a1',
     select: NodeSelect.WARNING,
-    target: 'a4',
+    target: 'b3',
+    type: EdgeType.default,
+  },
+  {
+    id: 'a1-b4',
+    source: 'a1',
+    select: NodeSelect.WARNING,
+    target: 'b4',
+    type: EdgeType.default,
+  },
+
+  {
+    id: 'b2-c1',
+    source: 'b2',
+    select: NodeSelect.WARNING,
+    target: 'c1',
+    type: EdgeType.default,
+  },
+  {
+    id: 'b3-c1',
+    source: 'b3',
+    select: NodeSelect.WARNING,
+    target: 'c1',
+    type: EdgeType.default,
+  },
+  {
+    id: 'b1-c1',
+    source: 'b1',
+    select: NodeSelect.WARNING,
+    target: 'c1',
+    type: EdgeType.default,
+  },
+  {
+    id: 'b4-c1',
+    source: 'b4',
+    select: NodeSelect.WARNING,
+    target: 'c1',
+    type: EdgeType.default,
+  },
+  {
+    id: 'c1-d1',
+    source: 'c1',
+    select: NodeSelect.WARNING,
+    target: 'd1',
+    type: EdgeType.default,
   },
 ];
 
