@@ -1,7 +1,7 @@
 <p align="center">
   <img width="160" src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg">
 </p>
-<h1 align="center">Pro Flow Editor</h1>
+<h1 align="center">Pro Flow</h1>
 
 <div align="center">
 
