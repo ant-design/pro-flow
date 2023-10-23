@@ -55,8 +55,12 @@ export const NODE_SUB_DANGER = 'nodeSubDanger';
 export const NODE_WARNING = 'nodeWarning';
 export const NODE_SUB_WARNING = 'nodeSubWarning';
 
+export const EDGE_SELECT = 'edgeSelected';
+export const EDGE_SUB_SELECT = 'edgeSubSelected';
+export const EDGE_DANGER = 'edgeDanger';
+export const EDGE_SUB_DANGER = 'edgeSubDanger';
+export const EDGE_WARNING = 'edgeWarning';
+export const EDGE_SUB_WARNING = 'edgeSubWarning';
+
 export const INIT_NODE = 'initialNode';
 export const NODE_WRAP = 'nodeWrap';
-export const EDGE_SELECT = 'edgeSelected';
-export const EDGE_DANGER = 'edgeDanger';
-export const EDGE_WARNING = 'edgeWarning';

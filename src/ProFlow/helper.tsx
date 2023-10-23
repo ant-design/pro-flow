@@ -7,6 +7,9 @@ import { Edge, Node, Position } from 'reactflow';
 import {
   EDGE_DANGER,
   EDGE_SELECT,
+  EDGE_SUB_DANGER,
+  EDGE_SUB_SELECT,
+  EDGE_SUB_WARNING,
   EDGE_WARNING,
   INIT_NODE,
   InitialNode,
@@ -97,10 +100,16 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   switch (select) {
     case NodeSelect.SELECT:
       return EDGE_SELECT;
+    case NodeSelect.SUB_SELECT:
+      return EDGE_SUB_SELECT;
     case NodeSelect.DANGER:
       return EDGE_DANGER;
+    case NodeSelect.SUB_DANGER:
+      return EDGE_SUB_DANGER;
     case NodeSelect.WARNING:
       return EDGE_WARNING;
+    case NodeSelect.SUB_WARNING:
+      return EDGE_SUB_WARNING;
     default:
       return 'edgeDefault';
   }
