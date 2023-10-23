@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.10.0](https://github.com/ant-design/pro-flow/compare/v0.9.0...v0.10.0)
+
+<sup>Released on **2023-10-23**</sup>
+
+#### ✨ 新特性
+
+- 新增 titleSlot 能力、edge 的优先级与强弱区分。.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- 新增 titleSlot 能力、edge 的优先级与强弱区分。, closes [#17](https://github.com/ant-design/pro-flow/issues/17) ([b1858a6](https://github.com/ant-design/pro-flow/commit/b1858a6))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.9.0](https://github.com/ant-design/pro-flow/compare/v0.8.0...v0.9.0)
 
 <sup>Released on **2023-10-19**</sup>
