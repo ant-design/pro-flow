@@ -149,7 +149,7 @@ export function getRenderEdges(edges: ProFlowEdge[]) {
         id: `${source}-${target}`,
         source,
         target,
-        type: 'radiusEdge',
+        type: 'smoothstep',
         className: getEdgeClsFromNodeSelect(select),
       };
     });

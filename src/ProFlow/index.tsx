@@ -8,7 +8,7 @@ import ReactFlow, {
   useViewport,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { ProFlowController, ProFlowProps, RadiusEdge } from '../index';
+import { ProFlowController, ProFlowProps } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
 import { useStyles } from './styles';
 
@@ -84,9 +84,10 @@ const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
       onNodeClick={handleNodeClick}
       nodes={renderData.nodes}
       edges={renderData.edges}
-      edgeTypes={{
-        radiusEdge: RadiusEdge,
-      }}
+      // edgeTypes={{
+      //   // radiusEdge: RadiusEdge,
+      //   // defaultEdge: DefaultEdge,
+      // }}
       panOnScroll
       fitView
       minZoom={MIN_ZOOM}
