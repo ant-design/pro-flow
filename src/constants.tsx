@@ -52,3 +52,14 @@ export interface ProFlowProps {
   style?: CSSProperties;
   miniMap?: boolean;
 }
+
+export interface ProFlowProps {
+  onNodeDragStart?: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
+  onPaneClick?: (event: ReactMouseEvent) => void;
+  onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
+  nodes: ProFlowNode[];
+  edges: ProFlowEdge[];
+  className?: string;
+  style?: CSSProperties;
+  miniMap?: boolean;
+}

@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.9.0](https://github.com/ant-design/pro-flow/compare/v0.8.0...v0.9.0)
+
+<sup>Released on **2023-10-19**</sup>
+
+#### ✨ 新特性
+
+- New capabilities for node and edge.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- New capabilities for node and edge, closes [#16](https://github.com/ant-design/pro-flow/issues/16) ([cd7553b](https://github.com/ant-design/pro-flow/commit/cd7553b))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.8.0](https://github.com/ant-design/pro-flow/compare/v0.7.0...v0.8.0)
 
 <sup>Released on **2023-10-07**</sup>

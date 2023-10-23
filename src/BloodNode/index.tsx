@@ -90,6 +90,8 @@ const BloodNode: React.FC<Partial<BloodNodeProps>> = ({
 }) => {
   const { styles, cx } = useStyles();
 
+  console.log(zoom);
+
   return (
     <>
       {label && (
