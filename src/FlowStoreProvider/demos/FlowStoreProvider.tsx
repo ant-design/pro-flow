@@ -37,7 +37,6 @@ export default () => {
     <FlowStoreProvider
       flattenNodes={nodes}
       onFlattenNodesChange={(flattenNodes) => {
-        console.log(flattenNodes);
         setNodes(flattenNodes);
       }}
     >

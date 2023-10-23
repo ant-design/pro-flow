@@ -1,4 +1,4 @@
-import { ProFlow, ProFlowNode } from '@ant-design/pro-flow';
+import { EdgeType, ProFlow, ProFlowNode } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 
@@ -41,6 +41,7 @@ const edges = [
     id: 'a1-a2',
     source: 'a1',
     target: 'a2',
+    type: EdgeType.default,
   },
   {
     id: 'a2-a3',

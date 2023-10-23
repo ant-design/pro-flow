@@ -7,6 +7,9 @@ import { Edge, Node, Position } from 'reactflow';
 import {
   EDGE_DANGER,
   EDGE_SELECT,
+  EDGE_SUB_DANGER,
+  EDGE_SUB_SELECT,
+  EDGE_SUB_WARNING,
   EDGE_WARNING,
   INIT_NODE,
   InitialNode,
@@ -97,27 +100,58 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   switch (select) {
     case NodeSelect.SELECT:
       return EDGE_SELECT;
+    case NodeSelect.SUB_SELECT:
+      return EDGE_SUB_SELECT;
     case NodeSelect.DANGER:
       return EDGE_DANGER;
+    case NodeSelect.SUB_DANGER:
+      return EDGE_SUB_DANGER;
     case NodeSelect.WARNING:
       return EDGE_WARNING;
+    case NodeSelect.SUB_WARNING:
+      return EDGE_SUB_WARNING;
     default:
       return 'edgeDefault';
   }
 }
 
-export function getRenderEdges(edges: ProFlowEdge[]) {
-  return edges.map((edge) => {
-    const { source, target, select = NodeSelect.DEFAULT } = edge;
+function getEdgeLevel(select: NodeSelect) {
+  switch (select) {
+    case NodeSelect.SELECT:
+      return 6;
+    case NodeSelect.SUB_SELECT:
+      return 5;
+    case NodeSelect.DANGER:
+      return 4;
+    case NodeSelect.SUB_DANGER:
+      return 3;
+    case NodeSelect.WARNING:
+      return 2;
+    case NodeSelect.SUB_WARNING:
+      return 1;
+    default:
+      return 0;
+  }
+}
 
-    return {
-      id: `${source}-${target}`,
-      source,
-      target,
-      type: 'radiusEdge',
-      className: getEdgeClsFromNodeSelect(select),
-    };
-  });
+export function getRenderEdges(edges: ProFlowEdge[]) {
+  return edges
+    .sort((a, b) => {
+      const aLevel = a.select ? getEdgeLevel(a.select) : 0;
+      const bLevel = b.select ? getEdgeLevel(b.select) : 0;
+      return aLevel - bLevel;
+    })
+    .map((edge) => {
+      const { source, target, select = NodeSelect.DEFAULT } = edge;
+
+      return {
+        id: `${source}-${target}`,
+        source,
+        target,
+        type: 'smoothstep',
+        className: getEdgeClsFromNodeSelect(select),
+      };
+    });
 }
 
 export const getRenderData = (
@@ -134,8 +168,6 @@ export const getRenderData = (
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
     const { select = NodeSelect.DEFAULT } = node;
-
-    console.log(node.zoom);
 
     renderNodes.push({
       sourcePosition: Position.Right,
@@ -164,6 +196,7 @@ export const getRenderData = (
             selectType={select}
             zoom={node.zoom}
             label={node.label}
+            titleSlot={(node.data! as ProFlowNodeData).titleSlot}
           />
         ),
       },

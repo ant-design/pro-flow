@@ -1,5 +1,13 @@
 import { createStyles } from 'antd-style';
-import { EDGE_DANGER, EDGE_SELECT, EDGE_WARNING, INIT_NODE } from './constants';
+import {
+  EDGE_DANGER,
+  EDGE_SELECT,
+  EDGE_SUB_DANGER,
+  EDGE_SUB_SELECT,
+  EDGE_SUB_WARNING,
+  EDGE_WARNING,
+  INIT_NODE,
+} from './constants';
 
 export const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -28,15 +36,33 @@ export const useStyles = createStyles(({ css }) => ({
       z-index: 100;
     }
 
+    .${EDGE_SUB_SELECT} path {
+      stroke: #1677ff;
+      stroke-width: 1;
+      z-index: 100;
+    }
+
     .${EDGE_DANGER} path {
       stroke: #f7636e;
       stroke-width: 2;
       z-index: 100;
     }
 
+    .${EDGE_SUB_DANGER} path {
+      stroke: #f7636e;
+      stroke-width: 1;
+      z-index: 100;
+    }
+
     .${EDGE_WARNING} path {
       stroke: #ef9d3b;
       stroke-width: 2;
+      z-index: 100;
+    }
+
+    .${EDGE_SUB_WARNING} path {
+      stroke: #ef9d3b;
+      stroke-width: 1;
       z-index: 100;
     }
 

@@ -40,10 +40,11 @@ const useStyles = createStyles(({ css }) => ({
 
 interface ProFlowControllerProps {
   visible?: boolean;
+  className?: string;
 }
 
 const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => {
-  const { visible = false } = props;
+  const { visible = false, className = '' } = props;
   const reactFlow = useReactFlow();
   const { zoom } = useViewport();
   const { styles, cx } = useStyles();
@@ -67,7 +68,7 @@ const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => 
   };
 
   return (
-    <div className={cx(styles.container, visible && styles.visible)}>
+    <div className={cx(styles.container, visible && styles.visible, className)}>
       <div className={styles.controlAction}>
         <Space>
           <Button icon={<MinusOutlined />} onClick={handleZoomOut} />
