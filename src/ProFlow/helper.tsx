@@ -84,13 +84,19 @@ export function setNodePosition(nodes: Node[], edges: Edge[]) {
 }
 
 function sortEdges(edges: Edge[]) {
-  const highEdges: Edge[] = edges.filter((item) =>
-    item.className?.includes('initialNode-selected'),
+  console.log(edges);
+  const highEdges: Edge[] = edges.filter((item) => {
+    return item.className?.includes('edgeSelected') || item.className?.includes('edgeSubSelected');
+  });
+  const midEdges: Edge[] = edges.filter(
+    (item) => item.className?.includes('edgeDanger') || item.className?.includes('edgeSubDanger'),
   );
-  const midEdges: Edge[] = edges.filter((item) => item.className?.includes('edgeDanger'));
   const lowEdges: Edge[] = edges.filter(
     (item) =>
-      !item.className?.includes('initialNode-selected') && !item.className?.includes('edgeDanger'),
+      !item.className?.includes('edgeSelected') &&
+      !item.className?.includes('edgeSubSelected') &&
+      !item.className?.includes('edgeDanger') &&
+      !item.className?.includes('edgeSubDanger'),
   );
 
   return [...lowEdges, ...midEdges, ...highEdges];
@@ -115,43 +121,43 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
   }
 }
 
-function getEdgeLevel(select: NodeSelect) {
-  switch (select) {
-    case NodeSelect.SELECT:
-      return 6;
-    case NodeSelect.SUB_SELECT:
-      return 5;
-    case NodeSelect.DANGER:
-      return 4;
-    case NodeSelect.SUB_DANGER:
-      return 3;
-    case NodeSelect.WARNING:
-      return 2;
-    case NodeSelect.SUB_WARNING:
-      return 1;
-    default:
-      return 0;
-  }
-}
+// function getEdgeLevel(select: NodeSelect) {
+//   switch (select) {
+//     case NodeSelect.SELECT:
+//       return 6;
+//     case NodeSelect.SUB_SELECT:
+//       return 5;
+//     case NodeSelect.DANGER:
+//       return 4;
+//     case NodeSelect.SUB_DANGER:
+//       return 3;
+//     case NodeSelect.WARNING:
+//       return 2;
+//     case NodeSelect.SUB_WARNING:
+//       return 1;
+//     default:
+//       return 0;
+//   }
+// }
 
 export function getRenderEdges(edges: ProFlowEdge[]) {
-  return edges
-    .sort((a, b) => {
-      const aLevel = a.select ? getEdgeLevel(a.select) : 0;
-      const bLevel = b.select ? getEdgeLevel(b.select) : 0;
-      return aLevel - bLevel;
-    })
-    .map((edge) => {
-      const { source, target, select = NodeSelect.DEFAULT } = edge;
+  return edges.map((edge) => {
+    const { source, target, select = NodeSelect.DEFAULT } = edge;
 
-      return {
-        id: `${source}-${target}`,
-        source,
-        target,
-        type: 'smoothstep',
-        className: getEdgeClsFromNodeSelect(select),
-      };
-    });
+    return {
+      id: `${source}-${target}`,
+      source,
+      target,
+      type: 'smoothstep',
+      className: getEdgeClsFromNodeSelect(select),
+    };
+  });
+
+  // .sort((a, b) => {
+  //   const aLevel = a.select ? getEdgeLevel(a.select) : 0;
+  //   const bLevel = b.select ? getEdgeLevel(b.select) : 0;
+  //   return aLevel - bLevel;
+  // })
 }
 
 export const getRenderData = (
