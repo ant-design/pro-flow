@@ -135,7 +135,6 @@ function getEdgeLevel(select: NodeSelect) {
 }
 
 export function getRenderEdges(edges: ProFlowEdge[]) {
-  console.log(edges);
   return edges
     .sort((a, b) => {
       const aLevel = a.select ? getEdgeLevel(a.select) : 0;
