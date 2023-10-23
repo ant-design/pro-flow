@@ -92,7 +92,7 @@ const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
       fitView
       minZoom={MIN_ZOOM}
     >
-      {miniMap && <ProFlowController />}
+      {miniMap && <ProFlowController className={'pro-flow-controller'} />}
       <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
     </ReactFlow>
   );
