@@ -182,8 +182,8 @@ export const getRenderData = (
       id: node.id!,
       position: { x: 0, y: 0 },
       type: getTypeFromEdge(node),
-      width: 320,
-      height: 83,
+      width: node.group ? 355 : 320,
+      height: node.group ? 1100 : 83,
       className: cx(INIT_NODE),
       data: {
         label: node.group ? (
