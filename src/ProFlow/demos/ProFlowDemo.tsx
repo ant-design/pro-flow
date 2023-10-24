@@ -1,9 +1,10 @@
 import { NodeSelect, ProFlowEdge, ProFlowNode } from '@/index';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
-import { memo, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import ProFlow from '..';
+import { ProFlow } from '../../index';
+import { FlowViewProvider } from '../provider/FlowViewProvider';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -229,14 +230,12 @@ const edges: ProFlowEdge[] = [
   },
 ];
 
-const ProFlowDemo = memo(() => {
+const ProFlowDemo = () => {
   const [_nodes, setNodes] = useState<ProFlowNode[]>([...nodes]);
   const [_edges, setEdges] = useState<ProFlowEdge[]>([...edges]);
   const { styles } = useStyles();
 
   const handleHighlight = (node: ProFlowNode) => {
-    console.log(node);
-
     setEdges(
       edges.map((edge) => {
         if (edge.source === node.id || edge.target === node.id) {
@@ -261,9 +260,17 @@ const ProFlowDemo = memo(() => {
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
-      />
+      ></ProFlow>
     </div>
   );
-});
+};
 
-export default ProFlowDemo;
+const FlowDemo = () => {
+  return (
+    <FlowViewProvider>
+      <ProFlowDemo />
+    </FlowViewProvider>
+  );
+};
+
+export default FlowDemo;

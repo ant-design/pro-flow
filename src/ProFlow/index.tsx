@@ -1,22 +1,22 @@
-import React, { useCallback, useMemo, type MouseEvent as ReactMouseEvent } from 'react';
-import ReactFlow, {
-  Background,
-  BackgroundVariant,
-  Edge,
-  Node,
-  ReactFlowProvider,
-  useViewport,
-} from 'reactflow';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  type MouseEvent as ReactMouseEvent,
+} from 'react';
+import ReactFlow, { Background, BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { ProFlowController, ProFlowProps } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
+import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
 
 const MIN_ZOOM = 0.1;
-
+export const FlowContext = createContext({});
 const initFn = () => {};
 
-const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
+const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
   const {
     onNodeDragStart = initFn,
     onPaneClick = initFn,
@@ -24,6 +24,7 @@ const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
     nodes,
     edges,
     miniMap = true,
+    children,
   } = props;
   const { styles, cx } = useStyles();
   const { zoom } = useViewport();
@@ -46,8 +47,10 @@ const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
     }
   }, [mapping, edges]);
 
-  // const [_edges] = useEdgesState(renderData.edges);
+  const { miniMapPosition } = useContext(FlowViewContext);
 
+  // const reactFlowInstance = useReactFlow();
+  // console.log(reactFlowInstance);
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
       // TODO: 应当把事件中的 node 转换为 ProFlowNode 透出给用户
@@ -92,18 +95,13 @@ const Flow: React.FC<Partial<ProFlowProps>> = (props) => {
       fitView
       minZoom={MIN_ZOOM}
     >
-      {miniMap && <ProFlowController className={'pro-flow-controller'} />}
+      {miniMap && (
+        <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
+      )}
       <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
+      {children}
     </ReactFlow>
   );
 };
 
-const ProFlow: React.FC<Partial<ProFlowProps>> = (props) => {
-  return (
-    <ReactFlowProvider>
-      <Flow {...props} />
-    </ReactFlowProvider>
-  );
-};
-
-export default ProFlow;
+export default FlowView;
