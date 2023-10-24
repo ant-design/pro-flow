@@ -37,6 +37,8 @@ export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFlowEdge[], z
     mapping[node.id] = {
       id: node.id,
       group: node.group,
+      width: node.group ? 355 : 322,
+      height: node.group ? 1100 : 85,
       data: node.data,
       select: node.select,
       right: [],
