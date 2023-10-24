@@ -84,7 +84,6 @@ export function setNodePosition(nodes: Node[], edges: Edge[]) {
 }
 
 function sortEdges(edges: Edge[]) {
-  console.log(edges);
   const highEdges: Edge[] = edges.filter((item) => {
     return item.className?.includes('edgeSelected') || item.className?.includes('edgeSubSelected');
   });
