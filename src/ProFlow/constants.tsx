@@ -24,8 +24,6 @@ export interface NodeMapItem {
   title?: string;
   group?: boolean;
   des?: string;
-  width?: number;
-  height?: number;
   danger?: boolean;
   dangerCount?: number;
   type?: 'input' | 'output' | 'default';
