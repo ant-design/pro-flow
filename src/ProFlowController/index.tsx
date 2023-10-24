@@ -6,7 +6,6 @@ import { MiniMap, useReactFlow, useViewport } from 'reactflow';
 
 const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
   const { x, y } = props;
-  console.log(x, y);
   return {
     container: css`
       position: absolute;
