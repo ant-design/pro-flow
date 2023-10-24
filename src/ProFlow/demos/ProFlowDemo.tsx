@@ -4,7 +4,6 @@ import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ProFlow } from '../../index';
-import { useFlowView } from '../hooks/useFlowView';
 import { FlowViewProvider } from '../provider/FlowViewProvider';
 
 const useStyles = createStyles(({ css }) => ({
@@ -253,9 +252,6 @@ const ProFlowDemo = () => {
     setNodes(nodes);
     setEdges(edges);
   };
-
-  const res = useFlowView();
-  console.log(res.reactFlowInstance!.getNodes());
 
   return (
     <div className={styles.container}>

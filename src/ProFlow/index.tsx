@@ -1,6 +1,7 @@
 import React, {
   createContext,
   useCallback,
+  useContext,
   useMemo,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
@@ -8,6 +9,7 @@ import ReactFlow, { Background, BackgroundVariant, Edge, Node, useViewport } fro
 import 'reactflow/dist/style.css';
 import { ProFlowController, ProFlowProps } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
+import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
 
 const MIN_ZOOM = 0.1;
@@ -44,6 +46,9 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
       };
     }
   }, [mapping, edges]);
+
+  const { miniMapPosition } = useContext(FlowViewContext);
+
   // const reactFlowInstance = useReactFlow();
   // console.log(reactFlowInstance);
   const handleNodeDragStart = useCallback(
@@ -90,7 +95,9 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
       fitView
       minZoom={MIN_ZOOM}
     >
-      {miniMap && <ProFlowController className={'pro-flow-controller'} />}
+      {miniMap && (
+        <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
+      )}
       <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
       {children}
     </ReactFlow>

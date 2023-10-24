@@ -4,50 +4,56 @@ import { createStyles } from 'antd-style';
 import React from 'react';
 import { MiniMap, useReactFlow, useViewport } from 'reactflow';
 
-const useStyles = createStyles(({ css }) => ({
-  container: css`
-    position: absolute;
-    bottom: 0px;
-    z-index: 100;
-    right: 10px;
-    transition: right 0.2s ease;
-  `,
+const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
+  const { x, y } = props;
+  console.log(x, y);
+  return {
+    container: css`
+      position: absolute;
+      bottom: ${y}px;
+      right: ${10 + x}px;
 
-  visible: css`
-    right: 387px;
-  `,
+      z-index: 100;
+      transition: right 0.2s ease;
+    `,
 
-  controlAction: css`
-    height: 80px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `,
+    visible: css`
+      right: 387px;
+    `,
 
-  measureMap: css`
-    border-radius: 4px;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    right: 0;
-    bottom: 0;
-    position: relative;
-  `,
-}));
+    controlAction: css`
+      height: 80px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `,
+
+    measureMap: css`
+      border-radius: 4px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      right: 0;
+      bottom: 0;
+      position: relative;
+    `,
+  };
+});
 
 interface ProFlowControllerProps {
   visible?: boolean;
   className?: string;
+  position?: [number, number];
 }
 
 const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => {
-  const { visible = false, className = '' } = props;
+  const { visible = false, className = '', position = [0, 0] } = props;
   const reactFlow = useReactFlow();
   const { zoom } = useViewport();
-  const { styles, cx } = useStyles();
+  const { styles, cx } = useStyles({ x: position[0], y: position[1] });
 
   const handleZoomIn = () => {
     reactFlow.zoomIn();
