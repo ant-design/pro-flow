@@ -98,7 +98,14 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
       {miniMap && (
         <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
       )}
-      <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
+      <Background
+        style={{ backgroundColor: '#F7F8FA' }}
+        id="1"
+        gap={10}
+        color="#bac3d4"
+        variant={BackgroundVariant.Dots}
+      />
+      {/* <Background color="#aaa" gap={16} /> */}
       {children}
     </ReactFlow>
   );
