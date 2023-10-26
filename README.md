@@ -48,7 +48,7 @@
 
 ## 简介
 
-Pro Flow Editor 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
+Pro Flow 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
 
 - 🎨 **自定义节点类型**：用户可以通过传入自定义 React 组件的方式创建不同类型的节点，从而满足不同的业务需求；
 - 🎉 **灵活的事件处理**：支持用户对节点的拖拽、连接、删除等事件进行自定义处理，满足不同业务场景的需求；
@@ -81,11 +81,11 @@ pnpm i @ant-design/pro-flow -S
 <a href="https://github.com/arvinxx" title="arvinxx">
   <img src="https://avatars.githubusercontent.com/u/28616219?v=4" width="50" />
 </a>
-<a href="https://github.com/actions-user" title="actions-user">
-  <img src="https://avatars.githubusercontent.com/u/65916846?v=4" width="50" />
-</a>
 <a href="https://github.com/ModestFun" title="ModestFun">
   <img src="https://avatars.githubusercontent.com/u/61576426?v=4" width="50" />
+</a>
+<a href="https://github.com/actions-user" title="actions-user">
+  <img src="https://avatars.githubusercontent.com/u/65916846?v=4" width="50" />
 </a>
 <a href="https://github.com/chenshuai2144" title="chenshuai2144">
   <img src="https://avatars.githubusercontent.com/u/8186664?v=4" width="50" />

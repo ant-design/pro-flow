@@ -12,7 +12,7 @@ export const useStyles = createStyles(({ css, cx, prefixCls }) => ({
       border-radius: 12px;
       padding: 16px 12px;
       box-sizing: border-box;
-      border: 3px solid white;
+      /* border: 3px solid white; */
       flex: 1;
       background-color: white;
 
@@ -51,6 +51,9 @@ export const useStyles = createStyles(({ css, cx, prefixCls }) => ({
             border-radius: 7px;
             margin-left: 8px;
             margin-top: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             img {
               width: 8px;
               height: 9px;
