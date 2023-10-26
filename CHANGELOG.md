@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.10.7](https://github.com/ant-design/pro-flow/compare/v0.10.6...v0.10.7)
+
+<sup>Released on **2023-10-26**</sup>
+
+#### 🐛 修复
+
+- Group 节点选中样式.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Group 节点选中样式, closes [#26](https://github.com/ant-design/pro-flow/issues/26) ([8931967](https://github.com/ant-design/pro-flow/commit/8931967))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.10.6](https://github.com/ant-design/pro-flow/compare/v0.10.5...v0.10.6)
 
 <sup>Released on **2023-10-26**</sup>
