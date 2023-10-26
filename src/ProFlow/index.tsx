@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import ReactFlow, { Background, BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { ProFlowController, ProFlowProps } from '../index';
+import { ProFlowController, ProFlowProps, RadiusEdge } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
@@ -87,10 +87,9 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
       onNodeClick={handleNodeClick}
       nodes={renderData.nodes}
       edges={renderData.edges}
-      // edgeTypes={{
-      //   // radiusEdge: RadiusEdge,
-      //   // defaultEdge: DefaultEdge,
-      // }}
+      edgeTypes={{
+        radiusEdge: RadiusEdge,
+      }}
       panOnScroll
       fitView
       minZoom={MIN_ZOOM}
@@ -105,7 +104,6 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
         color="#bac3d4"
         variant={BackgroundVariant.Dots}
       />
-      {/* <Background color="#aaa" gap={16} /> */}
       {children}
     </ReactFlow>
   );
