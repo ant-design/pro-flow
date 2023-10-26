@@ -1,5 +1,105 @@
 # Changelog
 
+### [Version&nbsp;0.10.5](https://github.com/ant-design/pro-flow/compare/v0.10.4...v0.10.5)
+
+<sup>Released on **2023-10-26**</sup>
+
+#### 🐛 修复
+
+- 修复节点阴影样式.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- 修复节点阴影样式, closes [#24](https://github.com/ant-design/pro-flow/issues/24) ([ff258d0](https://github.com/ant-design/pro-flow/commit/ff258d0))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version&nbsp;0.10.4](https://github.com/ant-design/pro-flow/compare/v0.10.3...v0.10.4)
+
+<sup>Released on **2023-10-24**</sup>
+
+#### 🐛 修复
+
+- 修复 group 节点的宽高.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- 修复 group 节点的宽高, closes [#23](https://github.com/ant-design/pro-flow/issues/23) ([e69b419](https://github.com/ant-design/pro-flow/commit/e69b419))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version&nbsp;0.10.3](https://github.com/ant-design/pro-flow/compare/v0.10.2...v0.10.3)
+
+<sup>Released on **2023-10-24**</sup>
+
+#### 🐛 修复
+
+- 新增 group 节点 width,height.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- 新增 group 节点 width,height, closes [#22](https://github.com/ant-design/pro-flow/issues/22) ([61418d8](https://github.com/ant-design/pro-flow/commit/61418d8))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version&nbsp;0.10.2](https://github.com/ant-design/pro-flow/compare/v0.10.1...v0.10.2)
+
+<sup>Released on **2023-10-24**</sup>
+
+#### 🐛 修复
+
+- Readme.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Readme, closes [#21](https://github.com/ant-design/pro-flow/issues/21) ([dffb226](https://github.com/ant-design/pro-flow/commit/dffb226))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.10.1](https://github.com/ant-design/pro-flow/compare/v0.10.0...v0.10.1)
 
 <sup>Released on **2023-10-23**</sup>
