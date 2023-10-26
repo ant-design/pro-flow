@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.10.6](https://github.com/ant-design/pro-flow/compare/v0.10.5...v0.10.6)
+
+<sup>Released on **2023-10-26**</sup>
+
+#### 🐛 修复
+
+- 节点阴影部分样式.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- 节点阴影部分样式, closes [#25](https://github.com/ant-design/pro-flow/issues/25) ([e3fe8a8](https://github.com/ant-design/pro-flow/commit/e3fe8a8))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.10.5](https://github.com/ant-design/pro-flow/compare/v0.10.4...v0.10.5)
 
 <sup>Released on **2023-10-26**</sup>
