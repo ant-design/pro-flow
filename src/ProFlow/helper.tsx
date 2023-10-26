@@ -1,6 +1,6 @@
 import BloodNodeGroup from '@/BloodGroupNode';
 import BloodNode from '@/BloodNode';
-import { ProFlowEdge, ProFlowNode, ProFlowNodeData } from '@/constants';
+import { EdgeType, ProFlowEdge, ProFlowNode, ProFlowNodeData } from '@/constants';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
@@ -143,13 +143,13 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
 
 export function getRenderEdges(edges: ProFlowEdge[]) {
   return edges.map((edge) => {
-    const { source, target, select = NodeSelect.DEFAULT } = edge;
+    const { source, target, select = NodeSelect.DEFAULT, type } = edge;
 
     return {
       id: `${source}-${target}`,
       source,
       target,
-      type: 'smoothstep',
+      type: type === EdgeType.default ? 'smoothstep' : 'radiusEdge',
       className: getEdgeClsFromNodeSelect(select),
     };
   });

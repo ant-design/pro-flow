@@ -1,4 +1,4 @@
-import { NodeSelect, ProFlowEdge, ProFlowNode } from '@/index';
+import { EdgeType, NodeSelect, ProFlowEdge, ProFlowNode } from '@/index';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
@@ -186,47 +186,56 @@ const edges: ProFlowEdge[] = [
     id: 'a1-b1',
     source: 'a1',
     target: 'b1',
+    type: EdgeType.radius,
   },
   {
     id: 'a1-b2',
     source: 'a1',
     target: 'b2',
+    type: EdgeType.radius,
   },
   {
     id: 'a1-b3',
     source: 'a1',
     target: 'b3',
+    type: EdgeType.radius,
   },
   {
     id: 'a1-b4',
     source: 'a1',
     target: 'b4',
+    type: EdgeType.radius,
   },
 
   {
     id: 'b2-c1',
     source: 'b2',
     target: 'c1',
+    type: EdgeType.radius,
   },
   {
     id: 'b3-c1',
     source: 'b3',
     target: 'c1',
+    type: EdgeType.radius,
   },
   {
     id: 'b1-c1',
     source: 'b1',
     target: 'c1',
+    type: EdgeType.radius,
   },
   {
     id: 'b4-c1',
     source: 'b4',
     target: 'c1',
+    type: EdgeType.radius,
   },
   {
     id: 'c1-d1',
     source: 'c1',
     target: 'd1',
+    type: EdgeType.radius,
   },
 ];
 
@@ -236,6 +245,12 @@ const ProFlowDemo = () => {
   const { styles } = useStyles();
 
   const handleHighlight = (node: ProFlowNode) => {
+    _nodes.forEach((_node) => {
+      if (_node.id === node.id) {
+        _node.select = NodeSelect.SELECT;
+      }
+    });
+    setNodes(_nodes);
     setEdges(
       edges.map((edge) => {
         if (edge.source === node.id || edge.target === node.id) {

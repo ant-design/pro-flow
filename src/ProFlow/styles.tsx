@@ -24,8 +24,7 @@ export const useStyles = createStyles(({ css }) => ({
       width: 320px;
       height: 83px;
       border: none;
-      box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 8%);
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
       z-index: 1;
     }
