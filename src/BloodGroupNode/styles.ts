@@ -56,7 +56,7 @@ export const useStyles = createStyles(({ css }) => ({
     box-sizing: border-box;
     padding: 16px 12px;
     background: #fff;
-    margin-bottom: 24px;
+    margin-bottom: 26px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.04);
     box-shadow: 0 4px 6px -2px rgba(25, 15, 15, 0.05), 0 0 1px 0 rgba(0, 0, 0, 0.08);
@@ -107,6 +107,13 @@ export const useStyles = createStyles(({ css }) => ({
     box-shadow: 0 0 0 3px #1677ff, 0 1px 4px 1px rgba(0, 0, 0, 8%) !important;
 
     .buttonWrap {
+      width: 100%;
+      height: 70px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 11;
+      opacity: 0.7;
       background-color: #ecf3fe;
     }
   `,
@@ -115,6 +122,13 @@ export const useStyles = createStyles(({ css }) => ({
     background-color: #ecf3fe;
 
     .buttonWrap {
+      width: 100%;
+      height: 70px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 11;
+      opacity: 0.7;
       background-color: #ecf3fe;
     }
   `,

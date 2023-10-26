@@ -73,7 +73,7 @@ const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
           _node.des = data.describe;
           return GroupItem(_node);
         })}
-        <div className={styles.btnWrap}></div>
+        <div className={`${styles.btnWrap} buttonWrap`}></div>
         <div className={styles.btn}>
           查看更多
           <img
