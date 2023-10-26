@@ -10,11 +10,11 @@ export const useStyles = createStyles(({ css }) => ({
     align-items: center;
     padding-top: 16px;
     overflow: hidden;
-    border: 1px solid #d9d9d9;
-    border-radius: 8px;
+    background-color: #fafafa;
     position: absolute;
-    background-color: #f9f9f9;
     z-index: 10;
+    border-radius: 12px;
+    border: 1px solid #d9d9d9;
   `,
   btnWrap: css`
     width: 100%;
@@ -55,12 +55,10 @@ export const useStyles = createStyles(({ css }) => ({
     border-radius: 12px;
     box-sizing: border-box;
     padding: 16px 12px;
-    background-color: white;
+    background: #fff;
+    border: 1px solid #f4f4f4;
     margin-bottom: 24px;
-    background: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: 8px;
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.08), 0 4px 6px -2 rgba(25, 15, 15, 0.05);
+    box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.08);
 
     &:last-child {
       opacity: 0.5;
