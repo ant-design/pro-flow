@@ -1,9 +1,9 @@
 import { EdgeType, NodeSelect, ProFlowEdge, ProFlowNode } from '@/index';
+import { ProFlow } from '@ant-design/pro-flow';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ProFlow } from '../../index';
 import { FlowViewProvider } from '../provider/FlowViewProvider';
 
 const useStyles = createStyles(({ css }) => ({
