@@ -8,7 +8,7 @@ interface BackgroundProps {
   lineWidth?: number;
   offset?: number;
   color?: string;
-  styles?: CSSProperties;
+  style?: CSSProperties;
   className?: string;
   id?: string;
 }

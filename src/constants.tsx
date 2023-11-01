@@ -51,6 +51,7 @@ export interface ProFlowProps {
   className?: string;
   style?: CSSProperties;
   miniMap?: boolean;
+  background?: boolean;
   children?: React.ReactNode;
 }
 

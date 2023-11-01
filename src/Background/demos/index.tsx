@@ -17,7 +17,7 @@ const BackgroundDemo = memo(() => {
 
   return (
     <div className={styles.container}>
-      <ProFlow nodes={[]} edges={[]} miniMap={false}>
+      <ProFlow nodes={[]} edges={[]} miniMap={false} background={false}>
         <Panel position={'top-left'}>
           <div>variant:</div>
           <button type="button" onClick={() => setVariant(BackgroundVariant.Dots)}>

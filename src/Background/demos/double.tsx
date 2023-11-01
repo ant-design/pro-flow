@@ -15,7 +15,7 @@ const BackgroundDemo = memo(() => {
 
   return (
     <div className={styles.container}>
-      <ProFlow nodes={[]} edges={[]} miniMap={false}>
+      <ProFlow nodes={[]} edges={[]} miniMap={false} background={false}>
         <Background id="1" gap={10} color="yellow" variant={BackgroundVariant.Lines} />
         <Background id="2" gap={100} offset={1} color="red" variant={BackgroundVariant.Lines} />
       </ProFlow>

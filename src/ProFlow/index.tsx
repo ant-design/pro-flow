@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import ReactFlow, { Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
+import Background, { BackgroundVariant } from '../Background';
 import { ProFlowController, ProFlowProps, RadiusEdge } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
 import { FlowViewContext } from './provider/provider';
@@ -25,6 +26,7 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
     edges,
     miniMap = true,
     children,
+    background,
   } = props;
   const { styles, cx } = useStyles();
   const { zoom } = useViewport();
@@ -98,12 +100,14 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
         <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
       )}
       {children}
-      {/* <Background
-        style={{ backgroundColor: '#F7F8FA' }}
-        gap={10}
-        color="#bac3d4"
-        variant={BackgroundVariant.Dots}
-      /> */}
+      {background && (
+        <Background
+          style={{ backgroundColor: '#F7F8FA' }}
+          gap={10}
+          color="#bac3d4"
+          variant={BackgroundVariant.Dots}
+        />
+      )}
     </ReactFlow>
   );
 };
