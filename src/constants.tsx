@@ -64,3 +64,8 @@ export interface ProFlowProps {
   style?: CSSProperties;
   miniMap?: boolean;
 }
+
+export interface MiniMapPosition {
+  x: number;
+  y: number;
+}

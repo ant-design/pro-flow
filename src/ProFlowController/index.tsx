@@ -3,6 +3,7 @@ import { Button, Space, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import React from 'react';
 import { MiniMap, useReactFlow, useViewport } from 'reactflow';
+import { MiniMapPosition } from '..';
 
 const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
   const { x, y } = props;
@@ -45,14 +46,14 @@ const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
 interface ProFlowControllerProps {
   visible?: boolean;
   className?: string;
-  position?: [number, number];
+  position?: MiniMapPosition;
 }
 
 const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => {
-  const { visible = false, className = '', position = [0, 0] } = props;
+  const { visible = false, className = '', position = { x: 0, y: 0 } } = props;
   const reactFlow = useReactFlow();
   const { zoom } = useViewport();
-  const { styles, cx } = useStyles({ x: position[0], y: position[1] });
+  const { styles, cx } = useStyles(position);
 
   const handleZoomIn = () => {
     reactFlow.zoomIn();

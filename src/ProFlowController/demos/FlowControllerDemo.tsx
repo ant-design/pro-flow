@@ -1,8 +1,6 @@
+import { ProFlow, ProFlowController } from '@/index';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
-// import { Background, BackgroundVariant } from 'reactflow';
-// import ProFlowController from '..';
-// import ProFlow from '../../ProFlow';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -15,10 +13,9 @@ const FlowControllerDemo = memo(() => {
   const { styles } = useStyles();
   return (
     <div className={styles.container}>
-      {/* <ProFlow>
-        <ProFlowController />
-        <Background id="1" gap={10} color="#f1f1f1" variant={BackgroundVariant.Lines} />
-      </ProFlow> */}
+      <ProFlow nodes={[]} edges={[]} miniMap={false}>
+        <ProFlowController position={{ x: 200, y: 50 }} />
+      </ProFlow>
     </div>
   );
 });
