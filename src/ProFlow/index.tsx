@@ -5,7 +5,7 @@ import React, {
   useMemo,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { Background, BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
+import ReactFlow, { Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { ProFlowController, ProFlowProps, RadiusEdge } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
@@ -97,14 +97,13 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
       {miniMap && (
         <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
       )}
-      <Background
+      {children}
+      {/* <Background
         style={{ backgroundColor: '#F7F8FA' }}
-        id="1"
         gap={10}
         color="#bac3d4"
         variant={BackgroundVariant.Dots}
-      />
-      {children}
+      /> */}
     </ReactFlow>
   );
 };
