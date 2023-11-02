@@ -26,7 +26,7 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
     edges,
     miniMap = true,
     children,
-    background,
+    background = true,
   } = props;
   const { styles, cx } = useStyles();
   const { zoom } = useViewport();
