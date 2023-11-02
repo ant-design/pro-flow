@@ -6,7 +6,7 @@ import {
   NODE_SUB_WARNING,
   NODE_WARNING,
   NodeSelect,
-} from '@/ProFlow/constants';
+} from '@/FlowView/constants';
 import React from 'react';
 import styled from 'styled-components';
 import { useStyles } from './styles';

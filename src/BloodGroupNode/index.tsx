@@ -1,5 +1,5 @@
 import { ArtboardTitle, getClsFromSelectType } from '@/BloodNode';
-import { NodeMapItem, NodeSelect } from '@/ProFlow/constants';
+import { NodeMapItem, NodeSelect } from '@/FlowView/constants';
 import { ProFlowNode, ProFlowNodeData } from '@/constants';
 import { cx } from 'antd-style';
 import React from 'react';
