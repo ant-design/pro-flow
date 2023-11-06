@@ -1,5 +1,5 @@
-import BloodNodeGroup from '@/BloodGroupNode';
-import BloodNode from '@/BloodNode';
+import LineageNodeGroup from '@/BloodGroupNode';
+import LineageNode from '@/LineageNode';
 import {
   DefaultNodeData,
   EdgeType,
@@ -179,7 +179,7 @@ const NodeComponentHandler: NodeHandler = {
     const { select = NodeSelect.DEFAULT } = node;
 
     return (
-      <BloodNode
+      <LineageNode
         title={(node.data! as LineageNodeData).title!}
         description={(node.data! as LineageNodeData).describe!}
         logo={(node.data! as LineageNodeData).logo!}
@@ -194,7 +194,7 @@ const NodeComponentHandler: NodeHandler = {
     const { select = NodeSelect.DEFAULT } = node;
 
     return (
-      <BloodNodeGroup
+      <LineageNodeGroup
         id={node.id!}
         data={node.data! as unknown as LineageGroupNodeData[]}
         select={select}

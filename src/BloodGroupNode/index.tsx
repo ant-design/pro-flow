@@ -1,12 +1,12 @@
-import { ArtboardTitle } from '@/BloodNode';
 import { NodeMapItem, NodeSelect } from '@/FlowView/constants';
+import { ArtboardTitle } from '@/LineageNode';
 import { LineageGroupNodeData, LineageNodeData } from '@/constants';
 import { getClsFromSelectType } from '@/utils';
 import { cx } from 'antd-style';
 import React from 'react';
 import { useStyles } from './styles';
 
-export interface BloodNodeGroupProps {
+export interface LineageNodeGroupProps {
   id?: string;
   zoom?: number;
   label?: string;
@@ -35,7 +35,7 @@ const GroupItem = (node: NodeMapItem) => {
   );
 };
 
-const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
+const LineageNodeGroup: React.FC<LineageNodeGroupProps> = ({
   data,
   select = NodeSelect.SELECT,
   zoom = 1,
@@ -81,4 +81,4 @@ const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
   );
 };
 
-export default BloodNodeGroup;
+export default LineageNodeGroup;

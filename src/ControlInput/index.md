@@ -1,6 +1,6 @@
 ---
 title: ControlInput 可控输入框
-group: 输入控件
+group: 控件
 description: 针对编辑场景优化的输入框控件
 ---
 
