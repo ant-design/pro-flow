@@ -1,9 +1,18 @@
 import BloodNodeGroup from '@/BloodGroupNode';
 import BloodNode from '@/BloodNode';
-import { EdgeType, ProFlowEdge, ProFlowNode, ProFlowNodeData } from '@/constants';
+import {
+  DefaultNodeData,
+  EdgeType,
+  LineageGroupNodeData,
+  NodeHandler,
+  ProFlowEdge,
+  ProFlowNode,
+  ProFlowNodeData,
+} from '@/constants';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
+import DefaultNode from './components/DefaultNode';
 import {
   EDGE_DANGER,
   EDGE_SELECT,
@@ -18,6 +27,7 @@ import {
   NodeSelect,
 } from './constants';
 
+// 这里的type是指节点的连接点在哪里，input是在左边，output是在右边，default是左右两边都有
 function getTypeFromEdge(node: NodeMapItem) {
   if (node.left?.length && node.right?.length) {
     return 'default';
@@ -34,13 +44,15 @@ function getTypeFromEdge(node: NodeMapItem) {
 export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFlowEdge[], zoom: number) {
   const mapping: NodeMapping = {};
   nodes.forEach((node) => {
+    const { type = 'lineage' } = node;
+
     mapping[node.id] = {
       id: node.id,
-      group: node.group,
-      width: node.group ? 355 : 322,
-      height: node.group ? 1100 : 85,
+      // width: width ? width : node.group ? 355 : 322,
+      // height: height ? height : node.group ? 1100 : 85,
       data: node.data,
       select: node.select,
+      flowNodeType: type,
       right: [],
       left: [],
       zoom,
@@ -161,6 +173,40 @@ export function getRenderEdges(edges: ProFlowEdge[]) {
   // })
 }
 
+const NodeComponentHandler: NodeHandler = {
+  default: (node: NodeMapItem) => <DefaultNode {...(node.data as DefaultNodeData)} />,
+  lineage: (node: NodeMapItem) => {
+    const { select = NodeSelect.DEFAULT } = node;
+
+    return (
+      <BloodNode
+        title={(node.data! as ProFlowNodeData).title!}
+        description={(node.data! as ProFlowNodeData).describe!}
+        logo={(node.data! as ProFlowNodeData).logo!}
+        selectType={select}
+        zoom={node.zoom}
+        label={node.label}
+        titleSlot={(node.data! as ProFlowNodeData).titleSlot}
+      />
+    );
+  },
+  lineageGroup: (node: NodeMapItem) => {
+    const { select = NodeSelect.DEFAULT } = node;
+
+    console.log(node.data);
+
+    return (
+      <BloodNodeGroup
+        id={node.id!}
+        data={node.data! as unknown as LineageGroupNodeData[]}
+        select={select}
+        zoom={node.zoom}
+        label={node.label}
+      />
+    );
+  },
+};
+
 export const getRenderData = (
   mapping: NodeMapping,
   edges: ProFlowEdge[],
@@ -174,7 +220,7 @@ export const getRenderData = (
 
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
-    const { select = NodeSelect.DEFAULT } = node;
+    const { flowNodeType } = node;
 
     renderNodes.push({
       sourcePosition: Position.Right,
@@ -186,26 +232,7 @@ export const getRenderData = (
       height: node.group ? 1100 : 83,
       className: cx(INIT_NODE),
       data: {
-        label: node.group ? (
-          <BloodNodeGroup
-            id={node.id!}
-            group={node.group}
-            data={node.data! as ProFlowNode[]}
-            select={select}
-            zoom={node.zoom}
-            label={node.label}
-          />
-        ) : (
-          <BloodNode
-            title={(node.data! as ProFlowNodeData).title!}
-            description={(node.data! as ProFlowNodeData).describe!}
-            logo={(node.data! as ProFlowNodeData).logo!}
-            selectType={select}
-            zoom={node.zoom}
-            label={node.label}
-            titleSlot={(node.data! as ProFlowNodeData).titleSlot}
-          />
-        ),
+        label: NodeComponentHandler[flowNodeType](node),
       },
     });
   });

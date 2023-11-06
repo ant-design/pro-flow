@@ -1,5 +1,6 @@
-import { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
+import React, { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
 import { Node } from 'reactflow';
+import { NodeMapItem } from './FlowView/constants';
 
 export enum NodeSelect {
   SELECT = 'SELECT',
@@ -16,12 +17,53 @@ export enum EdgeType {
   radius = 'radius',
 }
 
-export interface ProFlowNode {
+export interface DefaultNodeData {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export interface LineageNodeData {
+  title: string;
+  describe: string;
+  logo: string;
+  titleSlot?: {
+    type: 'left' | 'right';
+    value: React.ReactNode;
+  };
+}
+
+export interface LineageGroupNodeData {
   id: string;
-  group?: boolean;
+  data: LineageNodeData;
+}
+export interface LineageGroupData {
+  title: string;
+  describe: string;
+  logo: string;
+  children: LineageGroupNodeData[];
+}
+
+export interface NodeTypeDataMap {
+  default: DefaultNodeData;
+  lineage: LineageNodeData;
+  lineageGroup: LineageGroupData;
+}
+
+export type FlowNodeType = keyof NodeTypeDataMap;
+
+export type NodeHandler = {
+  [T in FlowNodeType]: (node: NodeMapItem) => React.ReactNode;
+};
+
+export type DefaultNodeType<T> = T extends FlowNodeType ? T : 'lineage';
+export interface ProFlowNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
+  id: string;
   select?: NodeSelect;
-  data: ProFlowNodeData | ProFlowNode[];
+  data: NodeTypeDataMap[T];
+  type?: T;
   label?: string;
+  width?: number;
+  height?: number;
 }
 
 export interface ProFlowEdge {
@@ -30,16 +72,6 @@ export interface ProFlowEdge {
   target: string;
   select?: NodeSelect;
   type?: EdgeType;
-}
-
-export interface ProFlowNodeData {
-  title: string;
-  describe: string;
-  logo: string;
-  titleSlot?: {
-    type: 'left' | 'right';
-    value: React.ReactNode;
-  };
 }
 
 export interface ProFlowProps {

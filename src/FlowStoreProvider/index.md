@@ -2,7 +2,7 @@
 title: FlowStoreProvider 流数据容器
 atomId: FlowStoreProvider
 nav: 组件
-group: 容器组件
+group: 辅助
 ---
 
 # FlowStoreProvider

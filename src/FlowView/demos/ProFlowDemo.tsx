@@ -53,10 +53,9 @@ const nodes: ProFlowNode[] = [
   {
     id: 'a1',
     label: '123',
+    type: 'default',
     data: {
-      title: 'XXX数据源',
-      describe: 'cksadjfnf',
-      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
+      children: <div>default node, 123123</div>,
     },
   },
   {
@@ -118,8 +117,8 @@ const nodes: ProFlowNode[] = [
   },
   {
     id: 'd1',
-    group: true,
     label: '456',
+    type: 'lineageGroup',
     data: [
       {
         id: 'a5',
