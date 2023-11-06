@@ -36,17 +36,11 @@ export interface LineageGroupNodeData {
   id: string;
   data: LineageNodeData;
 }
-export interface LineageGroupData {
-  title: string;
-  describe: string;
-  logo: string;
-  children: LineageGroupNodeData[];
-}
 
 export interface NodeTypeDataMap {
   default: DefaultNodeData;
   lineage: LineageNodeData;
-  lineageGroup: LineageGroupData;
+  lineageGroup: LineageGroupNodeData[];
 }
 
 export type FlowNodeType = keyof NodeTypeDataMap;
@@ -56,7 +50,7 @@ export type NodeHandler = {
 };
 
 export type DefaultNodeType<T> = T extends FlowNodeType ? T : 'lineage';
-export interface ProFlowNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
+export interface FlowViewNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
   id: string;
   select?: NodeSelect;
   data: NodeTypeDataMap[T];
@@ -66,7 +60,7 @@ export interface ProFlowNode<T extends FlowNodeType = DefaultNodeType<FlowNodeTy
   height?: number;
 }
 
-export interface ProFlowEdge {
+export interface FlowViewEdge {
   id: string;
   source: string;
   target: string;
@@ -74,28 +68,17 @@ export interface ProFlowEdge {
   type?: EdgeType;
 }
 
-export interface ProFlowProps {
+export interface FlowViewProps {
   onNodeDragStart?: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
   onPaneClick?: (event: ReactMouseEvent) => void;
   onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
-  nodes: ProFlowNode[];
-  edges: ProFlowEdge[];
+  nodes: FlowViewNode[];
+  edges: FlowViewEdge[];
   className?: string;
   style?: CSSProperties;
   miniMap?: boolean;
   background?: boolean;
   children?: React.ReactNode;
-}
-
-export interface ProFlowProps {
-  onNodeDragStart?: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
-  onPaneClick?: (event: ReactMouseEvent) => void;
-  onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
-  nodes: ProFlowNode[];
-  edges: ProFlowEdge[];
-  className?: string;
-  style?: CSSProperties;
-  miniMap?: boolean;
 }
 
 export interface MiniMapPosition {

@@ -3,11 +3,11 @@ import BloodNode from '@/BloodNode';
 import {
   DefaultNodeData,
   EdgeType,
+  FlowViewEdge,
+  FlowViewNode,
   LineageGroupNodeData,
+  LineageNodeData,
   NodeHandler,
-  ProFlowEdge,
-  ProFlowNode,
-  ProFlowNodeData,
 } from '@/constants';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
@@ -41,7 +41,7 @@ function getTypeFromEdge(node: NodeMapItem) {
   return 'default';
 }
 
-export function convertMappingFrom(nodes: ProFlowNode[], edges: ProFlowEdge[], zoom: number) {
+export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[], zoom: number) {
   const mapping: NodeMapping = {};
   nodes.forEach((node) => {
     const { type = 'lineage' } = node;
@@ -153,7 +153,7 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
 //   }
 // }
 
-export function getRenderEdges(edges: ProFlowEdge[]) {
+export function getRenderEdges(edges: FlowViewEdge[]) {
   return edges.map((edge) => {
     const { source, target, select = NodeSelect.DEFAULT, type } = edge;
 
@@ -180,20 +180,18 @@ const NodeComponentHandler: NodeHandler = {
 
     return (
       <BloodNode
-        title={(node.data! as ProFlowNodeData).title!}
-        description={(node.data! as ProFlowNodeData).describe!}
-        logo={(node.data! as ProFlowNodeData).logo!}
+        title={(node.data! as LineageNodeData).title!}
+        description={(node.data! as LineageNodeData).describe!}
+        logo={(node.data! as LineageNodeData).logo!}
         selectType={select}
         zoom={node.zoom}
         label={node.label}
-        titleSlot={(node.data! as ProFlowNodeData).titleSlot}
+        titleSlot={(node.data! as LineageNodeData).titleSlot}
       />
     );
   },
   lineageGroup: (node: NodeMapItem) => {
     const { select = NodeSelect.DEFAULT } = node;
-
-    console.log(node.data);
 
     return (
       <BloodNodeGroup
@@ -209,7 +207,7 @@ const NodeComponentHandler: NodeHandler = {
 
 export const getRenderData = (
   mapping: NodeMapping,
-  edges: ProFlowEdge[],
+  edges: FlowViewEdge[],
 ): {
   nodes: Node[];
   edges: Edge[];
@@ -232,7 +230,7 @@ export const getRenderData = (
       height: node.group ? 1100 : 83,
       className: cx(INIT_NODE),
       data: {
-        label: NodeComponentHandler[flowNodeType](node),
+        label: NodeComponentHandler[flowNodeType!](node),
       },
     });
   });
