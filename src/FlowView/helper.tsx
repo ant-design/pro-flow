@@ -1,4 +1,4 @@
-import LineageNodeGroup from '@/BloodGroupNode';
+import LineageNodeGroup from '@/LineageGroupNode';
 import LineageNode from '@/LineageNode';
 import {
   DefaultNodeData,

@@ -67,7 +67,6 @@
     "@floating-ui/react": "^0.24",
     "ahooks": "^3",
     "antd-style": "^3",
-    "deep-clone": "^4.0.0",
     "fast-deep-equal": "^3",
     "immer": "^10",
     "lodash-es": "^4",
