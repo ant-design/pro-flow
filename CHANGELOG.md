@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.11.0](https://github.com/ant-design/pro-flow/compare/v0.10.7...v0.11.0)
+
+<sup>Released on **2023-11-07**</sup>
+
+#### ✨ 新特性
+
+- **FlowView**: 组件文档.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **FlowView**: 组件文档, closes [#27](https://github.com/ant-design/pro-flow/issues/27) ([e4631b5](https://github.com/ant-design/pro-flow/commit/e4631b5))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.10.7](https://github.com/ant-design/pro-flow/compare/v0.10.6...v0.10.7)
 
 <sup>Released on **2023-10-26**</sup>
