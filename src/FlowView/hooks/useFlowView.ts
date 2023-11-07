@@ -13,7 +13,7 @@ export const useMiniMap = () => {
   const { setMiniMapPosition: setPosition } = useContext(FlowViewContext);
 
   const setMiniMapPosition = (x: number, y: number) => {
-    setPosition!([x, y]);
+    setPosition!({ x, y });
   };
 
   return {
