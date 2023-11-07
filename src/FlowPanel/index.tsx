@@ -12,5 +12,3 @@ export default (props: PanelProps) => {
 
   return <Panel position={position}>{children}</Panel>;
 };
-
-export { PanelPosition };
