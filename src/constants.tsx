@@ -1,5 +1,6 @@
-import { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
+import React, { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
 import { Node } from 'reactflow';
+import { NodeMapItem } from './FlowView/constants';
 
 export enum NodeSelect {
   SELECT = 'SELECT',
@@ -16,23 +17,12 @@ export enum EdgeType {
   radius = 'radius',
 }
 
-export interface ProFlowNode {
-  id: string;
-  group?: boolean;
-  select?: NodeSelect;
-  data: ProFlowNodeData | ProFlowNode[];
-  label?: string;
+export interface DefaultNodeData {
+  className?: string;
+  children?: React.ReactNode;
 }
 
-export interface ProFlowEdge {
-  id: string;
-  source: string;
-  target: string;
-  select?: NodeSelect;
-  type?: EdgeType;
-}
-
-export interface ProFlowNodeData {
+export interface LineageNodeData {
   title: string;
   describe: string;
   logo: string;
@@ -42,25 +32,56 @@ export interface ProFlowNodeData {
   };
 }
 
-export interface ProFlowProps {
+export interface LineageGroupNodeData {
+  id: string;
+  data: LineageNodeData;
+}
+
+export interface NodeTypeDataMap {
+  default: DefaultNodeData;
+  lineage: LineageNodeData;
+  lineageGroup: LineageGroupNodeData[];
+}
+
+export type FlowNodeType = keyof NodeTypeDataMap;
+
+export type NodeHandler = {
+  [T in FlowNodeType]: (node: NodeMapItem) => React.ReactNode;
+};
+
+export type DefaultNodeType<T> = T extends FlowNodeType ? T : 'lineage';
+export interface FlowViewNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
+  id: string;
+  select?: NodeSelect;
+  data: NodeTypeDataMap[T];
+  type?: T;
+  label?: string;
+  width?: number;
+  height?: number;
+}
+
+export interface FlowViewEdge {
+  id: string;
+  source: string;
+  target: string;
+  select?: NodeSelect;
+  type?: EdgeType;
+}
+
+export interface FlowViewProps {
   onNodeDragStart?: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
   onPaneClick?: (event: ReactMouseEvent) => void;
   onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
-  nodes: ProFlowNode[];
-  edges: ProFlowEdge[];
+  nodes: FlowViewNode[];
+  edges: FlowViewEdge[];
   className?: string;
   style?: CSSProperties;
   miniMap?: boolean;
+  background?: boolean;
   children?: React.ReactNode;
 }
 
-export interface ProFlowProps {
-  onNodeDragStart?: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
-  onPaneClick?: (event: ReactMouseEvent) => void;
-  onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
-  nodes: ProFlowNode[];
-  edges: ProFlowEdge[];
-  className?: string;
-  style?: CSSProperties;
-  miniMap?: boolean;
+export interface MiniMapPosition {
+  x: number;
+  y: number;
 }

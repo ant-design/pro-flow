@@ -1,5 +1,5 @@
 import { Node } from 'reactflow';
-import { ProFlowNode, ProFlowNodeData } from '../constants';
+import { DefaultNodeType, FlowNodeType, NodeTypeDataMap } from '../constants';
 
 export enum NodeSelect {
   SELECT = 'SELECT',
@@ -15,7 +15,7 @@ export interface InitialNode extends Node {
   height?: number;
 }
 
-export interface NodeMapItem {
+export interface NodeMapItem<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
   id: string;
   key?: string;
   left?: string[];
@@ -29,6 +29,7 @@ export interface NodeMapItem {
   danger?: boolean;
   dangerCount?: number;
   type?: 'input' | 'output' | 'default';
+  flowNodeType?: T;
   className?: string;
   select?: NodeSelect;
   isGroup?: boolean;
@@ -38,7 +39,7 @@ export interface NodeMapItem {
   qualityScore?: string;
   subDanger?: boolean;
   logo?: string;
-  data: ProFlowNodeData | ProFlowNode[];
+  data: NodeTypeDataMap[T];
   nodeType?: string;
   zoom?: number;
   label?: string;

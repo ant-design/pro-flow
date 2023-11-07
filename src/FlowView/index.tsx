@@ -5,9 +5,10 @@ import React, {
   useMemo,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { Background, BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
+import ReactFlow, { Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { ProFlowController, ProFlowProps, RadiusEdge } from '../index';
+import Background, { BackgroundVariant } from '../Background';
+import { FlowViewProps, ProFlowController, RadiusEdge } from '../index';
 import { convertMappingFrom, getRenderData } from './helper';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
@@ -16,7 +17,7 @@ const MIN_ZOOM = 0.1;
 export const FlowContext = createContext({});
 const initFn = () => {};
 
-const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
+const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const {
     onNodeDragStart = initFn,
     onPaneClick = initFn,
@@ -25,6 +26,7 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
     edges,
     miniMap = true,
     children,
+    background = true,
   } = props;
   const { styles, cx } = useStyles();
   const { zoom } = useViewport();
@@ -53,7 +55,7 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
   // console.log(reactFlowInstance);
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
-      // TODO: 应当把事件中的 node 转换为 ProFlowNode 透出给用户
+      // TODO: 应当把事件中的 node 转换为 FlowViewNode 透出给用户
       // const {node} = transformNode(node);
       onNodeDragStart(event, node, nodes);
     },
@@ -62,7 +64,7 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
 
   const handlePaneClick = useCallback(
     (event: ReactMouseEvent) => {
-      // TODO: 应当把事件中的 node 转换为 ProFlowNode 透出给用户
+      // TODO: 应当把事件中的 node 转换为 FlowViewNode 透出给用户
       // const {node} = transformNode(node);
       onPaneClick(event);
     },
@@ -71,7 +73,7 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
 
   const handleNodeClick = useCallback(
     (event: ReactMouseEvent, node: Node) => {
-      // TODO: 应当把事件中的 node 转换为 ProFlowNode 透出给用户
+      // TODO: 应当把事件中的 node 转换为 FlowViewNode 透出给用户
       // const {node} = transformNode(node);
       onNodeClick(event, node);
     },
@@ -97,14 +99,15 @@ const FlowView: React.FC<Partial<ProFlowProps>> = (props) => {
       {miniMap && (
         <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
       )}
-      <Background
-        style={{ backgroundColor: '#F7F8FA' }}
-        id="1"
-        gap={10}
-        color="#bac3d4"
-        variant={BackgroundVariant.Dots}
-      />
       {children}
+      {background && (
+        <Background
+          style={{ backgroundColor: '#F7F8FA' }}
+          gap={10}
+          color="#bac3d4"
+          variant={BackgroundVariant.Dots}
+        />
+      )}
     </ReactFlow>
   );
 };

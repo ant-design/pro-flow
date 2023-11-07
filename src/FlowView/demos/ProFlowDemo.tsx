@@ -1,4 +1,4 @@
-import { EdgeType, NodeSelect, ProFlowEdge, ProFlowNode } from '@/index';
+import { EdgeType, FlowViewEdge, FlowViewNode, NodeSelect } from '@/index';
 import { ProFlow } from '@ant-design/pro-flow';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
@@ -49,14 +49,13 @@ const DangerLogo = styled.div`
   }
 `;
 
-const nodes: ProFlowNode[] = [
+const nodes: FlowViewNode[] = [
   {
     id: 'a1',
     label: '123',
+    type: 'default',
     data: {
-      title: 'XXX数据源',
-      describe: 'cksadjfnf',
-      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
+      children: <div>default node, 123123</div>,
     },
   },
   {
@@ -118,8 +117,8 @@ const nodes: ProFlowNode[] = [
   },
   {
     id: 'd1',
-    group: true,
     label: '456',
+    type: 'lineageGroup',
     data: [
       {
         id: 'a5',
@@ -181,7 +180,7 @@ const nodes: ProFlowNode[] = [
   },
 ];
 
-const edges: ProFlowEdge[] = [
+const edges: FlowViewEdge[] = [
   {
     id: 'a1-b1',
     source: 'a1',
@@ -240,11 +239,11 @@ const edges: ProFlowEdge[] = [
 ];
 
 const ProFlowDemo = () => {
-  const [_nodes, setNodes] = useState<ProFlowNode[]>([...nodes]);
-  const [_edges, setEdges] = useState<ProFlowEdge[]>([...edges]);
+  const [_nodes, setNodes] = useState<FlowViewNode[]>([...nodes]);
+  const [_edges, setEdges] = useState<FlowViewEdge[]>([...edges]);
   const { styles } = useStyles();
 
-  const handleHighlight = (node: ProFlowNode) => {
+  const handleHighlight = (node: FlowViewNode) => {
     _nodes.forEach((_node) => {
       if (_node.id === node.id) {
         _node.select = NodeSelect.SELECT;

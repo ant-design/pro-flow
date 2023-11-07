@@ -1,4 +1,4 @@
-import { EdgeType, ProFlow, ProFlowNode } from '@ant-design/pro-flow';
+import { EdgeType, FlowViewNode, ProFlow } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 
@@ -9,7 +9,7 @@ const useStyles = createStyles(({ css }) => ({
   `,
 }));
 
-const nodes: ProFlowNode[] = [
+const nodes: FlowViewNode[] = [
   {
     id: 'a1',
     data: {

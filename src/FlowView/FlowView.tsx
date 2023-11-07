@@ -1,10 +1,10 @@
-import { ProFlowProps } from '@/constants';
+import { FlowViewProps } from '@/constants';
 import { FC, useContext } from 'react';
 import FlowView from '.';
 import { FlowViewProvider } from './provider/FlowViewProvider';
 import { FlowViewContext } from './provider/provider';
 
-const ProFlow: FC<ProFlowProps> = (props) => {
+const ProFlow: FC<FlowViewProps> = (props) => {
   const { isUseProvider } = useContext(FlowViewContext);
 
   if (isUseProvider) {

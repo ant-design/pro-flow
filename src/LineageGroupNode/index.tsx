@@ -1,22 +1,22 @@
-import { ArtboardTitle, getClsFromSelectType } from '@/BloodNode';
-import { NodeMapItem, NodeSelect } from '@/ProFlow/constants';
-import { ProFlowNode, ProFlowNodeData } from '@/constants';
+import { NodeMapItem, NodeSelect } from '@/FlowView/constants';
+import { ArtboardTitle } from '@/LineageNode';
+import { LineageGroupNodeData, LineageNodeData } from '@/constants';
+import { getClsFromSelectType } from '@/utils';
 import { cx } from 'antd-style';
 import React from 'react';
 import { useStyles } from './styles';
 
-export interface BloodNodeGroupProps {
+export interface LineageNodeGroupProps {
   id?: string;
   zoom?: number;
   label?: string;
   select?: NodeSelect;
-  data: ProFlowNode[];
-  group: boolean;
+  data: LineageGroupNodeData[];
 }
 
-const convertMappingNode = (nodeList: ProFlowNode[]): NodeMapItem[] => {
-  return nodeList.map((node) => {
-    return node;
+const convertMappingNode = (nodeList: LineageGroupNodeData[]): NodeMapItem[] => {
+  return nodeList.map((_node) => {
+    return { ..._node, type: 'default', flowNodeType: 'lineage' };
   });
 };
 
@@ -35,8 +35,7 @@ const GroupItem = (node: NodeMapItem) => {
   );
 };
 
-const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
-  group,
+const LineageNodeGroup: React.FC<LineageNodeGroupProps> = ({
   data,
   select = NodeSelect.SELECT,
   zoom = 1,
@@ -44,15 +43,11 @@ const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
 }) => {
   const { styles } = useStyles();
 
-  if (!group) {
-    return null;
-  }
-
-  if ((data as ProFlowNode[]).length < 7) {
+  if ((data as LineageGroupNodeData[]).length < 7) {
     return <div className={styles.groupWrap}>数组长度必须大于等于7！</div>;
   }
 
-  const nodeList = convertMappingNode(data as ProFlowNode[]);
+  const nodeList = convertMappingNode(data as LineageGroupNodeData[]);
 
   return (
     <>
@@ -63,7 +58,7 @@ const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
       )}
       <div className={cx(styles.groupWrap, styles[getClsFromSelectType(select)])}>
         {nodeList!.map((_node, index) => {
-          const data = _node.data as ProFlowNodeData;
+          const data = _node.data as LineageNodeData;
           _node.position = {
             x: 0,
             y: 100 * index,
@@ -86,4 +81,4 @@ const BloodNodeGroup: React.FC<BloodNodeGroupProps> = ({
   );
 };
 
-export default BloodNodeGroup;
+export default LineageNodeGroup;
