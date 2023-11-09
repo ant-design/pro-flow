@@ -1,4 +1,4 @@
-import { ProFlow } from '@/index';
+import { FlowView } from '@/index';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 import Background, { BackgroundVariant } from '..';
@@ -15,10 +15,10 @@ const BackgroundDemo = memo(() => {
 
   return (
     <div className={styles.container}>
-      <ProFlow nodes={[]} edges={[]} miniMap={false} background={false}>
+      <FlowView nodes={[]} edges={[]} miniMap={false} background={false}>
         <Background id="1" gap={10} color="yellow" variant={BackgroundVariant.Lines} />
         <Background id="2" gap={100} offset={1} color="red" variant={BackgroundVariant.Lines} />
-      </ProFlow>
+      </FlowView>
     </div>
   );
 });

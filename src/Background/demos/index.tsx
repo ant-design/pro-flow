@@ -1,4 +1,4 @@
-import { ProFlow } from '@/index';
+import { FlowView } from '@/index';
 import { createStyles } from 'antd-style';
 import { memo, useState } from 'react';
 import { Panel } from 'reactflow';
@@ -17,7 +17,7 @@ const BackgroundDemo = memo(() => {
 
   return (
     <div className={styles.container}>
-      <ProFlow nodes={[]} edges={[]} miniMap={false} background={false}>
+      <FlowView nodes={[]} edges={[]} miniMap={false} background={false}>
         <Panel position={'top-left'}>
           <div>variant:</div>
           <button type="button" onClick={() => setVariant(BackgroundVariant.Dots)}>
@@ -31,7 +31,7 @@ const BackgroundDemo = memo(() => {
           </button>
         </Panel>
         <Background variant={variant} />
-      </ProFlow>
+      </FlowView>
     </div>
   );
 });

@@ -1,5 +1,5 @@
 import { FlowViewEdge, FlowViewNode, SelectType } from '@/index';
-import { ProFlow } from '@ant-design/pro-flow';
+import { FlowView } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { useState } from 'react';
 
@@ -193,12 +193,12 @@ const ProFlowDemo = () => {
 
   return (
     <div className={styles.container}>
-      <ProFlow
+      <FlowView
         onNodeDragStart={(e, node: any) => handleHighlight(node)}
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
-      ></ProFlow>
+      ></FlowView>
     </div>
   );
 };
