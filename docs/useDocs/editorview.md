@@ -8,4 +8,10 @@ order: 3
 description:
 ---
 
-### 123123
+## Default
+
+<code src="../../src/FlowEditor/demos/index.tsx"></code>
+
+## 画布交互行为说明
+
+![](https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*GLK5RbhyMvEAAAAAAAAAAAAADvl6AQ/original)

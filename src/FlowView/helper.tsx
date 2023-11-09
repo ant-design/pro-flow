@@ -24,7 +24,7 @@ import {
   InitialNode,
   NodeMapItem,
   NodeMapping,
-  NodeSelect,
+  SelectType,
 } from './constants';
 
 // 这里的type是指节点的连接点在哪里，input是在左边，output是在右边，default是左右两边都有
@@ -44,7 +44,7 @@ function getTypeFromEdge(node: NodeMapItem) {
 export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[], zoom: number) {
   const mapping: NodeMapping = {};
   nodes.forEach((node) => {
-    const { type = 'lineage' } = node;
+    const { type = 'lineage', position = { x: NaN, y: NaN } } = node;
 
     mapping[node.id] = {
       id: node.id,
@@ -55,6 +55,7 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
       flowNodeType: type,
       right: [],
       left: [],
+      position,
       zoom,
       label: node.label,
     };
@@ -85,11 +86,14 @@ export function setNodePosition(nodes: Node[], edges: Edge[]) {
   return {
     _nodes: nodes.map((node) => {
       const { x, y } = g.node(node.id);
+      console.log(x, y);
+      const { x: _x, y: _y } = node.position;
+      console.log(_x, _y);
       return {
         ...node,
         position: {
-          x: x * 1.3,
-          y: y * 1,
+          x: (isNaN(_x) ? x : _x) * 1.3,
+          y: (isNaN(_y) ? y : _y) * 1,
         },
       };
     }) as unknown as Node[],
@@ -115,38 +119,38 @@ function sortEdges(edges: Edge[]) {
   return [...lowEdges, ...midEdges, ...highEdges];
 }
 
-function getEdgeClsFromNodeSelect(select: NodeSelect) {
+function getEdgeClsFromSelectType(select: SelectType) {
   switch (select) {
-    case NodeSelect.SELECT:
+    case SelectType.SELECT:
       return EDGE_SELECT;
-    case NodeSelect.SUB_SELECT:
+    case SelectType.SUB_SELECT:
       return EDGE_SUB_SELECT;
-    case NodeSelect.DANGER:
+    case SelectType.DANGER:
       return EDGE_DANGER;
-    case NodeSelect.SUB_DANGER:
+    case SelectType.SUB_DANGER:
       return EDGE_SUB_DANGER;
-    case NodeSelect.WARNING:
+    case SelectType.WARNING:
       return EDGE_WARNING;
-    case NodeSelect.SUB_WARNING:
+    case SelectType.SUB_WARNING:
       return EDGE_SUB_WARNING;
     default:
       return 'edgeDefault';
   }
 }
 
-// function getEdgeLevel(select: NodeSelect) {
+// function getEdgeLevel(select: SelectType) {
 //   switch (select) {
-//     case NodeSelect.SELECT:
+//     case SelectType.SELECT:
 //       return 6;
-//     case NodeSelect.SUB_SELECT:
+//     case SelectType.SUB_SELECT:
 //       return 5;
-//     case NodeSelect.DANGER:
+//     case SelectType.DANGER:
 //       return 4;
-//     case NodeSelect.SUB_DANGER:
+//     case SelectType.SUB_DANGER:
 //       return 3;
-//     case NodeSelect.WARNING:
+//     case SelectType.WARNING:
 //       return 2;
-//     case NodeSelect.SUB_WARNING:
+//     case SelectType.SUB_WARNING:
 //       return 1;
 //     default:
 //       return 0;
@@ -155,14 +159,14 @@ function getEdgeClsFromNodeSelect(select: NodeSelect) {
 
 export function getRenderEdges(edges: FlowViewEdge[]) {
   return edges.map((edge) => {
-    const { source, target, select = NodeSelect.DEFAULT, type } = edge;
+    const { source, target, select = SelectType.DEFAULT, type } = edge;
 
     return {
       id: `${source}-${target}`,
       source,
       target,
       type: type === EdgeType.default ? 'smoothstep' : 'radiusEdge',
-      className: getEdgeClsFromNodeSelect(select),
+      className: getEdgeClsFromSelectType(select),
     };
   });
 
@@ -176,7 +180,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
 const NodeComponentHandler: NodeHandler = {
   default: (node: NodeMapItem) => <DefaultNode {...(node.data as DefaultNodeData)} />,
   lineage: (node: NodeMapItem) => {
-    const { select = NodeSelect.DEFAULT } = node;
+    const { select = SelectType.DEFAULT } = node;
 
     return (
       <LineageNode
@@ -191,7 +195,7 @@ const NodeComponentHandler: NodeHandler = {
     );
   },
   lineageGroup: (node: NodeMapItem) => {
-    const { select = NodeSelect.DEFAULT } = node;
+    const { select = SelectType.DEFAULT } = node;
 
     return (
       <LineageNodeGroup
@@ -224,7 +228,7 @@ export const getRenderData = (
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
       id: node.id!,
-      position: { x: 0, y: 0 },
+      position: node.position!,
       type: getTypeFromEdge(node),
       width: node.group ? 355 : 320,
       height: node.group ? 1100 : 83,

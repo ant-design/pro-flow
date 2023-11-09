@@ -6,21 +6,21 @@ import {
   NODE_SUB_WARNING,
   NODE_WARNING,
 } from '@/FlowView/constants';
-import { NodeSelect } from '..';
+import { SelectType } from '..';
 
-export function getClsFromSelectType(select: NodeSelect) {
+export function getClsFromSelectType(select: SelectType) {
   switch (select) {
-    case NodeSelect.SELECT:
+    case SelectType.SELECT:
       return NODE_SELECT;
-    case NodeSelect.SUB_SELECT:
+    case SelectType.SUB_SELECT:
       return NODE_SUB_SELECT;
-    case NodeSelect.DANGER:
+    case SelectType.DANGER:
       return NODE_DANGER;
-    case NodeSelect.SUB_DANGER:
+    case SelectType.SUB_DANGER:
       return NODE_SUB_DANGER;
-    case NodeSelect.WARNING:
+    case SelectType.WARNING:
       return NODE_WARNING;
-    case NodeSelect.SUB_WARNING:
+    case SelectType.SUB_WARNING:
       return NODE_SUB_WARNING;
     default:
       return 'nodeDefault';

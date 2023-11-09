@@ -1,7 +1,7 @@
 import { Node } from 'reactflow';
 import { DefaultNodeType, FlowNodeType, NodeTypeDataMap } from '../constants';
 
-export enum NodeSelect {
+export enum SelectType {
   SELECT = 'SELECT',
   SUB_SELECT = 'SUB_SELECT',
   DANGER = 'DANGER',
@@ -31,7 +31,7 @@ export interface NodeMapItem<T extends FlowNodeType = DefaultNodeType<FlowNodeTy
   type?: 'input' | 'output' | 'default';
   flowNodeType?: T;
   className?: string;
-  select?: NodeSelect;
+  select?: SelectType;
   isGroup?: boolean;
   childrenNeedFold?: boolean;
   haveAlert?: boolean;

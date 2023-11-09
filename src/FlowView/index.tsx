@@ -2,14 +2,13 @@ import React, {
   createContext,
   useCallback,
   useContext,
-  useMemo,
+  useEffect,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { Edge, Node, useViewport } from 'reactflow';
+import ReactFlow, { Edge, Node } from 'reactflow';
 import 'reactflow/dist/style.css';
 import Background, { BackgroundVariant } from '../Background';
 import { FlowViewProps, ProFlowController, RadiusEdge } from '../index';
-import { convertMappingFrom, getRenderData } from './helper';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
 
@@ -22,37 +21,25 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     onNodeDragStart = initFn,
     onPaneClick = initFn,
     onNodeClick = initFn,
-    nodes,
-    edges,
+    onEdgeClick = initFn,
+    nodes = [],
+    edges = [],
     miniMap = true,
     children,
     background = true,
   } = props;
+  const {
+    miniMapPosition,
+    flowDataAdapter,
+    nodes: renderNodes,
+    edges: renderEdges,
+  } = useContext(FlowViewContext);
   const { styles, cx } = useStyles();
-  const { zoom } = useViewport();
-  const mapping = useMemo(() => convertMappingFrom(nodes!, edges!, zoom), [nodes, edges, zoom]);
-  const renderData = useMemo((): {
-    nodes: Node[];
-    edges: Edge[];
-  } => {
-    if (mapping && edges!.length) {
-      const { nodes, edges: _edges } = getRenderData(mapping, edges!);
-      return {
-        nodes,
-        edges: _edges,
-      };
-    } else {
-      return {
-        nodes: [],
-        edges: [],
-      };
-    }
-  }, [mapping, edges]);
 
-  const { miniMapPosition } = useContext(FlowViewContext);
+  useEffect(() => {
+    flowDataAdapter!(nodes, edges);
+  }, [nodes, edges]);
 
-  // const reactFlowInstance = useReactFlow();
-  // console.log(reactFlowInstance);
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
       // TODO: 应当把事件中的 node 转换为 FlowViewNode 透出给用户
@@ -80,6 +67,15 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     [onNodeClick],
   );
 
+  const handleEdgeClick = useCallback(
+    (event: ReactMouseEvent, edge: Edge) => {
+      // TODO: 应当把事件中的 node 转换为 FlowViewNode 透出给用户
+      // const {node} = transformNode(node);
+      handleEdgeClick(event, edge);
+    },
+    [onEdgeClick],
+  );
+
   // TODO: 要把loading状态包掉，要把空状态包掉。
   return (
     <ReactFlow
@@ -87,8 +83,9 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       onNodeDragStart={handleNodeDragStart}
       onPaneClick={handlePaneClick}
       onNodeClick={handleNodeClick}
-      nodes={renderData.nodes}
-      edges={renderData.edges}
+      onEdgeClick={handleEdgeClick}
+      nodes={renderNodes}
+      edges={renderEdges}
       edgeTypes={{
         radiusEdge: RadiusEdge,
       }}

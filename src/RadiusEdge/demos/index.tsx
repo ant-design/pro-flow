@@ -1,4 +1,4 @@
-import { EdgeType, FlowViewNode, ProFlow } from '@ant-design/pro-flow';
+import { EdgeType, FlowView, FlowViewNode } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 
@@ -54,7 +54,7 @@ const Demos = memo(() => {
   const { styles } = useStyles();
   return (
     <div className={styles.container}>
-      <ProFlow nodes={nodes} edges={edges} />
+      <FlowView nodes={nodes} edges={edges} />
     </div>
   );
 });

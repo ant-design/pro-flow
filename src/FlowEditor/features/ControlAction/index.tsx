@@ -17,7 +17,7 @@ export const useStyles = createStyles(({ css, token }) => ({
     }
   `,
   minimap: css`
-    position: relative;
+    position: relative !important;
     right: 0;
     bottom: 0;
 

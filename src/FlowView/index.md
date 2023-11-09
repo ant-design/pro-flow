@@ -10,6 +10,8 @@ description:
 
 ## API
 
+### FlowView
+
 | 属性名     | 类型              | 描述     | 默认值 | 必选 |
 | ---------- | ----------------- | -------- | ------ | ---- |
 | nodes      | `FlowViewNode`    | 边数据   | -      | -    |
@@ -25,7 +27,7 @@ description:
 | 属性名 | 类型                                           | 描述         | 默认值 | 必选 |
 | ------ | ---------------------------------------------- | ------------ | ------ | ---- |
 | id     | `string`                                       | 边数据       | -      | -    |
-| select | `NodeSelect`                                   | 节点数据     | -      | -    |
+| select | `SelectType`                                   | 节点数据     | -      | -    |
 | data   | `NodeTypeDataMap[T]`                           | 边数据       | -      | -    |
 | type   | `T = 'default' \| 'lineage' \| 'lineageGroup'` | 节点类型（） | -      | -    |
 | label  | `string`                                       | 边数据       | -      | -    |
@@ -65,10 +67,10 @@ export interface NodeTypeDataMap {
 | id     | `string`          | 类名   | -      | -    |
 | data   | `LineageNodeData` | 子组件 | -      | -    |
 
-#### NodeSelect
+#### SelectType
 
 ```ts
-export enum NodeSelect {
+export enum SelectType {
   SELECT = 'SELECT',
   SUB_SELECT = 'SUB_SELECT',
   DANGER = 'DANGER',
@@ -86,5 +88,5 @@ export enum NodeSelect {
 | id     | `string`                            | 唯一 id     | -      | -    |
 | source | `string`                            | 来源节点 id | -      | -    |
 | target | `string`                            | 目标节点 id | -      | -    |
-| select | `NodeSelect`                        | 选中状态    | -      | -    |
+| select | `SelectType`                        | 选中状态    | -      | -    |
 | type   | `EdgeType = 'default' \| 'radius' ` | 边缘类型    | -      | -    |

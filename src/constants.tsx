@@ -2,7 +2,7 @@ import React, { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'r
 import { Node } from 'reactflow';
 import { NodeMapItem } from './FlowView/constants';
 
-export enum NodeSelect {
+export enum SelectType {
   SELECT = 'SELECT',
   SUB_SELECT = 'SUB_SELECT',
   DANGER = 'DANGER',
@@ -52,19 +52,23 @@ export type NodeHandler = {
 export type DefaultNodeType<T> = T extends FlowNodeType ? T : 'lineage';
 export interface FlowViewNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
   id: string;
-  select?: NodeSelect;
+  select?: SelectType;
   data: NodeTypeDataMap[T];
   type?: T;
   label?: string;
   width?: number;
   height?: number;
+  position?: {
+    x: number;
+    y: number;
+  };
 }
 
 export interface FlowViewEdge {
   id: string;
   source: string;
   target: string;
-  select?: NodeSelect;
+  select?: SelectType;
   type?: EdgeType;
 }
 
@@ -72,6 +76,7 @@ export interface FlowViewProps {
   onNodeDragStart?: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
   onPaneClick?: (event: ReactMouseEvent) => void;
   onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
+  onEdgeClick?: (event: ReactMouseEvent) => void;
   nodes: FlowViewNode[];
   edges: FlowViewEdge[];
   className?: string;

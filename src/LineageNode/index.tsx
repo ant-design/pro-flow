@@ -1,4 +1,4 @@
-import { NodeSelect } from '@/FlowView/constants';
+import { SelectType } from '@/FlowView/constants';
 import { getClsFromSelectType } from '@/utils';
 import React from 'react';
 import styled from 'styled-components';
@@ -12,7 +12,7 @@ interface BloodNodeProps {
   showIcon?: boolean;
   icon?: string;
   className?: string;
-  selectType?: NodeSelect;
+  selectType?: SelectType;
   zoom?: number;
   label?: string;
   titleSlot?: {
@@ -57,7 +57,7 @@ const BloodNode: React.FC<Partial<BloodNodeProps>> = ({
   logo,
   description,
   className,
-  selectType = NodeSelect.SELECT,
+  selectType = SelectType.SELECT,
   zoom = 1,
   label,
   titleSlot,
