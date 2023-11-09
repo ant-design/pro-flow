@@ -1,7 +1,10 @@
 import { FlowView } from '@ant-design/pro-flow';
-import { EdgeType, FlowViewEdge, FlowViewNode, SelectType } from '@ant-design/pro-flow/es/index';
+import { EdgeType, FlowViewEdge, FlowViewNode } from '@ant-design/pro-flow/es/index';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { useFlowViewer } from '../../../src/FlowView/hooks/useFlowView';
+import { FlowViewProvider } from '../../../src/FlowView/provider/FlowViewProvider';
+import { SelectType } from '../../../src/constants';
 
 const initNodes = [
   {
@@ -47,46 +50,21 @@ function App() {
   const [nodes, setNodes] = useState<FlowViewNode>(initNodes);
   const [edges, setEdges] = useState<FlowViewEdge>(initEdges);
 
-  const handlePaneClick = (e: any) => {
-    setNodes(
-      nodes.map((_node) => {
-        _node.select = SelectType.DEFAULT;
-        return _node;
-      }),
-    );
-    setEdges(
-      edges.map((edge) => {
-        edge.select = SelectType.DEFAULT;
-        return edge;
-      }),
-    );
-  };
-
-  const handleNodeClick = (e: any, node) => {
-    console.log(node);
-    setNodes(
-      nodes.map((_node) => {
-        if (_node.id === node.id) {
-          _node.select = SelectType.SELECT;
-        } else {
-          _node.select = SelectType.SUB_SELECT;
-        }
-        return _node;
-      }),
-    );
-    setEdges(
-      edges.map((edge) => {
-        edge.select = SelectType.SUB_SELECT;
-        return edge;
-      }),
-    );
-  };
+  const { updateSelectNode, updateSelectEdge, updateSelectEdges, updateSelectNodes } =
+    useFlowViewer();
 
   return (
     <Container>
       <FlowView
-        onPaneClick={handlePaneClick}
-        onNodeClick={handleNodeClick}
+        onNodeClick={(e, node) => {
+          updateSelectNodes!(['a1', 'a2', 'a3'], SelectType.SUB_SELECT);
+          updateSelectNode!(node.id, SelectType.SELECT);
+          updateSelectEdges!(['a1-a2', 'a1-a3'], SelectType.SUB_SELECT);
+        }}
+        onPaneClick={() => {
+          updateSelectNodes!(['a1', 'a2', 'a3'], SelectType.DEFAULT);
+          updateSelectEdges!(['a1-a2', 'a1-a3'], SelectType.DEFAULT);
+        }}
         nodes={nodes}
         edges={edges}
       />
@@ -94,7 +72,15 @@ function App() {
   );
 }
 
-export default App;
+function ProApp() {
+  return (
+    <FlowViewProvider>
+      <App />
+    </FlowViewProvider>
+  );
+}
+
+export default ProApp;
 
 const Container = styled.div`
   width: 800px;

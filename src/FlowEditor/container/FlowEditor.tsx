@@ -128,6 +128,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       } else {
         instance.setViewport(defaultViewport);
       }
+      console.log(nodesInitialized);
 
       // 然后设定初始化节点的相关状态
       if (nodesInitialized) {
