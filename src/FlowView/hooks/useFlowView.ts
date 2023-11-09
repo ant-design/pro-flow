@@ -20,3 +20,15 @@ export const useMiniMap = () => {
     setMiniMapPosition,
   };
 };
+
+export const useFlowViewer = () => {
+  const { updateSelectNode, updateSelectEdge, updateSelectEdges, updateSelectNodes } =
+    useContext(FlowViewContext);
+
+  return {
+    updateSelectNode,
+    updateSelectEdge,
+    updateSelectEdges,
+    updateSelectNodes,
+  };
+};

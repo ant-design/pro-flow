@@ -1,6 +1,9 @@
 import { FlowView } from '@ant-design/pro-flow';
 import { EdgeType } from '@ant-design/pro-flow/es/index';
 import styled from 'styled-components';
+import { SelectType } from '../../../src/FlowView/constants';
+import { useFlowViewer } from '../../../src/FlowView/hooks/useFlowView';
+import { FlowViewProvider } from '../../../src/FlowView/provider/FlowViewProvider';
 
 const nodes = [
   {
@@ -55,14 +58,35 @@ const edges = [
 ];
 
 function App() {
+  const { updateSelectNode, updateSelectEdge, updateSelectEdges, updateSelectNodes } =
+    useFlowViewer();
+
   return (
     <Container>
-      <FlowView nodes={nodes} edges={edges} miniMap={false} />
+      <FlowView
+        onNodeClick={() => {
+          updateSelectNodes!(['a1', 'a2', 'a3'], SelectType.SUB_DANGER);
+          updateSelectNode!('a3', SelectType.DANGER);
+          updateSelectEdges!(['a1-a2', 'a1-a3'], SelectType.SELECT);
+          updateSelectEdge!('a1-a2', SelectType.SUB_SELECT);
+        }}
+        nodes={nodes}
+        edges={edges}
+        miniMap={false}
+      />
     </Container>
   );
 }
 
-export default App;
+function ProApp() {
+  return (
+    <FlowViewProvider>
+      <App />
+    </FlowViewProvider>
+  );
+}
+
+export default ProApp;
 
 const Container = styled.div`
   width: 800px;

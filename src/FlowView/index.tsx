@@ -2,7 +2,7 @@ import React, {
   createContext,
   useCallback,
   useContext,
-  useMemo,
+  useEffect,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
 import ReactFlow, { Edge, Node } from 'reactflow';
@@ -22,25 +22,23 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     onPaneClick = initFn,
     onNodeClick = initFn,
     onEdgeClick = initFn,
-    nodes,
-    edges,
+    nodes = [],
+    edges = [],
     miniMap = true,
     children,
     background = true,
   } = props;
-  const { miniMapPosition, flowDataAdapter } = useContext(FlowViewContext);
+  const {
+    miniMapPosition,
+    flowDataAdapter,
+    nodes: renderNodes,
+    edges: renderEdges,
+  } = useContext(FlowViewContext);
   const { styles, cx } = useStyles();
-  const renderData = useMemo(() => {
-    if (nodes?.length && flowDataAdapter) {
-      const _edges = edges?.length ? edges : [];
-      return flowDataAdapter!(nodes!, _edges);
-    } else {
-      return {
-        nodes: [],
-        edges: [],
-      };
-    }
-  }, [nodes, edges, flowDataAdapter]);
+
+  useEffect(() => {
+    flowDataAdapter!(nodes, edges);
+  }, [nodes, edges]);
 
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
@@ -86,8 +84,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       onPaneClick={handlePaneClick}
       onNodeClick={handleNodeClick}
       onEdgeClick={handleEdgeClick}
-      nodes={renderData.nodes}
-      edges={renderData.edges}
+      nodes={renderNodes}
+      edges={renderEdges}
       edgeTypes={{
         radiusEdge: RadiusEdge,
       }}
