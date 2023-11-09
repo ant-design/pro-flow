@@ -1,6 +1,5 @@
 import { FlowView } from '@ant-design/pro-flow';
-import { EdgeType, FlowViewEdge, FlowViewNode } from '@ant-design/pro-flow/es/index';
-import { useState } from 'react';
+import { EdgeType } from '@ant-design/pro-flow/es/index';
 import styled from 'styled-components';
 import { useFlowViewer } from '../../../src/FlowView/hooks/useFlowView';
 import { FlowViewProvider } from '../../../src/FlowView/provider/FlowViewProvider';
@@ -47,11 +46,7 @@ const initEdges = [
 ];
 
 function App() {
-  const [nodes, setNodes] = useState<FlowViewNode>(initNodes);
-  const [edges, setEdges] = useState<FlowViewEdge>(initEdges);
-
-  const { updateSelectNode, updateSelectEdge, updateSelectEdges, updateSelectNodes } =
-    useFlowViewer();
+  const { updateSelectNode, updateSelectEdges, updateSelectNodes } = useFlowViewer();
 
   return (
     <Container>
@@ -65,8 +60,8 @@ function App() {
           updateSelectNodes!(['a1', 'a2', 'a3'], SelectType.DEFAULT);
           updateSelectEdges!(['a1-a2', 'a1-a3'], SelectType.DEFAULT);
         }}
-        nodes={nodes}
-        edges={edges}
+        nodes={initNodes}
+        edges={initEdges}
       />
     </Container>
   );
