@@ -1,8 +1,17 @@
-import { MiniMapPosition } from '@/constants';
+import { FlowViewEdge, FlowViewNode, MiniMapPosition } from '@/constants';
 import { createContext } from 'react';
-import { ReactFlowInstance } from 'reactflow';
+import { Edge, Node, ReactFlowInstance } from 'reactflow';
+import { NodeMapping } from '../constants';
 
 interface FlowViewContextProps {
+  flowDataAdapter?: (
+    nodes: FlowViewNode[],
+    edges: FlowViewEdge[],
+  ) => {
+    nodes: Node[];
+    edges: Edge[];
+  };
+  mapping?: NodeMapping;
   isUseProvider?: boolean;
   reactFlowInstance?: ReactFlowInstance<any, any>;
   miniMapPosition?: MiniMapPosition;

@@ -12,13 +12,15 @@ const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
       position: absolute;
       bottom: ${y}px;
       right: ${10 + x}px;
-
       z-index: 100;
       transition: right 0.2s ease;
+      width: 200px;
+      height: 260px;
+      box-sizing: border-box;
     `,
 
     visible: css`
-      right: 387px;
+      display: none;
     `,
 
     controlAction: css`
@@ -27,6 +29,7 @@ const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     `,
 
     measureMap: css`
@@ -35,10 +38,8 @@ const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
       display: flex;
       align-items: center;
       padding: 0;
-      margin: 0;
-      right: 0;
-      bottom: 0;
-      position: relative;
+      margin: 0 !important;
+      position: relative !important;
     `,
   };
 });
@@ -50,7 +51,7 @@ interface ProFlowControllerProps {
 }
 
 const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => {
-  const { visible = false, className = '', position = { x: 0, y: 0 } } = props;
+  const { visible = true, className = '', position = { x: 0, y: 0 } } = props;
   const reactFlow = useReactFlow();
   const { zoom } = useViewport();
   const { styles, cx } = useStyles(position);
@@ -74,7 +75,7 @@ const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => 
   };
 
   return (
-    <div className={cx(styles.container, visible && styles.visible, className)}>
+    <div className={cx(styles.container, !visible && styles.visible, className)}>
       <div className={styles.controlAction}>
         <Space>
           <Button icon={<MinusOutlined />} onClick={handleZoomOut} />
@@ -89,7 +90,6 @@ const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => 
       </div>
       <MiniMap
         className={styles.measureMap}
-        pannable
         onNodeClick={(_, data) => {
           const bound = {
             ...data.position,

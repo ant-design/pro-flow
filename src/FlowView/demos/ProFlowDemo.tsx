@@ -1,5 +1,5 @@
-import { EdgeType, FlowViewEdge, FlowViewNode, NodeSelect } from '@/index';
-import { ProFlow } from '@ant-design/pro-flow';
+import { EdgeType, FlowViewEdge, FlowViewNode, SelectType } from '@/index';
+import { FlowView } from '@ant-design/pro-flow';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
@@ -246,14 +246,14 @@ const ProFlowDemo = () => {
   const handleHighlight = (node: FlowViewNode) => {
     _nodes.forEach((_node) => {
       if (_node.id === node.id) {
-        _node.select = NodeSelect.SELECT;
+        _node.select = SelectType.SELECT;
       }
     });
     setNodes(_nodes);
     setEdges(
       edges.map((edge) => {
         if (edge.source === node.id || edge.target === node.id) {
-          edge.select = NodeSelect.SUB_SELECT;
+          edge.select = SelectType.SUB_SELECT;
         }
         return {
           ...edge,
@@ -269,12 +269,12 @@ const ProFlowDemo = () => {
 
   return (
     <div className={styles.container}>
-      <ProFlow
+      <FlowView
         onNodeDragStart={(e, node: any) => handleHighlight(node)}
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
-      ></ProFlow>
+      ></FlowView>
     </div>
   );
 };

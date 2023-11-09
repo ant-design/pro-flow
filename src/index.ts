@@ -4,7 +4,7 @@ export * from './ControlInput';
 export { default as EditableText } from './EditableText';
 export * from './FlowEditor';
 export { FlowStoreProvider, type FlowEditorStoreProviderProps } from './FlowStoreProvider';
-export { default as ProFlow } from './FlowView/FlowView';
+export { default as FlowView } from './FlowView/FlowView';
 export * from './Input';
 export { NodeField, useNodeFieldStyles } from './NodeField';
 export type { ExtraAction } from './NodeField';

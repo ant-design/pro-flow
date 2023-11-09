@@ -1,4 +1,4 @@
-import { NodeMapItem, NodeSelect } from '@/FlowView/constants';
+import { NodeMapItem, SelectType } from '@/FlowView/constants';
 import { ArtboardTitle } from '@/LineageNode';
 import { LineageGroupNodeData, LineageNodeData } from '@/constants';
 import { getClsFromSelectType } from '@/utils';
@@ -10,7 +10,7 @@ export interface LineageNodeGroupProps {
   id?: string;
   zoom?: number;
   label?: string;
-  select?: NodeSelect;
+  select?: SelectType;
   data: LineageGroupNodeData[];
 }
 
@@ -37,7 +37,7 @@ const GroupItem = (node: NodeMapItem) => {
 
 const LineageNodeGroup: React.FC<LineageNodeGroupProps> = ({
   data,
-  select = NodeSelect.SELECT,
+  select = SelectType.SELECT,
   zoom = 1,
   label,
 }) => {
