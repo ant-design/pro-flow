@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.12.0](https://github.com/ant-design/pro-flow/compare/v0.11.1...v0.12.0)
+
+<sup>Released on **2023-11-09**</sup>
+
+#### ✨ 新特性
+
+- **docs**: 补全文档 & 提供 useFlowViewer hooks.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **docs**: 补全文档 & 提供 useFlowViewer hooks, closes [#29](https://github.com/ant-design/pro-flow/issues/29) ([e5679ab](https://github.com/ant-design/pro-flow/commit/e5679ab))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.11.1](https://github.com/ant-design/pro-flow/compare/v0.11.0...v0.11.1)
 
 <sup>Released on **2023-11-07**</sup>
