@@ -1,9 +1,11 @@
-import { FlowView } from '@ant-design/pro-flow';
-import { EdgeType } from '@ant-design/pro-flow/es/index';
 import styled from 'styled-components';
-import { useFlowViewer } from '../../../src/FlowView/hooks/useFlowView';
-import { FlowViewProvider } from '../../../src/FlowView/provider/FlowViewProvider';
-import { SelectType } from '../../../src/constants';
+import {
+  EdgeType,
+  FlowView,
+  FlowViewProvider,
+  SelectType,
+  useFlowViewer,
+} from '../../../src/index';
 
 const initNodes = [
   {
