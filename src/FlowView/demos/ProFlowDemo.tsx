@@ -1,8 +1,10 @@
+import FlowPanel from '@/FlowPanel';
 import { EdgeType, FlowViewEdge, FlowViewNode, SelectType } from '@/index';
 import { FlowView } from '@ant-design/pro-flow';
-import { Progress } from 'antd';
+import { Button, Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
+import { useReactFlow } from 'reactflow';
 import styled from 'styled-components';
 import { FlowViewProvider } from '../provider/FlowViewProvider';
 
@@ -55,7 +57,7 @@ const nodes: FlowViewNode[] = [
     label: '123',
     type: 'default',
     data: {
-      children: <div>default node, 123123</div>,
+      children: <div>default node</div>,
     },
   },
   {
@@ -242,6 +244,7 @@ const ProFlowDemo = () => {
   const [_nodes, setNodes] = useState<FlowViewNode[]>([...nodes]);
   const [_edges, setEdges] = useState<FlowViewEdge[]>([...edges]);
   const { styles } = useStyles();
+  const instance = useReactFlow();
 
   const handleHighlight = (node: FlowViewNode) => {
     _nodes.forEach((_node) => {
@@ -274,7 +277,28 @@ const ProFlowDemo = () => {
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
-      ></FlowView>
+      >
+        <FlowPanel>
+          <Button
+            onClick={() => {
+              const port = instance?.getViewport();
+              console.log(port);
+              instance.setViewport(
+                {
+                  x: -50,
+                  y: 180,
+                  zoom: 0.5,
+                },
+                {
+                  duration: 2000,
+                },
+              );
+            }}
+          >
+            12312312
+          </Button>
+        </FlowPanel>
+      </FlowView>
     </div>
   );
 };

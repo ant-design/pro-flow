@@ -26,9 +26,9 @@ export const useFlowViewer = () => {
     useContext(FlowViewContext);
 
   return {
-    updateSelectNode,
-    updateSelectEdge,
-    updateSelectEdges,
-    updateSelectNodes,
+    selectNode: updateSelectNode,
+    selectEdge: updateSelectEdge,
+    selectEdges: updateSelectEdges,
+    selectNodes: updateSelectNodes,
   };
 };
