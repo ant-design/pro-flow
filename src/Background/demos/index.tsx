@@ -1,8 +1,7 @@
-import { FlowView } from '@/index';
+import { Background, BackgroundVariant, FlowPanel, FlowView } from '@ant-design/pro-flow';
+import { Button } from 'antd';
 import { createStyles } from 'antd-style';
 import { memo, useState } from 'react';
-import { Panel } from 'reactflow';
-import Background, { BackgroundVariant } from '..';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -18,18 +17,12 @@ const BackgroundDemo = memo(() => {
   return (
     <div className={styles.container}>
       <FlowView nodes={[]} edges={[]} miniMap={false} background={false}>
-        <Panel position={'top-left'}>
+        <FlowPanel position={'top-left'}>
           <div>variant:</div>
-          <button type="button" onClick={() => setVariant(BackgroundVariant.Dots)}>
-            dots
-          </button>
-          <button type="button" onClick={() => setVariant(BackgroundVariant.Lines)}>
-            lines
-          </button>
-          <button type="button" onClick={() => setVariant(BackgroundVariant.Cross)}>
-            cross
-          </button>
-        </Panel>
+          <Button onClick={() => setVariant(BackgroundVariant.Dots)}>dots</Button>
+          <Button onClick={() => setVariant(BackgroundVariant.Lines)}>lines</Button>
+          <Button onClick={() => setVariant(BackgroundVariant.Cross)}>cross</Button>
+        </FlowPanel>
         <Background variant={variant} />
       </FlowView>
     </div>

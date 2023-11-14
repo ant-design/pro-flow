@@ -1,5 +1,4 @@
-import { FlowViewEdge, FlowViewNode, SelectType } from '@/index';
-import { FlowView } from '@ant-design/pro-flow';
+import { FlowView, FlowViewEdge, FlowViewNode, SelectType } from '@ant-design/pro-flow';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';

@@ -1,7 +1,6 @@
-import { FlowView } from '@/index';
+import { FlowPanel, FlowView } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
-import FlowPanel from '..';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`

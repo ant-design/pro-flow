@@ -1,4 +1,5 @@
 export * from './Background';
+export { default as Background } from './Background';
 export { default as BasicNode } from './BasicNode';
 export { default as CanvasLoading } from './CanvasLoading';
 export * from './ControlInput';
