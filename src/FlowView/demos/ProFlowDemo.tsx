@@ -1,11 +1,15 @@
-import FlowPanel from '@/FlowPanel';
-import { EdgeType, FlowViewEdge, FlowViewNode, SelectType, useFlowViewer } from '@/index';
-import { FlowView } from '@ant-design/pro-flow';
-import { Button, Progress } from 'antd';
+import {
+  EdgeType,
+  FlowView,
+  FlowViewEdge,
+  FlowViewNode,
+  FlowViewProvider,
+  SelectType,
+} from '@ant-design/pro-flow';
+import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FlowViewProvider } from '../provider/FlowViewProvider';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -243,7 +247,6 @@ const ProFlowDemo = () => {
   const [_nodes, setNodes] = useState<FlowViewNode[]>([...nodes]);
   const [_edges, setEdges] = useState<FlowViewEdge[]>([...edges]);
   const { styles } = useStyles();
-  const flowViewer = useFlowViewer();
 
   const handleHighlight = (node: FlowViewNode) => {
     _nodes.forEach((_node) => {
@@ -276,29 +279,7 @@ const ProFlowDemo = () => {
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
-      >
-        <FlowPanel>
-          <Button
-            onClick={() => {
-              flowViewer.zoomToNode('a1', 2000);
-              // const port = instance?.getViewport();
-              // console.log(port);
-              // instance.setViewport(
-              //   {
-              //     x: -50,
-              //     y: 180,
-              //     zoom: 0.5,
-              //   },
-              //   {
-              //     duration: 2000,
-              //   },
-              // );
-            }}
-          >
-            12312312
-          </Button>
-        </FlowPanel>
-      </FlowView>
+      ></FlowView>
     </div>
   );
 };

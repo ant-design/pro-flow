@@ -5,6 +5,7 @@ export * from './ControlInput';
 export { default as EditableText } from './EditableText';
 export * from './FlowEditor';
 export * from './FlowPanel';
+export { default as FlowPanel } from './FlowPanel';
 export { FlowStoreProvider, type FlowEditorStoreProviderProps } from './FlowStoreProvider';
 export { default as FlowView } from './FlowView/FlowView';
 export * from './FlowView/hooks/useFlowView';
