@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Viewport } from 'reactflow';
 import { FlowViewContext } from '../provider/provider';
 
 export const useFlowView = () => {
@@ -59,16 +60,24 @@ export const useFlowViewer = () => {
     setPosition!({ x, y });
   };
 
+  const getViewport = () => {
+    return reactFlowInstance?.getViewport!();
+  };
+
+  const setViewport = (viewport: Viewport, duration: number) => {
+    return reactFlowInstance?.setViewport!(viewport, { duration });
+  };
+
   return {
-    selectNode: updateSelectNode,
-    selectEdge: updateSelectEdge,
-    selectEdges: updateSelectEdges,
-    selectNodes: updateSelectNodes,
+    selectNode: updateSelectNode!,
+    selectEdge: updateSelectEdge!,
+    selectEdges: updateSelectEdges!,
+    selectNodes: updateSelectNodes!,
     getNode,
     getNodes,
     zoomTo,
-    getViewport: reactFlowInstance?.getViewport,
-    setViewport: reactFlowInstance?.setViewport,
+    getViewport,
+    setViewport,
     zoomToNode,
     setMiniMapPosition,
   };

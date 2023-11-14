@@ -33,6 +33,10 @@ function ProApp() {
 }
 ```
 
+## 功能展示
+
+<code src="./demos/useFlowViewer.tsx"></code>
+
 ## 节点选中
 
 提供了一组公共节点选中方法，包括：

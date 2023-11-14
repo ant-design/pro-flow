@@ -1,6 +1,8 @@
+import { Button } from 'antd';
 import styled from 'styled-components';
 import {
   EdgeType,
+  FlowPanel,
   FlowView,
   FlowViewProvider,
   SelectType,
@@ -11,7 +13,7 @@ const initNodes = [
   {
     id: 'a1',
     data: {
-      title: 'XXX_API_b3',
+      title: 'a1 节点',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
       describe: 'XXX_XXX_XXX_API',
     },
@@ -48,7 +50,7 @@ const initEdges = [
 ];
 
 function App() {
-  const { selectNode, selectEdges, selectNodes } = useFlowViewer();
+  const { selectNode, selectEdges, selectNodes, zoomToNode } = useFlowViewer();
 
   return (
     <Container>
@@ -64,7 +66,33 @@ function App() {
         }}
         nodes={initNodes}
         edges={initEdges}
-      />
+      >
+        <FlowPanel position={'top-center'}>
+          <div>
+            <Button
+              onClick={() => {
+                zoomToNode('a1', 1000);
+              }}
+            >
+              快速聚焦到 a1 节点
+            </Button>
+            <Button
+              onClick={() => {
+                selectNodes(['a1', 'a2', 'a3'], SelectType.SELECT);
+              }}
+            >
+              选中全部节点
+            </Button>
+            <Button
+              onClick={() => {
+                selectEdges(['a1-a2', 'a1-a3'], SelectType.SELECT);
+              }}
+            >
+              选中全部边缘
+            </Button>
+          </div>
+        </FlowPanel>
+      </FlowView>
     </Container>
   );
 }
