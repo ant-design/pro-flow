@@ -7,3 +7,7 @@ description:
 ## default
 
 <code src="./demos/index.tsx"></code>
+
+## API
+
+FlowEditor 为数据驱动解决方案，需搭配 [useFlowEditor](/use-docs/use-flow-editor) 使用。
