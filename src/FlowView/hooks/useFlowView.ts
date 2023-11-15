@@ -64,7 +64,7 @@ export const useFlowViewer = () => {
     return reactFlowInstance?.getViewport!();
   };
 
-  const setViewport = (viewport: Viewport, duration: number) => {
+  const setViewport = (viewport: Viewport, duration?: number) => {
     return reactFlowInstance?.setViewport!(viewport, { duration });
   };
 
