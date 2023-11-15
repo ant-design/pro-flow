@@ -1,7 +1,7 @@
 ---
 nav: 使用文档
 group:
-  title: Hooks
+  title: 进阶使用
   order: 2
 title: useFlowViewer
 description:
@@ -196,3 +196,16 @@ setViewport: (viewport: Viewport, duration?: number) => void;
 ## 小地图
 
 1. setMiniMapPosition: 设置 MiniMap 在窗口的坐标位置
+
+### setMiniMapPosition
+
+```js
+setMiniMapPosition: (x: number, y: number) => void;
+```
+
+#### 参数
+
+- `x` - x 轴坐标
+  - 类型: `number`
+- `y` - y 轴坐标
+  - 类型: `number`
