@@ -1,5 +1,5 @@
 import React, { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
-import { Node } from 'reactflow';
+import { EdgeProps, Node, NodeProps } from 'reactflow';
 import { NodeMapItem } from './FlowView/constants';
 
 export enum SelectType {
@@ -53,8 +53,8 @@ export type DefaultNodeType<T> = T extends FlowNodeType ? T : 'lineage';
 export interface FlowViewNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
   id: string;
   select?: SelectType;
-  data: NodeTypeDataMap[T];
-  type?: T;
+  data: NodeTypeDataMap[T] | any;
+  type?: T | string;
   label?: string;
   width?: number;
   height?: number;
@@ -79,7 +79,8 @@ export interface FlowViewProps {
   onEdgeClick?: (event: ReactMouseEvent) => void;
   nodes: FlowViewNode[];
   edges: FlowViewEdge[];
-  className?: string;
+  nodeTypes?: Record<string, React.ComponentType<NodeProps>>;
+  edgeTypes?: Record<string, React.ComponentType<EdgeProps>>;
   style?: CSSProperties;
   miniMap?: boolean;
   background?: boolean;

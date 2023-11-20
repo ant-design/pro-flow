@@ -4,7 +4,11 @@ import { Edge, Node, ReactFlowInstance } from 'reactflow';
 import { NodeMapping, SelectType } from '../constants';
 
 interface FlowViewContextProps {
-  flowDataAdapter?: (nodes: FlowViewNode<keyof NodeTypeDataMap>[], edges: FlowViewEdge[]) => void;
+  flowDataAdapter?: (
+    nodes: FlowViewNode<keyof NodeTypeDataMap>[],
+    edges: FlowViewEdge[],
+    zoom: number,
+  ) => void;
   nodes?: Node[];
   edges?: Edge[];
   mapping?: NodeMapping;

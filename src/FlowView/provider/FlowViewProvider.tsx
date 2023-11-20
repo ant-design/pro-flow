@@ -1,6 +1,6 @@
 import { FlowViewEdge, FlowViewNode, MiniMapPosition, NodeTypeDataMap } from '@/constants';
 import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
-import { Edge, Node, ReactFlowProvider, useReactFlow, useViewport } from 'reactflow';
+import { Edge, Node, ReactFlowProvider, useReactFlow } from 'reactflow';
 import { NodeMapping, SelectType } from '../constants';
 import { convertMappingFrom, getRenderData } from '../helper';
 import { FlowViewContext } from './provider';
@@ -13,16 +13,15 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
   const [edges, setEdges] = useState<Edge[]>([]);
   const [initEdges, setInitEdges] = useState<FlowViewEdge[] | undefined>(undefined);
   const [mapping, setMapping] = useState<NodeMapping>({});
-  const { zoom } = useViewport();
 
   const convertRenderData = useCallback(() => {
     const { nodes: _nodes, edges: _edges } = getRenderData(mapping, initEdges!);
     setNodes(_nodes);
     setEdges(_edges);
-  }, [initEdges]);
+  }, [mapping, initEdges]);
 
   const flowDataAdapter = useCallback(
-    (initNodes: FlowViewNode<keyof NodeTypeDataMap>[], initEdges: FlowViewEdge[]) => {
+    (initNodes: FlowViewNode<keyof NodeTypeDataMap>[], initEdges: FlowViewEdge[], zoom: number) => {
       if (initNodes.length === 0) return;
 
       setMapping(convertMappingFrom(initNodes!, initEdges!, zoom));

@@ -35,19 +35,17 @@ const GroupItem = (node: NodeMapItem) => {
   );
 };
 
-const LineageNodeGroup: React.FC<LineageNodeGroupProps> = ({
-  data,
-  select = SelectType.SELECT,
-  zoom = 1,
-  label,
-}) => {
+const LineageNodeGroup: React.FC<{
+  data: LineageNodeGroupProps;
+}> = ({ data }) => {
   const { styles } = useStyles();
+  const { select = SelectType.SELECT, zoom = 1, label, data: _data } = data;
 
-  if ((data as LineageGroupNodeData[]).length < 7) {
+  if ((_data as LineageGroupNodeData[]).length < 7) {
     return <div className={styles.groupWrap}>数组长度必须大于等于7！</div>;
   }
 
-  const nodeList = convertMappingNode(data as LineageGroupNodeData[]);
+  const nodeList = convertMappingNode(_data as LineageGroupNodeData[]);
 
   return (
     <>

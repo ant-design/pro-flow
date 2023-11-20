@@ -1,8 +1,15 @@
 import { SelectType } from '@/FlowView/constants';
 import { getClsFromSelectType } from '@/utils';
 import React from 'react';
+import { Handle, Position } from 'reactflow';
 import styled from 'styled-components';
 import { useStyles } from './styles';
+
+const Wrap = styled.div`
+  width: 320px;
+  height: 83px;
+  background-color: red;
+`;
 
 interface BloodNodeProps {
   logo: string;
@@ -52,46 +59,53 @@ const TitleSlotRight = styled.div`
   top: 9px;
 `;
 
-const BloodNode: React.FC<Partial<BloodNodeProps>> = ({
-  title,
-  logo,
-  description,
-  className,
-  selectType = SelectType.SELECT,
-  zoom = 1,
-  label,
-  titleSlot,
-}) => {
+const LineageNode: React.FC<{
+  data: BloodNodeProps;
+}> = ({ data }) => {
   const { styles, cx } = useStyles();
+  const {
+    title,
+    logo,
+    description,
+    className,
+    selectType = SelectType.SELECT,
+    zoom = 1,
+    label,
+    titleSlot,
+  } = data;
 
   return (
-    <>
-      {label && (
-        <ArtboardTitle zoom={zoom}>
-          {zoom <= 0.1 ? `${String(label).substring(0, 3)}...` : label}
-        </ArtboardTitle>
-      )}
-      <div className={cx(styles.nodeWrap, styles[getClsFromSelectType(selectType)], className)}>
-        <img className={'img'} src={logo} alt="" />
-        <div className={'content'}>
-          <div className={'title'}>
-            <span>{title}</span>
-            {!!titleSlot && !!titleSlot.value && titleSlot.type === 'left' && (
-              <TitleSlotLeft>{titleSlot.value}</TitleSlotLeft>
-            )}
-            {!!titleSlot && !!titleSlot.value && titleSlot.type === 'right' && (
-              <TitleSlotLeft>
-                <div style={{ width: '28px' }}></div>
-                <TitleSlotRight>{titleSlot.value}</TitleSlotRight>
-              </TitleSlotLeft>
-            )}
-          </div>
+    <Wrap>
+      <Handle type="target" position={Position.Left} />
+      <div>
+        {label && (
+          <ArtboardTitle zoom={zoom}>
+            {zoom <= 0.1 ? `${String(label).substring(0, 3)}...` : label}
+          </ArtboardTitle>
+        )}
+        <div className={cx(styles.nodeWrap, styles[getClsFromSelectType(selectType)], className)}>
+          <img className={'img'} src={logo} alt="" />
+          <div className={'content'}>
+            <div className={'title'}>
+              <span>{title}</span>
+              {!!titleSlot && !!titleSlot.value && titleSlot.type === 'left' && (
+                <TitleSlotLeft>{titleSlot.value}</TitleSlotLeft>
+              )}
+              {!!titleSlot && !!titleSlot.value && titleSlot.type === 'right' && (
+                <TitleSlotLeft>
+                  <div style={{ width: '28px' }}></div>
+                  <TitleSlotRight>{titleSlot.value}</TitleSlotRight>
+                </TitleSlotLeft>
+              )}
+            </div>
 
-          <div className={'des'}>{description}</div>
+            <div className={'des'}>{description}</div>
+          </div>
         </div>
       </div>
-    </>
+      <Handle type="source" position={Position.Right} />
+    </Wrap>
   );
 };
 
-export default BloodNode;
+export default LineageNode;

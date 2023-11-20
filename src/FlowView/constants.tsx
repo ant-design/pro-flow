@@ -29,7 +29,7 @@ export interface NodeMapItem<T extends FlowNodeType = DefaultNodeType<FlowNodeTy
   danger?: boolean;
   dangerCount?: number;
   type?: 'input' | 'output' | 'default';
-  flowNodeType?: T;
+  flowNodeType?: T | string;
   className?: string;
   select?: SelectType;
   isGroup?: boolean;

@@ -1,3 +1,5 @@
+import { Handle, Position } from 'reactflow';
+
 export * from './Background';
 export { default as Background } from './Background';
 export { default as BasicNode } from './BasicNode';
@@ -18,3 +20,4 @@ export * from './ProFlowController';
 export { default as ProFlowController } from './ProFlowController';
 export { default as RadiusEdge } from './RadiusEdge';
 export * from './constants';
+export { Handle, Position };

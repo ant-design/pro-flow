@@ -1,14 +1,18 @@
+import LineageNodeGroup from '@/LineageGroupNode';
+import LineageNode from '@/LineageNode';
 import React, {
   createContext,
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { Edge, Node } from 'reactflow';
+import ReactFlow, { Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
 import Background, { BackgroundVariant } from '../Background';
 import { FlowViewProps, ProFlowController, RadiusEdge } from '../index';
+import DefaultNode from './components/DefaultNode';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
 
@@ -24,6 +28,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     onEdgeClick = initFn,
     nodes = [],
     edges = [],
+    nodeTypes = {},
+    edgeTypes = {},
     miniMap = true,
     children,
     background = true,
@@ -35,10 +41,19 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     edges: renderEdges,
   } = useContext(FlowViewContext);
   const { styles, cx } = useStyles();
+  const nodeTypesMemo = useMemo(() => {
+    return {
+      ...nodeTypes,
+      lineage: LineageNode,
+      lineageGroup: LineageNodeGroup,
+      default: DefaultNode,
+    };
+  }, []);
+  const { zoom } = useViewport();
 
   useEffect(() => {
-    flowDataAdapter!(nodes, edges);
-  }, [nodes, edges]);
+    flowDataAdapter!(nodes, edges, zoom);
+  }, [nodes, edges, zoom]);
 
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
@@ -86,7 +101,9 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       onEdgeClick={handleEdgeClick}
       nodes={renderNodes}
       edges={renderEdges}
+      nodeTypes={nodeTypesMemo}
       edgeTypes={{
+        ...edgeTypes,
         radiusEdge: RadiusEdge,
       }}
       panOnScroll
