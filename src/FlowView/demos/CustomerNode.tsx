@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // import { Handle, Position } from 'reactflow';
 
 const Wrap = styled.div`
-  width: 200px;
+  width: 300px;
   height: 100px;
   background-color: red;
 `;
@@ -20,7 +20,7 @@ const CustomNode: FC<{
 
   return (
     <Wrap>
-      <Handle type="target" position={Position.Top} />
+      <Handle type="target" position={Position.left} />
       <div>
         <label htmlFor="text">{data.title}</label>
         <input id="text" name="text" onChange={onChange} />

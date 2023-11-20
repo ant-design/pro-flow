@@ -5,7 +5,7 @@ import { Handle, Position } from 'reactflow';
 import styled from 'styled-components';
 
 const StringNode = styled.div`
-  width: 120px;
+  width: 150px;
   height: 30px;
   text-align: center;
   background-color: white;

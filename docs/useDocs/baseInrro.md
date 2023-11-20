@@ -18,6 +18,8 @@ ProFlow 中的节点是一个 React 组件。这意味着它可以渲染您喜�
 
 ### Custom Nodes
 
+<code src="./demos/CustomerNode.tsx"></code>
+
 ### Handles
 
 ### Edges

@@ -50,8 +50,6 @@ export const useStyles = createStyles(({ css }) => ({
     }
   `,
   groupItemWrap: css`
-    width: 320px;
-    height: 83px;
     display: flex;
     border-radius: 12px;
     box-sizing: border-box;

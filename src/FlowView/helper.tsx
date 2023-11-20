@@ -81,7 +81,7 @@ export function setNodePosition(nodes: Node[], edges: Edge[]) {
   };
 }
 
-function sortEdges(edges: Edge[]) {
+export function sortEdges(edges: Edge[]) {
   const highEdges: Edge[] = edges.filter((item) => {
     return item.className?.includes('edgeSelected') || item.className?.includes('edgeSubSelected');
   });
@@ -202,14 +202,16 @@ const getWidthAndHeight = (node: NodeMapItem) => {
     };
   } else {
     return {
-      width: node.width,
-      height: node.height,
+      width: node.width || 1,
+      height: node.height || 1,
     };
   }
 };
 
 const getHandleType = (node: NodeMapItem) => {
-  if (node.left?.length === 0) {
+  if (node.left?.length === 0 && node.right?.length === 0) {
+    return 'none';
+  } else if (node.left?.length === 0) {
     return 'input';
   } else if (node.right?.length === 0) {
     return 'output';

@@ -8,10 +8,9 @@ import React, {
   useMemo,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { Edge, Node, useViewport } from 'reactflow';
+import ReactFlow, { BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
-import Background, { BackgroundVariant } from '../Background';
-import { FlowViewProps, ProFlowController, RadiusEdge } from '../index';
+import { Background, FlowViewProps, ProFlowController, RadiusEdge } from '../index';
 import DefaultNode from './components/DefaultNode';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
@@ -91,7 +90,6 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     [onEdgeClick],
   );
 
-  // TODO: 要把loading状态包掉，要把空状态包掉。
   return (
     <ReactFlow
       className={cx(styles.container)}

@@ -1,48 +1,70 @@
-import { FlowView, Handle, Position } from '@ant-design/pro-flow';
 import { FC, useCallback } from 'react';
 import styled from 'styled-components';
+import { FlowView, Handle, Position } from '../../../src/index';
+
+const Wrap = styled.div`
+  width: 200px;
+  height: 83px;
+  background-color: red;
+`;
+
+const Container = styled.div`
+  width: 800px;
+  height: 300px;
+`;
 
 const CustomNode: FC<{
-  title: string;
-}> = ({ title }) => {
+  data: {
+    title: string;
+  };
+}> = (props) => {
+  console.log(props);
+  const { data } = props;
+
   const onChange = useCallback((evt) => {
     console.log(evt.target.value);
   }, []);
 
   return (
-    <>
+    <Wrap>
       <Handle type="target" position={Position.Top} />
       <div>
-        <label htmlFor="text">{title}</label>
+        <label htmlFor="text">{data.title}</label>
         <input id="text" name="text" onChange={onChange} />
       </div>
       <Handle type="source" position={Position.Bottom} id="a" />
       <Handle type="source" position={Position.Bottom} id="b" style={{ left: 10 }} />
-    </>
+    </Wrap>
   );
 };
 
 const nodes = [
   {
-    id: 'a1',
-    type: '',
+    id: 'b1',
+    type: 'customNode',
+    position: { x: 0, y: 100 },
     data: {
       title: 'Text',
     },
   },
 ];
 
+const nodeTypes = { customNode: CustomNode };
+
 function App() {
   return (
     <Container>
-      <FlowView nodes={nodes} edges={[]} miniMap={false} />
+      <FlowView
+        onNodeClick={(event, node) => {
+          console.log(node);
+        }}
+        nodes={nodes}
+        edges={[]}
+        nodeTypes={nodeTypes}
+        miniMap={false}
+      />
     </Container>
   );
 }
 
 export default App;
-
-const Container = styled.div`
-  width: 800px;
-  height: 300px;
-`;

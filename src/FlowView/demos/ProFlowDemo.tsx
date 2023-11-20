@@ -60,8 +60,8 @@ const nodes: FlowViewNode[] = [
     id: 'a1',
     label: '123',
     type: 'textCustomNode',
-    width: 100,
-    height: 300,
+    width: 300,
+    height: 100,
     data: {
       title: '123123',
     },
@@ -102,10 +102,11 @@ const nodes: FlowViewNode[] = [
   },
   {
     id: 'b3',
+    type: 'textCustomNode',
+    width: 300,
+    height: 100,
     data: {
-      title: 'XXX_API_b3',
-      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      description: 'XXX_XXX_XXX_API',
+      title: '123123',
     },
   },
   {
