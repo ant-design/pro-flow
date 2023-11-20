@@ -18,9 +18,16 @@ ProFlow 中的节点是一个 React 组件。这意味着它可以渲染您喜�
 
 ### Custom Nodes
 
+[自定义节点使用说明](/components/customDoc)
 <code src="./demos/CustomerNode.tsx"></code>
 
 ### Handles
+
+`Handle` 可以翻译为 “**句柄**” 或者 “**端口**”，是边缘连接到节点的位置。`Handle`可以放置在任何地方。
+
+可以用 `import { FlowView, Handle, Position } from '@ant-design/pro-flow';` 的方式引入 `Handle` 与 `Position`。来自定义 `Handle` 在节点中的位置。
+
+<code src="./demos/CoreHandle.tsx"></code>
 
 ### Edges
 

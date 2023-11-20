@@ -1,6 +1,5 @@
 import {
   EdgeType,
-  FlowView,
   FlowViewEdge,
   FlowViewNode,
   FlowViewProvider,
@@ -10,6 +9,7 @@ import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FlowView } from '../../index';
 import CustomNode from './CustomerNode';
 
 const useStyles = createStyles(({ css }) => ({
@@ -254,6 +254,7 @@ const ProFlowDemo = () => {
   const { styles } = useStyles();
 
   const handleHighlight = (node: FlowViewNode) => {
+    console.log(node);
     _nodes.forEach((_node) => {
       if (_node.id === node.id) {
         _node.select = SelectType.SELECT;

@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import { FlowView, Handle, Position } from '../../../src/index';
 
@@ -9,6 +9,7 @@ const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 
 const Container = styled.div`
@@ -21,22 +22,19 @@ const CustomNode: FC<{
     title: string;
   };
 }> = (props) => {
-  console.log(props);
   const { data } = props;
-
-  const onChange = useCallback((evt) => {
-    console.log(evt.target.value);
-  }, []);
 
   return (
     <Wrap>
-      <Handle type="target" position={Position.Top} />
+      <Handle type="target" position={Position.Top} id="a" />
+      <Handle type="target" position={Position.Top} id="b" style={{ left: 10 }} />
+      <Handle type="target" position={Position.Top} id="c" style={{ left: 190 }} />
       <div>
         <label htmlFor="text">{data.title}</label>
-        <input id="text" name="text" onChange={onChange} />
       </div>
-      <Handle type="source" position={Position.Bottom} id="a" />
-      <Handle type="source" position={Position.Bottom} id="b" style={{ left: 10 }} />
+      <Handle type="source" position={Position.Bottom} id="d" />
+      <Handle type="source" position={Position.Bottom} id="e" style={{ left: 10 }} />
+      <Handle type="source" position={Position.Bottom} id="f" style={{ left: 190 }} />
     </Wrap>
   );
 };
@@ -46,7 +44,7 @@ const nodes = [
     id: 'b1',
     type: 'customNode',
     data: {
-      title: 'Text',
+      title: '一堆 Handle',
     },
   },
 ];

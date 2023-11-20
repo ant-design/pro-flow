@@ -274,7 +274,7 @@ export const getRenderData = (
     const node = mapping[id];
     const { flowNodeType } = node;
     const { width, height } = getWidthAndHeight(node);
-    console.log(node);
+
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
