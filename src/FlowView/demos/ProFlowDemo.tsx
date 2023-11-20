@@ -124,69 +124,69 @@ const nodes: FlowViewNode[] = [
       description: '2031030213014',
     },
   },
-  // {
-  //   id: 'd1',
-  //   label: '456',
-  //   type: 'lineageGroup',
-  //   data: [
-  //     {
-  //       id: 'a5',
-  //       data: {
-  //         title: 'XXX数据源',
-  //         describe: 'cksadjfnf',
-  //         logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
-  //       },
-  //     },
-  //     {
-  //       id: 'a6',
-  //       data: {
-  //         title: 'XXX_API',
-  //         logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-  //         describe: 'XXX_XXX_XXX_API',
-  //       },
-  //     },
-  //     {
-  //       id: 'a7',
-  //       data: {
-  //         title: 'XXXX产品',
-  //         logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-  //         describe: '2031030213014',
-  //       },
-  //     },
-  //     {
-  //       id: 'a8',
-  //       data: {
-  //         title: 'XXX数据源',
-  //         describe: 'cksadjfnf',
-  //         logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
-  //       },
-  //     },
-  //     {
-  //       id: 'a9',
-  //       data: {
-  //         title: 'XXX_API',
-  //         logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-  //         describe: 'XXX_XXX_XXX_API',
-  //       },
-  //     },
-  //     {
-  //       id: 'a10',
-  //       data: {
-  //         title: 'XXXX产品',
-  //         logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-  //         describe: '2031030213014',
-  //       },
-  //     },
-  //     {
-  //       id: 'a11',
-  //       data: {
-  //         title: 'XXXX产品',
-  //         logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-  //         describe: '2031030213014',
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    id: 'd1',
+    label: '456',
+    type: 'lineageGroup',
+    data: [
+      {
+        id: 'a5',
+        data: {
+          title: 'XXX数据源',
+          describe: 'cksadjfnf',
+          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
+        },
+      },
+      {
+        id: 'a6',
+        data: {
+          title: 'XXX_API',
+          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+          describe: 'XXX_XXX_XXX_API',
+        },
+      },
+      {
+        id: 'a7',
+        data: {
+          title: 'XXXX产品',
+          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
+          describe: '2031030213014',
+        },
+      },
+      {
+        id: 'a8',
+        data: {
+          title: 'XXX数据源',
+          describe: 'cksadjfnf',
+          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
+        },
+      },
+      {
+        id: 'a9',
+        data: {
+          title: 'XXX_API',
+          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+          describe: 'XXX_XXX_XXX_API',
+        },
+      },
+      {
+        id: 'a10',
+        data: {
+          title: 'XXXX产品',
+          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
+          describe: '2031030213014',
+        },
+      },
+      {
+        id: 'a11',
+        data: {
+          title: 'XXXX产品',
+          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
+          describe: '2031030213014',
+        },
+      },
+    ],
+  },
 ];
 
 const edges: FlowViewEdge[] = [
@@ -239,12 +239,12 @@ const edges: FlowViewEdge[] = [
     target: 'c1',
     type: EdgeType.radius,
   },
-  // {
-  //   id: 'c1-d1',
-  //   source: 'c1',
-  //   target: 'd1',
-  //   type: EdgeType.radius,
-  // },
+  {
+    id: 'c1-d1',
+    source: 'c1',
+    target: 'd1',
+    type: EdgeType.radius,
+  },
 ];
 
 const ProFlowDemo = () => {

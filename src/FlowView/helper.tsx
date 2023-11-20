@@ -210,6 +210,39 @@ const getWidthAndHeight = (node: NodeMapItem) => {
   }
 };
 
+const getHandleType = (node: NodeMapItem) => {
+  if (node.left?.length === 0) {
+    return 'input';
+  } else if (node.right?.length === 0) {
+    return 'output';
+  } else {
+    return 'both';
+  }
+};
+
+// 只有pro flow节点才有的额外属性
+const getProFlowNodeData = (node: NodeMapItem) => {
+  if (['lineage'].includes(node.flowNodeType!)) {
+    return {
+      ...node.data,
+      selectType: node.select,
+      label: node.label,
+      zoom: node.zoom,
+      handleType: getHandleType(node),
+    };
+  } else if (node.flowNodeType === 'lineageGroup') {
+    return {
+      data: node.data,
+      selectType: node.select,
+      label: node.label,
+      zoom: node.zoom,
+      handleType: getHandleType(node),
+    };
+  } else {
+    return node.data;
+  }
+};
+
 export const getRenderData = (
   mapping: NodeMapping,
   edges: FlowViewEdge[],
@@ -222,7 +255,7 @@ export const getRenderData = (
 
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
-    const { flowNodeType, data } = node;
+    const { flowNodeType } = node;
     const { width, height } = getWidthAndHeight(node);
     console.log(node.zoom);
     renderNodes.push({
@@ -234,12 +267,7 @@ export const getRenderData = (
       width: width,
       height: height,
       className: cx(INIT_NODE),
-      data: {
-        ...data,
-        selectType: node.select,
-        label: node.label,
-        zoom: node.zoom,
-      },
+      data: getProFlowNodeData(node),
     });
   });
   console.log(renderNodes);

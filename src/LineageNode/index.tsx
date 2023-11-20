@@ -8,7 +8,7 @@ import { useStyles } from './styles';
 const Wrap = styled.div`
   width: 320px;
   height: 83px;
-  background-color: red;
+  position: relative;
 `;
 
 interface BloodNodeProps {
@@ -26,6 +26,7 @@ interface BloodNodeProps {
     type: 'left' | 'right';
     value: React.ReactNode;
   };
+  handleType?: 'input' | 'output' | 'none' | ' both';
 }
 
 const zoomNum = (num: number, zoom: number, limitMax?: boolean) => {
@@ -72,11 +73,14 @@ const LineageNode: React.FC<{
     zoom = 1,
     label,
     titleSlot,
+    handleType = 'both',
   } = data;
 
   return (
     <Wrap>
-      <Handle type="target" position={Position.Left} />
+      {handleType === 'output' || handleType === 'both' ? (
+        <Handle type="target" position={Position.Left} style={{ left: -6 }} />
+      ) : null}
       <div>
         {label && (
           <ArtboardTitle zoom={zoom}>
@@ -103,7 +107,9 @@ const LineageNode: React.FC<{
           </div>
         </div>
       </div>
-      <Handle type="source" position={Position.Right} />
+      {handleType === 'input' || handleType === 'both' ? (
+        <Handle type="source" position={Position.Right} style={{ right: -6 }} />
+      ) : null}
     </Wrap>
   );
 };
