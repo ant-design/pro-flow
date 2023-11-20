@@ -19,6 +19,7 @@ description:
 | className  | `string`          | 边数据   | -      | -    |
 | style      | `CSSProperties`   | 节点数据 | -      | -    |
 | miniMap    | `boolean`         | 边数据   | -      | -    |
+| autoLayout | `boolean`         | 自动布局 | true   | -    |
 | background | `boolean`         | 节点数据 | -      | -    |
 | children   | `React.ReactNode` | 边数据   | -      | -    |
 

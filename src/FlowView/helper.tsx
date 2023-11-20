@@ -52,7 +52,23 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
   return mapping;
 }
 
-export function setNodePosition(nodes: Node[], edges: Edge[]) {
+export function setNodePosition(nodes: Node[], edges: Edge[], autoLayout: boolean) {
+  if (!autoLayout) {
+    return {
+      _nodes: nodes.map((node) => {
+        const { x: _x, y: _y } = node.position;
+        return {
+          ...node,
+          position: {
+            x: isNaN(_x) ? 1 : _x,
+            y: isNaN(_y) ? 1 : _y,
+          },
+        };
+      }) as unknown as Node[],
+      _edges: edges,
+    };
+  }
+
   const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
 
   g.setGraph({
@@ -246,6 +262,7 @@ const getProFlowNodeData = (node: NodeMapItem) => {
 export const getRenderData = (
   mapping: NodeMapping,
   edges: FlowViewEdge[],
+  autoLayout: boolean,
 ): {
   nodes: Node[];
   edges: Edge[];
@@ -257,7 +274,7 @@ export const getRenderData = (
     const node = mapping[id];
     const { flowNodeType } = node;
     const { width, height } = getWidthAndHeight(node);
-
+    console.log(node);
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
@@ -271,7 +288,7 @@ export const getRenderData = (
     });
   });
 
-  const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges);
+  const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges, autoLayout);
 
   return {
     nodes: _nodes,

@@ -32,6 +32,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     miniMap = true,
     children,
     background = true,
+    autoLayout = true,
   } = props;
   const {
     miniMapPosition,
@@ -51,7 +52,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const { zoom } = useViewport();
 
   useEffect(() => {
-    flowDataAdapter!(nodes, edges, zoom);
+    flowDataAdapter!(nodes, edges, zoom, autoLayout);
   }, [nodes, edges, zoom]);
 
   const handleNodeDragStart = useCallback(
