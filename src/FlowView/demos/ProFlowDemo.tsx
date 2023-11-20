@@ -253,7 +253,6 @@ const ProFlowDemo = () => {
   const { styles } = useStyles();
 
   const handleHighlight = (node: FlowViewNode) => {
-    console.log(node);
     _nodes.forEach((_node) => {
       if (_node.id === node.id) {
         _node.select = SelectType.SELECT;

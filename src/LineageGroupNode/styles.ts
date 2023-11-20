@@ -40,12 +40,13 @@ export const useStyles = createStyles(({ css }) => ({
     line-height: 32px;
     bottom: 16px;
     left: 112px;
+    text-align: center;
 
     img {
       width: 14px;
       height: 14px;
       margin-left: 4px;
-      transform: translateY(-1px);
+      transform: translateY(2px);
     }
   `,
   groupItemWrap: css`

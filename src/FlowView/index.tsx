@@ -86,7 +86,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     (event: ReactMouseEvent, edge: Edge) => {
       // TODO: 应当把事件中的 node 转换为 FlowViewNode 透出给用户
       // const {node} = transformNode(node);
-      handleEdgeClick(event, edge);
+      onEdgeClick(event, edge);
     },
     [onEdgeClick],
   );

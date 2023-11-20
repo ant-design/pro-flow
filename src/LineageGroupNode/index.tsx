@@ -55,8 +55,6 @@ const LineageNodeGroup: React.FC<{
     data: _data,
   } = data;
 
-  console.log(data);
-
   if ((_data as LineageGroupNodeData[]).length < 7) {
     return <div className={styles.groupWrap}>数组长度必须大于等于7！</div>;
   }

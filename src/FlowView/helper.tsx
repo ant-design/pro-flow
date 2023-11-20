@@ -19,8 +19,6 @@ import {
 export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[], zoom: number) {
   const mapping: NodeMapping = {};
 
-  console.log(zoom);
-
   nodes.forEach((node) => {
     const {
       width,
@@ -257,7 +255,7 @@ export const getRenderData = (
     const node = mapping[id];
     const { flowNodeType } = node;
     const { width, height } = getWidthAndHeight(node);
-    console.log(node.zoom);
+
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
@@ -270,7 +268,6 @@ export const getRenderData = (
       data: getProFlowNodeData(node),
     });
   });
-  console.log(renderNodes);
 
   const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges);
 

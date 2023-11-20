@@ -32,8 +32,6 @@ export const useFlowViewer = () => {
     reactFlowInstance,
   } = useContext(FlowViewContext);
 
-  console.log(reactFlowInstance);
-
   const getNode = (nodeId: string) => {
     return reactFlowInstance?.getNode(nodeId);
   };
