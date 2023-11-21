@@ -155,12 +155,22 @@ function getEdgeClsFromSelectType(select: SelectType) {
 
 export function getRenderEdges(edges: FlowViewEdge[]) {
   return edges.map((edge) => {
-    const { source, target, select = SelectType.DEFAULT, type = 'smoothstep', label } = edge;
+    const {
+      source,
+      target,
+      select = SelectType.DEFAULT,
+      type = 'smoothstep',
+      label,
+      sourceHandle,
+      targetHandle,
+    } = edge;
 
     return {
       id: `${source}-${target}`,
       source,
       target,
+      sourceHandle,
+      targetHandle,
       type,
       label,
       className: getEdgeClsFromSelectType(select),

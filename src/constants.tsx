@@ -68,6 +68,8 @@ export interface FlowViewEdge {
   id: string;
   source: string;
   target: string;
+  sourceHandle?: string;
+  targetHandle?: string;
   select?: SelectType;
   label?: string;
   type?: EdgeType;

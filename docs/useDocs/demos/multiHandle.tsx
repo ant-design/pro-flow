@@ -40,12 +40,29 @@ const CustomNode: FC<{
 
 const nodes = [
   {
-    id: 'b1',
+    id: 'n1',
     type: 'customNode',
     data: {
       title: 'Text',
     },
   },
+  {
+    id: 'n2',
+    data: {
+      title: 'n2 node',
+    },
+  },
+  {
+    id: 'n3',
+    data: {
+      title: 'n3 node',
+    },
+  },
+];
+
+const edges = [
+  { id: 'edge-1', source: 'n1', target: 'n2', sourceHandle: 'a' },
+  { id: 'edge-2', source: 'n1', target: 'n3', sourceHandle: 'b' },
 ];
 
 const nodeTypes = { customNode: CustomNode };
@@ -53,7 +70,7 @@ const nodeTypes = { customNode: CustomNode };
 function App() {
   return (
     <Container>
-      <FlowView nodes={nodes} edges={[]} nodeTypes={nodeTypes} miniMap={false} autoLayout={false} />
+      <FlowView nodes={nodes} edges={edges} nodeTypes={nodeTypes} miniMap={false} />
     </Container>
   );
 }
