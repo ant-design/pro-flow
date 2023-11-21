@@ -266,7 +266,11 @@ const getProFlowNodeData = (node: NodeMapItem) => {
       handleType: getHandleType(node),
     };
   } else {
-    return node.data;
+    return {
+      ...node.data,
+      selectType: node.select,
+      zoom: node.zoom,
+    };
   }
 };
 

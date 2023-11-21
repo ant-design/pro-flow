@@ -1,6 +1,13 @@
 import { FC, useCallback } from 'react';
 import styled from 'styled-components';
-import { FlowView, Handle, Position } from '../../../src/index';
+import {
+  FlowView,
+  FlowViewProvider,
+  Handle,
+  Position,
+  SelectType,
+  useFlowViewer,
+} from '../../../src/index';
 
 const Wrap = styled.div`
   width: 200px;
@@ -9,6 +16,14 @@ const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.default {
+    border: none;
+  }
+
+  &.select {
+    border: 1px solid red;
+  }
 `;
 
 const Container = styled.div`
@@ -19,14 +34,16 @@ const Container = styled.div`
 const CustomNode: FC<{
   data: {
     title: string;
+    selectType: SelectType;
   };
 }> = ({ data }) => {
+  console.log(data);
   const onChange = useCallback((evt) => {
     console.log(evt.target.value);
   }, []);
 
   return (
-    <Wrap>
+    <Wrap className={data.selectType === SelectType.SELECT ? 'select' : 'default'}>
       <Handle type="target" position={Position.Top} />
       <div>
         <label htmlFor="text">{data.title}</label>
@@ -68,11 +85,35 @@ const edges = [
 const nodeTypes = { customNode: CustomNode };
 
 function App() {
+  const flowViewer = useFlowViewer();
+
+  console.log(flowViewer);
+
   return (
     <Container>
-      <FlowView nodes={nodes} edges={edges} nodeTypes={nodeTypes} miniMap={false} />
+      <FlowView
+        onNodeClick={(e, n) => {
+          console.log(n);
+          flowViewer?.selectNode(n.id, SelectType.SELECT);
+        }}
+        onPaneClick={() => {
+          flowViewer?.selectNodes(['n1', 'n2', 'n3'], SelectType.DEFAULT);
+        }}
+        nodes={nodes}
+        edges={edges}
+        nodeTypes={nodeTypes}
+        miniMap={false}
+      />
     </Container>
   );
 }
 
-export default App;
+function ProApp() {
+  return (
+    <FlowViewProvider>
+      <App />
+    </FlowViewProvider>
+  );
+}
+
+export default ProApp;

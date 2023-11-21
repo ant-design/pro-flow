@@ -82,3 +82,80 @@ const initialEdge = [
 
 效果如下：
 <code src="./demos/multiHandle.tsx"></code>
+
+## 添加节点交互
+
+在自定义节点的 data 中，FlowView 还会透传 2 个属性 selectType 与 zoom。你可以通过这两个属性来给节点配置一些交互。
+
+```js
+import {
+  FlowView,
+  FlowViewProvider,
+  Handle,
+  Position,
+  SelectType,
+  useFlowViewer,
+} from '@ant-design/pro-flow';
+
+const edges = [
+  { id: 'edge-1', source: 'n1', target: 'n2', sourceHandle: 'a' },
+  { id: 'edge-2', source: 'n1', target: 'n3', sourceHandle: 'b' },
+];
+
+const CustomNode: FC<{
+  data: {
+    title: string,
+    selectType: SelectType,
+  },
+}> = ({ data }) => {
+  console.log(data);
+  const onChange = useCallback((evt) => {
+    console.log(evt.target.value);
+  }, []);
+
+  return (
+    <Wrap className={data.selectType === SelectType.SELECT ? 'select' : 'default'}>
+      <Handle type="target" position={Position.Top} />
+      <div>
+        <label htmlFor="text">{data.title}</label>
+        <input id="text" name="text" onChange={onChange} />
+      </div>
+      <Handle type="source" position={Position.Bottom} id="a" />
+      <Handle type="source" position={Position.Bottom} id="b" style={{ left: 10 }} />
+    </Wrap>
+  );
+};
+
+const nodeTypes = { customNode: CustomNode };
+
+function App() {
+  const flowViewer = useFlowViewer();
+
+  return (
+    <Container>
+      <FlowView
+        onNodeClick={(e, n) => {
+          flowViewer?.selectNode(n.id, SelectType.SELECT);
+        }}
+        onPaneClick={() => {
+          flowViewer?.selectNodes(['n1', 'n2', 'n3'], SelectType.DEFAULT);
+        }}
+        nodes={nodes}
+        edges={edges}
+        nodeTypes={nodeTypes}
+        miniMap={false}
+      />
+    </Container>
+  );
+}
+function ProApp() {
+  return (
+    <FlowViewProvider>
+      <App />
+    </FlowViewProvider>
+  );
+}
+```
+
+效果如下：
+<code src="./demos/multiHandle.tsx"></code>
