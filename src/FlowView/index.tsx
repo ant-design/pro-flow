@@ -49,6 +49,12 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       default: DefaultNode,
     };
   }, []);
+  const edgeTypesMemo = useMemo(() => {
+    return {
+      ...edgeTypes,
+      radius: RadiusEdge,
+    };
+  }, []);
   const { zoom } = useViewport();
 
   useEffect(() => {
@@ -101,10 +107,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       nodes={renderNodes}
       edges={renderEdges}
       nodeTypes={nodeTypesMemo}
-      edgeTypes={{
-        ...edgeTypes,
-        radiusEdge: RadiusEdge,
-      }}
+      edgeTypes={edgeTypesMemo}
       panOnScroll
       fitView
       minZoom={MIN_ZOOM}

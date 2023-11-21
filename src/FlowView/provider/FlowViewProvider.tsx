@@ -37,22 +37,6 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
     [],
   );
 
-  // const dargePosition = useCallback(
-  //   (callback: () => void) => {
-  //     const nodes = reactFlowInstance?.getNodes();
-  //     console.log(nodes);
-  //     flowDataAdapter(nodes.map(item => {
-  //       const node = mapping[item.id];
-  //       node!.width = item.width!;
-  //       node!.height = item.height!;
-  //       console.log(node);
-  //       return node;
-  //      }), edges, 1);
-  //     callback();
-  //   },
-  //   [edges],
-  // );
-
   useEffect(() => {
     if (Object.keys(mapping).length && initEdges) {
       convertRenderData();

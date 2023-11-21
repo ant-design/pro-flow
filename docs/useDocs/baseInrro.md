@@ -18,7 +18,7 @@ ProFlow 中的节点是一个 React 组件。这意味着它可以渲染您喜�
 
 ### Custom Nodes
 
-[自定义节点使用说明](/components/customDoc)
+[自定义节点使用说明](/components/customNodeDoc)
 <code src="./demos/CustomerNode.tsx"></code>
 
 ### Handles
@@ -31,4 +31,10 @@ ProFlow 中的节点是一个 React 组件。这意味着它可以渲染您喜�
 
 ### Edges
 
+一条 Edge 连接两个节点。每个边缘都需要一个`source` 和 一个`target`。 ProFlow 内置了 'straight', 'step','smoothstep','bezier','radius' 五种边缘类型。FlowView 组件把 'smoothstep' 设置为默认类型。 你也可以自定义边缘类型。
+
+<code src="./demos/CoreEdge.tsx"></code>
+
 ### Custom Edges
+
+同自定义节点一样，你可以在[自定义边缘使用说明](/components/customEdgeDoc)中查看更多用法

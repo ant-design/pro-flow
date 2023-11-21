@@ -195,25 +195,21 @@ const edges: FlowViewEdge[] = [
     id: 'a1-b1',
     source: 'a1',
     target: 'b1',
-    type: EdgeType.radius,
   },
   {
     id: 'a1-b2',
     source: 'a1',
     target: 'b2',
-    type: EdgeType.radius,
   },
   {
     id: 'a1-b3',
     source: 'a1',
     target: 'b3',
-    type: EdgeType.radius,
   },
   {
     id: 'a1-b4',
     source: 'a1',
     target: 'b4',
-    type: EdgeType.radius,
   },
 
   {

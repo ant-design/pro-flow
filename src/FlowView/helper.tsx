@@ -1,4 +1,4 @@
-import { EdgeType, FlowViewEdge, FlowViewNode } from '@/constants';
+import { FlowViewEdge, FlowViewNode } from '@/constants';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
@@ -155,13 +155,14 @@ function getEdgeClsFromSelectType(select: SelectType) {
 
 export function getRenderEdges(edges: FlowViewEdge[]) {
   return edges.map((edge) => {
-    const { source, target, select = SelectType.DEFAULT, type } = edge;
+    const { source, target, select = SelectType.DEFAULT, type = 'smoothstep', label } = edge;
 
     return {
       id: `${source}-${target}`,
       source,
       target,
-      type: type === EdgeType.default ? 'smoothstep' : 'radiusEdge',
+      type,
+      label,
       className: getEdgeClsFromSelectType(select),
     };
   });
