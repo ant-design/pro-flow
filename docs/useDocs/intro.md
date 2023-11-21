@@ -3,7 +3,7 @@ nav: 使用文档
 group:
   title: 基础介绍
   order: 1
-title: 为什么选择 ProFlow ？
+title: ProFlow 特性
 description:
 ---
 

@@ -59,11 +59,10 @@ const nodes: FlowViewNode[] = [
   {
     id: 'a1',
     label: '123',
-    type: 'textCustomNode',
-    width: 300,
-    height: 100,
     data: {
-      title: '123123',
+      title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      description: 'XXX_XXX_XXX_API',
     },
   },
   {
@@ -102,11 +101,10 @@ const nodes: FlowViewNode[] = [
   },
   {
     id: 'b3',
-    type: 'textCustomNode',
-    width: 300,
-    height: 100,
     data: {
-      title: '123123',
+      title: 'XXX_APIddddddddddddddddddddddddddddddddddddddddddddddddddd_b2',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      description: 'XXX_XXX_XXX_API',
     },
   },
   {
