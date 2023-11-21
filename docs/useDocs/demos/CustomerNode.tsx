@@ -53,7 +53,7 @@ const nodeTypes = { customNode: CustomNode };
 function App() {
   return (
     <Container>
-      <FlowView nodes={nodes} edges={[]} nodeTypes={nodeTypes} miniMap={false} autoLayout={false} />
+      <FlowView nodes={nodes} edges={[]} nodeTypes={nodeTypes} miniMap={false} />
     </Container>
   );
 }
