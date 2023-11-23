@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.12.4](https://github.com/ant-design/pro-flow/compare/v0.12.3...v0.12.4)
+
+<sup>Released on **2023-11-23**</sup>
+
+#### 🐛 修复
+
+- Demo file path.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Demo file path, closes [#35](https://github.com/ant-design/pro-flow/issues/35) ([61e0666](https://github.com/ant-design/pro-flow/commit/61e0666))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.12.3](https://github.com/ant-design/pro-flow/compare/v0.12.2...v0.12.3)
 
 <sup>Released on **2023-11-23**</sup>
