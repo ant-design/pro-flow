@@ -20,7 +20,7 @@ const CustomNode: FC<{
 
   return (
     <Wrap>
-      <Handle type="target" position={Position.left} />
+      <Handle type="target" position={Position.Left} />
       <div>
         <label htmlFor="text">{data.title}</label>
         <input id="text" name="text" onChange={onChange} />
