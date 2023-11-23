@@ -1,11 +1,11 @@
-import styled from 'styled-components';
 import {
   EdgeType,
   FlowView,
   FlowViewProvider,
   SelectType,
   useFlowViewer,
-} from '../../../src/index';
+} from '@ant-design/pro-flow';
+import styled from 'styled-components';
 
 const initNodes = [
   {
