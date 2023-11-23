@@ -7,4 +7,4 @@ title: TechUI PipeLine
 description:
 ---
 
-<code src="./demos/techuiPipeline.tsx" ></code>
+<code src="./demos/techPipeline.tsx" ></code>
