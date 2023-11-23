@@ -1,10 +1,14 @@
+import { Handle, Position } from 'reactflow';
+
 export * from './Background';
+export { default as Background } from './Background';
 export { default as BasicNode } from './BasicNode';
 export { default as CanvasLoading } from './CanvasLoading';
 export * from './ControlInput';
 export { default as EditableText } from './EditableText';
 export * from './FlowEditor';
 export * from './FlowPanel';
+export { default as FlowPanel } from './FlowPanel';
 export { FlowStoreProvider, type FlowEditorStoreProviderProps } from './FlowStoreProvider';
 export { default as FlowView } from './FlowView/FlowView';
 export * from './FlowView/hooks/useFlowView';
@@ -16,3 +20,4 @@ export * from './ProFlowController';
 export { default as ProFlowController } from './ProFlowController';
 export { default as RadiusEdge } from './RadiusEdge';
 export * from './constants';
+export { Handle, Position };

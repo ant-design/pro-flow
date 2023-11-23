@@ -19,20 +19,21 @@ description:
 | className  | `string`          | 边数据   | -      | -    |
 | style      | `CSSProperties`   | 节点数据 | -      | -    |
 | miniMap    | `boolean`         | 边数据   | -      | -    |
+| autoLayout | `boolean`         | 自动布局 | true   | -    |
 | background | `boolean`         | 节点数据 | -      | -    |
 | children   | `React.ReactNode` | 边数据   | -      | -    |
 
 ### FlowViewNode
 
-| 属性名 | 类型                                           | 描述         | 默认值 | 必选 |
-| ------ | ---------------------------------------------- | ------------ | ------ | ---- |
-| id     | `string`                                       | 边数据       | -      | -    |
-| select | `SelectType`                                   | 节点数据     | -      | -    |
-| data   | `NodeTypeDataMap[T]`                           | 边数据       | -      | -    |
-| type   | `T = 'default' \| 'lineage' \| 'lineageGroup'` | 节点类型（） | -      | -    |
-| label  | `string`                                       | 边数据       | -      | -    |
-| width  | `number`                                       | 节点数据     | -      | -    |
-| height | `number`                                       | 边数据       | -      | -    |
+| 属性名 | 类型                                                       | 描述     | 默认值 | 必选 |
+| ------ | ---------------------------------------------------------- | -------- | ------ | ---- |
+| id     | `string`                                                   | 边数据   | -      | -    |
+| select | `SelectType`                                               | 节点数据 | -      | -    |
+| data   | `NodeTypeDataMap[T]`                                       | 边数据   | -      | -    |
+| type   | `T = 'default' \| 'lineage' \| 'lineageGroup' \| 'string'` | 节点类型 | -      | -    |
+| label  | `string`                                                   | 边数据   | -      | -    |
+| width  | `number`                                                   | 节点数据 | -      | -    |
+| height | `number`                                                   | 边数据   | -      | -    |
 
 #### NodeTypeDataMap[T]
 

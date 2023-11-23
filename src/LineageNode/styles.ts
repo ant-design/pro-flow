@@ -4,8 +4,6 @@ export const useStyles = createStyles(({ css, cx, prefixCls }) => ({
   nodeWrap: cx(
     `${prefixCls}-xx`,
     css`
-      width: 320px;
-      height: 85px;
       display: flex;
       z-index: 10 !important;
       position: absolute;

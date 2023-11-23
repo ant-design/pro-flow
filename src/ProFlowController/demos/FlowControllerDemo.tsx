@@ -1,4 +1,4 @@
-import { FlowView, ProFlowController } from '@/index';
+import { FlowView, ProFlowController } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 
@@ -13,7 +13,21 @@ const FlowControllerDemo = memo(() => {
   const { styles } = useStyles();
   return (
     <div className={styles.container}>
-      <FlowView nodes={[]} edges={[]} miniMap={false}>
+      <FlowView
+        nodes={[
+          {
+            id: 'a1',
+            label: 'default',
+            data: {
+              title: 'XXX_API_b3',
+              logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+              describe: 'XXX_XXX_XXX_API',
+            },
+          },
+        ]}
+        edges={[]}
+        miniMap={false}
+      >
         <ProFlowController position={{ x: 200, y: 50 }} />
       </FlowView>
     </div>

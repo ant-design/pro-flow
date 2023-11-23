@@ -1,10 +1,16 @@
-import { EdgeType, FlowViewEdge, FlowViewNode, SelectType } from '@/index';
-import { FlowView } from '@ant-design/pro-flow';
+import {
+  EdgeType,
+  FlowViewEdge,
+  FlowViewNode,
+  FlowViewProvider,
+  SelectType,
+} from '@ant-design/pro-flow';
 import { Progress } from 'antd';
 import { createStyles } from 'antd-style';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FlowViewProvider } from '../provider/FlowViewProvider';
+import { FlowView } from '../../index';
+import CustomNode from './CustomerNode';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -53,17 +59,19 @@ const nodes: FlowViewNode[] = [
   {
     id: 'a1',
     label: '123',
-    type: 'default',
     data: {
-      children: <div>default node, 123123</div>,
+      title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      description: 'XXX_XXX_XXX_API',
     },
   },
   {
     id: 'b1',
+    label: 'label',
     data: {
       title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
+      description: 'XXX_XXX_XXX_API',
       titleSlot: {
         type: 'left',
         value: (
@@ -84,7 +92,7 @@ const nodes: FlowViewNode[] = [
     data: {
       title: 'XXX_APIddddddddddddddddddddddddddddddddddddddddddddddddddd_b2',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
+      description: 'XXX_XXX_XXX_API',
       titleSlot: {
         type: 'right',
         value: <ApiScore score={4} />,
@@ -94,9 +102,9 @@ const nodes: FlowViewNode[] = [
   {
     id: 'b3',
     data: {
-      title: 'XXX_API_b3',
+      title: 'XXX_APIddddddddddddddddddddddddddddddddddddddddddddddddddd_b2',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
+      description: 'XXX_XXX_XXX_API',
     },
   },
   {
@@ -104,7 +112,7 @@ const nodes: FlowViewNode[] = [
     data: {
       title: 'XXX_API_b4',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
+      description: 'XXX_XXX_XXX_API',
     },
   },
   {
@@ -112,7 +120,7 @@ const nodes: FlowViewNode[] = [
     data: {
       title: 'XXXX产品',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-      describe: '2031030213014',
+      description: '2031030213014',
     },
   },
   {
@@ -185,25 +193,21 @@ const edges: FlowViewEdge[] = [
     id: 'a1-b1',
     source: 'a1',
     target: 'b1',
-    type: EdgeType.radius,
   },
   {
     id: 'a1-b2',
     source: 'a1',
     target: 'b2',
-    type: EdgeType.radius,
   },
   {
     id: 'a1-b3',
     source: 'a1',
     target: 'b3',
-    type: EdgeType.radius,
   },
   {
     id: 'a1-b4',
     source: 'a1',
     target: 'b4',
-    type: EdgeType.radius,
   },
 
   {
@@ -244,6 +248,7 @@ const ProFlowDemo = () => {
   const { styles } = useStyles();
 
   const handleHighlight = (node: FlowViewNode) => {
+    console.log(node);
     _nodes.forEach((_node) => {
       if (_node.id === node.id) {
         _node.select = SelectType.SELECT;
@@ -263,8 +268,18 @@ const ProFlowDemo = () => {
   };
 
   const handleUnHighlight = () => {
-    setNodes(nodes);
-    setEdges(edges);
+    setNodes(
+      _nodes.map((_node) => {
+        _node.select = SelectType.DEFAULT;
+        return _node;
+      }),
+    );
+    setEdges(
+      edges.map((edge) => {
+        edge.select = SelectType.DEFAULT;
+        return edge;
+      }),
+    );
   };
 
   return (
@@ -274,6 +289,7 @@ const ProFlowDemo = () => {
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
+        nodeTypes={{ textCustomNode: CustomNode }}
       ></FlowView>
     </div>
   );

@@ -21,8 +21,6 @@ export const useStyles = createStyles(({ css, cx }) => ({
     .${INIT_NODE} {
       padding: 0;
       box-sizing: border-box;
-      width: 320px;
-      height: 83px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -75,8 +73,6 @@ export const useStyles = createStyles(({ css, cx }) => ({
   `,
   nodeWrap: cx(
     css`
-      width: 320px;
-      height: 85px;
       display: flex;
       z-index: 10 !important;
       position: absolute;

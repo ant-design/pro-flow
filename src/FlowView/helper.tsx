@@ -1,18 +1,7 @@
-import LineageNodeGroup from '@/LineageGroupNode';
-import LineageNode from '@/LineageNode';
-import {
-  DefaultNodeData,
-  EdgeType,
-  FlowViewEdge,
-  FlowViewNode,
-  LineageGroupNodeData,
-  LineageNodeData,
-  NodeHandler,
-} from '@/constants';
+import { FlowViewEdge, FlowViewNode } from '@/constants';
 import Dagre from '@dagrejs/dagre';
 import { cx } from 'antd-style';
 import { Edge, Node, Position } from 'reactflow';
-import DefaultNode from './components/DefaultNode';
 import {
   EDGE_DANGER,
   EDGE_SELECT,
@@ -27,35 +16,28 @@ import {
   SelectType,
 } from './constants';
 
-// 这里的type是指节点的连接点在哪里，input是在左边，output是在右边，default是左右两边都有
-function getTypeFromEdge(node: NodeMapItem) {
-  if (node.left?.length && node.right?.length) {
-    return 'default';
-  }
-  if (node.left?.length) {
-    return 'output';
-  }
-  if (node.right?.length) {
-    return 'input';
-  }
-  return 'default';
-}
-
 export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[], zoom: number) {
   const mapping: NodeMapping = {};
+
   nodes.forEach((node) => {
-    const { type = 'lineage', position = { x: NaN, y: NaN } } = node;
+    const {
+      width,
+      height,
+      select = SelectType.DEFAULT,
+      type = 'lineage',
+      position = { x: NaN, y: NaN },
+    } = node;
 
     mapping[node.id] = {
       id: node.id,
-      // width: width ? width : node.group ? 355 : 322,
-      // height: height ? height : node.group ? 1100 : 85,
       data: node.data,
-      select: node.select,
+      select,
       flowNodeType: type,
       right: [],
       left: [],
       position,
+      width,
+      height,
       zoom,
       label: node.label,
     };
@@ -70,7 +52,23 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
   return mapping;
 }
 
-export function setNodePosition(nodes: Node[], edges: Edge[]) {
+export function setNodePosition(nodes: Node[], edges: Edge[], autoLayout: boolean) {
+  if (!autoLayout) {
+    return {
+      _nodes: nodes.map((node) => {
+        const { x: _x, y: _y } = node.position;
+        return {
+          ...node,
+          position: {
+            x: isNaN(_x) ? 1 : _x,
+            y: isNaN(_y) ? 1 : _y,
+          },
+        };
+      }) as unknown as Node[],
+      _edges: edges,
+    };
+  }
+
   const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
 
   g.setGraph({
@@ -86,9 +84,7 @@ export function setNodePosition(nodes: Node[], edges: Edge[]) {
   return {
     _nodes: nodes.map((node) => {
       const { x, y } = g.node(node.id);
-      console.log(x, y);
       const { x: _x, y: _y } = node.position;
-      console.log(_x, _y);
       return {
         ...node,
         position: {
@@ -101,7 +97,7 @@ export function setNodePosition(nodes: Node[], edges: Edge[]) {
   };
 }
 
-function sortEdges(edges: Edge[]) {
+export function sortEdges(edges: Edge[]) {
   const highEdges: Edge[] = edges.filter((item) => {
     return item.className?.includes('edgeSelected') || item.className?.includes('edgeSubSelected');
   });
@@ -159,13 +155,26 @@ function getEdgeClsFromSelectType(select: SelectType) {
 
 export function getRenderEdges(edges: FlowViewEdge[]) {
   return edges.map((edge) => {
-    const { source, target, select = SelectType.DEFAULT, type } = edge;
+    const {
+      source,
+      target,
+      select = SelectType.DEFAULT,
+      type = 'smoothstep',
+      label,
+      animated,
+      sourceHandle,
+      targetHandle,
+    } = edge;
 
     return {
       id: `${source}-${target}`,
       source,
       target,
-      type: type === EdgeType.default ? 'smoothstep' : 'radiusEdge',
+      sourceHandle,
+      targetHandle,
+      type,
+      animated,
+      label,
       className: getEdgeClsFromSelectType(select),
     };
   });
@@ -177,69 +186,126 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
   // })
 }
 
-const NodeComponentHandler: NodeHandler = {
-  default: (node: NodeMapItem) => <DefaultNode {...(node.data as DefaultNodeData)} />,
-  lineage: (node: NodeMapItem) => {
-    const { select = SelectType.DEFAULT } = node;
+// const NodeComponentHandler: NodeHandler = {
+//   default: (node: NodeMapItem) => <DefaultNode {...(node.data as DefaultNodeData)} />,
+//   lineage: (node: NodeMapItem) => {
+//     const { select = SelectType.DEFAULT } = node;
 
-    return (
-      <LineageNode
-        title={(node.data! as LineageNodeData).title!}
-        description={(node.data! as LineageNodeData).describe!}
-        logo={(node.data! as LineageNodeData).logo!}
-        selectType={select}
-        zoom={node.zoom}
-        label={node.label}
-        titleSlot={(node.data! as LineageNodeData).titleSlot}
-      />
-    );
-  },
-  lineageGroup: (node: NodeMapItem) => {
-    const { select = SelectType.DEFAULT } = node;
+//     return (
+//       <LineageNode
+//         title={(node.data! as LineageNodeData).title!}
+//         description={(node.data! as LineageNodeData).describe!}
+//         logo={(node.data! as LineageNodeData).logo!}
+//         selectType={select}
+//         zoom={node.zoom}
+//         label={node.label}
+//         titleSlot={(node.data! as LineageNodeData).titleSlot}
+//       />
+//     );
+//   },
+//   lineageGroup: (node: NodeMapItem) => {
+//     const { select = SelectType.DEFAULT } = node;
 
-    return (
-      <LineageNodeGroup
-        id={node.id!}
-        data={node.data! as unknown as LineageGroupNodeData[]}
-        select={select}
-        zoom={node.zoom}
-        label={node.label}
-      />
-    );
-  },
+//     return (
+//       <LineageNodeGroup
+//         id={node.id!}
+//         data={node.data! as unknown as LineageGroupNodeData[]}
+//         select={select}
+//         zoom={node.zoom}
+//         label={node.label}
+//       />
+//     );
+//   },
+// };
+
+const getWidthAndHeight = (node: NodeMapItem) => {
+  if (['lineage', 'default'].includes(node.flowNodeType!)) {
+    return {
+      width: 320,
+      height: 83,
+    };
+  } else if (node.flowNodeType === 'lineageGroup') {
+    return {
+      width: 355,
+      height: 1100,
+    };
+  } else {
+    return {
+      width: node.width || 1,
+      height: node.height || 1,
+    };
+  }
+};
+
+const getHandleType = (node: NodeMapItem) => {
+  if (node.left?.length === 0 && node.right?.length === 0) {
+    return 'none';
+  } else if (node.left?.length === 0) {
+    return 'input';
+  } else if (node.right?.length === 0) {
+    return 'output';
+  } else {
+    return 'both';
+  }
+};
+
+// 只有pro flow节点才有的额外属性
+const getProFlowNodeData = (node: NodeMapItem) => {
+  if (['lineage'].includes(node.flowNodeType!)) {
+    return {
+      ...node.data,
+      selectType: node.select,
+      label: node.label,
+      zoom: node.zoom,
+      handleType: getHandleType(node),
+    };
+  } else if (node.flowNodeType === 'lineageGroup') {
+    return {
+      data: node.data,
+      selectType: node.select,
+      label: node.label,
+      zoom: node.zoom,
+      handleType: getHandleType(node),
+    };
+  } else {
+    return {
+      ...node.data,
+      selectType: node.select,
+      zoom: node.zoom,
+    };
+  }
 };
 
 export const getRenderData = (
   mapping: NodeMapping,
   edges: FlowViewEdge[],
+  autoLayout: boolean,
 ): {
   nodes: Node[];
   edges: Edge[];
 } => {
   const renderNodes: Node[] = [];
   const renderEdges: Edge[] = getRenderEdges(edges);
-  // const { styles, cx } = useStyles();
 
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
     const { flowNodeType } = node;
+    const { width, height } = getWidthAndHeight(node);
 
     renderNodes.push({
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
       id: node.id!,
       position: node.position!,
-      type: getTypeFromEdge(node),
-      width: node.group ? 355 : 320,
-      height: node.group ? 1100 : 83,
+      type: flowNodeType,
+      width: width,
+      height: height,
       className: cx(INIT_NODE),
-      data: {
-        label: NodeComponentHandler[flowNodeType!](node),
-      },
+      data: getProFlowNodeData(node),
     });
   });
 
-  const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges);
+  const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges, autoLayout);
 
   return {
     nodes: _nodes,

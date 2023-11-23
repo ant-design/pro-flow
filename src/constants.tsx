@@ -1,5 +1,5 @@
 import React, { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
-import { Node } from 'reactflow';
+import { Edge, EdgeProps, Node, NodeProps } from 'reactflow';
 import { NodeMapItem } from './FlowView/constants';
 
 export enum SelectType {
@@ -53,8 +53,8 @@ export type DefaultNodeType<T> = T extends FlowNodeType ? T : 'lineage';
 export interface FlowViewNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
   id: string;
   select?: SelectType;
-  data: NodeTypeDataMap[T];
-  type?: T;
+  data: NodeTypeDataMap[T] | any;
+  type?: T | string;
   label?: string;
   width?: number;
   height?: number;
@@ -68,7 +68,11 @@ export interface FlowViewEdge {
   id: string;
   source: string;
   target: string;
+  sourceHandle?: string;
+  targetHandle?: string;
+  animated?: boolean;
   select?: SelectType;
+  label?: string;
   type?: EdgeType;
 }
 
@@ -76,14 +80,16 @@ export interface FlowViewProps {
   onNodeDragStart?: (event: ReactMouseEvent, node: Node, nodes: Node[]) => void;
   onPaneClick?: (event: ReactMouseEvent) => void;
   onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
-  onEdgeClick?: (event: ReactMouseEvent) => void;
+  onEdgeClick?: (event: ReactMouseEvent, edge: Edge) => void;
   nodes: FlowViewNode[];
   edges: FlowViewEdge[];
-  className?: string;
+  nodeTypes?: Record<string, React.ComponentType<NodeProps>>;
+  edgeTypes?: Record<string, React.ComponentType<EdgeProps>>;
   style?: CSSProperties;
   miniMap?: boolean;
   background?: boolean;
   children?: React.ReactNode;
+  autoLayout?: boolean;
 }
 
 export interface MiniMapPosition {
