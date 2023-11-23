@@ -161,6 +161,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       select = SelectType.DEFAULT,
       type = 'smoothstep',
       label,
+      animated,
       sourceHandle,
       targetHandle,
     } = edge;
@@ -172,6 +173,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       sourceHandle,
       targetHandle,
       type,
+      animated,
       label,
       className: getEdgeClsFromSelectType(select),
     };

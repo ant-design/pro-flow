@@ -1,3 +1,6 @@
+/**
+ * compact: true
+ */
 import { FlowView } from '@ant-design/pro-flow';
 import styled from 'styled-components';
 
@@ -23,6 +26,6 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  width: 800px;
+  width: 100%;
   height: 300px;
 `;
