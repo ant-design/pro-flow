@@ -76,7 +76,7 @@ pnpm i @ant-design/pro-flow -S
 
 <!-- CONTRIBUTION GROUP -->
 
-> 📊 Total: <kbd>**5**</kbd>
+> 📊 Total: <kbd>**6**</kbd>
 
 <a href="https://github.com/arvinxx" title="arvinxx">
   <img src="https://avatars.githubusercontent.com/u/28616219?v=4" width="50" />
@@ -92,6 +92,9 @@ pnpm i @ant-design/pro-flow -S
 </a>
 <a href="https://github.com/meganjohnson96" title="meganjohnson96">
   <img src="https://avatars.githubusercontent.com/u/136729222?v=4" width="50" />
+</a>
+<a href="https://github.com/KazooTTT" title="KazooTTT">
+  <img src="https://avatars.githubusercontent.com/u/31075337?v=4" width="50" />
 </a>
 
 <!-- CONTRIBUTION END -->
