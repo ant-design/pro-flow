@@ -1,5 +1,5 @@
+import { FlowView } from '@ant-design/pro-flow';
 import styled from 'styled-components';
-import { FlowView } from '../../../src/index';
 
 const Container = styled.div`
   width: 800px;
