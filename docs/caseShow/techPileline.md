@@ -1,9 +1,10 @@
 ---
 nav: 使用文档
 group:
-  title: 案例展示
+  title: pipeLine
   order: 10
-title: TechUI PipeLine
+title: MultiConnect
+
 description:
 ---
 

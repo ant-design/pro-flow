@@ -11,10 +11,12 @@ export default defineConfig({
   base: isProdSite ? '/pro-flow/' : '/',
   publicPath: isProdSite ? '/pro-flow/' : '/',
   outputPath: 'docs-dist',
-  favicons: ['https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg'],
+  favicons: [
+    'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*j10nRoiMh0MAAAAAAAAAAAAADvl6AQ/original',
+  ],
   themeConfig: {
     name: 'Pro Flow',
-    logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*j10nRoiMh0MAAAAAAAAAAAAADvl6AQ/original',
     socialLinks: {
       github: homepage,
     },
