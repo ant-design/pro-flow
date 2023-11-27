@@ -1,5 +1,6 @@
 ---
-nav: 使用文档
+nav: 快速上手
+order: 90
 group:
   title: 进阶使用
   order: 3

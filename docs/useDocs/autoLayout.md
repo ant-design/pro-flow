@@ -1,9 +1,11 @@
 ---
-nav: 使用文档
+title: 自动布局
+nav:
+  title: 快速上手
+  order: 0
 group:
   title: 进阶使用
   order: 2
-title: 自动布局
 description:
 ---
 
