@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.13.0](https://github.com/ant-design/pro-flow/compare/v0.12.4...v0.13.0)
+
+<sup>Released on **2023-11-27**</sup>
+
+#### ✨ 新特性
+
+- Demo catalogue.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Demo catalogue, closes [#36](https://github.com/ant-design/pro-flow/issues/36) ([e469a9f](https://github.com/ant-design/pro-flow/commit/e469a9f))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.12.4](https://github.com/ant-design/pro-flow/compare/v0.12.3...v0.12.4)
 
 <sup>Released on **2023-11-23**</sup>
