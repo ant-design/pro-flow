@@ -45,7 +45,7 @@ const PipeNode: FC<{
           <div className="subLogo">
             <img
               src={
-                'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*KS0vRrmHia8AAAAAAAAAAAAADvl6AQ/original'
+                'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Rg0cQpidn8cAAAAAAAAAAAAADvl6AQ/original'
               }
               alt=""
             />

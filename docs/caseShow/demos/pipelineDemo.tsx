@@ -114,8 +114,8 @@ const nodes = [
     width: nodeWidth,
     height: nodeHeight,
     data: {
-      stepTitle: '阶段 1: 部署平台 tnpmregistry@...',
-      title: 'tnpmregistry@DEFAULT ...',
+      stepTitle: '阶段 1: 部署平台 npmregistry@...',
+      title: 'npmregistry@DEFAULT ...',
       logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original',
       des: '34秒',
       needSwitch: true,
@@ -150,8 +150,8 @@ const nodes = [
     width: nodeWidth,
     height: nodeHeight,
     data: {
-      stepTitle: '阶段 2: 部署平台 hitu@DEFAULT ...',
-      title: 'hitu@DEFAULT 初始化',
+      stepTitle: '阶段 2: 部署平台 xxx@DEFAULT ...',
+      title: 'xxx@DEFAULT 初始化',
       logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original',
       des: '2秒',
       needSwitch: true,
