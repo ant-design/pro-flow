@@ -1,10 +1,12 @@
 ---
-nav: 快速上手
-order: 10
+nav:
+  title: 快速上手
+  order: 10
 group:
   title: 基础介绍
   order: 1
 title: 术语和定义
+order: 2
 description:
 ---
 

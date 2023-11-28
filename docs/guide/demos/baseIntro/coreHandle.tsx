@@ -1,21 +1,9 @@
+/**
+ * compact: true
+ */
 import { FlowView, Handle, Position } from '@ant-design/pro-flow';
 import { FC } from 'react';
-import styled from 'styled-components';
-
-const Wrap = styled.div`
-  width: 200px;
-  height: 83px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-`;
-
-const Container = styled.div`
-  width: 800px;
-  height: 300px;
-`;
+import './css/index.less';
 
 const CustomNode: FC<{
   data: {
@@ -25,7 +13,15 @@ const CustomNode: FC<{
   const { data } = props;
 
   return (
-    <Wrap>
+    <div
+      style={{
+        width: '200px',
+        height: '50px',
+        backgroundColor: 'white',
+        textAlign: 'center',
+        lineHeight: '50px',
+      }}
+    >
       <Handle type="target" position={Position.Top} id="a" />
       <Handle type="target" position={Position.Top} id="b" style={{ left: 10 }} />
       <Handle type="target" position={Position.Top} id="c" style={{ left: 190 }} />
@@ -35,7 +31,7 @@ const CustomNode: FC<{
       <Handle type="source" position={Position.Bottom} id="d" />
       <Handle type="source" position={Position.Bottom} id="e" style={{ left: 10 }} />
       <Handle type="source" position={Position.Bottom} id="f" style={{ left: 190 }} />
-    </Wrap>
+    </div>
   );
 };
 
@@ -53,18 +49,9 @@ const nodeTypes = { customNode: CustomNode };
 
 function App() {
   return (
-    <Container>
-      <FlowView
-        onNodeClick={(event, node) => {
-          console.log(node);
-        }}
-        nodes={nodes}
-        edges={[]}
-        nodeTypes={nodeTypes}
-        miniMap={false}
-        autoLayout={false}
-      />
-    </Container>
+    <div className="container">
+      <FlowView nodes={nodes} edges={[]} nodeTypes={nodeTypes} miniMap={false} autoLayout={false} />
+    </div>
   );
 }
 
