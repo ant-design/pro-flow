@@ -215,6 +215,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
           <Background color={theme.colorTextQuaternary} variant={BackgroundVariant.Dots} size={2} />
           <ControlAction />
           {contextMenuEnabled && <ContextMenu />}
+          {/* { children} */}
         </ReactFlow>
       </Flexbox>
     );
