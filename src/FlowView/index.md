@@ -12,16 +12,18 @@ description:
 
 ### FlowView
 
-| 属性名     | 类型              | 描述     | 默认值 | 必选 |
-| ---------- | ----------------- | -------- | ------ | ---- |
-| nodes      | `FlowViewNode`    | 边数据   | -      | -    |
-| edges      | `FlowViewEdge`    | 节点数据 | -      | -    |
-| className  | `string`          | 边数据   | -      | -    |
-| style      | `CSSProperties`   | 节点数据 | -      | -    |
-| miniMap    | `boolean`         | 边数据   | -      | -    |
-| autoLayout | `boolean`         | 自动布局 | true   | -    |
-| background | `boolean`         | 节点数据 | -      | -    |
-| children   | `React.ReactNode` | 边数据   | -      | -    |
+| 属性名     | 类型                                             | 描述     | 默认值 | 必选 |
+| ---------- | ------------------------------------------------ | -------- | ------ | ---- |
+| nodes      | `FlowViewNode`                                   | 边数据   | -      | -    |
+| edges      | `FlowViewEdge`                                   | 节点数据 | -      | -    |
+| className  | `string`                                         | 边数据   | -      | -    |
+| style      | `CSSProperties`                                  | 节点数据 | -      | -    |
+| miniMap    | `boolean`                                        | 边数据   | -      | -    |
+| autoLayout | `boolean`                                        | 自动布局 | true   | -    |
+| background | `boolean`                                        | 节点数据 | -      | -    |
+| children   | `React.ReactNode`                                | 边数据   | -      | -    |
+| nodeTypes  | `Record<string, React.ComponentType<NodeProps>>` | 节点类型 | -      | -    |
+| edgeTypes  | `Record<string, React.ComponentType<EdgeProps>>` | 边缘类型 | -      | -    |
 
 ### FlowViewNode
 
