@@ -69,6 +69,9 @@ export interface FlowEditorAppProps {
   style?: React.CSSProperties;
   flowProps?: ComponentProps<typeof ReactFlow>;
   className?: string;
+  children?: React.ReactNode;
+  background?: boolean;
+  miniMap?: boolean;
 }
 
 const FlowEditor = forwardRef<any, FlowEditorAppProps>(
@@ -80,6 +83,9 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       className,
       flowProps,
       defaultViewport,
+      children,
+      background = true,
+      miniMap = true,
       onNodesInit,
     },
     ref,
@@ -212,10 +218,17 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
           disableKeyboardA11y={true}
           proOptions={{ hideAttribution: true }}
         >
-          <Background color={theme.colorTextQuaternary} variant={BackgroundVariant.Dots} size={2} />
-          <ControlAction />
+          {background && (
+            <Background
+              color={theme.colorTextQuaternary}
+              variant={BackgroundVariant.Dots}
+              size={2}
+            />
+          )}
+
+          {miniMap && <ControlAction />}
           {contextMenuEnabled && <ContextMenu />}
-          {/* { children} */}
+          {children}
         </ReactFlow>
       </Flexbox>
     );
