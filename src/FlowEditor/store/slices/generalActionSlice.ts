@@ -114,6 +114,8 @@ export const generalActionSlice: StateCreator<
 
     const ids = [...nodes.map((n) => n.id), ...edges.map((e) => e.id)];
 
+    console.log(ids);
+
     get().internalUpdateSelection(ids, { type: 'selection/selectAll', payload: { ids } });
   },
 

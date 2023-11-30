@@ -126,6 +126,7 @@ export const nodesSlice: StateCreator<
     get().dispatchNodes({ type: 'addNodes', nodes }, options);
   },
   deleteNode: (id) => {
+    get().deselectElement(id);
     get().dispatchNodes({ type: 'deleteNode', id });
   },
 });

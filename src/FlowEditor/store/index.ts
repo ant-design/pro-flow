@@ -8,7 +8,7 @@ import { InternalFlow } from '../types';
 import { DocWithHistoryManager } from '../utils/yjs';
 import { createStore, FlowEditorStore } from './actions';
 
-export const createFlowEditorStore = (showDevtools = false) => {
+export const createFlowEditorStore = (showDevtools = true) => {
   const doc = new DocWithHistoryManager<InternalFlow>();
 
   return createWithEqualityFn<FlowEditorStore>()(

@@ -11,7 +11,18 @@ export interface FlowEditorProps extends StoreUpdaterProps, FlowEditorAppProps {
 
 const FlowEditor = forwardRef<any, FlowEditorProps>(
   (
-    { devtools, onNodesInit, defaultViewport, contextMenuEnabled, flowProps, nodeTypes, ...res },
+    {
+      devtools,
+      onNodesInit,
+      defaultViewport,
+      contextMenuEnabled,
+      flowProps,
+      nodeTypes,
+      children,
+      miniMap,
+      background,
+      ...res
+    },
     ref,
   ) => {
     return (
@@ -20,11 +31,15 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
           <App
             ref={ref}
             nodeTypes={nodeTypes}
+            miniMap={miniMap}
+            background={background}
             onNodesInit={onNodesInit}
             contextMenuEnabled={contextMenuEnabled}
             defaultViewport={defaultViewport}
             flowProps={flowProps}
-          />
+          >
+            {children}
+          </App>
           <StoreUpdater {...res} />
         </FlowEditorProvider>
       </HotkeysProvider>

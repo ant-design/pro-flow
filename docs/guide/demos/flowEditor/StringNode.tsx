@@ -3,12 +3,13 @@ import { FC } from 'react';
 import './css/index.less';
 
 export const StringRender: FC = (node: any) => {
-  const { handles, id } = node;
+  const { handles, id, selected } = node;
+  console.log('stringNode', node);
 
   return (
-    <div className="stringNode">
+    <div className={`stringNode ${selected && 'selected'}`}>
       <Handle
-        id={typeof handles?.source === 'string' ? handles?.source : id}
+        id={typeof handles?.target === 'string' ? handles?.target : id}
         type={'target'}
         position={Position.Left}
       />
