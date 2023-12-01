@@ -29,3 +29,8 @@ const editor = useFlowEditor();
 ## 数据受控
 
 <code src='./demos/flowEditor/proBase.tsx'></code>
+
+<!-- 下一期补充 -->
+<!-- ## 拖拽插入节点
+
+<code src='./demos/flowEditor/dragAddNode.tsx'></code> -->

@@ -4,7 +4,6 @@ import './css/index.less';
 
 export const StringRender: FC = (node: any) => {
   const { handles, id, selected } = node;
-  console.log('stringNode', node);
 
   return (
     <div className={`stringNode ${selected && 'selected'}`}>

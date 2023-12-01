@@ -1,3 +1,7 @@
+/**
+ * compact: true
+ * defaultShowCode: true
+ */
 import { FlowEditor, FlowEditorProvider, useFlowEditor } from '@ant-design/pro-flow';
 import { useEffect } from 'react';
 import { StringRender } from './StringNode';

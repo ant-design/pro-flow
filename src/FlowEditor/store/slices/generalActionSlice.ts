@@ -243,10 +243,12 @@ export const generalActionSlice: StateCreator<
   undo: () => {
     const { yjsDoc, internalUpdateEdges, internalUpdateNodes } = get();
     const stack = yjsDoc.undo();
-
     const { flattenNodes, flattenEdges } = yjsDoc.getHistoryJSON();
 
-    internalUpdateNodes(flattenNodes, { type: 'history/undo', payload: stack });
+    // if(!!flattenNodes)
+    internalUpdateNodes(flattenNodes || {}, { type: 'history/undo', payload: stack });
+
+    // if (!!flattenEdges)
     internalUpdateEdges(flattenEdges, { type: 'history/undo', payload: stack });
   },
   redo: () => {
