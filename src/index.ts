@@ -20,4 +20,4 @@ export { NodeField, useNodeFieldStyles } from './NodeField';
 export type { ExtraAction } from './NodeField';
 export { default as RadiusEdge } from './RadiusEdge';
 export * from './constants';
-export { BaseEdge, EdgeLabelRenderer, EdgeProps, Handle, Position, getBezierPath };
+export { BaseEdge, EdgeLabelRenderer, Handle, Position, getBezierPath, type EdgeProps };
