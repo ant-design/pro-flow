@@ -1,6 +1,12 @@
 ---
-group: 画布
+nav:
+  title: 组件
+  order: 20
+group:
+  title: 画布
+  order: 1
 title: FlowView 基础画布容器
+order: 1
 description:
 ---
 

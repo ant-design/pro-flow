@@ -1,6 +1,12 @@
 ---
-group: 画布
+nav:
+  title: 组件
+  order: 20
+group:
+  title: 画布
+  order: 1
 title: FlowEditor 画布编辑器
+order: 2
 description:
 ---
 

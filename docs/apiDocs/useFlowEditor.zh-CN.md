@@ -1,7 +1,7 @@
 ---
 nav:
   title: API
-  order: 10
+  order: 30
 group:
   title: Hooks
   order: 1

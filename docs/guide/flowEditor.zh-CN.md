@@ -34,3 +34,7 @@ const editor = useFlowEditor();
 <!-- ## 拖拽插入节点
 
 <code src='./demos/flowEditor/dragAddNode.tsx'></code> -->
+
+## 可编辑节点
+
+<code src="./demos/flowEditor/editFlowDemo.tsx"></code>
