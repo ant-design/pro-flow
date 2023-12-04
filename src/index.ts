@@ -1,4 +1,4 @@
-import { Handle, Position } from 'reactflow';
+import { BaseEdge, EdgeLabelRenderer, EdgeProps, Handle, Position, getBezierPath } from 'reactflow';
 
 export * from './Background';
 export { default as Background } from './Background';
@@ -20,4 +20,4 @@ export { NodeField, useNodeFieldStyles } from './NodeField';
 export type { ExtraAction } from './NodeField';
 export { default as RadiusEdge } from './RadiusEdge';
 export * from './constants';
-export { Handle, Position };
+export { BaseEdge, EdgeLabelRenderer, EdgeProps, Handle, Position, getBezierPath };
