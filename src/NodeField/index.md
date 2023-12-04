@@ -13,11 +13,11 @@ description: 展示节点中的单个字段的组件
 
 <code src="./demos/actions.tsx" center></code>
 
-## 结合 BasicNode 使用
+## 结合 EditNode 使用
 
-结合 BasicNode 快速构建节点字段项
+结合 EditNode 快速构建节点字段项
 
-<code src="../BasicNode/demos/PreviewField.tsx" center></code>
+<code src="../EditNode/demos/PreviewField.tsx" center></code>
 
 ## APIs
 

@@ -1,4 +1,4 @@
-import { BasicNode, NodeField } from '@ant-design/pro-flow';
+import { EditNode, NodeField } from '@ant-design/pro-flow';
 import { Button, Divider } from 'antd';
 import { memo, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
@@ -7,7 +7,7 @@ const Demo = memo(() => {
   const [collapsedKeys, setKeys] = useState<string[]>([]);
   return (
     <div>
-      <BasicNode.Preview
+      <EditNode.Preview
         collapsedKeys={collapsedKeys}
         onCollapsedKeysChange={setKeys}
         title={'输出'}
@@ -21,7 +21,7 @@ const Demo = memo(() => {
         <NodeField id={'model'} title={'模型'}>
           GPT-3.5-turbo
         </NodeField>
-      </BasicNode.Preview>
+      </EditNode.Preview>
       <Divider />
       <Flexbox align={'center'} horizontal gap={8}>
         <Button

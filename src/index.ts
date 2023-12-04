@@ -2,9 +2,9 @@ import { Handle, Position } from 'reactflow';
 
 export * from './Background';
 export { default as Background } from './Background';
-export { default as BasicNode } from './BasicNode';
 export { default as CanvasLoading } from './CanvasLoading';
 export * from './ControlInput';
+export { default as EditNode } from './EditNode';
 export { default as EditableText } from './EditableText';
 export * from './FlowEditor';
 export * from './FlowPanel';

@@ -28,7 +28,7 @@ const useStyles = createStyles(({ css, token, prefixCls }) => ({
   `,
 }));
 
-export interface BasicNodePreviewProps {
+export interface EditNodePreviewProps {
   /**
    * 标题
    */
@@ -69,7 +69,7 @@ export interface BasicNodePreviewProps {
   onTitleChange?: (title: string) => void;
 }
 
-const Preview = memo<BasicNodePreviewProps>(
+const Preview = memo<EditNodePreviewProps>(
   ({
     active,
     collapsedKeys,
@@ -110,14 +110,14 @@ const Preview = memo<BasicNodePreviewProps>(
   },
 );
 
-interface BasicNodeProps extends BasicNodePreviewProps {
+interface EditNodeProps extends EditNodePreviewProps {
   /**
    * 节点的 id
    */
   id: string;
 }
 
-const Default = memo<BasicNodeProps>(({ id, onTitleChange, onCollapsedKeysChange, ...props }) => {
+const Default = memo<EditNodeProps>(({ id, onTitleChange, onCollapsedKeysChange, ...props }) => {
   const editor = useFlowEditor();
   return (
     <Preview
@@ -133,15 +133,15 @@ const Default = memo<BasicNodeProps>(({ id, onTitleChange, onCollapsedKeysChange
       {...props}
     />
   );
-}) as (props: BasicNodeProps) => JSX.Element;
+}) as (props: EditNodeProps) => JSX.Element;
 
-interface IBasicNode {
-  (props: BasicNodeProps): ReactNode;
+interface IEditNode {
+  (props: EditNodeProps): ReactNode;
   Preview: typeof Preview;
 }
 
-const BasicNode = Default as IBasicNode;
+const EditNode = Default as IEditNode;
 
-BasicNode.Preview = Preview;
+EditNode.Preview = Preview;
 
-export default BasicNode;
+export default EditNode;
