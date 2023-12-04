@@ -1,3 +1,6 @@
+/**
+ * compact: true
+ */
 import { FlowView, FlowViewEdge, FlowViewNode, SelectType } from '@ant-design/pro-flow';
 import { useState } from 'react';
 import CustomNode from './CustomerNode';

@@ -1,3 +1,6 @@
+/**
+ * compact: true
+ */
 import { FlowEditor, FlowEditorProvider, useFlowEditor } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { FC, useEffect } from 'react';

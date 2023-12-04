@@ -1,3 +1,6 @@
+/**
+ * compact: true
+ */
 import { FlowView, MiniMap } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
