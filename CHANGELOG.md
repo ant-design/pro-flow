@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.14.0](https://github.com/ant-design/pro-flow/compare/v0.13.1...v0.14.0)
+
+<sup>Released on **2023-12-04**</sup>
+
+#### ✨ 新特性
+
+- Improve canvas loading animation.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Improve canvas loading animation, closes [#39](https://github.com/ant-design/pro-flow/issues/39) ([7f0dbc3](https://github.com/ant-design/pro-flow/commit/7f0dbc3))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.13.1](https://github.com/ant-design/pro-flow/compare/v0.13.0...v0.13.1)
 
 <sup>Released on **2023-11-27**</sup>
