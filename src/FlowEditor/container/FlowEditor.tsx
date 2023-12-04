@@ -85,7 +85,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       defaultViewport,
       children,
       background = true,
-      miniMap,
+      miniMap = true,
       onNodesInit,
     },
     ref,

@@ -1,45 +1,43 @@
 import { ExpandOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Space, Tooltip } from 'antd';
+import { Button, ConfigProvider, Space, Tooltip, theme as antdTheme } from 'antd';
 import { createStyles } from 'antd-style';
 import React from 'react';
+import { Flexbox } from 'react-layout-kit';
 import { MiniMap as FlowMiniMap, useReactFlow, useViewport } from 'reactflow';
 import { MiniMapPosition } from '..';
 
-const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
+const useStyles = createStyles(({ css, token }, props: { x: number; y: number }) => {
   const { x, y } = props;
+
   return {
     container: css`
       position: absolute;
       bottom: ${y}px;
-      right: ${10 + x}px;
+      right: ${x}px;
       z-index: 100;
       transition: right 0.2s ease;
-      width: 200px;
-      height: 260px;
-      box-sizing: border-box;
+
+      .ant-btn-default:not(:disabled):not(.ant-btn-dangerous) {
+        border-color: ${token.colorBorder};
+      }
     `,
 
     visible: css`
       display: none;
     `,
 
-    controlAction: css`
-      height: 80px;
-      padding: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    `,
-
-    measureMap: css`
-      border-radius: 4px;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      padding: 0;
-      margin: 0 !important;
+    minimap: css`
       position: relative !important;
+      right: 0;
+      bottom: 0;
+
+      overflow: hidden;
+
+      height: 150px;
+      margin: 0;
+
+      background: ${token.colorBgContainer};
+      border-radius: 4px;
     `,
   };
 });
@@ -51,10 +49,10 @@ interface MiniMapProps {
 }
 
 const MiniMap: React.FC<Partial<MiniMapProps>> = (props) => {
-  const { visible = true, className = '', position = { x: 0, y: 0 } } = props;
+  const { visible = true, className = '', position = { x: 10, y: 10 } } = props;
   const reactFlow = useReactFlow();
   const { zoom } = useViewport();
-  const { styles, cx } = useStyles(position);
+  const { styles, cx, theme } = useStyles(position);
 
   const handleZoomIn = () => {
     reactFlow.zoomIn();
@@ -74,32 +72,67 @@ const MiniMap: React.FC<Partial<MiniMapProps>> = (props) => {
     }
   };
 
+  const actions = [
+    {
+      icon: <MinusOutlined />,
+      title: '缩小',
+      onClick: handleZoomOut,
+    },
+    {
+      title: zoom === 1 ? '缩放为 2:1' : '缩放为 1:1',
+      onClick: handleZoomTo,
+      children: Math.round(zoom * 100) + '%',
+      style: { width: 56 },
+    },
+    {
+      icon: <PlusOutlined />,
+      title: '放大',
+      onClick: handleZoomIn,
+    },
+    {
+      icon: <ExpandOutlined />,
+      title: '自适应画布',
+      onClick: handleZoomFit,
+    },
+  ];
+
   return (
-    <div className={cx(styles.container, !visible && styles.visible, className)}>
-      <div className={styles.controlAction}>
-        <Space>
-          <Button icon={<MinusOutlined />} onClick={handleZoomOut} />
-          <Tooltip title={zoom === 1 ? '缩放为 2:1' : '缩放为 1:1'}>
-            <Button onClick={handleZoomTo}>{Math.round(zoom * 100)}%</Button>
-          </Tooltip>
-          <Button icon={<PlusOutlined />} onClick={handleZoomIn} />
-          <Tooltip title={'自适应画布'}>
-            <Button icon={<ExpandOutlined />} onClick={handleZoomFit} />
-          </Tooltip>
-        </Space>
-      </div>
+    <Flexbox
+      gap={12}
+      align={'center'}
+      className={cx(styles.container, className, !visible && styles.visible)}
+    >
+      <ConfigProvider
+        theme={{
+          algorithm: [
+            theme.isDarkMode ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+            antdTheme.compactAlgorithm,
+          ],
+        }}
+      >
+        <Flexbox horizontal align={'center'}>
+          <Space>
+            {actions.map((action, index) => {
+              return (
+                <Tooltip arrow={false} key={index} title={action.title}>
+                  <Button onClick={action.onClick} icon={action.icon} style={action.style}>
+                    {action.children}
+                  </Button>
+                </Tooltip>
+              );
+            })}
+          </Space>
+        </Flexbox>
+      </ConfigProvider>
       <FlowMiniMap
-        className={styles.measureMap}
-        onNodeClick={(_, data) => {
-          const bound = {
-            ...data.position,
-            height: data.height!,
-            width: data.width!,
-          };
-          reactFlow.fitBounds(bound, { padding: 0.5 });
+        className={styles.minimap}
+        maskColor={theme.colorBgMask}
+        nodeColor={(n) => {
+          if (n.data.color) return n.data.color;
+          return theme.colorFill;
         }}
       />
-    </div>
+    </Flexbox>
   );
 };
 

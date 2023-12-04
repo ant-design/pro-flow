@@ -7,7 +7,7 @@ import { FlowViewContext } from './provider';
 
 // 数据处理层
 const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
-  const [miniMapPosition, setMiniMapPosition] = useState<MiniMapPosition>({ x: 0, y: 0 });
+  const [miniMapPosition, setMiniMapPosition] = useState<MiniMapPosition>({ x: 10, y: 10 });
   const reactFlowInstance = useReactFlow();
   const [nodes, setNodes] = useState<Node[]>([]);
   const [edges, setEdges] = useState<Edge[]>([]);
