@@ -2,7 +2,7 @@ import { ExpandOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Space, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import React from 'react';
-import { MiniMap, useReactFlow, useViewport } from 'reactflow';
+import { MiniMap as FlowMiniMap, useReactFlow, useViewport } from 'reactflow';
 import { MiniMapPosition } from '..';
 
 const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
@@ -44,13 +44,13 @@ const useStyles = createStyles(({ css }, props: { x: number; y: number }) => {
   };
 });
 
-interface ProFlowControllerProps {
+interface MiniMapProps {
   visible?: boolean;
   className?: string;
   position?: MiniMapPosition;
 }
 
-const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => {
+const MiniMap: React.FC<Partial<MiniMapProps>> = (props) => {
   const { visible = true, className = '', position = { x: 0, y: 0 } } = props;
   const reactFlow = useReactFlow();
   const { zoom } = useViewport();
@@ -88,7 +88,7 @@ const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => 
           </Tooltip>
         </Space>
       </div>
-      <MiniMap
+      <FlowMiniMap
         className={styles.measureMap}
         onNodeClick={(_, data) => {
           const bound = {
@@ -103,4 +103,4 @@ const ProFlowController: React.FC<Partial<ProFlowControllerProps>> = (props) => 
   );
 };
 
-export default ProFlowController;
+export default MiniMap;

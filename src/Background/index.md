@@ -1,7 +1,13 @@
 ---
-group: 辅助
+nav:
+  title: 组件
+  order: 20
+group:
+  title: 辅助
+  order: 10
 title: Background 画布背景
-description: 配合ProFLow组件使用，控制背景展示
+order: 1
+description:
 ---
 
 ## Default

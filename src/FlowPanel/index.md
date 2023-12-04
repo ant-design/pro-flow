@@ -1,7 +1,13 @@
 ---
-group: 辅助
+nav:
+  title: 组件
+  order: 20
+group:
+  title: 辅助
+  order: 10
 title: FlowPanel 画布面板
-description: 配合ProFLow组件使用，提供一个展示在画布上的面板
+order: 2
+description:
 ---
 
 ## Default

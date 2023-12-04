@@ -1,7 +1,13 @@
 ---
-group: 辅助
-title: ProFlowController 画布控制器
-description: 配合ProFLow组件使用，提供可控制画布的小地图
+nav:
+  title: 组件
+  order: 20
+group:
+  title: 辅助
+  order: 10
+title: MiniMap 小地图
+order: 3
+description:
 ---
 
 ## Default

@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import ReactFlow, { BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { Background, FlowViewProps, ProFlowController, RadiusEdge } from '../index';
+import { Background, FlowViewProps, MiniMap, RadiusEdge } from '../index';
 import DefaultNode from './components/DefaultNode';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
@@ -112,9 +112,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       fitView
       minZoom={MIN_ZOOM}
     >
-      {miniMap && (
-        <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
-      )}
+      {miniMap && <MiniMap position={miniMapPosition} className={'pro-flow-controller'} />}
       {children}
       {background && (
         <Background

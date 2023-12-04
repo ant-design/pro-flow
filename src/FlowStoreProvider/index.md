@@ -1,8 +1,14 @@
 ---
+nav:
+  title: 组件
+  order: 20
+group:
+  title: 其他
+  order: 20
 title: FlowStoreProvider 流数据容器
+order: 1
 atomId: FlowStoreProvider
-nav: 组件
-group: 辅助
+description:
 ---
 
 # FlowStoreProvider

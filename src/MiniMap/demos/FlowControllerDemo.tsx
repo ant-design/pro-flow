@@ -1,4 +1,4 @@
-import { FlowView, ProFlowController } from '@ant-design/pro-flow';
+import { FlowView, MiniMap } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 
@@ -28,7 +28,7 @@ const FlowControllerDemo = memo(() => {
         edges={[]}
         miniMap={false}
       >
-        <ProFlowController position={{ x: 200, y: 50 }} />
+        <MiniMap position={{ x: 200, y: 50 }} />
       </FlowView>
     </div>
   );
