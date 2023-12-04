@@ -1,11 +1,10 @@
-import { LoadingOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
 import { rgba } from 'polished';
 import { memo, ReactNode } from 'react';
 import { Center } from 'react-layout-kit';
 
-const useStyles = createStyles(
-  ({ css, token }) => css`
+const useStyles = createStyles(({ css, token }) => ({
+  container: css`
     position: absolute;
     z-index: 100;
     top: 0;
@@ -17,7 +16,40 @@ const useStyles = createStyles(
     background: ${rgba(token.colorBgContainer, 0.5)};
     backdrop-filter: blur(20px);
   `,
-);
+  loader: css`
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: ${token.colorText};
+    box-shadow: 0 0 0 0 ${rgba(token.colorText, 0.2)};
+    animation: l2 1.5s infinite linear;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 0 ${rgba(token.colorText, 0.2)};
+      animation: inherit;
+      animation-delay: -0.5s;
+    }
+
+    &:after {
+      animation-delay: -1s;
+    }
+
+    @keyframes l2 {
+      100% {
+        box-shadow: 0 0 0 40px ${rgba(token.colorText, 0)};
+      }
+    }
+  `,
+  tip: css`
+    color: ${token.colorTextPlaceholder};
+  `,
+}));
 
 interface CanvasLoadingProps {
   children?: ReactNode;
@@ -28,8 +60,12 @@ const CanvasLoading = memo<CanvasLoadingProps>(({ children, loading }) => {
   const { styles } = useStyles();
 
   const content = (
-    <Center className={styles}>
-      <LoadingOutlined spin style={{ fontSize: 32, marginBottom: 12 }} /> 画布初始化...
+    <Center gap={12} className={styles.container}>
+      <Center width={100} height={100}>
+        <div className={styles.loader}></div>
+      </Center>
+
+      <div className={styles.tip}>画布初始化...</div>
     </Center>
   );
 
