@@ -28,7 +28,7 @@ const FlowControllerDemo = memo(() => {
         edges={[]}
         miniMap={false}
       >
-        <MiniMap position={{ x: 200, y: 50 }} />
+        <MiniMap position={{ x: 0, y: 0 }} />
       </FlowView>
     </div>
   );

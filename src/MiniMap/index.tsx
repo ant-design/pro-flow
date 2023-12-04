@@ -17,6 +17,13 @@ const useStyles = createStyles(({ css, token }, props: { x: number; y: number })
       z-index: 100;
       transition: right 0.2s ease;
 
+      .actionBox {
+        width: 192px;
+        height: 38px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+
       .ant-btn-default:not(:disabled):not(.ant-btn-dangerous) {
         border-color: ${token.colorBorder};
       }
@@ -111,7 +118,7 @@ const MiniMap: React.FC<Partial<MiniMapProps>> = (props) => {
         }}
       >
         <Flexbox horizontal align={'center'}>
-          <Space>
+          <Space className="actionBox">
             {actions.map((action, index) => {
               return (
                 <Tooltip arrow={false} key={index} title={action.title}>

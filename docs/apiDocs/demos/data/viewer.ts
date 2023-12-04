@@ -1,5 +1,3 @@
-import { EdgeType } from '@ant-design/pro-flow';
-
 export const nodes = [
   {
     id: 'a1',
@@ -37,6 +35,6 @@ export const edges = [
     id: 'a1-a3',
     source: 'a1',
     target: 'a3',
-    type: EdgeType.radius,
+    type: 'radius',
   },
 ];

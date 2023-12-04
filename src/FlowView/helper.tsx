@@ -251,7 +251,7 @@ const getHandleType = (node: NodeMapItem) => {
 
 // 只有pro flow节点才有的额外属性
 const getProFlowNodeData = (node: NodeMapItem) => {
-  if (['lineage'].includes(node.flowNodeType!)) {
+  if (node.flowNodeType === 'lineage') {
     return {
       ...node.data,
       selectType: node.select,
@@ -272,6 +272,7 @@ const getProFlowNodeData = (node: NodeMapItem) => {
       ...node.data,
       selectType: node.select,
       zoom: node.zoom,
+      label: node.label,
     };
   }
 };

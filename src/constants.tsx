@@ -12,10 +12,7 @@ export enum SelectType {
   DEFAULT = 'DEFAULT',
 }
 
-export enum EdgeType {
-  default = 'default',
-  radius = 'radius',
-}
+export type EdgeType = 'radius' | 'smoothstep' | 'straight' | 'step' | 'bezier';
 
 export interface DefaultNodeData {
   className?: string;
@@ -73,7 +70,7 @@ export interface FlowViewEdge {
   animated?: boolean;
   select?: SelectType;
   label?: string;
-  type?: EdgeType;
+  type?: EdgeType | string;
 }
 
 export interface FlowViewProps {
