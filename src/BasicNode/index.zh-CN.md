@@ -12,7 +12,7 @@ description:
 
 ## Default
 
-<code src="./demos/index.tsx"></code>
+<code src="./demos/default/index.tsx"></code>
 
 ## API
 

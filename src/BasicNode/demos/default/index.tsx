@@ -26,8 +26,6 @@ const ProFlowDemo = () => {
       _nodes.map((_node) => {
         if (_node.id === node.id) {
           _node.select = SelectType.SELECT;
-        } else {
-          _node.select = SelectType.SUB_SELECT;
         }
         return _node;
       }),
