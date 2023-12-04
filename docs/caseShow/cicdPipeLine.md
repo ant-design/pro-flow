@@ -1,10 +1,13 @@
 ---
 nav: 案例展示
+order: 100
 group:
   title: pipeLine
-  order: 10
+  order: 1
 title: CI/CD PipeLine
 description:
 ---
+
+## Default
 
 <code src="./demos/pipelineDemo.tsx" ></code>

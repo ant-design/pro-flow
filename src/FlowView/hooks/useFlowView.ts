@@ -66,6 +66,11 @@ export const useFlowViewer = () => {
     return reactFlowInstance?.setViewport!(viewport, { duration });
   };
 
+  const fitView = (duration?: number) => {
+    console.log(reactFlowInstance);
+    return reactFlowInstance?.fitView({ duration });
+  };
+
   return {
     selectNode: updateSelectNode!,
     selectEdge: updateSelectEdge!,
@@ -77,6 +82,7 @@ export const useFlowViewer = () => {
     getViewport,
     setViewport,
     zoomToNode,
+    fitView,
     setMiniMapPosition,
   };
 };

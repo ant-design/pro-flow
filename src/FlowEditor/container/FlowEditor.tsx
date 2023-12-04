@@ -69,6 +69,9 @@ export interface FlowEditorAppProps {
   style?: React.CSSProperties;
   flowProps?: ComponentProps<typeof ReactFlow>;
   className?: string;
+  children?: React.ReactNode;
+  background?: boolean;
+  miniMap?: boolean;
 }
 
 const FlowEditor = forwardRef<any, FlowEditorAppProps>(
@@ -80,6 +83,9 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       className,
       flowProps,
       defaultViewport,
+      children,
+      background = true,
+      miniMap = true,
       onNodesInit,
     },
     ref,
@@ -128,7 +134,6 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       } else {
         instance.setViewport(defaultViewport);
       }
-      console.log(nodesInitialized);
 
       // 然后设定初始化节点的相关状态
       if (nodesInitialized) {
@@ -212,9 +217,17 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
           disableKeyboardA11y={true}
           proOptions={{ hideAttribution: true }}
         >
-          <Background color={theme.colorTextQuaternary} variant={BackgroundVariant.Dots} size={2} />
-          <ControlAction />
+          {background && (
+            <Background
+              color={theme.colorTextQuaternary}
+              variant={BackgroundVariant.Dots}
+              size={2}
+            />
+          )}
+
+          {miniMap && <ControlAction />}
           {contextMenuEnabled && <ContextMenu />}
+          {children}
         </ReactFlow>
       </Flexbox>
     );

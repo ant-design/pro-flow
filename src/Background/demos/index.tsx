@@ -1,3 +1,6 @@
+/**
+ * compact: true
+ */
 import { Background, BackgroundVariant, FlowPanel, FlowView } from '@ant-design/pro-flow';
 import { Button } from 'antd';
 import { createStyles } from 'antd-style';

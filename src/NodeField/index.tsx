@@ -7,7 +7,7 @@ import { Flexbox } from 'react-layout-kit';
 import { Handle, Position } from 'reactflow';
 import useControlledState from 'use-merge-value';
 
-import { CollapseProvider, useStore, useStoreApi } from '@/BasicNode/CollapseContext';
+import { CollapseProvider, useStore, useStoreApi } from '@/EditNode/CollapseContext';
 
 const prefixCls = 'editor-field-item';
 

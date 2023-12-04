@@ -12,17 +12,14 @@ export enum SelectType {
   DEFAULT = 'DEFAULT',
 }
 
-export enum EdgeType {
-  default = 'default',
-  radius = 'radius',
-}
+export type EdgeType = 'radius' | 'smoothstep' | 'straight' | 'step' | 'bezier';
 
 export interface DefaultNodeData {
   className?: string;
   children?: React.ReactNode;
 }
 
-export interface LineageNodeData {
+export interface BasicNodeData {
   title: string;
   describe: string;
   logo: string;
@@ -32,15 +29,15 @@ export interface LineageNodeData {
   };
 }
 
-export interface LineageGroupNodeData {
+export interface BasicGroupNodeData {
   id: string;
-  data: LineageNodeData;
+  data: BasicNodeData;
 }
 
 export interface NodeTypeDataMap {
   default: DefaultNodeData;
-  lineage: LineageNodeData;
-  lineageGroup: LineageGroupNodeData[];
+  lineage: BasicNodeData;
+  lineageGroup: BasicGroupNodeData[];
 }
 
 export type FlowNodeType = keyof NodeTypeDataMap;
@@ -73,7 +70,7 @@ export interface FlowViewEdge {
   animated?: boolean;
   select?: SelectType;
   label?: string;
-  type?: EdgeType;
+  type?: EdgeType | string;
 }
 
 export interface FlowViewProps {

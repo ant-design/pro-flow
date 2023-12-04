@@ -33,7 +33,7 @@ interface PipeNode {
 const nodeWidth = 170;
 const nodeHeight = 500;
 
-const PipeNode: FC<{
+export const PipeNode: FC<{
   data: PipeNode;
 }> = ({ data }) => {
   const {

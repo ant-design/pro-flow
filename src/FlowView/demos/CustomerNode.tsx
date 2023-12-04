@@ -1,13 +1,6 @@
 import { Handle, Position } from '@/index';
 import { FC, useCallback } from 'react';
-import styled from 'styled-components';
-// import { Handle, Position } from 'reactflow';
-
-const Wrap = styled.div`
-  width: 300px;
-  height: 100px;
-  background-color: red;
-`;
+import './index.less';
 
 const CustomNode: FC<{
   data: {
@@ -19,7 +12,7 @@ const CustomNode: FC<{
   }, []);
 
   return (
-    <Wrap>
+    <div className="CustomWrap">
       <Handle type="target" position={Position.Left} />
       <div>
         <label htmlFor="text">{data.title}</label>
@@ -27,7 +20,7 @@ const CustomNode: FC<{
       </div>
       <Handle type="source" position={Position.Bottom} id="a" />
       <Handle type="source" position={Position.Bottom} id="b" style={{ left: 10 }} />
-    </Wrap>
+    </div>
   );
 };
 

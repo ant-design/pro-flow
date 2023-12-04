@@ -114,6 +114,8 @@ export const generalActionSlice: StateCreator<
 
     const ids = [...nodes.map((n) => n.id), ...edges.map((e) => e.id)];
 
+    console.log(ids);
+
     get().internalUpdateSelection(ids, { type: 'selection/selectAll', payload: { ids } });
   },
 
@@ -241,10 +243,12 @@ export const generalActionSlice: StateCreator<
   undo: () => {
     const { yjsDoc, internalUpdateEdges, internalUpdateNodes } = get();
     const stack = yjsDoc.undo();
-
     const { flattenNodes, flattenEdges } = yjsDoc.getHistoryJSON();
 
-    internalUpdateNodes(flattenNodes, { type: 'history/undo', payload: stack });
+    // if(!!flattenNodes)
+    internalUpdateNodes(flattenNodes || {}, { type: 'history/undo', payload: stack });
+
+    // if (!!flattenEdges)
     internalUpdateEdges(flattenEdges, { type: 'history/undo', payload: stack });
   },
   redo: () => {

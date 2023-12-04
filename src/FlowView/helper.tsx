@@ -192,14 +192,14 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
 //     const { select = SelectType.DEFAULT } = node;
 
 //     return (
-//       <LineageNode
-//         title={(node.data! as LineageNodeData).title!}
-//         description={(node.data! as LineageNodeData).describe!}
-//         logo={(node.data! as LineageNodeData).logo!}
+//       <BasicNode
+//         title={(node.data! as BasicNodeData).title!}
+//         description={(node.data! as BasicNodeData).describe!}
+//         logo={(node.data! as BasicNodeData).logo!}
 //         selectType={select}
 //         zoom={node.zoom}
 //         label={node.label}
-//         titleSlot={(node.data! as LineageNodeData).titleSlot}
+//         titleSlot={(node.data! as BasicNodeData).titleSlot}
 //       />
 //     );
 //   },
@@ -207,9 +207,9 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
 //     const { select = SelectType.DEFAULT } = node;
 
 //     return (
-//       <LineageNodeGroup
+//       <BasicNodeGroup
 //         id={node.id!}
-//         data={node.data! as unknown as LineageGroupNodeData[]}
+//         data={node.data! as unknown as BasicGroupNodeData[]}
 //         select={select}
 //         zoom={node.zoom}
 //         label={node.label}
@@ -251,7 +251,7 @@ const getHandleType = (node: NodeMapItem) => {
 
 // 只有pro flow节点才有的额外属性
 const getProFlowNodeData = (node: NodeMapItem) => {
-  if (['lineage'].includes(node.flowNodeType!)) {
+  if (node.flowNodeType === 'lineage') {
     return {
       ...node.data,
       selectType: node.select,
@@ -272,6 +272,7 @@ const getProFlowNodeData = (node: NodeMapItem) => {
       ...node.data,
       selectType: node.select,
       zoom: node.zoom,
+      label: node.label,
     };
   }
 };

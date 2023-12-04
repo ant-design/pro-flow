@@ -1,5 +1,5 @@
-import LineageNodeGroup from '@/LineageGroupNode';
-import LineageNode from '@/LineageNode';
+import BasicNodeGroup from '@/BasicGroupNode';
+import BasicNode from '@/BasicNode';
 import React, {
   createContext,
   useCallback,
@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import ReactFlow, { BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { Background, FlowViewProps, ProFlowController, RadiusEdge } from '../index';
+import { Background, FlowViewProps, MiniMap, RadiusEdge } from '../index';
 import DefaultNode from './components/DefaultNode';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
@@ -44,8 +44,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const nodeTypesMemo = useMemo(() => {
     return {
       ...nodeTypes,
-      lineage: LineageNode,
-      lineageGroup: LineageNodeGroup,
+      lineage: BasicNode,
+      lineageGroup: BasicNodeGroup,
       default: DefaultNode,
     };
   }, []);
@@ -112,9 +112,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       fitView
       minZoom={MIN_ZOOM}
     >
-      {miniMap && (
-        <ProFlowController position={miniMapPosition} className={'pro-flow-controller'} />
-      )}
+      {miniMap && <MiniMap position={miniMapPosition} className={'pro-flow-controller'} />}
       {children}
       {background && (
         <Background
