@@ -1,6 +1,6 @@
+import { ArtboardTitle } from '@/BasicNode';
 import { NodeMapItem, SelectType } from '@/FlowView/constants';
-import { ArtboardTitle } from '@/LineageNode';
-import { LineageGroupNodeData, LineageNodeData } from '@/constants';
+import { BasicGroupNodeData, BasicNodeData } from '@/constants';
 import { getClsFromSelectType } from '@/utils';
 import { cx } from 'antd-style';
 import React from 'react';
@@ -13,16 +13,16 @@ const Wrap = styled.div`
   height: 632px;
   position: relative;
 `;
-export interface LineageNodeGroupProps {
+export interface BasicNodeGroupProps {
   id?: string;
   zoom?: number;
   label?: string;
   selectType?: SelectType;
-  data: LineageGroupNodeData[];
+  data: BasicGroupNodeData[];
   handleType?: 'input' | 'output' | 'none' | ' both';
 }
 
-const convertMappingNode = (nodeList: LineageGroupNodeData[]): NodeMapItem[] => {
+const convertMappingNode = (nodeList: BasicGroupNodeData[]): NodeMapItem[] => {
   return nodeList.map((_node) => {
     return { ..._node, type: 'default', flowNodeType: 'lineage' };
   });
@@ -43,8 +43,8 @@ const GroupItem = (node: NodeMapItem) => {
   );
 };
 
-const LineageNodeGroup: React.FC<{
-  data: LineageNodeGroupProps;
+const BasicNodeGroup: React.FC<{
+  data: BasicNodeGroupProps;
 }> = ({ data }) => {
   const { styles } = useStyles();
   const {
@@ -55,11 +55,11 @@ const LineageNodeGroup: React.FC<{
     data: _data,
   } = data;
 
-  if ((_data as LineageGroupNodeData[]).length < 7) {
+  if ((_data as BasicGroupNodeData[]).length < 7) {
     return <div className={styles.groupWrap}>数组长度必须大于等于7！</div>;
   }
 
-  const nodeList = convertMappingNode(_data as LineageGroupNodeData[]);
+  const nodeList = convertMappingNode(_data as BasicGroupNodeData[]);
 
   return (
     <Wrap>
@@ -74,7 +74,7 @@ const LineageNodeGroup: React.FC<{
         )}
         <div className={cx(styles.groupWrap, styles[getClsFromSelectType(selectType)])}>
           {nodeList!.map((_node, index) => {
-            const data = _node.data as LineageNodeData;
+            const data = _node.data as BasicNodeData;
             _node.position = {
               x: 0,
               y: 100 * index,
@@ -101,4 +101,4 @@ const LineageNodeGroup: React.FC<{
   );
 };
 
-export default LineageNodeGroup;
+export default BasicNodeGroup;

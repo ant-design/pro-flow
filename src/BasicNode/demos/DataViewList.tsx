@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
-import LineageNode from '..';
+import BasicNode from '..';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -51,7 +51,7 @@ const NodeList = memo(() => {
     <div className={cx(styles.container)}>
       {nodeList.map((item) => {
         return (
-          <LineageNode
+          <BasicNode
             key={item.title}
             data={{
               className: styles.node,

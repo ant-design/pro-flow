@@ -1,5 +1,5 @@
-import LineageNodeGroup from '@/LineageGroupNode';
-import LineageNode from '@/LineageNode';
+import BasicNodeGroup from '@/BasicGroupNode';
+import BasicNode from '@/BasicNode';
 import React, {
   createContext,
   useCallback,
@@ -44,8 +44,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const nodeTypesMemo = useMemo(() => {
     return {
       ...nodeTypes,
-      lineage: LineageNode,
-      lineageGroup: LineageNodeGroup,
+      lineage: BasicNode,
+      lineageGroup: BasicNodeGroup,
       default: DefaultNode,
     };
   }, []);

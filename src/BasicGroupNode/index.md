@@ -1,7 +1,13 @@
 ---
-group: 节点
-title: LineageNode 血缘节点
-description: 无法单独使用。在FlowView中将节点类型设置为'lineage'后使用。
+nav:
+  title: 组件
+  order: 20
+group:
+  title: 节点
+  order: 1
+title: BasicGroupNode 基础组节点
+order: 2
+description:
 ---
 
 ## Default
@@ -9,6 +15,13 @@ description: 无法单独使用。在FlowView中将节点类型设置为'lineage
 <code src="./demos/index.tsx"></code>
 
 ## API
+
+| 属性名 | 类型            | 描述     | 默认值 | 必选 |
+| ------ | --------------- | -------- | ------ | ---- |
+| id     | `string`        | 节点标题 | -      | -    |
+| data   | `BasicNodeData` | 节点描述 | -      | -    |
+
+### BasicNodeData
 
 | 属性名    | 类型                                                | 描述                                                                | 默认值 | 必选 |
 | --------- | --------------------------------------------------- | ------------------------------------------------------------------- | ------ | ---- |

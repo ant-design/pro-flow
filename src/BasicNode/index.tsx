@@ -60,7 +60,7 @@ const TitleSlotRight = styled.div`
   top: 9px;
 `;
 
-const LineageNode: React.FC<{
+const BasicNode: React.FC<{
   data: BloodNodeProps;
 }> = ({ data }) => {
   const { styles, cx } = useStyles();
@@ -114,4 +114,4 @@ const LineageNode: React.FC<{
   );
 };
 
-export default LineageNode;
+export default BasicNode;

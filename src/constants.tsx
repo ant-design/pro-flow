@@ -22,7 +22,7 @@ export interface DefaultNodeData {
   children?: React.ReactNode;
 }
 
-export interface LineageNodeData {
+export interface BasicNodeData {
   title: string;
   describe: string;
   logo: string;
@@ -32,15 +32,15 @@ export interface LineageNodeData {
   };
 }
 
-export interface LineageGroupNodeData {
+export interface BasicGroupNodeData {
   id: string;
-  data: LineageNodeData;
+  data: BasicNodeData;
 }
 
 export interface NodeTypeDataMap {
   default: DefaultNodeData;
-  lineage: LineageNodeData;
-  lineageGroup: LineageGroupNodeData[];
+  lineage: BasicNodeData;
+  lineageGroup: BasicGroupNodeData[];
 }
 
 export type FlowNodeType = keyof NodeTypeDataMap;

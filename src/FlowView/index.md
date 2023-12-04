@@ -48,8 +48,8 @@ description:
 ```ts
 export interface NodeTypeDataMap {
   default: DefaultNodeData;
-  lineage: LineageNodeData;
-  lineageGroup: LineageGroupNodeData[];
+  lineage: BasicNodeData;
+  lineageGroup: BasicGroupNodeData[];
 }
 ```
 
@@ -60,7 +60,7 @@ export interface NodeTypeDataMap {
 | className | `string`          | 类名   | -      | -    |
 | children  | `React.ReactNode` | 子组件 | -      | -    |
 
-#### LineageNodeData
+#### BasicNodeData
 
 | 属性名    | 类型                                                  | 描述 | 默认值 | 必选 |
 | --------- | ----------------------------------------------------- | ---- | ------ | ---- |
@@ -69,12 +69,12 @@ export interface NodeTypeDataMap {
 | logo      | `string`                                              | logo | -      | -    |
 | titleSlot | `{ type: 'left' \| 'right', value: React.ReactNode }` | 插槽 | -      | -    |
 
-#### LineageGroupNodeData
+#### BasicGroupNodeData
 
-| 属性名 | 类型              | 描述   | 默认值 | 必选 |
-| ------ | ----------------- | ------ | ------ | ---- |
-| id     | `string`          | 类名   | -      | -    |
-| data   | `LineageNodeData` | 子组件 | -      | -    |
+| 属性名 | 类型            | 描述   | 默认值 | 必选 |
+| ------ | --------------- | ------ | ------ | ---- |
+| id     | `string`        | 类名   | -      | -    |
+| data   | `BasicNodeData` | 子组件 | -      | -    |
 
 #### SelectType
 
