@@ -164,6 +164,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       animated,
       sourceHandle,
       targetHandle,
+      className,
     } = edge;
 
     return {
@@ -175,7 +176,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       type,
       animated,
       label,
-      className: getEdgeClsFromSelectType(select),
+      className: getEdgeClsFromSelectType(select) + ' ' + className,
     };
   });
 

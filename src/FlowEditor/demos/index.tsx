@@ -8,34 +8,14 @@ import {
   Position,
   useFlowEditor,
 } from '@ant-design/pro-flow';
-import { createStyles } from 'antd-style';
 import { FC, useEffect } from 'react';
-
-const useStyles = createStyles(({ css }) => ({
-  container: css`
-    width: 100%;
-    height: 600px;
-    .ant-progress-text {
-      text-align: center !important;
-    }
-  `,
-  stringNode: css`
-    width: 150px;
-    height: 30px;
-    text-align: center;
-    background-color: white;
-    border: 1px solid aqua;
-    border-radius: 4px;
-    line-height: 30px;
-  `,
-}));
+import './index.less';
 
 const StringRender: FC = (node: any) => {
   const { handles, id } = node;
-  const { styles } = useStyles();
 
   return (
-    <div className={styles.stringNode}>
+    <div className={'stringNode'}>
       <Handle
         id={typeof handles?.source === 'string' ? handles?.source : id}
         type={'target'}
@@ -51,9 +31,10 @@ const StringRender: FC = (node: any) => {
   );
 };
 
+const nodeTypes = { StringNode: StringRender };
+
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
-  const { styles } = useStyles();
 
   useEffect(() => {
     editor.addNode({
@@ -68,8 +49,8 @@ const ProFlowDemo = () => {
   }, [editor]);
 
   return (
-    <div className={styles.container}>
-      <FlowEditor nodeTypes={{ StringNode: StringRender }} />
+    <div className={'container'}>
+      <FlowEditor nodeTypes={nodeTypes} />
     </div>
   );
 };

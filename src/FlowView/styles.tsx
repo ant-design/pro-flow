@@ -39,6 +39,12 @@ export const useStyles = createStyles(({ css, cx }) => ({
       z-index: 100;
     }
 
+    .${EDGE_SUB_SELECT}:hover path {
+      stroke: red;
+      stroke-width: 1;
+      z-index: 100;
+    }
+
     .${EDGE_DANGER} path {
       stroke: #f7636e;
       stroke-width: 2;
