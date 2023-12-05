@@ -1,27 +1,41 @@
 /**
  * compact: true
  */
-import { FlowEditor, FlowEditorProvider, useFlowEditor } from '@ant-design/pro-flow';
+import {
+  FlowEditor,
+  FlowEditorProvider,
+  Handle,
+  Position,
+  useFlowEditor,
+} from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { FC, useEffect } from 'react';
-import { Handle, Position } from 'reactflow';
-import styled from 'styled-components';
 
-const StringNode = styled.div`
-  width: 150px;
-  height: 30px;
-  text-align: center;
-  background-color: white;
-  border: 1px solid aqua;
-  border-radius: 4px;
-  line-height: 30px;
-`;
+const useStyles = createStyles(({ css }) => ({
+  container: css`
+    width: 100%;
+    height: 600px;
+    .ant-progress-text {
+      text-align: center !important;
+    }
+  `,
+  stringNode: css`
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid aqua;
+    border-radius: 4px;
+    line-height: 30px;
+  `,
+}));
 
 const StringRender: FC = (node: any) => {
-  console.log(node);
   const { handles, id } = node;
+  const { styles } = useStyles();
+
   return (
-    <StringNode>
+    <div className={styles.stringNode}>
       <Handle
         id={typeof handles?.source === 'string' ? handles?.source : id}
         type={'target'}
@@ -33,19 +47,9 @@ const StringRender: FC = (node: any) => {
         type={'source'}
         position={Position.Right}
       />
-    </StringNode>
+    </div>
   );
 };
-
-const useStyles = createStyles(({ css }) => ({
-  container: css`
-    width: 100%;
-    height: 600px;
-    .ant-progress-text {
-      text-align: center !important;
-    }
-  `,
-}));
 
 const ProFlowDemo = () => {
   const editor = useFlowEditor();

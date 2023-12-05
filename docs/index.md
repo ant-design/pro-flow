@@ -15,14 +15,14 @@ features:
     imageType: primary
 
   - title: 现代化设计
-    link: /guide/switch-theme
+    link: /guide/brief-intro
     description: 默认节点打造出来的流程图，看起来用起来都更像是一个产品，而不是简易流程图。
     image: https://mdn.alipayobjects.com/huamei_rqvucu/afts/img/A*MvKkQqXEyfQAAAAAAAAAAAAADoN6AQ/original
     imageType: light
 
   - title: 完善的基本功能
     description: 提供众多画布展示与交互的基础能力，开箱即用。
-    link: /guide/custom-theme
+    link: /guide/brief-intro
     image: https://mdn.alipayobjects.com/huamei_rqvucu/afts/img/A*6sjjRa7lLhAAAAAAAAAAAAAADoN6AQ/original
     imageType: primary
 

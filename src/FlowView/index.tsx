@@ -33,6 +33,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     children,
     background = true,
     autoLayout = true,
+    stepLessZooming = true,
   } = props;
   const {
     miniMapPosition,
@@ -58,8 +59,13 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const { zoom } = useViewport();
 
   useEffect(() => {
+    flowDataAdapter!(nodes, edges, 1, autoLayout);
+  }, [nodes, edges]);
+
+  useEffect(() => {
+    if (!stepLessZooming) return;
     flowDataAdapter!(nodes, edges, zoom, autoLayout);
-  }, [nodes, edges, zoom]);
+  }, [zoom]);
 
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {

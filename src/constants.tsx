@@ -87,6 +87,7 @@ export interface FlowViewProps {
   background?: boolean;
   children?: React.ReactNode;
   autoLayout?: boolean;
+  stepLessZooming?: boolean;
 }
 
 export interface MiniMapPosition {
