@@ -165,10 +165,12 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       sourceHandle,
       targetHandle,
       className,
+      data,
+      id = `${source}-${target}`,
     } = edge;
 
     return {
-      id: `${source}-${target}`,
+      id,
       source,
       target,
       sourceHandle,
@@ -176,6 +178,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       type,
       animated,
       label,
+      data,
       className: getEdgeClsFromSelectType(select) + ' ' + className,
     };
   });

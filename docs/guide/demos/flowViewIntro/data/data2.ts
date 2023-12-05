@@ -26,9 +26,12 @@ export const nodes = [
 ];
 export const edges = [
   {
-    id: 'a1-a2',
+    id: '123123',
     source: 'a1',
     target: 'a2',
+    data: {
+      data: 'dsfjhkfds',
+    },
   },
   {
     id: 'a1-a3',
