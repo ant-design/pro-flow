@@ -9,7 +9,13 @@ import { edges, nodes } from './data/data2';
 function App() {
   return (
     <div className="container">
-      <FlowView nodes={nodes} edges={edges}></FlowView>
+      <FlowView
+        nodes={nodes}
+        edges={edges}
+        onEdgeClick={(e, edge) => {
+          console.log(edge);
+        }}
+      ></FlowView>
     </div>
   );
 }

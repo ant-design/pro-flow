@@ -5,7 +5,6 @@
 import {
   BasicNode,
   EditNode,
-  FlowDrawer,
   FlowEditor,
   FlowEditorProvider,
   useFlowEditor,
@@ -16,7 +15,7 @@ import './css/dragAddNode.less';
 import Sidebar from './sidebar';
 
 let id = 0;
-const getId = () => `dndnode_${id++}`;
+const getId = () => `node_${id++}`;
 
 const nodeTypes = {
   StringNode: StringRender,
@@ -37,8 +36,6 @@ const ProFlowDemo = () => {
       if (!editor) return;
 
       const type = event.dataTransfer.getData('application/reactflow');
-
-      console.log(type);
       if (typeof type === 'undefined' || !type) {
         return;
       }
@@ -61,20 +58,14 @@ const ProFlowDemo = () => {
 
   useEffect(() => {
     editor.addNode({
-      id: 'a1',
+      id: getId(),
       type: 'StringNode',
       position: { x: 200, y: 100 },
       data: {
         title: 'String Node',
-        handles: {
-          source: 'a1-source',
-          target: 'a1-target',
-        },
       },
     });
   }, [editor]);
-
-  console.log(FlowDrawer);
 
   return (
     <div className="container">
