@@ -98,7 +98,6 @@ export function setNodePosition(nodes: Node[], edges: Edge[], autoLayout: boolea
 }
 
 export function sortEdges(edges: Edge[]) {
-  console.log(edges);
   const highEdges: Edge[] = edges.filter((item) => {
     return item.className?.includes('edgeSelected') || item.className?.includes('edgeSubSelected');
   });
@@ -309,8 +308,6 @@ export const getRenderData = (
   });
 
   const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges, autoLayout);
-
-  console.log(_edges);
 
   return {
     nodes: _nodes,
