@@ -2,7 +2,14 @@
  * compact: true
  * defaultShowCode: true
  */
-import { FlowEditor, FlowEditorProvider, useFlowEditor } from '@ant-design/pro-flow';
+import {
+  BasicNode,
+  EditNode,
+  FlowDrawer,
+  FlowEditor,
+  FlowEditorProvider,
+  useFlowEditor,
+} from '@ant-design/pro-flow';
 import { useCallback, useEffect } from 'react';
 import { StringRender } from './StringNode';
 import './css/dragAddNode.less';
@@ -11,11 +18,15 @@ import Sidebar from './sidebar';
 let id = 0;
 const getId = () => `dndnode_${id++}`;
 
+const nodeTypes = {
+  StringNode: StringRender,
+  BasicNode: BasicNode,
+  EditNode: EditNode,
+};
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
 
   const onDragOver = useCallback((event) => {
-    console.log('here', event);
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
@@ -26,11 +37,11 @@ const ProFlowDemo = () => {
       if (!editor) return;
 
       const type = event.dataTransfer.getData('application/reactflow');
+
+      console.log(type);
       if (typeof type === 'undefined' || !type) {
         return;
       }
-
-      console.log(editor);
 
       const position = editor.screenToFlowPosition({
         x: event.clientX,
@@ -40,7 +51,7 @@ const ProFlowDemo = () => {
         id: getId(),
         type,
         position,
-        data: { label: `${type} node` },
+        data: { title: `${type} node` },
       };
 
       editor.addNode(newNode);
@@ -63,10 +74,12 @@ const ProFlowDemo = () => {
     });
   }, [editor]);
 
+  console.log(FlowDrawer);
+
   return (
     <div className="container">
       <FlowEditor
-        nodeTypes={{ StringNode: StringRender }}
+        nodeTypes={nodeTypes}
         flowProps={{
           onDrop,
           onDragOver,
