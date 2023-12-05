@@ -76,7 +76,7 @@
     "polished": "^4",
     "react-hotkeys-hook": "^4",
     "react-layout-kit": "^1",
-    "reactflow": "^11.8",
+    "reactflow": "^11.10.0",
     "use-merge-value": "^1",
     "yjs": "^13",
     "zustand": "^4.4.1",

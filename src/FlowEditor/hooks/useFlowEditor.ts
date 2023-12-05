@@ -1,6 +1,6 @@
 import { useMemoizedFn } from 'ahooks';
-import { useMemo } from 'react';
-import { ReactFlowInstance } from 'reactflow';
+import { useCallback, useMemo } from 'react';
+import { ReactFlowInstance, useReactFlow } from 'reactflow';
 import { useStoreApi } from '../store';
 import { PublicStoreAction } from '../store/slices';
 import { FlattenEdges, FlattenNodes } from '../types';
@@ -14,6 +14,7 @@ export interface FlowEditorInstance extends PublicStoreAction {
 
 export const useFlowEditor = (): FlowEditorInstance => {
   const storeApi = useStoreApi();
+  const reactFlowInstance = useReactFlow();
 
   /* eslint-disable @typescript-eslint/no-unused-vars */
   const {
@@ -45,10 +46,19 @@ export const useFlowEditor = (): FlowEditorInstance => {
   const getFlattenNodes = useMemoizedFn(() => storeApi.getState().flattenNodes);
   const getFlattenEdges = useMemoizedFn(() => storeApi.getState().flattenEdges);
   const getSelectedKeys = useMemoizedFn(() => storeApi.getState().selectedKeys);
+  const screenToFlowPosition = useCallback(
+    (position: { x: number; y: number }) => {
+      console.log(reactFlowInstance);
+      if (!reactFlowInstance) return { x: 0, y: 0 };
+      return reactFlowInstance!.screenToFlowPosition!(position);
+    },
+    [reactFlowInstance],
+  );
 
   return useMemo(
     () => ({
       ...instance,
+      screenToFlowPosition,
       getFlattenNodes,
       getSelectedKeys,
       getFlattenEdges,

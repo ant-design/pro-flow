@@ -1,6 +1,5 @@
 export default () => {
   const onDragStart = (event, nodeType) => {
-    console.log(event);
     event.dataTransfer.setData('application/reactflow', nodeType);
     event.dataTransfer.effectAllowed = 'move';
   };

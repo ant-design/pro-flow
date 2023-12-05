@@ -98,6 +98,7 @@ export function setNodePosition(nodes: Node[], edges: Edge[], autoLayout: boolea
 }
 
 export function sortEdges(edges: Edge[]) {
+  console.log(edges);
   const highEdges: Edge[] = edges.filter((item) => {
     return item.className?.includes('edgeSelected') || item.className?.includes('edgeSubSelected');
   });
@@ -164,6 +165,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       animated,
       sourceHandle,
       targetHandle,
+      className,
     } = edge;
 
     return {
@@ -175,7 +177,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       type,
       animated,
       label,
-      className: getEdgeClsFromSelectType(select),
+      className: getEdgeClsFromSelectType(select) + ' ' + className,
     };
   });
 
@@ -307,6 +309,8 @@ export const getRenderData = (
   });
 
   const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges, autoLayout);
+
+  console.log(_edges);
 
   return {
     nodes: _nodes,

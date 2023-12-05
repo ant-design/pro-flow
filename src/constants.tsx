@@ -71,6 +71,7 @@ export interface FlowViewEdge {
   select?: SelectType;
   label?: string;
   type?: EdgeType | string;
+  className?: string;
 }
 
 export interface FlowViewProps {

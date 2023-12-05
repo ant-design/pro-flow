@@ -25,5 +25,6 @@ export const edges = [
     source: 'a1',
     target: 'a2',
     type: 'buttonEdge',
+    className: 'customEdge',
   },
 ];

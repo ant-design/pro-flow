@@ -15,6 +15,7 @@ const ProFlowDemo = () => {
   const editor = useFlowEditor();
 
   const onDragOver = useCallback((event) => {
+    console.log('here', event);
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
@@ -22,14 +23,14 @@ const ProFlowDemo = () => {
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
+      if (!editor) return;
 
       const type = event.dataTransfer.getData('application/reactflow');
-
-      console.log(type);
-
       if (typeof type === 'undefined' || !type) {
         return;
       }
+
+      console.log(editor);
 
       const position = editor.screenToFlowPosition({
         x: event.clientX,
@@ -66,8 +67,10 @@ const ProFlowDemo = () => {
     <div className="container">
       <FlowEditor
         nodeTypes={{ StringNode: StringRender }}
-        onDrop={onDrop}
-        onDragOver={onDragOver}
+        flowProps={{
+          onDrop,
+          onDragOver,
+        }}
         miniMap={false}
         devtools={true}
       ></FlowEditor>
