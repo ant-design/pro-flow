@@ -134,25 +134,6 @@ function getEdgeClsFromSelectType(select: SelectType) {
   }
 }
 
-// function getEdgeLevel(select: SelectType) {
-//   switch (select) {
-//     case SelectType.SELECT:
-//       return 6;
-//     case SelectType.SUB_SELECT:
-//       return 5;
-//     case SelectType.DANGER:
-//       return 4;
-//     case SelectType.SUB_DANGER:
-//       return 3;
-//     case SelectType.WARNING:
-//       return 2;
-//     case SelectType.SUB_WARNING:
-//       return 1;
-//     default:
-//       return 0;
-//   }
-// }
-
 export function getRenderEdges(edges: FlowViewEdge[]) {
   return edges.map((edge) => {
     const {
