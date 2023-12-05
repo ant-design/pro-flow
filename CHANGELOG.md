@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.15.0](https://github.com/ant-design/pro-flow/compare/v0.14.0...v0.15.0)
+
+<sup>Released on **2023-12-05**</sup>
+
+#### ✨ 新特性
+
+- **FlowView**: Add stepless zooming switch.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **FlowView**: Add stepless zooming switch, closes [#41](https://github.com/ant-design/pro-flow/issues/41) ([51783fc](https://github.com/ant-design/pro-flow/commit/51783fc))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.14.0](https://github.com/ant-design/pro-flow/compare/v0.13.1...v0.14.0)
 
 <sup>Released on **2023-12-04**</sup>
