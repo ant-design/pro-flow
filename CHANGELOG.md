@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.16.1](https://github.com/ant-design/pro-flow/compare/v0.16.0...v0.16.1)
+
+<sup>Released on **2023-12-05**</sup>
+
+#### 🐛 修复
+
+- Edge id.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Edge id, closes [#43](https://github.com/ant-design/pro-flow/issues/43) ([64834fe](https://github.com/ant-design/pro-flow/commit/64834fe))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.16.0](https://github.com/ant-design/pro-flow/compare/v0.15.0...v0.16.0)
 
 <sup>Released on **2023-12-05**</sup>
