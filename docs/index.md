@@ -60,11 +60,6 @@ features:
   #   image: https://mdn.alipayobjects.com/huamei_rqvucu/afts/img/A*5H2ySLO-X4cAAAAAAAAAAAAADoN6AQ/original
   #   imageType: soon
   #   row: 9
-
-  # - title: Easy Responsive Adaptation
-  #   description: Ant Design Style will provide convenient utility functions for responsive applications, helping developers quickly complete responsive theme development.
-  #   image: https://mdn.alipayobjects.com/huamei_rqvucu/afts/img/A*5H2ySLO-X4cAAAAAAAAAAAAADoN6AQ/original
-  #   row: 7
 ---
 
 ---
