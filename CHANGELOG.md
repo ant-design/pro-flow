@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.16.0](https://github.com/ant-design/pro-flow/compare/v0.15.0...v0.16.0)
+
+<sup>Released on **2023-12-05**</sup>
+
+#### ✨ 新特性
+
+- Zoom switch, drag node demo.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Zoom switch, drag node demo, closes [#42](https://github.com/ant-design/pro-flow/issues/42) ([be1e3d9](https://github.com/ant-design/pro-flow/commit/be1e3d9))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.15.0](https://github.com/ant-design/pro-flow/compare/v0.14.0...v0.15.0)
 
 <sup>Released on **2023-12-05**</sup>
