@@ -72,6 +72,7 @@ export interface FlowViewEdge {
   label?: string;
   type?: EdgeType | string;
   className?: string;
+  data?: any;
 }
 
 export interface FlowViewProps {
