@@ -6,14 +6,15 @@ import {
   useFlowViewer,
 } from '@ant-design/pro-flow';
 import { Button } from 'antd';
-import './css/viewer.less';
+import useStyles from './css/viewer.style';
 import { edges, nodes } from './data/viewer';
 
 function App() {
   const { selectNode, selectEdges, selectNodes, zoomToNode } = useFlowViewer();
+  const { styles } = useStyles();
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowView
         onNodeClick={(e, node) => {
           selectNodes(['a1', 'a2', 'a3'], SelectType.SUB_SELECT);

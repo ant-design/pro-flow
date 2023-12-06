@@ -10,7 +10,7 @@ import {
   useFlowViewer,
 } from '@ant-design/pro-flow';
 import { FC, useCallback } from 'react';
-import './index.less';
+import useStyles from './techPipeLine.style';
 
 interface PipeNodeChild {
   title: string;
@@ -33,16 +33,17 @@ const PipeNode: FC<{
   data: PipeNode;
 }> = ({ data }) => {
   const { title, des, logo, children = [] } = data;
+  const { styles } = useStyles();
 
   return (
-    <div className={'techUIpipeNodeWrap'}>
-      <div className="pipeNode">
-        <div className="mainBox">
-          <div className="logo">
+    <div className={styles.techUIpipeNodeWrap}>
+      <div className={styles.pipeNode}>
+        <div className={styles.mainBox}>
+          <div className={styles.logo}>
             <img src={logo} alt="" />
           </div>
-          <div className="title">{title}</div>
-          <div className="subLogo">
+          <div className={styles.title}>{title}</div>
+          <div className={styles.subLogo}>
             <img
               src={
                 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Rg0cQpidn8cAAAAAAAAAAAAADvl6AQ/original'
@@ -53,10 +54,10 @@ const PipeNode: FC<{
         </div>
 
         {children.length > 0 && (
-          <div className="children">
+          <div className={styles.children}>
             {children.map((item, index) => (
               <>
-                <div className="childrenBox" key={index}>
+                <div className={styles.childrenBox} key={index}>
                   <Handle
                     id={`${item.id}-target`}
                     type="target"
@@ -65,14 +66,15 @@ const PipeNode: FC<{
                       opacity: 0,
                     }}
                   />
+
                   {item.logo && (
-                    <div className="logo">
+                    <div className={styles.logo}>
                       <img src={item.logo} alt="" />
                     </div>
                   )}
-                  <div className="wrap">
-                    <div className="title">{item.title}</div>
-                    <div className="des">{item.des}</div>
+
+                  <div className={styles.wrap}>
+                    <div className={styles.lineTitle}>{item.title}</div>
                   </div>
                   <Handle
                     id={`${item.id}-source`}
@@ -88,7 +90,7 @@ const PipeNode: FC<{
           </div>
         )}
 
-        {des && <div className="des">{des}</div>}
+        {des && <div className={styles.des}>{des}</div>}
       </div>
     </div>
   );
@@ -297,6 +299,7 @@ const edges = [
 
 function App() {
   const flowViewer = useFlowViewer();
+  const { styles } = useStyles();
 
   const handleClick = useCallback(
     (e, n) => {
@@ -308,9 +311,8 @@ function App() {
   const handlePaneClick = useCallback(() => {
     // flowViewer?.zoomToNode(n.id, 1000);
   }, [flowViewer]);
-
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowView
         onNodeClick={handleClick}
         onPaneClick={handlePaneClick}
