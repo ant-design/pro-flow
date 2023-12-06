@@ -34,6 +34,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     background = true,
     autoLayout = true,
     stepLessZooming = true,
+    flowProps,
   } = props;
   const {
     miniMapPosition,
@@ -117,6 +118,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       panOnScroll
       fitView
       minZoom={MIN_ZOOM}
+      {...flowProps}
     >
       {miniMap && <MiniMap position={miniMapPosition} className={'pro-flow-controller'} />}
       {children}
