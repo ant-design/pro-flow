@@ -84,5 +84,6 @@ export const useFlowViewer = () => {
     zoomToNode,
     fitView,
     setMiniMapPosition,
+    instance: reactFlowInstance,
   };
 };

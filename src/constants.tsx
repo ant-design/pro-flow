@@ -1,5 +1,9 @@
-import React, { type CSSProperties, type MouseEvent as ReactMouseEvent } from 'react';
-import { Edge, EdgeProps, Node, NodeProps } from 'reactflow';
+import React, {
+  ComponentProps,
+  type CSSProperties,
+  type MouseEvent as ReactMouseEvent,
+} from 'react';
+import ReactFlow, { Edge, EdgeProps, Node, NodeProps } from 'reactflow';
 import { NodeMapItem } from './FlowView/constants';
 
 export enum SelectType {
@@ -80,6 +84,7 @@ export interface FlowViewProps {
   onPaneClick?: (event: ReactMouseEvent) => void;
   onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
   onEdgeClick?: (event: ReactMouseEvent, edge: Edge) => void;
+  flowProps?: ComponentProps<typeof ReactFlow>;
   nodes: FlowViewNode[];
   edges: FlowViewEdge[];
   nodeTypes?: Record<string, React.ComponentType<NodeProps>>;
