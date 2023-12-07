@@ -48,7 +48,13 @@ const ProFlowDemo = () => {
         id: getId(),
         type,
         position,
-        data: { title: `${type} node` },
+        content: {
+          a: '123',
+        },
+        data: {
+          title: `${type} node`,
+          content: '123',
+        },
       };
 
       editor.addNode(newNode);
@@ -58,11 +64,12 @@ const ProFlowDemo = () => {
 
   useEffect(() => {
     editor.addNode({
-      id: getId(),
-      type: 'StringNode',
+      id: 'a1',
+      type: 'EditNode',
       position: { x: 200, y: 100 },
       data: {
-        title: 'String Node',
+        title: '123',
+        aaa: '456',
       },
     });
   }, [editor]);

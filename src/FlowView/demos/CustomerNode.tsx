@@ -1,18 +1,20 @@
 import { Handle, Position } from '@/index';
 import { FC, useCallback } from 'react';
-import './index.less';
+import useStyles from './index.style';
 
 const CustomNode: FC<{
   data: {
     title: string;
   };
 }> = ({ data }) => {
+  const { styles } = useStyles();
+
   const onChange = useCallback((evt: { target: { value: any } }) => {
     console.log(evt.target.value);
   }, []);
 
   return (
-    <div className="CustomWrap">
+    <div className={styles.CustomWrap}>
       <Handle type="target" position={Position.Left} />
       <div>
         <label htmlFor="text">{data.title}</label>

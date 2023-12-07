@@ -1,27 +1,13 @@
 import { DraggablePanel } from '@ant-design/pro-editor';
 import type { DrawerProps } from 'antd';
 import { Drawer } from 'antd';
-import { createStyles } from 'antd-style';
 import React from 'react';
-import './index.less';
+import useStyles from './index.style';
 
 interface DataFlowDrawProps extends DrawerProps {
   resize?: boolean;
 }
-// interface Size {
-//   width: string | number;
-//   height: string | number;
-// }
-// interface NumberSize {
-//   width: number;
-//   height: number;
-// }
-const useStyles = createStyles(({ css }) => ({
-  container: css`
-    width: 100%;
-    height: 600px;
-  `,
-}));
+
 // const VisibleMinWidth = 300; // 画布最小可视宽度
 const FlowDrawer: React.FC<DataFlowDrawProps> = ({
   resize = false,
@@ -35,7 +21,7 @@ const FlowDrawer: React.FC<DataFlowDrawProps> = ({
   children,
   ...props
 }) => {
-  const { cx } = useStyles();
+  const { styles, cx } = useStyles();
 
   // const [dragedWith, setDragedWidth] = useState<string | number | undefined>(width);
   // const onSizeDragging = (delta: NumberSize, size?: Size) => {
@@ -54,7 +40,9 @@ const FlowDrawer: React.FC<DataFlowDrawProps> = ({
       onClose={onClose}
       width={width}
       mask={mask}
-      className={className ? cx({ ['dataFlowDrawer']: true, className: true }) : 'dataFlowDrawer'}
+      className={
+        className ? cx({ [styles.dataFlowDrawer]: true, className: true }) : styles.dataFlowDrawer
+      }
       getContainer={false}
       style={{ ...style, padding: '0 0' }}
       rootStyle={{ ...rootStyle, position: 'absolute' }}
@@ -67,7 +55,7 @@ const FlowDrawer: React.FC<DataFlowDrawProps> = ({
         // size={{ width: dragedWith, height: '100%' }} // panel 尺寸受控模式
         // onSizeDragging={onSizeDragging}
         style={{ padding: '16px 12px' }}
-        className="dataFlowDrawerDraggablePanel"
+        className={styles.dataFlowDrawerDraggablePanel}
       >
         {children}
       </DraggablePanel>

@@ -1,5 +1,6 @@
 import { FlowViewEdge, FlowViewNode } from '@ant-design/pro-flow';
 import { Progress } from 'antd';
+import useStyles from './index.style';
 
 const ApiScore: React.FC<{ score: number }> = ({ score }) => {
   return (
@@ -15,6 +16,21 @@ const ApiScore: React.FC<{ score: number }> = ({ score }) => {
       format={() => `${score}`}
       size={[28, 6]}
     />
+  );
+};
+
+const DangerLogo: React.FC = () => {
+  const { styles } = useStyles();
+
+  return (
+    <div className={styles.dangerLogo}>
+      <img
+        src={
+          'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*wkEJRbSowekAAAAAAAAAAAAADvuvAQ/original'
+        }
+        alt=""
+      />
+    </div>
   );
 };
 
@@ -37,16 +53,7 @@ export const nodes: FlowViewNode[] = [
       description: 'XXX_XXX_XXX_API',
       titleSlot: {
         type: 'left',
-        value: (
-          <div className="dangerLogo">
-            <img
-              src={
-                'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*wkEJRbSowekAAAAAAAAAAAAADvuvAQ/original'
-              }
-              alt=""
-            />
-          </div>
-        ),
+        value: <DangerLogo />,
       },
     },
   },
