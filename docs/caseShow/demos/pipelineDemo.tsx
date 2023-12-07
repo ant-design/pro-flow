@@ -25,7 +25,6 @@ interface PipeNode {
   des: string;
   logo: string;
   needSwitch?: boolean;
-  open?: boolean;
   children?: PipeNodeChild[];
   selectType?: SelectType;
 }
@@ -36,16 +35,7 @@ const nodeHeight = 500;
 export const PipeNode: FC<{
   data: PipeNode;
 }> = ({ data }) => {
-  const {
-    stepTitle,
-    title,
-    des,
-    logo,
-    needSwitch = false,
-    open = false,
-    children = [],
-    selectType,
-  } = data;
+  const { stepTitle, title, des, logo, needSwitch = false, children = [], selectType } = data;
   const { styles } = useStyles();
 
   return (
