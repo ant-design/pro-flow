@@ -1,6 +1,7 @@
 import { produce } from 'immer';
 import { Node, XYPosition } from 'reactflow';
 
+import { merge } from 'lodash-es';
 import { FlattenNodes, IFlowBasicNode, MetaData, NodeState } from '../../types';
 
 interface AddNodeDispatch {
@@ -37,11 +38,18 @@ interface UpdateNodeStateDispatch {
   value: any;
 }
 
-interface UpdateNodeDataDispatch {
+interface UpdateNodeContentDispatch {
   type: 'updateNodeContent';
   id: string;
   key: string;
   value: any;
+}
+
+interface UpdateNodeDataDispatch {
+  type: 'updateNodeData';
+  id: string;
+  newData: any;
+  deepReplace?: boolean;
 }
 
 export type NodeDispatch =
@@ -51,6 +59,7 @@ export type NodeDispatch =
   | UpdateNodePositionDispatch
   | UpdateNodeMetaDispatch
   | UpdateNodeStateDispatch
+  | UpdateNodeContentDispatch
   | UpdateNodeDataDispatch;
 
 export const nodeReducer = (state: FlattenNodes, action: NodeDispatch): FlattenNodes => {
@@ -117,6 +126,20 @@ export const nodeReducer = (state: FlattenNodes, action: NodeDispatch): FlattenN
           node.data.content = { [key]: value };
         } else {
           node.data.content[key] = value;
+        }
+      });
+
+    case 'updateNodeData':
+      return produce(state, (draftState) => {
+        const { newData, id, deepReplace } = action;
+        if (!draftState[id]) return;
+
+        const node = draftState[id] as IFlowBasicNode;
+
+        if (!deepReplace) {
+          merge(node.data, newData);
+        } else {
+          node.data = { ...node.data, ...newData };
         }
       });
 

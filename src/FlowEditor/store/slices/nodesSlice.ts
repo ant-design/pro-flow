@@ -67,6 +67,19 @@ export interface PublicNodesAction {
     value: T[keyof T],
     options?: ActionOptions,
   ) => void;
+  /**
+   * 更新节点数据
+   * @param id 要更新的节点 id
+   * @param key 要更新的内容键名
+   * @param value 要更新的内容值
+   * @param options 节点操作的选项
+   */
+  updateNodeData: <T extends object>(
+    id: string,
+    newData: T,
+    forceReplace?: boolean,
+    options?: ActionOptions,
+  ) => void;
 }
 
 export interface NodesSlice extends PublicNodesAction {
@@ -117,6 +130,18 @@ export const nodesSlice: StateCreator<
 
   updateNodeContent: (id, key, value, options) => {
     get().dispatchNodes({ type: 'updateNodeContent', id, key: key as any, value }, options);
+  },
+
+  updateNodeData: (id, newData, deepReplace = false, options) => {
+    get().dispatchNodes(
+      {
+        type: 'updateNodeData',
+        id,
+        newData: newData as any,
+        deepReplace,
+      },
+      options,
+    );
   },
 
   addNode: (node) => {

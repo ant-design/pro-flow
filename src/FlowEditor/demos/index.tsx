@@ -39,6 +39,7 @@ const ProFlowDemo = () => {
   const editor = useFlowEditor();
   const { styles } = useStyles();
 
+  console.log(editor);
   useEffect(() => {
     editor.addNode({
       id: 'a1',

@@ -44,6 +44,7 @@ export interface IFlowBasicNodeData {
 
 export interface IFlowNodeData<T = any> extends IFlowBasicNodeData {
   content: T;
+  [key: string]: any;
 }
 
 export type IFlowBasicNode<T = any> = Node<IFlowNodeData<T>>;
