@@ -9,9 +9,7 @@ import {
   FlowEditorProvider,
   useFlowEditor,
 } from '@ant-design/pro-flow';
-import { Button } from 'antd';
 import { useCallback, useEffect } from 'react';
-import { FlowPanel } from '../../../../src';
 import { StringRender } from './StringNode';
 import './css/dragAddNode.less';
 import Sidebar from './sidebar';
@@ -64,15 +62,6 @@ const ProFlowDemo = () => {
     [editor],
   );
 
-  const handleClick = useCallback(() => {
-    console.log('here');
-    console.log(editor);
-    editor.updateNodeContent('a1', 'content', '9000');
-
-    editor.updateNodeData('a1', { title: 'bug' });
-    editor.updateNodeData('a1', { des: '87888' }, true);
-  }, [editor]);
-
   useEffect(() => {
     editor.addNode({
       id: 'a1',
@@ -95,11 +84,7 @@ const ProFlowDemo = () => {
         }}
         miniMap={false}
         devtools={true}
-      >
-        <FlowPanel>
-          <Button onClick={handleClick}>click</Button>
-        </FlowPanel>
-      </FlowEditor>
+      ></FlowEditor>
       <Sidebar />
     </div>
   );
