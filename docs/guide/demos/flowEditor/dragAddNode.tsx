@@ -11,7 +11,7 @@ import {
 } from '@ant-design/pro-flow';
 import { useCallback, useEffect } from 'react';
 import { StringRender } from './StringNode';
-import './css/dragAddNode.less';
+import useStyles from './css/dragAddNode.style';
 import Sidebar from './sidebar';
 
 let id = 0;
@@ -24,6 +24,7 @@ const nodeTypes = {
 };
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
+  const { styles } = useStyles();
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
@@ -75,7 +76,7 @@ const ProFlowDemo = () => {
   }, [editor]);
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowEditor
         nodeTypes={nodeTypes}
         flowProps={{

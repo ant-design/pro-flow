@@ -4,6 +4,7 @@
  */
 import { FlowEditor, FlowEditorProvider, useFlowEditor } from '@ant-design/pro-flow';
 import { EditorNode } from './EditorNode';
+import useStyles from './css/index.style';
 
 import { useEffect } from 'react';
 
@@ -11,6 +12,7 @@ const nodeTypes = { editorNode: EditorNode };
 
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
+  const { styles } = useStyles();
 
   useEffect(() => {
     editor.addNode({
@@ -22,7 +24,7 @@ const ProFlowDemo = () => {
   }, [editor]);
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowEditor nodeTypes={nodeTypes} miniMap={false} devtools={true}></FlowEditor>
     </div>
   );

@@ -1,12 +1,13 @@
 import { EditNode, Handle, Position } from '@ant-design/pro-flow';
 import { FC } from 'react';
-import './css/editNode.less';
+import useStyles from './css/index.style';
 
 export const EditorNode: FC = (node: any) => {
   const { handles, id, selected } = node;
+  const { styles, cx } = useStyles();
 
   return (
-    <div className={`editNode ${selected && 'selected'}`}>
+    <div className={cx(styles.editNode, selected && 'selected')}>
       <Handle
         id={typeof handles?.target === 'string' ? handles?.target : id}
         type={'target'}
