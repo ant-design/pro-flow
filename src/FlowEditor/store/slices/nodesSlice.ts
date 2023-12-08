@@ -70,8 +70,8 @@ export interface PublicNodesAction {
   /**
    * 更新节点数据
    * @param id 要更新的节点 id
-   * @param key 要更新的内容键名
-   * @param value 要更新的内容值
+   * @param newData 要更新的数据
+   * @param forceReplace 是否强制替换整个数据
    * @param options 节点操作的选项
    */
   updateNodeData: <T extends object>(
