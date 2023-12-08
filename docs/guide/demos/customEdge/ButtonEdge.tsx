@@ -1,6 +1,5 @@
 import { BaseEdge, EdgeLabelRenderer, EdgeProps, getBezierPath } from '@ant-design/pro-flow';
-
-import './btn.less';
+import useStyles from './btn.style';
 
 const onEdgeClick = (evt, id) => {
   evt.stopPropagation();
@@ -26,7 +25,7 @@ export default function CustomEdge({
     targetY,
     targetPosition,
   });
-
+  const { styles } = useStyles();
   return (
     <>
       <BaseEdge path={edgePath} markerEnd={markerEnd} style={style} />
@@ -42,7 +41,7 @@ export default function CustomEdge({
           }}
           className="nodrag nopan"
         >
-          <button className="edgebutton" onClick={(event) => onEdgeClick(event, id)}>
+          <button className={styles.edgebutton} onClick={(event) => onEdgeClick(event, id)}>
             click
           </button>
         </div>

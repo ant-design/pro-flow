@@ -4,16 +4,19 @@
  */
 import { FlowView } from '@ant-design/pro-flow';
 import ButtonEdge from './ButtonEdge';
-import { edges, nodes } from './data';
+import useStyles from './btn.style';
+import { getEdges, nodes } from './data';
 
 const edgeTypes = {
   buttonEdge: ButtonEdge,
 };
 
 function App() {
+  const { styles } = useStyles();
+
   return (
-    <div className="container">
-      <FlowView nodes={nodes} edges={edges} edgeTypes={edgeTypes} />
+    <div className={styles.container}>
+      <FlowView nodes={nodes} edges={getEdges(styles.customEdge)} edgeTypes={edgeTypes} />
     </div>
   );
 }
