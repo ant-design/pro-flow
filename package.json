@@ -18,9 +18,7 @@
   },
   "license": "MIT",
   "author": "arvinxx(arvinx@foxmail.com)",
-  "sideEffects": [
-    "**/*.less"
-  ],
+  "sideEffects": false,
   "main": "es/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
