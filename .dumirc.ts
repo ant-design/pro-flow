@@ -7,9 +7,6 @@ const isProd = process.env.NODE_ENV === 'production';
 const isProdSite = process.env.PREVIEW !== '1' && isProd;
 
 export default defineConfig({
-  // 部署在非根目录时, base 和 publicPath 都需要配置
-  base: isProdSite ? '/pro-flow/' : '/',
-  publicPath: isProdSite ? '/pro-flow/' : '/',
   outputPath: 'docs-dist',
   favicons: [
     'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*j10nRoiMh0MAAAAAAAAAAAAADvl6AQ/original',
