@@ -95,6 +95,8 @@ export interface FlowViewProps {
   children?: React.ReactNode;
   autoLayout?: boolean;
   stepLessZooming?: boolean;
+  minZoom?: number;
+  maxZoom?: number;
 }
 
 export interface MiniMapPosition {
