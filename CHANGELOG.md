@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.18.0](https://github.com/ant-design/pro-flow/compare/v0.17.1...v0.18.0)
+
+<sup>Released on **2023-12-11**</sup>
+
+#### ✨ 新特性
+
+- Remove all less file. add min and max zoom params..
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Remove all less file. add min and max zoom params., closes [#50](https://github.com/ant-design/pro-flow/issues/50) ([5937bd4](https://github.com/ant-design/pro-flow/commit/5937bd4))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.17.1](https://github.com/ant-design/pro-flow/compare/v0.17.0...v0.17.1)
 
 <sup>Released on **2023-12-07**</sup>
