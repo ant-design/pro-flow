@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;0.18.1](https://github.com/ant-design/pro-flow/compare/v0.18.0...v0.18.1)
+
+<sup>Released on **2023-12-11**</sup>
+
+#### 🐛 修复
+
+- Remove unnecessary sideEffects.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Remove unnecessary sideEffects ([883fe1b](https://github.com/ant-design/pro-flow/commit/883fe1b))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.18.0](https://github.com/ant-design/pro-flow/compare/v0.17.1...v0.18.0)
 
 <sup>Released on **2023-12-11**</sup>
