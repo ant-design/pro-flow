@@ -3,8 +3,7 @@
  */
 import { FlowView, Handle, Position } from '@ant-design/pro-flow';
 import { FC } from 'react';
-import './css/customerNode.less';
-
+import useStyles from './css/customerNode.style';
 interface PipeNodeChild {
   title: string;
   des: string;
@@ -24,9 +23,10 @@ const CustomNode: FC<{
   data: PipeNode;
 }> = ({ data }) => {
   const { stepTitle, title, des, logo, needSwitch = false, children = [] } = data;
+  const { styles } = useStyles();
 
   return (
-    <div className={'customerWrap'}>
+    <div className={styles.customerWrap}>
       <Handle
         type="target"
         position={Position.Left}
@@ -36,34 +36,34 @@ const CustomNode: FC<{
           left: 3,
         }}
       />
-      <div className="stepTitle">{stepTitle}</div>
-      <div className="pipeNode">
-        <div className="mainBox">
-          <div className="logo">
+      <div className={styles.stepTitle}>{stepTitle}</div>
+      <div className={styles.pipeNode}>
+        <div className={styles.mainBox}>
+          <div className={styles.logo}>
             <img src={logo} alt="" />
           </div>
-          <div className="wrap">
-            <div className="title">{title}</div>
-            <div className="des">{des}</div>
+          <div className={styles.wrap}>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.des}>{des}</div>
           </div>
           {needSwitch && (
-            <div className="pipeNodeRight">
-              <div className="switch">
-                <div className="switchIcon"></div>
+            <div className={styles.pipeNodeRight}>
+              <div className={styles.switch}>
+                <div className={styles.switchIcon}></div>
               </div>
             </div>
           )}
         </div>
         {children.length > 0 && (
-          <div className="children">
+          <div className={styles.children}>
             {children.map((item, index) => (
-              <div className="childrenBox" key={index}>
-                <div className="logo">
+              <div className={styles.childrenBox} key={index}>
+                <div className={styles.logo}>
                   <img src={item.logo} alt="" />
                 </div>
-                <div className="wrap">
-                  <div className="title">{item.title}</div>
-                  <div className="des">{item.des}</div>
+                <div className={styles.wrap}>
+                  <div className={styles.title}>{item.title}</div>
+                  <div className={styles.des}>{item.des}</div>
                 </div>
               </div>
             ))}
@@ -125,8 +125,10 @@ const nodes = [
 const nodeTypes = { customNode: CustomNode };
 
 function App() {
+  const { styles } = useStyles();
+
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowView nodes={nodes} edges={[]} nodeTypes={nodeTypes} miniMap={false} />
     </div>
   );

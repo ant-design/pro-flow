@@ -2,7 +2,7 @@
  * compact: true
  */
 import { FlowView } from '@ant-design/pro-flow';
-import styled from 'styled-components';
+import useStyles from './css/index.style';
 
 const nodes = [
   {
@@ -16,16 +16,13 @@ const nodes = [
 ];
 
 function App() {
+  const { styles } = useStyles();
+
   return (
-    <Container>
+    <div className={styles.container}>
       <FlowView nodes={nodes} edges={[]} miniMap={false} />
-    </Container>
+    </div>
   );
 }
 
 export default App;
-
-const Container = styled.div`
-  width: 100%;
-  height: 300px;
-`;

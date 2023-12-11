@@ -4,11 +4,13 @@
  */
 import { FlowView } from '@ant-design/pro-flow';
 import { edges, nodes } from './data/demo1data';
-import './index.less';
+import useStyles from './index.style';
 
 function App() {
+  const { styles } = useStyles();
+
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowView nodes={nodes} edges={edges} miniMap={false} />
     </div>
   );

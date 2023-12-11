@@ -3,7 +3,7 @@
  */
 import { FlowView, Handle, Position } from '@ant-design/pro-flow';
 import { FC } from 'react';
-import './css/index.less';
+import useStyles from './css/index.style';
 
 const CustomNode: FC<{
   data: {
@@ -48,8 +48,10 @@ const nodes = [
 const nodeTypes = { customNode: CustomNode };
 
 function App() {
+  const { styles } = useStyles();
+
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowView nodes={nodes} edges={[]} nodeTypes={nodeTypes} miniMap={false} autoLayout={false} />
     </div>
   );

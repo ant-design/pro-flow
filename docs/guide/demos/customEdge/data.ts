@@ -19,12 +19,12 @@ export const nodes = [
   },
 ];
 
-export const edges = [
+export const getEdges = (className) => [
   {
     id: 'e1',
     source: 'a1',
     target: 'a2',
     type: 'buttonEdge',
-    className: 'customEdge',
+    className,
   },
 ];

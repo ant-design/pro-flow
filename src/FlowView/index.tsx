@@ -15,7 +15,6 @@ import DefaultNode from './components/DefaultNode';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
 
-const MIN_ZOOM = 0.1;
 export const FlowContext = createContext({});
 const initFn = () => {};
 
@@ -35,6 +34,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     autoLayout = true,
     stepLessZooming = true,
     flowProps,
+    minZoom = 0.1,
+    maxZoom = 2,
   } = props;
   const {
     miniMapPosition,
@@ -117,7 +118,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       edgeTypes={edgeTypesMemo}
       panOnScroll
       fitView
-      minZoom={MIN_ZOOM}
+      minZoom={minZoom}
+      maxZoom={maxZoom}
       {...flowProps}
     >
       {miniMap && <MiniMap position={miniMapPosition} className={'pro-flow-controller'} />}

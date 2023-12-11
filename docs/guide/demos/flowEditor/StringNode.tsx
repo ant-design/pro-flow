@@ -1,12 +1,13 @@
 import { Handle, Position } from '@ant-design/pro-flow';
 import { FC } from 'react';
-import './css/index.less';
+import useStyles from './css/index.style';
 
 export const StringRender: FC = (node: any) => {
   const { handles, id, selected } = node;
+  const { styles, cx } = useStyles();
 
   return (
-    <div className={`stringNode ${selected && 'selected'}`}>
+    <div className={cx(styles.stringNode, selected && styles.selected)}>
       <Handle
         id={typeof handles?.target === 'string' ? handles?.target : id}
         type={'target'}

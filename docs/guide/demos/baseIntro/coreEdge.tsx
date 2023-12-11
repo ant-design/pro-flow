@@ -5,16 +5,17 @@
 import { FlowPanel, FlowView } from '@ant-design/pro-flow';
 import { Button } from 'antd';
 import { useState } from 'react';
-import './css/index.less';
+import useStyles from './css/index.style';
 import { getEdges, nodes } from './data/coreEdgeData';
 
 const edgeTypes = ['straight', 'step', 'bezier', 'smoothstep', 'radius'];
 
 function App() {
   const [edgeType, setEdgeType] = useState('straight');
+  const { styles } = useStyles();
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowView nodes={nodes} edges={getEdges(edgeType)}>
         <FlowPanel>
           {edgeTypes.map((type) => (

@@ -5,9 +5,11 @@
 import { FlowEditor, FlowEditorProvider, useFlowEditor } from '@ant-design/pro-flow';
 import { useEffect } from 'react';
 import { StringRender } from './StringNode';
+import useStyles from './css/index.style';
 
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
+  const { styles } = useStyles();
 
   useEffect(() => {
     editor.addNode({
@@ -22,7 +24,7 @@ const ProFlowDemo = () => {
   }, [editor]);
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowEditor nodeTypes={{ StringNode: StringRender }} />
     </div>
   );

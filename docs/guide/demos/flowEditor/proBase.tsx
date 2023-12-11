@@ -6,10 +6,11 @@ import { FlowEditor, FlowEditorProvider, FlowPanel, useFlowEditor } from '@ant-d
 import { useEffect } from 'react';
 import { StringRender } from './StringNode';
 import { BtnGroup } from './btnGroup';
-import './css/probase.less';
+import useStyles from './css/probase.style';
 
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
+  const { styles } = useStyles();
 
   useEffect(() => {
     editor.addNode({
@@ -27,7 +28,7 @@ const ProFlowDemo = () => {
   }, [editor]);
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <FlowEditor nodeTypes={{ StringNode: StringRender }} miniMap={false} devtools={true}>
         <FlowPanel position="top-center">
           <BtnGroup editor={editor} />
