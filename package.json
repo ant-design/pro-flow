@@ -93,6 +93,7 @@
     "@types/uuid": "^9",
     "@umijs/lint": "^4",
     "@vitest/coverage-v8": "latest",
+    "antd": "^5",
     "commitlint": "^17",
     "commitlint-config-gitmoji": "^2",
     "concurrently": "^7",
