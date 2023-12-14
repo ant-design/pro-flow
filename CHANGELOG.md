@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.19.0](https://github.com/ant-design/pro-flow/compare/v0.18.1...v0.19.0)
+
+<sup>Released on **2023-12-14**</sup>
+
+#### ✨ 新特性
+
+- Update node type.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Update node type, closes [#51](https://github.com/ant-design/pro-flow/issues/51) ([abe196d](https://github.com/ant-design/pro-flow/commit/abe196d))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;0.18.1](https://github.com/ant-design/pro-flow/compare/v0.18.0...v0.18.1)
 
 <sup>Released on **2023-12-11**</sup>
