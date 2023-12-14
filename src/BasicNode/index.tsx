@@ -87,7 +87,14 @@ const BasicNode: React.FC<{
             {zoom <= 0.1 ? `${String(label).substring(0, 3)}...` : label}
           </ArtboardTitle>
         )}
-        <div className={cx(styles.nodeWrap, styles[getClsFromSelectType(selectType)], className)}>
+        <div
+          className={cx(
+            styles.nodeWrap,
+            styles[getClsFromSelectType(selectType)],
+            className,
+            'nodrag',
+          )}
+        >
           <img className={'img'} src={logo} alt="" />
           <div className={'content'}>
             <div className={'title'}>
