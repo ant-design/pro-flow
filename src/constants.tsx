@@ -3,8 +3,7 @@ import React, {
   type CSSProperties,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { Edge, EdgeProps, Node, NodeProps } from 'reactflow';
-import { NodeMapItem } from './FlowView/constants';
+import ReactFlow, { Edge, EdgeChange, EdgeProps, Node, NodeChange, NodeProps } from 'reactflow';
 
 export enum SelectType {
   SELECT = 'SELECT',
@@ -44,28 +43,23 @@ export interface NodeTypeDataMap {
   lineageGroup: BasicGroupNodeData[];
 }
 
-export type FlowNodeType = keyof NodeTypeDataMap;
-
-export type NodeHandler = {
-  [T in FlowNodeType]: (node: NodeMapItem) => React.ReactNode;
-};
-
-export type DefaultNodeType<T> = T extends FlowNodeType ? T : 'lineage';
-export interface FlowViewNode<T extends FlowNodeType = DefaultNodeType<FlowNodeType>> {
+export interface FlowViewNode<T = any, U extends string | undefined = string | undefined> {
   id: string;
   select?: SelectType;
-  data: NodeTypeDataMap[T] | any;
-  type?: T | string;
+  data: T;
+  type?: U;
   label?: string;
   width?: number;
   height?: number;
+  style?: CSSProperties;
+  className?: string;
   position?: {
     x: number;
     y: number;
   };
 }
 
-export interface FlowViewEdge {
+export interface FlowViewEdge<T = any, U extends string | undefined = string | undefined> {
   id: string;
   source: string;
   target: string;
@@ -74,9 +68,9 @@ export interface FlowViewEdge {
   animated?: boolean;
   select?: SelectType;
   label?: string;
-  type?: EdgeType | string;
+  type?: U;
   className?: string;
-  data?: any;
+  data?: T;
 }
 
 export interface FlowViewProps {
@@ -84,6 +78,8 @@ export interface FlowViewProps {
   onPaneClick?: (event: ReactMouseEvent) => void;
   onNodeClick?: (event: ReactMouseEvent, node: Node) => void;
   onEdgeClick?: (event: ReactMouseEvent, edge: Edge) => void;
+  onNodesChange?: (changes: NodeChange[]) => void;
+  onEdgesChange?: (changes: EdgeChange[]) => void;
   flowProps?: ComponentProps<typeof ReactFlow>;
   nodes: FlowViewNode[];
   edges: FlowViewEdge[];

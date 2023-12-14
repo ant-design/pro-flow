@@ -24,6 +24,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     onPaneClick = initFn,
     onNodeClick = initFn,
     onEdgeClick = initFn,
+    onNodesChange = initFn,
+    onEdgesChange = initFn,
     nodes = [],
     edges = [],
     nodeTypes = {},
@@ -112,6 +114,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       onPaneClick={handlePaneClick}
       onNodeClick={handleNodeClick}
       onEdgeClick={handleEdgeClick}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
       nodes={renderNodes}
       edges={renderEdges}
       nodeTypes={nodeTypesMemo}

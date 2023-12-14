@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(() => {
+const useStyles = createStyles(({ css }) => {
   return {
     dangerLogo: {
       width: '28px',
@@ -13,11 +13,13 @@ const useStyles = createStyles(() => {
       alignItems: 'center',
       img: { width: '8px', height: '9px' },
     },
-    container: {
-      width: '100%',
-      height: '600px',
-      '.ant-progress-text': { textAlign: 'center' },
-    },
+    container: css`
+      width: 100%;
+      height: 600px;
+      .ant-progress-text {
+        text-align: center !important;
+      }
+    `,
     CustomWrap: {
       width: '300px',
       height: '100px',
