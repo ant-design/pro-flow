@@ -59,7 +59,7 @@ export interface FlowViewNode<T = any, U extends string | undefined = string | u
   };
 }
 
-export interface FlowViewEdge {
+export interface FlowViewEdge<T = any, U extends string | undefined = string | undefined> {
   id: string;
   source: string;
   target: string;
@@ -68,9 +68,9 @@ export interface FlowViewEdge {
   animated?: boolean;
   select?: SelectType;
   label?: string;
-  type?: EdgeType | string;
+  type?: U;
   className?: string;
-  data?: any;
+  data?: T;
 }
 
 export interface FlowViewProps {
