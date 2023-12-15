@@ -11,6 +11,7 @@ import {
   EDGE_WARNING,
   INIT_NODE,
   InitialNode,
+  LayoutOptions,
   NodeMapItem,
   NodeMapping,
   SelectType,
@@ -52,7 +53,12 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
   return mapping;
 }
 
-export function setNodePosition(nodes: Node[], edges: Edge[], autoLayout: boolean) {
+export function setNodePosition(
+  nodes: Node[],
+  edges: Edge[],
+  autoLayout: boolean,
+  layoutOptions: LayoutOptions,
+) {
   if (!autoLayout) {
     return {
       _nodes: nodes.map((node) => {
@@ -72,8 +78,7 @@ export function setNodePosition(nodes: Node[], edges: Edge[], autoLayout: boolea
   const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
 
   g.setGraph({
-    rankdir: 'LR',
-    align: 'UL',
+    ...layoutOptions,
   });
 
   edges.forEach((edge) => g.setEdge(edge.source, edge.target));
@@ -88,8 +93,8 @@ export function setNodePosition(nodes: Node[], edges: Edge[], autoLayout: boolea
       return {
         ...node,
         position: {
-          x: (isNaN(_x) ? x : _x) * 1.3,
-          y: (isNaN(_y) ? y : _y) * 1,
+          x: isNaN(_x) ? x : _x,
+          y: isNaN(_y) ? y : _y,
         },
       };
     }) as unknown as Node[],
@@ -266,6 +271,7 @@ export const getRenderData = (
   mapping: NodeMapping,
   edges: FlowViewEdge[],
   autoLayout: boolean,
+  layoutOptions: LayoutOptions,
 ): {
   nodes: Node[];
   edges: Edge[];
@@ -291,7 +297,7 @@ export const getRenderData = (
     });
   });
 
-  const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges, autoLayout);
+  const { _nodes, _edges } = setNodePosition(renderNodes, renderEdges, autoLayout, layoutOptions);
 
   return {
     nodes: _nodes,

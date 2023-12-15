@@ -2,6 +2,7 @@ import { FlowViewEdge, FlowViewNode, MiniMapPosition, NodeTypeDataMap } from '@/
 import { createContext } from 'react';
 import { Edge, Node, ReactFlowInstance } from 'reactflow';
 import { NodeMapping, SelectType } from '../constants';
+import { LayoutOptions } from './../constants';
 
 interface FlowViewContextProps {
   flowDataAdapter?: (
@@ -9,6 +10,7 @@ interface FlowViewContextProps {
     edges: FlowViewEdge[],
     zoom: number,
     autoLayout: boolean,
+    layoutOptions: LayoutOptions,
   ) => void;
   nodes?: Node[];
   edges?: Edge[];

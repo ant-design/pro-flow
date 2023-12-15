@@ -4,7 +4,7 @@ import { createStyles } from 'antd-style';
 import React from 'react';
 import { Flexbox } from 'react-layout-kit';
 import { MiniMap as FlowMiniMap, useReactFlow, useViewport } from 'reactflow';
-import { MiniMapPosition } from '..';
+import { Language, MiniMapPosition } from '..';
 
 const useStyles = createStyles(({ css, token }, props: { x: number; y: number }) => {
   const { x, y } = props;
@@ -49,14 +49,37 @@ const useStyles = createStyles(({ css, token }, props: { x: number; y: number })
   };
 });
 
+const actionTitle = {
+  [Language.zh_CN]: {
+    zoomIn: '放大',
+    zoomOut: '缩小',
+    zoomFit: '自适应画布',
+    zoomTo1: '缩放为 1:1',
+    zoomTo2: '缩放为 2:1',
+  },
+  [Language.en_US]: {
+    zoomIn: 'Zoom In',
+    zoomOut: 'Zoom Out',
+    zoomFit: 'Zoom Fit',
+    zoomTo1: 'Zoom To 1:1',
+    zoomTo2: 'Zoom To 2:1',
+  },
+};
+
 interface MiniMapProps {
   visible?: boolean;
   className?: string;
   position?: MiniMapPosition;
+  language?: Language;
 }
 
 const MiniMap: React.FC<Partial<MiniMapProps>> = (props) => {
-  const { visible = true, className = '', position = { x: 10, y: 10 } } = props;
+  const {
+    visible = true,
+    className = '',
+    position = { x: 10, y: 10 },
+    language = Language.zh_CN,
+  } = props;
   const reactFlow = useReactFlow();
   const { zoom } = useViewport();
   const { styles, cx, theme } = useStyles(position);
@@ -82,23 +105,23 @@ const MiniMap: React.FC<Partial<MiniMapProps>> = (props) => {
   const actions = [
     {
       icon: <MinusOutlined />,
-      title: '缩小',
+      title: actionTitle[language].zoomOut,
       onClick: handleZoomOut,
     },
     {
-      title: zoom === 1 ? '缩放为 2:1' : '缩放为 1:1',
+      title: zoom === 1 ? actionTitle[language].zoomTo2 : actionTitle[language].zoomTo1,
       onClick: handleZoomTo,
       children: Math.round(zoom * 100) + '%',
       style: { width: 56 },
     },
     {
       icon: <PlusOutlined />,
-      title: '放大',
+      title: actionTitle[language].zoomIn,
       onClick: handleZoomIn,
     },
     {
       icon: <ExpandOutlined />,
-      title: '自适应画布',
+      title: actionTitle[language].zoomFit,
       onClick: handleZoomFit,
     },
   ];

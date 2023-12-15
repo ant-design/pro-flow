@@ -8,9 +8,16 @@ import React, {
   useMemo,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
+import ReactFlow, {
+  BackgroundVariant,
+  Edge,
+  EdgeChange,
+  Node,
+  NodeChange,
+  useViewport,
+} from 'reactflow';
 import 'reactflow/dist/style.css';
-import { Background, FlowViewProps, MiniMap, RadiusEdge } from '../index';
+import { Background, FlowViewProps, Language, MiniMap, RadiusEdge } from '../index';
 import DefaultNode from './components/DefaultNode';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
@@ -38,6 +45,13 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     flowProps,
     minZoom = 0.1,
     maxZoom = 2,
+    className,
+    layoutOptions = {
+      rankdir: 'LR',
+      align: 'UL',
+      nodesep: 100,
+      ranksep: 200,
+    },
   } = props;
   const {
     miniMapPosition,
@@ -63,13 +77,27 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const { zoom } = useViewport();
 
   useEffect(() => {
-    flowDataAdapter!(nodes, edges, 1, autoLayout);
+    flowDataAdapter!(nodes, edges, 1, autoLayout, layoutOptions);
   }, [nodes, edges]);
 
   useEffect(() => {
     if (!stepLessZooming) return;
-    flowDataAdapter!(nodes, edges, zoom, autoLayout);
+    flowDataAdapter!(nodes, edges, zoom, autoLayout, layoutOptions);
   }, [zoom]);
+
+  const handleNodesChange = useCallback(
+    (nodes: NodeChange[]) => {
+      onNodesChange(nodes);
+    },
+    [onNodesChange],
+  );
+
+  const handleEdgesChange = useCallback(
+    (edges: EdgeChange[]) => {
+      onEdgesChange(edges);
+    },
+    [onEdgesChange],
+  );
 
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
@@ -79,6 +107,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     },
     [onNodeDragStart],
   );
+
+  const handleNodeDragStop = useCallback(() => {}, []);
 
   const handlePaneClick = useCallback(
     (event: ReactMouseEvent) => {
@@ -109,13 +139,14 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
 
   return (
     <ReactFlow
-      className={cx(styles.container)}
+      className={cx(styles.container, className)}
       onNodeDragStart={handleNodeDragStart}
+      onNodeDragStop={handleNodeDragStop}
       onPaneClick={handlePaneClick}
       onNodeClick={handleNodeClick}
       onEdgeClick={handleEdgeClick}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
+      onNodesChange={handleNodesChange}
+      onEdgesChange={handleEdgesChange}
       nodes={renderNodes}
       edges={renderEdges}
       nodeTypes={nodeTypesMemo}
@@ -126,7 +157,13 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       maxZoom={maxZoom}
       {...flowProps}
     >
-      {miniMap && <MiniMap position={miniMapPosition} className={'pro-flow-controller'} />}
+      {miniMap && (
+        <MiniMap
+          language={Language.zh_CN}
+          position={miniMapPosition}
+          className={'pro-flow-controller'}
+        />
+      )}
       {children}
       {background && (
         <Background

@@ -1,9 +1,20 @@
 import React, {
   ComponentProps,
+  ReactNode,
   type CSSProperties,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { Edge, EdgeChange, EdgeProps, Node, NodeChange, NodeProps } from 'reactflow';
+
+import ReactFlow, {
+  Edge,
+  EdgeChange,
+  EdgeProps,
+  Node,
+  NodeChange,
+  NodeProps,
+  XYPosition,
+} from 'reactflow';
+import { LayoutOptions } from './FlowView/constants';
 
 export enum SelectType {
   SELECT = 'SELECT',
@@ -49,25 +60,22 @@ export interface FlowViewNode<T = any, U extends string | undefined = string | u
   data: T;
   type?: U;
   label?: string;
-  width?: number;
-  height?: number;
+  width?: number | null;
+  height?: number | null;
   style?: CSSProperties;
   className?: string;
-  position?: {
-    x: number;
-    y: number;
-  };
+  position: XYPosition;
 }
 
 export interface FlowViewEdge<T = any, U extends string | undefined = string | undefined> {
   id: string;
   source: string;
   target: string;
-  sourceHandle?: string;
-  targetHandle?: string;
+  sourceHandle?: string | null;
+  targetHandle?: string | null;
   animated?: boolean;
   select?: SelectType;
-  label?: string;
+  label?: ReactNode;
   type?: U;
   className?: string;
   data?: T;
@@ -93,9 +101,16 @@ export interface FlowViewProps {
   stepLessZooming?: boolean;
   minZoom?: number;
   maxZoom?: number;
+  className?: string;
+  layoutOptions?: LayoutOptions;
 }
 
 export interface MiniMapPosition {
   x: number;
   y: number;
+}
+
+export enum Language {
+  zh_CN = 'zh_CN',
+  en_US = 'en_US',
 }
