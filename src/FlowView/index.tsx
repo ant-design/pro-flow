@@ -8,7 +8,14 @@ import React, {
   useMemo,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
-import ReactFlow, { BackgroundVariant, Edge, Node, useViewport } from 'reactflow';
+import ReactFlow, {
+  BackgroundVariant,
+  Edge,
+  EdgeChange,
+  Node,
+  NodeChange,
+  useViewport,
+} from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Background, FlowViewProps, MiniMap, RadiusEdge } from '../index';
 import DefaultNode from './components/DefaultNode';
@@ -78,6 +85,20 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     flowDataAdapter!(nodes, edges, zoom, autoLayout, layoutOptions);
   }, [zoom]);
 
+  const handleNodesChange = useCallback(
+    (nodes: NodeChange[]) => {
+      onNodesChange(nodes);
+    },
+    [onNodesChange],
+  );
+
+  const handleEdgesChange = useCallback(
+    (edges: EdgeChange[]) => {
+      onEdgesChange(edges);
+    },
+    [onEdgesChange],
+  );
+
   const handleNodeDragStart = useCallback(
     (event: ReactMouseEvent, node: Node, nodes: Node[]) => {
       // TODO: 应当把事件中的 node 转换为 FlowViewNode 透出给用户
@@ -124,8 +145,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       onPaneClick={handlePaneClick}
       onNodeClick={handleNodeClick}
       onEdgeClick={handleEdgeClick}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
+      onNodesChange={handleNodesChange}
+      onEdgesChange={handleEdgesChange}
       nodes={renderNodes}
       edges={renderEdges}
       nodeTypes={nodeTypesMemo}

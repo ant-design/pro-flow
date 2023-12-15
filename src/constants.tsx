@@ -1,5 +1,6 @@
 import React, {
   ComponentProps,
+  ReactNode,
   type CSSProperties,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
@@ -73,7 +74,7 @@ export interface FlowViewEdge<T = any, U extends string | undefined = string | u
   targetHandle?: string | null;
   animated?: boolean;
   select?: SelectType;
-  label?: string;
+  label?: ReactNode;
   type?: U;
   className?: string;
   data?: T;
