@@ -17,7 +17,7 @@ import ReactFlow, {
   useViewport,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { Background, FlowViewProps, MiniMap, RadiusEdge } from '../index';
+import { Background, FlowViewProps, Language, MiniMap, RadiusEdge } from '../index';
 import DefaultNode from './components/DefaultNode';
 import { FlowViewContext } from './provider/provider';
 import { useStyles } from './styles';
@@ -157,7 +157,13 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       maxZoom={maxZoom}
       {...flowProps}
     >
-      {miniMap && <MiniMap position={miniMapPosition} className={'pro-flow-controller'} />}
+      {miniMap && (
+        <MiniMap
+          language={Language.zh_CN}
+          position={miniMapPosition}
+          className={'pro-flow-controller'}
+        />
+      )}
       {children}
       {background && (
         <Background
