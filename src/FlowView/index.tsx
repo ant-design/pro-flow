@@ -38,6 +38,13 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     flowProps,
     minZoom = 0.1,
     maxZoom = 2,
+    className,
+    layoutOptions = {
+      rankdir: 'LR',
+      align: 'UL',
+      nodesep: 100,
+      ranksep: 200,
+    },
   } = props;
   const {
     miniMapPosition,
@@ -63,12 +70,12 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const { zoom } = useViewport();
 
   useEffect(() => {
-    flowDataAdapter!(nodes, edges, 1, autoLayout);
+    flowDataAdapter!(nodes, edges, 1, autoLayout, layoutOptions);
   }, [nodes, edges]);
 
   useEffect(() => {
     if (!stepLessZooming) return;
-    flowDataAdapter!(nodes, edges, zoom, autoLayout);
+    flowDataAdapter!(nodes, edges, zoom, autoLayout, layoutOptions);
   }, [zoom]);
 
   const handleNodeDragStart = useCallback(
@@ -79,6 +86,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     },
     [onNodeDragStart],
   );
+
+  const handleNodeDragStop = useCallback(() => {}, []);
 
   const handlePaneClick = useCallback(
     (event: ReactMouseEvent) => {
@@ -109,8 +118,9 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
 
   return (
     <ReactFlow
-      className={cx(styles.container)}
+      className={cx(styles.container, className)}
       onNodeDragStart={handleNodeDragStart}
+      onNodeDragStop={handleNodeDragStop}
       onPaneClick={handlePaneClick}
       onNodeClick={handleNodeClick}
       onEdgeClick={handleEdgeClick}
