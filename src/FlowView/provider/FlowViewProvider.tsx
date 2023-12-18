@@ -1,7 +1,7 @@
 import { FlowViewEdge, FlowViewNode, MiniMapPosition, NodeTypeDataMap } from '@/constants';
 import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import { Edge, Node, ReactFlowProvider, useReactFlow } from 'reactflow';
-import { NodeMapping, SelectType } from '../constants';
+import { LayoutOptions, NodeMapping, SelectType } from '../constants';
 import { convertMappingFrom, getRenderData } from '../helper';
 import { FlowViewContext } from './provider';
 
@@ -14,12 +14,23 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
   const [initEdges, setInitEdges] = useState<FlowViewEdge[] | undefined>(undefined);
   const [mapping, setMapping] = useState<NodeMapping>({});
   const [autoLayout, setAutoLayout] = useState<boolean>(true);
+  const [layoutOptions, setLayoutOptions] = useState<LayoutOptions>({
+    rankdir: 'LR',
+    align: 'UL',
+    nodesep: 100,
+    ranksep: 200,
+  });
 
   const convertRenderData = useCallback(() => {
-    const { nodes: _nodes, edges: _edges } = getRenderData(mapping, initEdges!, autoLayout);
+    const { nodes: _nodes, edges: _edges } = getRenderData(
+      mapping,
+      initEdges!,
+      autoLayout,
+      layoutOptions,
+    );
     setNodes(_nodes);
     setEdges(_edges);
-  }, [mapping, initEdges, autoLayout]);
+  }, [mapping, initEdges, autoLayout, layoutOptions]);
 
   const flowDataAdapter = useCallback(
     (
@@ -27,12 +38,14 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
       initEdges: FlowViewEdge[],
       zoom: number,
       autoLayout: boolean,
+      layoutOptions: LayoutOptions,
     ) => {
       if (initNodes.length === 0) return;
 
       setMapping(convertMappingFrom(initNodes!, initEdges!, zoom));
       setInitEdges(initEdges);
       setAutoLayout(autoLayout);
+      setLayoutOptions(layoutOptions);
     },
     [],
   );

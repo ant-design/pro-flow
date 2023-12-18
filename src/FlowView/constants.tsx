@@ -23,8 +23,8 @@ export interface NodeMapItem<T = any, U extends string | undefined = string | un
   title?: string;
   group?: boolean;
   des?: string;
-  width?: number;
-  height?: number;
+  width?: number | null;
+  height?: number | null;
   danger?: boolean;
   dangerCount?: number;
   type?: 'input' | 'output' | 'default';
@@ -46,6 +46,13 @@ export interface NodeMapItem<T = any, U extends string | undefined = string | un
     x: number;
     y: number;
   };
+}
+
+export interface LayoutOptions {
+  rankdir?: 'TB' | 'BT' | 'LR' | 'RL';
+  align?: 'UL' | 'DL' | 'UR' | 'DR';
+  nodesep?: number;
+  ranksep?: number;
 }
 
 export type NodeMapping = Record<string, NodeMapItem>;

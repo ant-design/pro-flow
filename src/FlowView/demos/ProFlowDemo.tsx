@@ -1,16 +1,20 @@
 /**
  * compact: true
  */
-import { FlowView, FlowViewEdge, FlowViewNode, SelectType } from '@ant-design/pro-flow';
-import { useState } from 'react';
-import CustomNode from './CustomerNode';
+import {
+  FlowView,
+  FlowViewNode,
+  SelectType,
+  useEdgesState,
+  useNodesState,
+} from '@ant-design/pro-flow';
 import { edges, nodes } from './data';
 import useStyles from './index.style';
 
 const ProFlowDemo = () => {
   const { styles } = useStyles();
-  const [_nodes, setNodes] = useState<FlowViewNode[]>([...nodes]);
-  const [_edges, setEdges] = useState<FlowViewEdge[]>([...edges]);
+  const [_nodes, setNodes, onNodesChange] = useNodesState([...nodes]);
+  const [_edges, setEdges, onEdgesChange] = useEdgesState([...edges]);
 
   const handleHighlight = (node: FlowViewNode) => {
     _nodes.forEach((_node) => {
@@ -50,10 +54,12 @@ const ProFlowDemo = () => {
     <div className={styles.container}>
       <FlowView
         onNodeDragStart={(e, node: any) => handleHighlight(node)}
+        onNodeClick={(e, node: any) => handleHighlight(node)}
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
-        nodeTypes={{ textCustomNode: CustomNode }}
+        onEdgesChange={onEdgesChange}
+        onNodesChange={onNodesChange}
       ></FlowView>
     </div>
   );
