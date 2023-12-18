@@ -2,12 +2,18 @@
  * compact: true
  */
 import {
+  FlowPanel,
   FlowView,
   FlowViewNode,
+  Inspector,
+  Language,
+  MiniMap,
   SelectType,
   useEdgesState,
   useNodesState,
 } from '@ant-design/pro-flow';
+import { Button } from 'antd';
+import { useState } from 'react';
 import { edges, nodes } from './data';
 import useStyles from './index.style';
 
@@ -15,6 +21,7 @@ const ProFlowDemo = () => {
   const { styles } = useStyles();
   const [_nodes, setNodes, onNodesChange] = useNodesState([...nodes]);
   const [_edges, setEdges, onEdgesChange] = useEdgesState([...edges]);
+  const [open, setOpen] = useState(false);
 
   const handleHighlight = (node: FlowViewNode) => {
     _nodes.forEach((_node) => {
@@ -36,6 +43,7 @@ const ProFlowDemo = () => {
   };
 
   const handleUnHighlight = () => {
+    setOpen(false);
     setNodes(
       _nodes.map((_node) => {
         _node.select = SelectType.DEFAULT;
@@ -60,7 +68,20 @@ const ProFlowDemo = () => {
         edges={_edges}
         onEdgesChange={onEdgesChange}
         onNodesChange={onNodesChange}
-      ></FlowView>
+        miniMap={false}
+      >
+        <FlowPanel>
+          <Button onClick={() => setOpen(true)}>OPEN</Button>
+        </FlowPanel>
+        <Inspector open={open} onClose={() => setOpen(false)} width={300} title={'Inspector'}>
+          <div>Inspector</div>
+          <div>Inspector</div>
+          <div>Inspector</div>
+          <div>Inspector</div>
+          <div>Inspector</div>
+        </Inspector>
+        <MiniMap language={Language.en_US} />
+      </FlowView>
     </div>
   );
 };
