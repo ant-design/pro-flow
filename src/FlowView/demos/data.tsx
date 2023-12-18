@@ -37,7 +37,7 @@ const DangerLogo: React.FC = () => {
 export const nodes: FlowViewNode[] = [
   {
     id: 'a1',
-    label: '123',
+    label: '12345',
     data: {
       title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',

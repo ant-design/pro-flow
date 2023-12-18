@@ -64,7 +64,7 @@ export interface FlowViewNode<T = any, U extends string | undefined = string | u
   height?: number | null;
   style?: CSSProperties;
   className?: string;
-  position: XYPosition;
+  position?: XYPosition;
 }
 
 export interface FlowViewEdge<T = any, U extends string | undefined = string | undefined> {
