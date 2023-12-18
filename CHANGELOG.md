@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.20.0](https://github.com/ant-design/pro-flow/compare/v0.19.0...v0.20.0)
+
+<sup>Released on **2023-12-18**</sup>
+
+#### ✨ 新特性
+
+- Node edge onchange, add minimap config.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Node edge onchange, add minimap config, closes [#52](https://github.com/ant-design/pro-flow/issues/52) ([4dced96](https://github.com/ant-design/pro-flow/commit/4dced96))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.19.0](https://github.com/ant-design/pro-flow/compare/v0.18.1...v0.19.0)
 
 <sup>Released on **2023-12-14**</sup>
