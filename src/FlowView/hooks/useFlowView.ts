@@ -93,7 +93,6 @@ export const useFlowViewer = () => {
 
   const fitView = useCallback(
     (duration?: number) => {
-      console.log('fit view');
       if (reactFlowInstance) {
         return reactFlowInstance.fitView({ duration });
       }

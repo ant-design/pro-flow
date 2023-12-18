@@ -212,3 +212,28 @@ setMiniMapPosition: (x: number, y: number) => void;
   - 类型: `number`
 - `y` - y 轴坐标
   - 类型: `number`
+
+## 地图全屏
+
+1. fullScreen: 画布全屏
+2. exitFullScreen: 取消全屏
+
+### fullScreen
+
+```js
+fullScreen: () => void;
+```
+
+#### 参数
+
+- 无
+
+### exitFullScreen
+
+```js
+exitFullScreen: () => void;
+```
+
+#### 参数
+
+- 无
