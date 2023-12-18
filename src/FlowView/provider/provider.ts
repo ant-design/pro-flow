@@ -1,5 +1,5 @@
 import { FlowViewEdge, FlowViewNode, MiniMapPosition, NodeTypeDataMap } from '@/constants';
-import { createContext } from 'react';
+import { createContext, type ReactNode } from 'react';
 import { Edge, Node, ReactFlowInstance } from 'reactflow';
 import { NodeMapping, SelectType } from '../constants';
 import { LayoutOptions } from './../constants';
@@ -18,6 +18,7 @@ interface FlowViewContextProps {
   isUseProvider?: boolean;
   reactFlowInstance?: ReactFlowInstance<any, any>;
   miniMapPosition?: MiniMapPosition;
+  flowViewRef?: React.MutableRefObject<ReactNode>;
   setMiniMapPosition?: React.Dispatch<React.SetStateAction<MiniMapPosition>>;
   // 变更方法
   updateSelectNode?: (nodeId: string, selectType: SelectType) => void;

@@ -10,7 +10,7 @@ import useStyles from './css/viewer.style';
 import { edges, nodes } from './data/viewer';
 
 function App() {
-  const { selectNode, selectEdges, selectNodes, zoomToNode } = useFlowViewer();
+  const { selectNode, selectEdges, selectNodes, zoomToNode, fullScreen } = useFlowViewer();
   const { styles } = useStyles();
 
   return (
@@ -50,6 +50,13 @@ function App() {
               }}
             >
               选中全部边缘
+            </Button>
+            <Button
+              onClick={() => {
+                fullScreen();
+              }}
+            >
+              全屏
             </Button>
           </div>
         </FlowPanel>

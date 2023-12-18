@@ -5,7 +5,7 @@ nav:
 group:
   title: 辅助
   order: 10
-title: Inspector
+title: Inspector 属性面板
 order: 5
 description:
 ---

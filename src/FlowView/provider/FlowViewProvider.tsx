@@ -1,5 +1,5 @@
 import { FlowViewEdge, FlowViewNode, MiniMapPosition, NodeTypeDataMap } from '@/constants';
-import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
+import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Edge, Node, ReactFlowProvider, useReactFlow } from 'reactflow';
 import { LayoutOptions, NodeMapping, SelectType } from '../constants';
 import { convertMappingFrom, getRenderData } from '../helper';
@@ -20,6 +20,7 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
     nodesep: 100,
     ranksep: 200,
   });
+  const flowViewRef = useRef();
 
   const convertRenderData = useCallback(() => {
     const { nodes: _nodes, edges: _edges } = getRenderData(
@@ -105,12 +106,12 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
       value={{
         nodes,
         edges,
-        // dargePosition,
-        flowDataAdapter,
         isUseProvider: true,
         reactFlowInstance,
         miniMapPosition,
+        flowViewRef,
         setMiniMapPosition,
+        flowDataAdapter,
         // 变更方法
         updateSelectNode,
         updateSelectNodes,

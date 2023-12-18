@@ -56,6 +56,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const {
     miniMapPosition,
     flowDataAdapter,
+    flowViewRef,
     nodes: renderNodes,
     edges: renderEdges,
   } = useContext(FlowViewContext);
@@ -138,42 +139,45 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   );
 
   return (
-    <ReactFlow
-      className={cx(styles.container, className)}
-      onNodeDragStart={handleNodeDragStart}
-      onNodeDragStop={handleNodeDragStop}
-      onPaneClick={handlePaneClick}
-      onNodeClick={handleNodeClick}
-      onEdgeClick={handleEdgeClick}
-      onNodesChange={handleNodesChange}
-      onEdgesChange={handleEdgesChange}
-      nodes={renderNodes}
-      edges={renderEdges}
-      nodeTypes={nodeTypesMemo}
-      edgeTypes={edgeTypesMemo}
-      panOnScroll
-      fitView
-      minZoom={minZoom}
-      maxZoom={maxZoom}
-      {...flowProps}
-    >
-      {miniMap && (
-        <MiniMap
-          language={Language.zh_CN}
-          position={miniMapPosition}
-          className={'pro-flow-controller'}
-        />
-      )}
-      {children}
-      {background && (
-        <Background
-          style={{ backgroundColor: '#F7F8FA' }}
-          gap={10}
-          color="#bac3d4"
-          variant={BackgroundVariant.Dots}
-        />
-      )}
-    </ReactFlow>
+    <>
+      <ReactFlow
+        ref={flowViewRef as any}
+        className={cx(styles.container, className)}
+        onNodeDragStart={handleNodeDragStart}
+        onNodeDragStop={handleNodeDragStop}
+        onPaneClick={handlePaneClick}
+        onNodeClick={handleNodeClick}
+        onEdgeClick={handleEdgeClick}
+        onNodesChange={handleNodesChange}
+        onEdgesChange={handleEdgesChange}
+        nodes={renderNodes}
+        edges={renderEdges}
+        nodeTypes={nodeTypesMemo}
+        edgeTypes={edgeTypesMemo}
+        panOnScroll
+        fitView
+        minZoom={minZoom}
+        maxZoom={maxZoom}
+        {...flowProps}
+      >
+        {miniMap && (
+          <MiniMap
+            language={Language.zh_CN}
+            position={miniMapPosition}
+            className={'pro-flow-controller'}
+          />
+        )}
+        {children}
+        {background && (
+          <Background
+            style={{ backgroundColor: '#F7F8FA' }}
+            gap={10}
+            color="#bac3d4"
+            variant={BackgroundVariant.Dots}
+          />
+        )}
+      </ReactFlow>
+    </>
   );
 };
 
