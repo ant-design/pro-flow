@@ -35,23 +35,23 @@ description:
 
 ### FlowViewNode
 
-| 属性名 | 类型                                                       | 描述     | 默认值 | 必选 |
-| ------ | ---------------------------------------------------------- | -------- | ------ | ---- |
-| id     | `string`                                                   | 边数据   | -      | -    |
-| select | `SelectType`                                               | 节点数据 | -      | -    |
-| data   | `NodeTypeDataMap[T]`                                       | 边数据   | -      | -    |
-| type   | `T = 'default' \| 'lineage' \| 'lineageGroup' \| 'string'` | 节点类型 | -      | -    |
-| label  | `string`                                                   | 边数据   | -      | -    |
-| width  | `number`                                                   | 节点数据 | -      | -    |
-| height | `number`                                                   | 边数据   | -      | -    |
+| 属性名 | 类型                                                           | 描述     | 默认值 | 必选 |
+| ------ | -------------------------------------------------------------- | -------- | ------ | ---- |
+| id     | `string`                                                       | 边数据   | -      | -    |
+| select | `SelectType`                                                   | 节点数据 | -      | -    |
+| data   | `NodeTypeDataMap[T]`                                           | 边数据   | -      | -    |
+| type   | `T = 'default' \| 'BasicNode' \| 'BasicNodeGroup' \| 'string'` | 节点类型 | -      | -    |
+| label  | `string`                                                       | 边数据   | -      | -    |
+| width  | `number`                                                       | 节点数据 | -      | -    |
+| height | `number`                                                       | 边数据   | -      | -    |
 
 #### NodeTypeDataMap[T]
 
 ```ts
 export interface NodeTypeDataMap {
   default: DefaultNodeData;
-  lineage: BasicNodeData;
-  lineageGroup: BasicGroupNodeData[];
+  BasicNode: BasicNodeData;
+  BasicNodeGroup: BasicGroupNodeData[];
 }
 ```
 

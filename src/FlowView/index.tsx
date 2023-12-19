@@ -53,6 +53,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       ranksep: 200,
     },
   } = props;
+
   const {
     miniMapPosition,
     flowDataAdapter,
@@ -60,21 +61,25 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     nodes: renderNodes,
     edges: renderEdges,
   } = useContext(FlowViewContext);
+
   const { styles, cx } = useStyles();
+
   const nodeTypesMemo = useMemo(() => {
     return {
       ...nodeTypes,
-      lineage: BasicNode,
-      lineageGroup: BasicNodeGroup,
+      BasicNode: BasicNode,
+      BasicNodeGroup: BasicNodeGroup,
       default: DefaultNode,
     };
   }, []);
+
   const edgeTypesMemo = useMemo(() => {
     return {
       ...edgeTypes,
       radius: RadiusEdge,
     };
   }, []);
+
   const { zoom } = useViewport();
 
   useEffect(() => {

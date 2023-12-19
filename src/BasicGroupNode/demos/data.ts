@@ -4,7 +4,7 @@ export const nodes: FlowViewNode[] = [
   {
     id: 'd1',
     label: 'group1',
-    type: 'lineageGroup',
+    type: 'BasicNodeGroup',
     data: [
       {
         id: 'a5',
@@ -67,7 +67,7 @@ export const nodes: FlowViewNode[] = [
   {
     id: 'd2',
     label: 'group2',
-    type: 'lineageGroup',
+    type: 'BasicNodeGroup',
     data: [
       {
         id: 'a5',

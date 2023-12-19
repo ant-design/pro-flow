@@ -25,7 +25,7 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
       width,
       height,
       select = SelectType.DEFAULT,
-      type = 'lineage',
+      type = 'BasicNode',
       position = { x: NaN, y: NaN },
     } = node;
 
@@ -209,12 +209,12 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
 // };
 
 const getWidthAndHeight = (node: NodeMapItem) => {
-  if (['lineage', 'default'].includes(node.flowNodeType!)) {
+  if (['BasicNode', 'default'].includes(node.flowNodeType!)) {
     return {
       width: 320,
       height: 83,
     };
-  } else if (node.flowNodeType === 'lineageGroup') {
+  } else if (node.flowNodeType === 'BasicNodeGroup') {
     return {
       width: 355,
       height: 1100,
@@ -241,7 +241,7 @@ const getHandleType = (node: NodeMapItem) => {
 
 // 只有pro flow节点才有的额外属性
 const getProFlowNodeData = (node: NodeMapItem) => {
-  if (node.flowNodeType === 'lineage') {
+  if (node.flowNodeType === 'BasicNode') {
     return {
       ...node.data,
       selectType: node.select,
@@ -249,7 +249,7 @@ const getProFlowNodeData = (node: NodeMapItem) => {
       zoom: node.zoom,
       handleType: getHandleType(node),
     };
-  } else if (node.flowNodeType === 'lineageGroup') {
+  } else if (node.flowNodeType === 'BasicNodeGroup') {
     return {
       data: node.data,
       selectType: node.select,
