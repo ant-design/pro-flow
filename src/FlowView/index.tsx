@@ -41,7 +41,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     children,
     background = true,
     autoLayout = true,
-    stepLessZooming = true,
+    stepLessZooming = false,
     flowProps,
     minZoom = 0.1,
     maxZoom = 2,

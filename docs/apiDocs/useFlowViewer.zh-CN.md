@@ -213,7 +213,7 @@ setMiniMapPosition: (x: number, y: number) => void;
 - `y` - y 轴坐标
   - 类型: `number`
 
-## 地图全屏
+## 画布全屏
 
 1. fullScreen: 画布全屏
 2. exitFullScreen: 取消全屏

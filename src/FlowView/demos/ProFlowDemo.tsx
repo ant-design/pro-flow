@@ -8,8 +8,11 @@ import {
   useEdgesState,
   useNodesState,
 } from '@ant-design/pro-flow';
+import CustomNode from './CustomerNode';
 import { edges, nodes } from './data';
 import useStyles from './index.style';
+
+const nodeTypes = { CustomNode: CustomNode };
 
 const ProFlowDemo = () => {
   const { styles } = useStyles();
@@ -58,6 +61,7 @@ const ProFlowDemo = () => {
         onPaneClick={handleUnHighlight}
         nodes={_nodes}
         edges={_edges}
+        nodeTypes={nodeTypes}
         onEdgesChange={onEdgesChange}
         onNodesChange={onNodesChange}
       ></FlowView>

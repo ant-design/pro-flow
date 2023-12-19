@@ -168,48 +168,10 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       className: getEdgeClsFromSelectType(select) + ' ' + className,
     };
   });
-
-  // .sort((a, b) => {
-  //   const aLevel = a.select ? getEdgeLevel(a.select) : 0;
-  //   const bLevel = b.select ? getEdgeLevel(b.select) : 0;
-  //   return aLevel - bLevel;
-  // })
 }
 
-// const NodeComponentHandler: NodeHandler = {
-//   default: (node: NodeMapItem) => <DefaultNode {...(node.data as DefaultNodeData)} />,
-//   lineage: (node: NodeMapItem) => {
-//     const { select = SelectType.DEFAULT } = node;
-
-//     return (
-//       <BasicNode
-//         title={(node.data! as BasicNodeData).title!}
-//         description={(node.data! as BasicNodeData).describe!}
-//         logo={(node.data! as BasicNodeData).logo!}
-//         selectType={select}
-//         zoom={node.zoom}
-//         label={node.label}
-//         titleSlot={(node.data! as BasicNodeData).titleSlot}
-//       />
-//     );
-//   },
-//   lineageGroup: (node: NodeMapItem) => {
-//     const { select = SelectType.DEFAULT } = node;
-
-//     return (
-//       <BasicNodeGroup
-//         id={node.id!}
-//         data={node.data! as unknown as BasicGroupNodeData[]}
-//         select={select}
-//         zoom={node.zoom}
-//         label={node.label}
-//       />
-//     );
-//   },
-// };
-
 const getWidthAndHeight = (node: NodeMapItem) => {
-  if (['BasicNode', 'default'].includes(node.type!)) {
+  if (node.type === 'BasicNode') {
     return {
       width: 320,
       height: 83,
@@ -239,7 +201,7 @@ const getHandleType = (node: NodeMapItem) => {
   }
 };
 
-// 只有pro flow节点才有的额外属性
+// 只有Basic节点才有的额外属性
 const getProFlowNodeData = (node: NodeMapItem) => {
   if (node.type === 'BasicNode') {
     return {
