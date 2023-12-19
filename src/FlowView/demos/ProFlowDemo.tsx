@@ -60,7 +60,6 @@ const ProFlowDemo = () => {
         edges={_edges}
         onEdgesChange={onEdgesChange}
         onNodesChange={onNodesChange}
-        miniMap={true}
       ></FlowView>
     </div>
   );
