@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.21.0](https://github.com/ant-design/pro-flow/compare/v0.20.0...v0.21.0)
+
+<sup>Released on **2023-12-19**</sup>
+
+#### ✨ 新特性
+
+- Update document description.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Update document description, closes [#54](https://github.com/ant-design/pro-flow/issues/54) ([061e754](https://github.com/ant-design/pro-flow/commit/061e754))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.20.0](https://github.com/ant-design/pro-flow/compare/v0.19.0...v0.20.0)
 
 <sup>Released on **2023-12-18**</sup>
