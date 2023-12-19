@@ -78,6 +78,10 @@ const nodes = [
 
 <code src='./demos/flowViewIntro/noAutoFlow.tsx'></code>
 
+## 节点拖拽
+
+<code src='./demos/flowViewIntro/dragableNode.tsx'></code>
+
 ## 参数配置
 
 ### FlowView

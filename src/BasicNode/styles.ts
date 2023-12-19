@@ -93,4 +93,21 @@ export const useStyles = createStyles(({ css, cx, prefixCls }) => ({
     box-shadow: 0 0 0 1px #ef9d3b, 0 1px 4px 1px rgba(0, 0, 0, 8%) !important;
   `,
   nodeDefault: css``,
+  titleSlotRight: css`
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    right: 13px;
+    top: 9px;
+  `,
+  titleSlotLeft: css`
+    width: 28px;
+    height: 28px;
+    margin-left: 8px;
+  `,
+  wrap: css`
+    width: 320px;
+    height: 83px;
+    position: relative;
+  `,
 }));

@@ -50,8 +50,8 @@ export interface BasicGroupNodeData {
 
 export interface NodeTypeDataMap {
   default: DefaultNodeData;
-  lineage: BasicNodeData;
-  lineageGroup: BasicGroupNodeData[];
+  BasicNode: BasicNodeData;
+  BasicNodeGroup: BasicGroupNodeData[];
 }
 
 export interface FlowViewNode<T = any, U extends string | undefined = string | undefined> {

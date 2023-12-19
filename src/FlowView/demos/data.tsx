@@ -96,7 +96,7 @@ export const nodes: FlowViewNode[] = [
   {
     id: 'd1',
     label: '456',
-    type: 'lineageGroup',
+    type: 'BasicNodeGroup',
     data: [
       {
         id: 'a5',

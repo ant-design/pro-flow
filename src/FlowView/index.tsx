@@ -41,7 +41,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
     children,
     background = true,
     autoLayout = true,
-    stepLessZooming = true,
+    stepLessZooming = false,
     flowProps,
     minZoom = 0.1,
     maxZoom = 2,
@@ -53,27 +53,33 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       ranksep: 200,
     },
   } = props;
+
   const {
     miniMapPosition,
     flowDataAdapter,
+    flowViewRef,
     nodes: renderNodes,
     edges: renderEdges,
   } = useContext(FlowViewContext);
+
   const { styles, cx } = useStyles();
+
   const nodeTypesMemo = useMemo(() => {
     return {
       ...nodeTypes,
-      lineage: BasicNode,
-      lineageGroup: BasicNodeGroup,
+      BasicNode: BasicNode,
+      BasicNodeGroup: BasicNodeGroup,
       default: DefaultNode,
     };
   }, []);
+
   const edgeTypesMemo = useMemo(() => {
     return {
       ...edgeTypes,
       radius: RadiusEdge,
     };
   }, []);
+
   const { zoom } = useViewport();
 
   useEffect(() => {
@@ -138,42 +144,45 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   );
 
   return (
-    <ReactFlow
-      className={cx(styles.container, className)}
-      onNodeDragStart={handleNodeDragStart}
-      onNodeDragStop={handleNodeDragStop}
-      onPaneClick={handlePaneClick}
-      onNodeClick={handleNodeClick}
-      onEdgeClick={handleEdgeClick}
-      onNodesChange={handleNodesChange}
-      onEdgesChange={handleEdgesChange}
-      nodes={renderNodes}
-      edges={renderEdges}
-      nodeTypes={nodeTypesMemo}
-      edgeTypes={edgeTypesMemo}
-      panOnScroll
-      fitView
-      minZoom={minZoom}
-      maxZoom={maxZoom}
-      {...flowProps}
-    >
-      {miniMap && (
-        <MiniMap
-          language={Language.zh_CN}
-          position={miniMapPosition}
-          className={'pro-flow-controller'}
-        />
-      )}
-      {children}
-      {background && (
-        <Background
-          style={{ backgroundColor: '#F7F8FA' }}
-          gap={10}
-          color="#bac3d4"
-          variant={BackgroundVariant.Dots}
-        />
-      )}
-    </ReactFlow>
+    <>
+      <ReactFlow
+        ref={flowViewRef as any}
+        className={cx(styles.container, className)}
+        onNodeDragStart={handleNodeDragStart}
+        onNodeDragStop={handleNodeDragStop}
+        onPaneClick={handlePaneClick}
+        onNodeClick={handleNodeClick}
+        onEdgeClick={handleEdgeClick}
+        onNodesChange={handleNodesChange}
+        onEdgesChange={handleEdgesChange}
+        nodes={renderNodes}
+        edges={renderEdges}
+        nodeTypes={nodeTypesMemo}
+        edgeTypes={edgeTypesMemo}
+        panOnScroll
+        fitView
+        minZoom={minZoom}
+        maxZoom={maxZoom}
+        {...flowProps}
+      >
+        {miniMap && (
+          <MiniMap
+            language={Language.zh_CN}
+            position={miniMapPosition}
+            className={'pro-flow-controller'}
+          />
+        )}
+        {children}
+        {background && (
+          <Background
+            style={{ backgroundColor: '#F7F8FA' }}
+            gap={10}
+            color="#bac3d4"
+            variant={BackgroundVariant.Dots}
+          />
+        )}
+      </ReactFlow>
+    </>
   );
 };
 

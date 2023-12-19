@@ -8,24 +8,41 @@ hero:
     - text: Github
       link: https://github.com/ant-design/pro-flow
 features:
-  - title: 高灵活度、扩展度
-    image: https://mdn.alipayobjects.com/huamei_rqvucu/afts/img/A*_in2RLf5pY8AAAAAAAAAAAAADoN6AQ/original
-    description: 高灵活度的节点与边缘自定义，可以满足您的任何场景。
+  - title: 现代化节点设计
+    image: 💠
+    description: 拥有现代化设计的默认节点与成组节点组件，使界面更加直观、易读、易用。
     link: /guide/brief-intro
-    imageType: primary
-
-  - title: 现代化设计
-    link: /guide/brief-intro
-    description: 默认节点打造出来的流程图，看起来用起来都更像是一个产品，而不是简易流程图。
-    image: https://mdn.alipayobjects.com/huamei_rqvucu/afts/img/A*MvKkQqXEyfQAAAAAAAAAAAAADoN6AQ/original
     imageType: light
 
-  - title: 完善的基本功能
-    description: 提供众多画布展示与交互的基础能力，开箱即用。
+  - title: 开箱即用的组件
+    link: /guide/brief-intro
+    description: 支持 MiniMap、Inspector、Loading 等组件，提供丰富的扩展能力和定制化选项，让用户能够轻松定制画布界面。
+    image: 🌐
+    imageType: light
+
+  - title: 自动布局算法
+    description: 内置了 dagre 布局算法，使得用户只需给出节点和关系，即可获得自动布局后的效果，轻松实现流程图的美观展现。
+    link: /guide/brief-intro
+    image: 🎨
+    imageType: light
+
+  - title: 数据驱动视图
+    description: 提供了 useFlowViewer 与 useFlowEditor 能力，让用户可以轻松操作和管理画布相关数据，实现个性化的交互体验。
+    link: /guide/brief-intro
+    image: 🖱️
+    imageType: primary
+
+  - title: 自定义节点和边缘
+    description: 支持自定义节点、自定义边缘能力，并提供了额外的 label、zoom、selectType 等属性，满足个性化定制需求。
+    link: /guide/brief-intro
+    image: 🧩
+    imageType: light
+
+  - title: 🎨 画布编辑器能力
+    description: 提供开箱即用的画布编辑器能力，内置丰富的画布、节点操作功能，包括复制粘贴、撤销重做等功能，提升用户的操作效率和便利性。
     link: /guide/brief-intro
     image: https://mdn.alipayobjects.com/huamei_rqvucu/afts/img/A*6sjjRa7lLhAAAAAAAAAAAAAADoN6AQ/original
     imageType: primary
-
   # - title: Ant Design Token System
   #   link: /guide/switch-theme
   #   description: Integrated with Ant Design V5 Token System by default, making theme customization easy and flexible token consumption in CSS in JS.

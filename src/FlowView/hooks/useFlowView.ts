@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 import { Viewport } from 'reactflow';
 import { FlowViewContext } from '../provider/provider';
 
@@ -30,46 +30,102 @@ export const useFlowViewer = () => {
     updateSelectNodes,
     setMiniMapPosition: setPosition,
     reactFlowInstance,
+    flowViewRef,
   } = useContext(FlowViewContext);
 
-  const getNode = (nodeId: string) => {
-    return reactFlowInstance?.getNode(nodeId);
-  };
-
-  const getNodes = () => {
-    return reactFlowInstance?.getNodes();
-  };
-
-  const zoomTo = (zoomNumber: number, duration?: number) => {
-    reactFlowInstance?.zoomTo(zoomNumber, { duration });
-  };
-
-  const zoomToNode = (nodeId: string, duration?: number) => {
-    const node = getNode(nodeId);
-    if (node) {
-      reactFlowInstance?.fitView({
-        nodes: [{ id: nodeId }],
-        duration,
-      });
+  const getNode = useCallback((nodeId: string) => {
+    if (reactFlowInstance) {
+      return reactFlowInstance.getNode(nodeId);
     }
-  };
+  }, []);
 
-  const setMiniMapPosition = (x: number, y: number) => {
-    setPosition!({ x, y });
-  };
+  const getNodes = useCallback(() => {
+    if (reactFlowInstance) {
+      return reactFlowInstance.getNodes();
+    }
+  }, [reactFlowInstance]);
 
-  const getViewport = () => {
-    return reactFlowInstance?.getViewport!();
-  };
+  const zoomTo = useCallback(
+    (zoomNumber: number, duration?: number) => {
+      if (reactFlowInstance) {
+        reactFlowInstance.zoomTo(zoomNumber, { duration });
+      }
+    },
+    [reactFlowInstance],
+  );
 
-  const setViewport = (viewport: Viewport, duration?: number) => {
-    return reactFlowInstance?.setViewport!(viewport, { duration });
-  };
+  const zoomToNode = useCallback(
+    (nodeId: string, duration?: number) => {
+      const node = getNode(nodeId);
+      if (node && reactFlowInstance) {
+        reactFlowInstance.fitView({
+          nodes: [{ id: nodeId }],
+          duration,
+        });
+      }
+    },
+    [getNode, reactFlowInstance],
+  );
 
-  const fitView = (duration?: number) => {
-    console.log(reactFlowInstance);
-    return reactFlowInstance?.fitView({ duration });
-  };
+  const setMiniMapPosition = useCallback(
+    (x: number, y: number) => {
+      if (setPosition) {
+        setPosition({ x, y });
+      }
+    },
+    [setPosition],
+  );
+
+  const getViewport = useCallback(() => {
+    if (reactFlowInstance) {
+      return reactFlowInstance.getViewport!();
+    }
+  }, [reactFlowInstance]);
+
+  const setViewport = useCallback(
+    (viewport: Viewport, duration?: number) => {
+      if (reactFlowInstance) {
+        return reactFlowInstance.setViewport!(viewport, { duration });
+      }
+    },
+    [reactFlowInstance],
+  );
+
+  const fitView = useCallback(
+    (duration?: number) => {
+      if (reactFlowInstance) {
+        return reactFlowInstance.fitView({ duration });
+      }
+    },
+    [reactFlowInstance],
+  );
+
+  const exitFullScreen = useCallback(async () => {
+    (document as any).exitFullScreen();
+  }, []);
+
+  const handleFullScreenChange = useCallback(() => {
+    setTimeout(() => {
+      fitView();
+    }, 500);
+  }, [fitView]);
+
+  const fullScreen = useCallback(async () => {
+    (flowViewRef?.current as any)
+      .requestFullscreen()
+      .then(() => {
+        handleFullScreenChange();
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
+  }, [handleFullScreenChange]);
+
+  useEffect(() => {
+    if (handleFullScreenChange) {
+      document.addEventListener('fullscreenchange', handleFullScreenChange);
+    }
+  }, [handleFullScreenChange]);
 
   return {
     selectNode: updateSelectNode!,
@@ -85,5 +141,7 @@ export const useFlowViewer = () => {
     fitView,
     setMiniMapPosition,
     instance: reactFlowInstance,
+    fullScreen,
+    exitFullScreen,
   };
 };

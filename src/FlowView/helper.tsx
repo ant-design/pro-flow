@@ -25,7 +25,7 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
       width,
       height,
       select = SelectType.DEFAULT,
-      type = 'lineage',
+      type = 'BasicNode',
       position = { x: NaN, y: NaN },
     } = node;
 
@@ -33,7 +33,7 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
       id: node.id,
       data: node.data,
       select,
-      flowNodeType: type,
+      type,
       right: [],
       left: [],
       position,
@@ -168,53 +168,15 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
       className: getEdgeClsFromSelectType(select) + ' ' + className,
     };
   });
-
-  // .sort((a, b) => {
-  //   const aLevel = a.select ? getEdgeLevel(a.select) : 0;
-  //   const bLevel = b.select ? getEdgeLevel(b.select) : 0;
-  //   return aLevel - bLevel;
-  // })
 }
 
-// const NodeComponentHandler: NodeHandler = {
-//   default: (node: NodeMapItem) => <DefaultNode {...(node.data as DefaultNodeData)} />,
-//   lineage: (node: NodeMapItem) => {
-//     const { select = SelectType.DEFAULT } = node;
-
-//     return (
-//       <BasicNode
-//         title={(node.data! as BasicNodeData).title!}
-//         description={(node.data! as BasicNodeData).describe!}
-//         logo={(node.data! as BasicNodeData).logo!}
-//         selectType={select}
-//         zoom={node.zoom}
-//         label={node.label}
-//         titleSlot={(node.data! as BasicNodeData).titleSlot}
-//       />
-//     );
-//   },
-//   lineageGroup: (node: NodeMapItem) => {
-//     const { select = SelectType.DEFAULT } = node;
-
-//     return (
-//       <BasicNodeGroup
-//         id={node.id!}
-//         data={node.data! as unknown as BasicGroupNodeData[]}
-//         select={select}
-//         zoom={node.zoom}
-//         label={node.label}
-//       />
-//     );
-//   },
-// };
-
 const getWidthAndHeight = (node: NodeMapItem) => {
-  if (['lineage', 'default'].includes(node.flowNodeType!)) {
+  if (node.type === 'BasicNode') {
     return {
       width: 320,
       height: 83,
     };
-  } else if (node.flowNodeType === 'lineageGroup') {
+  } else if (node.type === 'BasicNodeGroup') {
     return {
       width: 355,
       height: 1100,
@@ -239,9 +201,9 @@ const getHandleType = (node: NodeMapItem) => {
   }
 };
 
-// 只有pro flow节点才有的额外属性
+// 只有Basic节点才有的额外属性
 const getProFlowNodeData = (node: NodeMapItem) => {
-  if (node.flowNodeType === 'lineage') {
+  if (node.type === 'BasicNode') {
     return {
       ...node.data,
       selectType: node.select,
@@ -249,7 +211,7 @@ const getProFlowNodeData = (node: NodeMapItem) => {
       zoom: node.zoom,
       handleType: getHandleType(node),
     };
-  } else if (node.flowNodeType === 'lineageGroup') {
+  } else if (node.type === 'BasicNodeGroup') {
     return {
       data: node.data,
       selectType: node.select,
@@ -281,7 +243,7 @@ export const getRenderData = (
 
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
-    const { flowNodeType } = node;
+    const { type } = node;
     const { width, height } = getWidthAndHeight(node);
 
     renderNodes.push({
@@ -289,7 +251,7 @@ export const getRenderData = (
       targetPosition: Position.Left,
       id: node.id!,
       position: node.position!,
-      type: flowNodeType,
+      type,
       width: width,
       height: height,
       className: cx(INIT_NODE),

@@ -24,7 +24,7 @@ export interface BasicNodeGroupProps {
 
 const convertMappingNode = (nodeList: BasicGroupNodeData[]): NodeMapItem[] => {
   return nodeList.map((_node) => {
-    return { ..._node, type: 'default', flowNodeType: 'lineage' };
+    return { ..._node, type: 'default', flowNodeType: 'BasicNode' };
   });
 };
 

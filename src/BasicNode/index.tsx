@@ -5,12 +5,6 @@ import { Handle, Position } from 'reactflow';
 import styled from 'styled-components';
 import { useStyles } from './styles';
 
-const Wrap = styled.div`
-  width: 320px;
-  height: 83px;
-  position: relative;
-`;
-
 interface BloodNodeProps {
   logo: string;
   title?: string;
@@ -46,20 +40,6 @@ export const ArtboardTitle = styled.div<{ zoom: number }>`
   white-space: nowrap;
 `;
 
-const TitleSlotLeft = styled.div`
-  width: 28px;
-  height: 28px;
-  margin-left: 8px;
-`;
-
-const TitleSlotRight = styled.div`
-  width: 28px;
-  height: 28px;
-  position: absolute;
-  right: 13px;
-  top: 9px;
-`;
-
 const BasicNode: React.FC<{
   data: BloodNodeProps;
 }> = ({ data }) => {
@@ -77,7 +57,7 @@ const BasicNode: React.FC<{
   } = data;
 
   return (
-    <Wrap>
+    <div className={styles.wrap}>
       {handleType === 'output' || handleType === 'both' ? (
         <Handle type="target" position={Position.Left} style={{ left: -6 }} />
       ) : null}
@@ -93,13 +73,13 @@ const BasicNode: React.FC<{
             <div className={'title'}>
               <span>{title}</span>
               {!!titleSlot && !!titleSlot.value && titleSlot.type === 'left' && (
-                <TitleSlotLeft>{titleSlot.value}</TitleSlotLeft>
+                <div className={styles.titleSlotLeft}>{titleSlot.value}</div>
               )}
               {!!titleSlot && !!titleSlot.value && titleSlot.type === 'right' && (
-                <TitleSlotLeft>
+                <div className={styles.titleSlotLeft}>
                   <div style={{ width: '28px' }}></div>
-                  <TitleSlotRight>{titleSlot.value}</TitleSlotRight>
-                </TitleSlotLeft>
+                  <div className={styles.titleSlotRight}>{titleSlot.value}</div>
+                </div>
               )}
             </div>
 
@@ -110,7 +90,7 @@ const BasicNode: React.FC<{
       {handleType === 'input' || handleType === 'both' ? (
         <Handle type="source" position={Position.Right} style={{ right: -6 }} />
       ) : null}
-    </Wrap>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ export const nodes = [
     data: {
       title: 'XXX_API_a1',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
+      description: 'XXX_XXX_XXX_API',
     },
   },
   {
@@ -12,7 +12,7 @@ export const nodes = [
     data: {
       title: 'XXX_API_a2',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
+      description: 'XXX_XXX_XXX_API',
     },
   },
   {
@@ -20,7 +20,7 @@ export const nodes = [
     data: {
       title: 'XXX_API_a3',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-      describe: 'XXX_XXX_XXX_API',
+      description: 'XXX_XXX_XXX_API',
     },
   },
 ];

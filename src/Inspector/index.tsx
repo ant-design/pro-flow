@@ -1,4 +1,4 @@
-import { DraggablePanel } from '@ant-design/pro-editor';
+// import { DraggablePanel } from '@ant-design/pro-editor';
 import type { DrawerProps } from 'antd';
 import { Drawer } from 'antd';
 import React from 'react';
@@ -6,11 +6,14 @@ import useStyles from './index.style';
 
 interface DataFlowDrawProps extends DrawerProps {
   resize?: boolean;
+  open: boolean;
+  width: string | number;
+  onClose: () => void;
 }
 
 // const VisibleMinWidth = 300; // 画布最小可视宽度
-const FlowDrawer: React.FC<DataFlowDrawProps> = ({
-  resize = false,
+const Inspector: React.FC<DataFlowDrawProps> = ({
+  // resize = false,
   open,
   width,
   mask = false,
@@ -48,7 +51,8 @@ const FlowDrawer: React.FC<DataFlowDrawProps> = ({
       rootStyle={{ ...rootStyle, position: 'absolute' }}
       {...props}
     >
-      <DraggablePanel
+      {children}
+      {/* <DraggablePanel
         isExpand={open}
         placement={'right'}
         resize={resize}
@@ -58,9 +62,9 @@ const FlowDrawer: React.FC<DataFlowDrawProps> = ({
         className={styles.dataFlowDrawerDraggablePanel}
       >
         {children}
-      </DraggablePanel>
+      </DraggablePanel> */}
     </Drawer>
   );
 };
 
-export default FlowDrawer;
+export default Inspector;
