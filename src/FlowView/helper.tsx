@@ -33,7 +33,7 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
       id: node.id,
       data: node.data,
       select,
-      flowNodeType: type,
+      type,
       right: [],
       left: [],
       position,
@@ -209,12 +209,12 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
 // };
 
 const getWidthAndHeight = (node: NodeMapItem) => {
-  if (['BasicNode', 'default'].includes(node.flowNodeType!)) {
+  if (['BasicNode', 'default'].includes(node.type!)) {
     return {
       width: 320,
       height: 83,
     };
-  } else if (node.flowNodeType === 'BasicNodeGroup') {
+  } else if (node.type === 'BasicNodeGroup') {
     return {
       width: 355,
       height: 1100,
@@ -241,7 +241,7 @@ const getHandleType = (node: NodeMapItem) => {
 
 // 只有pro flow节点才有的额外属性
 const getProFlowNodeData = (node: NodeMapItem) => {
-  if (node.flowNodeType === 'BasicNode') {
+  if (node.type === 'BasicNode') {
     return {
       ...node.data,
       selectType: node.select,
@@ -249,7 +249,7 @@ const getProFlowNodeData = (node: NodeMapItem) => {
       zoom: node.zoom,
       handleType: getHandleType(node),
     };
-  } else if (node.flowNodeType === 'BasicNodeGroup') {
+  } else if (node.type === 'BasicNodeGroup') {
     return {
       data: node.data,
       selectType: node.select,
@@ -281,7 +281,7 @@ export const getRenderData = (
 
   Object.keys(mapping).forEach((id) => {
     const node = mapping[id];
-    const { flowNodeType } = node;
+    const { type } = node;
     const { width, height } = getWidthAndHeight(node);
 
     renderNodes.push({
@@ -289,7 +289,7 @@ export const getRenderData = (
       targetPosition: Position.Left,
       id: node.id!,
       position: node.position!,
-      type: flowNodeType,
+      type,
       width: width,
       height: height,
       className: cx(INIT_NODE),

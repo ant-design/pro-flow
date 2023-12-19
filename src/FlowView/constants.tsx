@@ -27,8 +27,7 @@ export interface NodeMapItem<T = any, U extends string | undefined = string | un
   height?: number | null;
   danger?: boolean;
   dangerCount?: number;
-  type?: 'input' | 'output' | 'default';
-  flowNodeType?: U;
+  type?: U;
   className?: string;
   select?: SelectType;
   isGroup?: boolean;
