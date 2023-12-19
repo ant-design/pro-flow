@@ -4,7 +4,7 @@ const useStyles = createStyles(() => {
   return {
     container: {
       width: '100%',
-      height: '800px',
+      height: '600px',
       display: 'flex',
       flexDirection: 'column',
     },

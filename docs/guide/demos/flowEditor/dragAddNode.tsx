@@ -7,9 +7,12 @@ import {
   EditNode,
   FlowEditor,
   FlowEditorProvider,
+  FlowPanel,
+  Inspector,
   useFlowEditor,
 } from '@ant-design/pro-flow';
-import { useCallback, useEffect } from 'react';
+import { Button } from 'antd';
+import { useCallback, useEffect, useState } from 'react';
 import { StringRender } from './StringNode';
 import useStyles from './css/dragAddNode.style';
 import Sidebar from './sidebar';
@@ -25,6 +28,7 @@ const nodeTypes = {
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
   const { styles } = useStyles();
+  const [open, setOpen] = useState(false);
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
@@ -82,11 +86,18 @@ const ProFlowDemo = () => {
         flowProps={{
           onDrop,
           onDragOver,
+          onPaneClick: () => setOpen(false),
         }}
         miniMap={false}
         devtools={true}
-      ></FlowEditor>
-      <Sidebar />
+      >
+        <FlowPanel position={'top-center'}>
+          <Button onClick={() => setOpen(true)}>Open Nodes Inspector</Button>
+        </FlowPanel>
+        <Inspector open={open} onClick={() => setOpen(false)}>
+          <Sidebar />
+        </Inspector>
+      </FlowEditor>
     </div>
   );
 };

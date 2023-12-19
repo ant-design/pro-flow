@@ -50,11 +50,19 @@
 
 Pro Flow 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
 
-- 🎨 **自定义节点类型**：用户可以通过传入自定义 React 组件的方式创建不同类型的节点，从而满足不同的业务需求；
-- 🎉 **灵活的事件处理**：支持用户对节点的拖拽、连接、删除等事件进行自定义处理，满足不同业务场景的需求；
-- 🚀 **高度可定制**：支持用户对节点外观、连线样式、节点大小等多个方面进行自定义，方便用户根据自己的需求进行定制化开发。
-- 🔙 **撤销重做**：支持用户对节点编辑操作进行撤销和重做，提高用户操作的便利性和效率；
-- 🌓 **亮暗色主题模式一键切换**：支持用户在亮色和暗色主题之间快速切换，适应不同的环境和用户习惯；
+1. 💠 **现代化节点设计**：拥有现代化设计的默认节点与成组节点组件，使界面更加直观、易读、易用。
+
+2. 🌐 **开箱即用的组件**：支持 MiniMap、Inspector、Loading 等组件，提供丰富的扩展能力和定制化选项，让用户能够轻松定制画布界面。
+
+3. 🎨 **自动布局算法**：内置了 dagre 布局算法，使得用户只需给出节点和关系，即可获得自动布局后的效果，轻松实现流程图的美观展现。
+
+4. 🖱️ **流程图数据操作**：提供了 useFlowViewer 功能，让用户可以轻松操作和管理画布相关数据，实现个性化的交互体验。
+
+5. 🧩 **自定义节点和边缘**：支持自定义节点、自定义边缘能力，并提供了额外的 label、zoom、selectType 等属性，满足个性化定制需求。
+
+6. 📱 **移动端友好**：默认提供了 figma 模式的触摸板交互画布逻辑，适配移动端操作，使用户体验更加流畅。
+
+7. 🎨 **画布编辑器能力**：提供开箱即用的画布编辑器能力，内置丰富的画布、节点操作功能，包括复制粘贴、撤销重做等功能，提升用户的操作效率和便利性。
 
 ## 快速上手
 
@@ -67,6 +75,87 @@ pnpm i @ant-design/pro-flow -S
 ```
 
 ### 使用
+
+```js
+import { FlowView } from '@ant-design/pro-flow';
+import useStyles from './css/index.style';
+
+function App() {
+  const { styles } = useStyles();
+
+  return (
+    <div className={styles.container}>
+      <FlowView nodes={[]} edges={[]} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+### 添加数据
+
+```js
+export const nodes = [
+  {
+    id: 'a1',
+    data: {
+      title: 'XXX_API_a1',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      description: 'XXX_XXX_XXX_API',
+    },
+  },
+  {
+    id: 'a2',
+    data: {
+      title: 'XXX_API_a2',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      description: 'XXX_XXX_XXX_API',
+    },
+  },
+  {
+    id: 'a3',
+    data: {
+      title: 'XXX_API_a3',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      description: 'XXX_XXX_XXX_API',
+    },
+  },
+];
+export const edges = [
+  {
+    id: 'a1-a2',
+    source: 'a1',
+    target: 'a2',
+  },
+  {
+    id: 'a1-a3',
+    source: 'a1',
+    target: 'a3',
+    type: 'radius',
+  },
+];
+```
+
+### 添加交互性
+
+```js
+import { FlowView } from '@ant-design/pro-flow';
+import useStyles from './css/index.style';
+import { edges, nodes } from './data';
+
+function App() {
+  const { styles } = useStyles();
+
+  return (
+    <div className={styles.container}>
+      <FlowView nodes={nodes} edges={edges} />
+    </div>
+  );
+}
+
+export default App;
+```
 
 ## 更新日志
 

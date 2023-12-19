@@ -48,7 +48,6 @@ export const useFlowEditor = (): FlowEditorInstance => {
   const getSelectedKeys = useMemoizedFn(() => storeApi.getState().selectedKeys);
   const screenToFlowPosition = useCallback(
     (position: { x: number; y: number }) => {
-      console.log(reactFlowInstance);
       if (!reactFlowInstance) return { x: 0, y: 0 };
       return reactFlowInstance!.screenToFlowPosition!(position);
     },
