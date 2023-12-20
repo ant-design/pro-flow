@@ -4,7 +4,7 @@ hero:
   description: 一款功能强大、易用灵活的流程编辑器框架，帮助你轻松构建复杂的工作流和流程产品。
   actions:
     - text: 快速上手
-      link: /use-docs/quick-doc
+      link: /guide/quick-use
     - text: Github
       link: https://github.com/ant-design/pro-flow
 features:
