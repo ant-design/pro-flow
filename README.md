@@ -1,7 +1,7 @@
 <p align="center">
   <img width="160" src="https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*j10nRoiMh0MAAAAAAAAAAAAADvl6AQ/original">
 </p>
-<h1 align="center">Pro Flow</h1>
+<h1 align="center">ProFlow</h1>
 
 <div align="center">
 
@@ -48,7 +48,7 @@
 
 ## 简介
 
-Pro Flow 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
+ProFlow 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：
 
 1. 💠 **现代化节点设计**：拥有现代化设计的默认节点与成组节点组件，使界面更加直观、易读、易用。
 

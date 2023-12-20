@@ -12,7 +12,7 @@ export default defineConfig({
     'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*j10nRoiMh0MAAAAAAAAAAAAADvl6AQ/original',
   ],
   themeConfig: {
-    name: 'Pro Flow',
+    name: 'ProFlow',
     logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*j10nRoiMh0MAAAAAAAAAAAAADvl6AQ/original',
     socialLinks: {
       github: homepage,
