@@ -3,21 +3,22 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { useStore } from '../store';
 
 export const useHotkeyManager = () => {
-  const [selectAll, undo, redo, deleteSelection, copySelection, paste] = useStore((s) => [
+  const [selectAll, undo, redo, copySelection, paste] = useStore((s) => [
     s.selectAll,
     s.undo,
     s.redo,
-    s.deleteSelection,
     s.copySelection,
     s.paste,
   ]);
 
   useHotkeys('meta+a', (e) => {
     e.preventDefault();
+
     selectAll();
   });
   useHotkeys('meta+z', (e) => {
     e.preventDefault();
+
     undo();
   });
   useHotkeys('meta+c', (e) => {
@@ -42,6 +43,6 @@ export const useHotkeyManager = () => {
   useHotkeys('backspace', (e) => {
     e.preventDefault();
 
-    deleteSelection();
+    // beforeActionCallback(handleDelete, HotKeyAction.deleteSelection);
   });
 };

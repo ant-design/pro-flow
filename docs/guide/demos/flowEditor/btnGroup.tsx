@@ -22,7 +22,6 @@ export const BtnGroup = (props) => {
         onClick={() => {
           const nodes = editor.getFlattenNodes();
           const index = nodes ? Object.keys(nodes).length + 1 : 1;
-          console.log(index);
 
           editor.addNode({
             id: `a${index}`,
@@ -43,7 +42,6 @@ export const BtnGroup = (props) => {
       <button
         onClick={() => {
           editor.getSelectedKeys().forEach((id) => {
-            console.log(id);
             editor.deleteNode(id);
           });
         }}

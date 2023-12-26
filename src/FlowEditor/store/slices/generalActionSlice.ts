@@ -61,7 +61,6 @@ export interface PublicGeneralAction {
    */
   paste: () => Promise<void>;
 }
-
 export interface GeneralActionSlice extends PublicGeneralAction {
   internalUpdateSelection: (selectedKeys: string[], payload: ActionPayload) => void;
   onElementSelectChange: (id: string, selected: boolean) => void;
@@ -114,8 +113,6 @@ export const generalActionSlice: StateCreator<
 
     const ids = [...nodes.map((n) => n.id), ...edges.map((e) => e.id)];
 
-    console.log(ids);
-
     get().internalUpdateSelection(ids, { type: 'selection/selectAll', payload: { ids } });
   },
 
@@ -134,6 +131,7 @@ export const generalActionSlice: StateCreator<
 
   deleteSelection: () => {
     const { selectedKeys, flattenEdges, flattenNodes, dispatchNodes, dispatchEdges } = get();
+
     selectedKeys.forEach((id) => {
       if (flattenNodes[id]) dispatchNodes({ type: 'deleteNode', id });
       if (flattenEdges[id]) dispatchEdges({ type: 'deleteEdge', id });
@@ -249,7 +247,7 @@ export const generalActionSlice: StateCreator<
     internalUpdateNodes(flattenNodes || {}, { type: 'history/undo', payload: stack });
 
     // if (!!flattenEdges)
-    internalUpdateEdges(flattenEdges, { type: 'history/undo', payload: stack });
+    internalUpdateEdges(flattenEdges || {}, { type: 'history/undo', payload: stack });
   },
   redo: () => {
     const { yjsDoc, internalUpdateEdges, internalUpdateNodes } = get();

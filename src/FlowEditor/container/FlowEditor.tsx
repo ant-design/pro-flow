@@ -6,7 +6,10 @@ import { Flexbox } from 'react-layout-kit';
 import ReactFlow, {
   Background,
   BackgroundVariant,
+  Connection,
+  EdgeChange,
   Node,
+  NodeChange,
   NodeTypes,
   SelectionMode,
   Viewport,
@@ -66,6 +69,9 @@ export interface FlowEditorAppProps {
   contextMenuEnabled?: boolean;
   onNodesInit?: (editor: FlowEditorInstance) => void;
   onNodesInitChange?: (init: boolean) => void;
+  beforeNodesChange?: (changes: NodeChange[]) => boolean;
+  beforeEdgesChange?: (changes: EdgeChange[]) => boolean;
+  beforeConnect?: (connection: Connection) => boolean;
   style?: React.CSSProperties;
   flowProps?: ComponentProps<typeof ReactFlow>;
   className?: string;
@@ -87,6 +93,9 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       background = true,
       miniMap = true,
       onNodesInit,
+      beforeNodesChange = () => true,
+      beforeEdgesChange = () => true,
+      beforeConnect = () => true,
     },
     ref,
   ) => {
@@ -172,6 +181,9 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
           multiSelectionKeyCode={['Meta', 'Shift']}
           selectNodesOnDrag
           onNodesChange={(changes) => {
+            if (!beforeNodesChange(changes)) {
+              return;
+            }
             // 选择逻辑 nodes 和 edges 一致
             changes.forEach((c) => {
               switch (c.type) {
@@ -199,6 +211,10 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
             }
           }}
           onEdgesChange={(changes) => {
+            if (!beforeEdgesChange(changes)) {
+              return;
+            }
+
             updateEdgesOnEdgeChange(changes);
 
             // 选择逻辑 nodes 和 edges 一致
@@ -213,7 +229,12 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
               onEdgesChange(changes);
             }
           }}
-          onConnect={updateEdgesOnConnection}
+          onConnect={(connection) => {
+            if (!beforeConnect(connection)) {
+              return;
+            }
+            updateEdgesOnConnection(connection);
+          }}
           disableKeyboardA11y={true}
           proOptions={{ hideAttribution: true }}
         >

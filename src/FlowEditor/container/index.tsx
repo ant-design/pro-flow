@@ -14,6 +14,9 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
     {
       devtools,
       onNodesInit,
+      beforeNodesChange,
+      beforeEdgesChange,
+      beforeConnect,
       defaultViewport,
       contextMenuEnabled,
       flowProps,
@@ -34,6 +37,9 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
             miniMap={miniMap}
             background={background}
             onNodesInit={onNodesInit}
+            beforeNodesChange={beforeNodesChange}
+            beforeEdgesChange={beforeEdgesChange}
+            beforeConnect={beforeConnect}
             contextMenuEnabled={contextMenuEnabled}
             defaultViewport={defaultViewport}
             flowProps={flowProps}
