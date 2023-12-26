@@ -1,9 +1,14 @@
 /**
  * compact: true
  */
-import { FlowEditorProvider, Handle, Position, useFlowEditor } from '@ant-design/pro-flow';
+import {
+  FlowEditor,
+  FlowEditorProvider,
+  Handle,
+  Position,
+  useFlowEditor,
+} from '@ant-design/pro-flow';
 import { FC, useEffect } from 'react';
-import FlowEditor from '../container/index';
 import useStyles from './index.style';
 
 const StringRender: FC = (node: any) => {

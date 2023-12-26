@@ -72,7 +72,6 @@ export interface FlowEditorAppProps {
   beforeNodesChange?: (changes: NodeChange[]) => boolean;
   beforeEdgesChange?: (changes: EdgeChange[]) => boolean;
   beforeConnect?: (connection: Connection) => boolean;
-  onEdgeChange?: (changes: EdgeChange[]) => boolean;
   style?: React.CSSProperties;
   flowProps?: ComponentProps<typeof ReactFlow>;
   className?: string;
