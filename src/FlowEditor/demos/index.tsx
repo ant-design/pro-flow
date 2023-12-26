@@ -1,14 +1,9 @@
 /**
  * compact: true
  */
-import {
-  FlowEditor,
-  FlowEditorProvider,
-  Handle,
-  Position,
-  useFlowEditor,
-} from '@ant-design/pro-flow';
+import { FlowEditorProvider, Handle, Position, useFlowEditor } from '@ant-design/pro-flow';
 import { FC, useEffect } from 'react';
+import FlowEditor from '../container/index';
 import useStyles from './index.style';
 
 const StringRender: FC = (node: any) => {
@@ -39,7 +34,6 @@ const ProFlowDemo = () => {
   const editor = useFlowEditor();
   const { styles } = useStyles();
 
-  console.log(editor);
   useEffect(() => {
     editor.addNode({
       id: 'a1',
@@ -54,7 +48,14 @@ const ProFlowDemo = () => {
 
   return (
     <div className={styles.container}>
-      <FlowEditor nodeTypes={nodeTypes} />
+      <FlowEditor
+        onEdgeChange={(e) => {
+          console.log(e);
+          return false;
+        }}
+        nodeTypes={nodeTypes}
+        miniMap={false}
+      />
     </div>
   );
 };
