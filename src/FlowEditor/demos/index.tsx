@@ -48,14 +48,7 @@ const ProFlowDemo = () => {
 
   return (
     <div className={styles.container}>
-      <FlowEditor
-        onEdgeChange={(e) => {
-          console.log(e);
-          return false;
-        }}
-        nodeTypes={nodeTypes}
-        miniMap={false}
-      />
+      <FlowEditor nodeTypes={nodeTypes} />
     </div>
   );
 };

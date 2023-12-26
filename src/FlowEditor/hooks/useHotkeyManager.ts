@@ -42,7 +42,7 @@ export const useHotkeyManager = () => {
   // refs: https://github.com/wbkd/react-flow/issues/2826
   useHotkeys('backspace', (e) => {
     e.preventDefault();
-    // console.log('backspace');
+
     // beforeActionCallback(handleDelete, HotKeyAction.deleteSelection);
   });
 };

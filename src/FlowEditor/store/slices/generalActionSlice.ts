@@ -61,21 +61,7 @@ export interface PublicGeneralAction {
    */
   paste: () => Promise<void>;
 }
-
-export enum HotKeyAction {
-  selectAll = 'selectAll',
-  deleteSelection = 'deleteSelection',
-  undo = 'undo',
-  redo = 'redo',
-  copySelection = 'copySelection',
-  paste = 'paste',
-}
-
 export interface GeneralActionSlice extends PublicGeneralAction {
-  beforeActionCallback: (
-    beforeDelete: (selectedKeys: string[]) => boolean,
-    action: HotKeyAction,
-  ) => void;
   internalUpdateSelection: (selectedKeys: string[], payload: ActionPayload) => void;
   onElementSelectChange: (id: string, selected: boolean) => void;
   pasteIntoFlow: (clipboard: InternalClipboardData) => void;
@@ -88,12 +74,6 @@ export const generalActionSlice: StateCreator<
   [],
   GeneralActionSlice
 > = (set, get) => ({
-  beforeActionCallback: (handleBefore, handleAction) => {
-    console.log('here');
-    if (handleBefore(get().selectedKeys)) {
-      get()[handleAction]();
-    }
-  },
   internalUpdateSelection: (selectedKeys, payload) => {
     set({ selectedKeys }, false, payload);
     get().onSelectionChange?.(selectedKeys);
@@ -133,8 +113,6 @@ export const generalActionSlice: StateCreator<
 
     const ids = [...nodes.map((n) => n.id), ...edges.map((e) => e.id)];
 
-    console.log(ids);
-
     get().internalUpdateSelection(ids, { type: 'selection/selectAll', payload: { ids } });
   },
 
@@ -154,7 +132,6 @@ export const generalActionSlice: StateCreator<
   deleteSelection: () => {
     const { selectedKeys, flattenEdges, flattenNodes, dispatchNodes, dispatchEdges } = get();
 
-    console.log(flattenEdges, flattenNodes, selectedKeys);
     selectedKeys.forEach((id) => {
       if (flattenNodes[id]) dispatchNodes({ type: 'deleteNode', id });
       if (flattenEdges[id]) dispatchEdges({ type: 'deleteEdge', id });

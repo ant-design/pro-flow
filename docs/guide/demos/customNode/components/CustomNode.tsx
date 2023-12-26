@@ -18,7 +18,6 @@ interface PipeNode {
 const CustomNode: FC<{
   data: PipeNode;
 }> = ({ data }) => {
-  console.log(data);
   const { title, des, logo, children = [] } = data;
   const { styles } = useStyles();
 
