@@ -20,8 +20,6 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
 
 import CanvasLoading from '@/CanvasLoading';
-import FlowPanel from '@/FlowPanel';
-import { Button } from 'antd';
 import ContextMenu from '../features/ContextMenu';
 import ControlAction from '../features/ControlAction';
 import { FlowEditorInstance, useFlowEditor } from '../hooks/useFlowEditor';
@@ -241,17 +239,6 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
           disableKeyboardA11y={true}
           proOptions={{ hideAttribution: true }}
         >
-          <FlowPanel>
-            <Button
-              onClick={() => {
-                instance.deleteElements({
-                  nodes: [{ id: 'a1' }],
-                });
-              }}
-            >
-              1231232
-            </Button>
-          </FlowPanel>
           {background && (
             <Background
               color={theme.colorTextQuaternary}
