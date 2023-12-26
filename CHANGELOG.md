@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;0.23.0](https://github.com/ant-design/pro-flow/compare/v0.22.0...v0.23.0)
+
+<sup>Released on **2023-12-26**</sup>
+
+#### ✨ 新特性
+
+- Add beforeChange and beforeConnect function for FlowEditor..
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Add beforeChange and beforeConnect function for FlowEditor., closes [#56](https://github.com/ant-design/pro-flow/issues/56) ([5b083e3](https://github.com/ant-design/pro-flow/commit/5b083e3))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;0.22.0](https://github.com/ant-design/pro-flow/compare/v0.21.0...v0.22.0)
 
 <sup>Released on **2023-12-20**</sup>
