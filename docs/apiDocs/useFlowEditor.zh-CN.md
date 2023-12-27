@@ -238,7 +238,7 @@ deleteSelection: () => void;
 
 - 类型: `void`
 
-## 撤销/重做
+## 撤销 / 重做
 
 ### undo
 

@@ -1,6 +1,6 @@
 # Changelog
 
-### [Version&nbsp;0.23.1](https://github.com/ant-design/pro-flow/compare/v0.23.0...v0.23.1)
+### [Version 0.23.1](https://github.com/ant-design/pro-flow/compare/v0.23.0...v0.23.1)
 
 <sup>Released on **2023-12-27**</sup>
 
@@ -25,7 +25,7 @@
 
 </div>
 
-## [Version&nbsp;0.23.0](https://github.com/ant-design/pro-flow/compare/v0.22.0...v0.23.0)
+## [Version 0.23.0](https://github.com/ant-design/pro-flow/compare/v0.22.0...v0.23.0)
 
 <sup>Released on **2023-12-26**</sup>
 
@@ -50,7 +50,7 @@
 
 </div>
 
-## [Version&nbsp;0.22.0](https://github.com/ant-design/pro-flow/compare/v0.21.0...v0.22.0)
+## [Version 0.22.0](https://github.com/ant-design/pro-flow/compare/v0.21.0...v0.22.0)
 
 <sup>Released on **2023-12-20**</sup>
 
@@ -75,7 +75,7 @@
 
 </div>
 
-## [Version&nbsp;0.21.0](https://github.com/ant-design/pro-flow/compare/v0.20.0...v0.21.0)
+## [Version 0.21.0](https://github.com/ant-design/pro-flow/compare/v0.20.0...v0.21.0)
 
 <sup>Released on **2023-12-19**</sup>
 
@@ -100,7 +100,7 @@
 
 </div>
 
-## [Version&nbsp;0.20.0](https://github.com/ant-design/pro-flow/compare/v0.19.0...v0.20.0)
+## [Version 0.20.0](https://github.com/ant-design/pro-flow/compare/v0.19.0...v0.20.0)
 
 <sup>Released on **2023-12-18**</sup>
 
@@ -125,7 +125,7 @@
 
 </div>
 
-## [Version&nbsp;0.19.0](https://github.com/ant-design/pro-flow/compare/v0.18.1...v0.19.0)
+## [Version 0.19.0](https://github.com/ant-design/pro-flow/compare/v0.18.1...v0.19.0)
 
 <sup>Released on **2023-12-14**</sup>
 
@@ -150,7 +150,7 @@
 
 </div>
 
-### [Version&nbsp;0.18.1](https://github.com/ant-design/pro-flow/compare/v0.18.0...v0.18.1)
+### [Version 0.18.1](https://github.com/ant-design/pro-flow/compare/v0.18.0...v0.18.1)
 
 <sup>Released on **2023-12-11**</sup>
 
@@ -175,7 +175,7 @@
 
 </div>
 
-## [Version&nbsp;0.18.0](https://github.com/ant-design/pro-flow/compare/v0.17.1...v0.18.0)
+## [Version 0.18.0](https://github.com/ant-design/pro-flow/compare/v0.17.1...v0.18.0)
 
 <sup>Released on **2023-12-11**</sup>
 
@@ -200,7 +200,7 @@
 
 </div>
 
-### [Version&nbsp;0.17.1](https://github.com/ant-design/pro-flow/compare/v0.17.0...v0.17.1)
+### [Version 0.17.1](https://github.com/ant-design/pro-flow/compare/v0.17.0...v0.17.1)
 
 <sup>Released on **2023-12-07**</sup>
 
@@ -225,7 +225,7 @@
 
 </div>
 
-## [Version&nbsp;0.17.0](https://github.com/ant-design/pro-flow/compare/v0.16.3...v0.17.0)
+## [Version 0.17.0](https://github.com/ant-design/pro-flow/compare/v0.16.3...v0.17.0)
 
 <sup>Released on **2023-12-06**</sup>
 
@@ -250,7 +250,7 @@
 
 </div>
 
-### [Version&nbsp;0.16.3](https://github.com/ant-design/pro-flow/compare/v0.16.2...v0.16.3)
+### [Version 0.16.3](https://github.com/ant-design/pro-flow/compare/v0.16.2...v0.16.3)
 
 <sup>Released on **2023-12-06**</sup>
 
@@ -275,7 +275,7 @@
 
 </div>
 
-### [Version&nbsp;0.16.2](https://github.com/ant-design/pro-flow/compare/v0.16.1...v0.16.2)
+### [Version 0.16.2](https://github.com/ant-design/pro-flow/compare/v0.16.1...v0.16.2)
 
 <sup>Released on **2023-12-05**</sup>
 
@@ -300,7 +300,7 @@
 
 </div>
 
-### [Version&nbsp;0.16.1](https://github.com/ant-design/pro-flow/compare/v0.16.0...v0.16.1)
+### [Version 0.16.1](https://github.com/ant-design/pro-flow/compare/v0.16.0...v0.16.1)
 
 <sup>Released on **2023-12-05**</sup>
 
@@ -325,7 +325,7 @@
 
 </div>
 
-## [Version&nbsp;0.16.0](https://github.com/ant-design/pro-flow/compare/v0.15.0...v0.16.0)
+## [Version 0.16.0](https://github.com/ant-design/pro-flow/compare/v0.15.0...v0.16.0)
 
 <sup>Released on **2023-12-05**</sup>
 
@@ -350,7 +350,7 @@
 
 </div>
 
-## [Version&nbsp;0.15.0](https://github.com/ant-design/pro-flow/compare/v0.14.0...v0.15.0)
+## [Version 0.15.0](https://github.com/ant-design/pro-flow/compare/v0.14.0...v0.15.0)
 
 <sup>Released on **2023-12-05**</sup>
 
@@ -375,7 +375,7 @@
 
 </div>
 
-## [Version&nbsp;0.14.0](https://github.com/ant-design/pro-flow/compare/v0.13.1...v0.14.0)
+## [Version 0.14.0](https://github.com/ant-design/pro-flow/compare/v0.13.1...v0.14.0)
 
 <sup>Released on **2023-12-04**</sup>
 
@@ -400,7 +400,7 @@
 
 </div>
 
-### [Version&nbsp;0.13.1](https://github.com/ant-design/pro-flow/compare/v0.13.0...v0.13.1)
+### [Version 0.13.1](https://github.com/ant-design/pro-flow/compare/v0.13.0...v0.13.1)
 
 <sup>Released on **2023-11-27**</sup>
 
@@ -425,7 +425,7 @@
 
 </div>
 
-## [Version&nbsp;0.13.0](https://github.com/ant-design/pro-flow/compare/v0.12.4...v0.13.0)
+## [Version 0.13.0](https://github.com/ant-design/pro-flow/compare/v0.12.4...v0.13.0)
 
 <sup>Released on **2023-11-27**</sup>
 
@@ -450,7 +450,7 @@
 
 </div>
 
-### [Version&nbsp;0.12.4](https://github.com/ant-design/pro-flow/compare/v0.12.3...v0.12.4)
+### [Version 0.12.4](https://github.com/ant-design/pro-flow/compare/v0.12.3...v0.12.4)
 
 <sup>Released on **2023-11-23**</sup>
 
@@ -475,7 +475,7 @@
 
 </div>
 
-### [Version&nbsp;0.12.3](https://github.com/ant-design/pro-flow/compare/v0.12.2...v0.12.3)
+### [Version 0.12.3](https://github.com/ant-design/pro-flow/compare/v0.12.2...v0.12.3)
 
 <sup>Released on **2023-11-23**</sup>
 
@@ -500,7 +500,7 @@
 
 </div>
 
-### [Version&nbsp;0.12.2](https://github.com/ant-design/pro-flow/compare/v0.12.1...v0.12.2)
+### [Version 0.12.2](https://github.com/ant-design/pro-flow/compare/v0.12.1...v0.12.2)
 
 <sup>Released on **2023-11-23**</sup>
 
@@ -525,7 +525,7 @@
 
 </div>
 
-### [Version&nbsp;0.12.1](https://github.com/ant-design/pro-flow/compare/v0.12.0...v0.12.1)
+### [Version 0.12.1](https://github.com/ant-design/pro-flow/compare/v0.12.0...v0.12.1)
 
 <sup>Released on **2023-11-22**</sup>
 
@@ -550,7 +550,7 @@
 
 </div>
 
-## [Version&nbsp;0.12.0](https://github.com/ant-design/pro-flow/compare/v0.11.1...v0.12.0)
+## [Version 0.12.0](https://github.com/ant-design/pro-flow/compare/v0.11.1...v0.12.0)
 
 <sup>Released on **2023-11-09**</sup>
 
@@ -575,7 +575,7 @@
 
 </div>
 
-### [Version&nbsp;0.11.1](https://github.com/ant-design/pro-flow/compare/v0.11.0...v0.11.1)
+### [Version 0.11.1](https://github.com/ant-design/pro-flow/compare/v0.11.0...v0.11.1)
 
 <sup>Released on **2023-11-07**</sup>
 
@@ -600,7 +600,7 @@
 
 </div>
 
-## [Version&nbsp;0.11.0](https://github.com/ant-design/pro-flow/compare/v0.10.7...v0.11.0)
+## [Version 0.11.0](https://github.com/ant-design/pro-flow/compare/v0.10.7...v0.11.0)
 
 <sup>Released on **2023-11-07**</sup>
 
@@ -615,7 +615,7 @@
 
 #### What's improved
 
-- **FlowView**: 组件文档, closes [#27](https://github.com/ant-design/pro-flow/issues/27) ([e4631b5](https://github.com/ant-design/pro-flow/commit/e4631b5))
+- **FlowView**: 组件文档，closes [#27](https://github.com/ant-design/pro-flow/issues/27) ([e4631b5](https://github.com/ant-design/pro-flow/commit/e4631b5))
 
 </details>
 
@@ -625,7 +625,7 @@
 
 </div>
 
-### [Version&nbsp;0.10.7](https://github.com/ant-design/pro-flow/compare/v0.10.6...v0.10.7)
+### [Version 0.10.7](https://github.com/ant-design/pro-flow/compare/v0.10.6...v0.10.7)
 
 <sup>Released on **2023-10-26**</sup>
 
@@ -640,7 +640,7 @@
 
 #### What's fixed
 
-- Group 节点选中样式, closes [#26](https://github.com/ant-design/pro-flow/issues/26) ([8931967](https://github.com/ant-design/pro-flow/commit/8931967))
+- Group 节点选中样式，closes [#26](https://github.com/ant-design/pro-flow/issues/26) ([8931967](https://github.com/ant-design/pro-flow/commit/8931967))
 
 </details>
 
@@ -650,7 +650,7 @@
 
 </div>
 
-### [Version&nbsp;0.10.6](https://github.com/ant-design/pro-flow/compare/v0.10.5...v0.10.6)
+### [Version 0.10.6](https://github.com/ant-design/pro-flow/compare/v0.10.5...v0.10.6)
 
 <sup>Released on **2023-10-26**</sup>
 
@@ -665,7 +665,7 @@
 
 #### What's fixed
 
-- 节点阴影部分样式, closes [#25](https://github.com/ant-design/pro-flow/issues/25) ([e3fe8a8](https://github.com/ant-design/pro-flow/commit/e3fe8a8))
+- 节点阴影部分样式，closes [#25](https://github.com/ant-design/pro-flow/issues/25) ([e3fe8a8](https://github.com/ant-design/pro-flow/commit/e3fe8a8))
 
 </details>
 
@@ -675,7 +675,7 @@
 
 </div>
 
-### [Version&nbsp;0.10.5](https://github.com/ant-design/pro-flow/compare/v0.10.4...v0.10.5)
+### [Version 0.10.5](https://github.com/ant-design/pro-flow/compare/v0.10.4...v0.10.5)
 
 <sup>Released on **2023-10-26**</sup>
 
@@ -690,7 +690,7 @@
 
 #### What's fixed
 
-- 修复节点阴影样式, closes [#24](https://github.com/ant-design/pro-flow/issues/24) ([ff258d0](https://github.com/ant-design/pro-flow/commit/ff258d0))
+- 修复节点阴影样式，closes [#24](https://github.com/ant-design/pro-flow/issues/24) ([ff258d0](https://github.com/ant-design/pro-flow/commit/ff258d0))
 
 </details>
 
@@ -700,7 +700,7 @@
 
 </div>
 
-### [Version&nbsp;0.10.4](https://github.com/ant-design/pro-flow/compare/v0.10.3...v0.10.4)
+### [Version 0.10.4](https://github.com/ant-design/pro-flow/compare/v0.10.3...v0.10.4)
 
 <sup>Released on **2023-10-24**</sup>
 
@@ -715,7 +715,7 @@
 
 #### What's fixed
 
-- 修复 group 节点的宽高, closes [#23](https://github.com/ant-design/pro-flow/issues/23) ([e69b419](https://github.com/ant-design/pro-flow/commit/e69b419))
+- 修复 group 节点的宽高，closes [#23](https://github.com/ant-design/pro-flow/issues/23) ([e69b419](https://github.com/ant-design/pro-flow/commit/e69b419))
 
 </details>
 
@@ -725,7 +725,7 @@
 
 </div>
 
-### [Version&nbsp;0.10.3](https://github.com/ant-design/pro-flow/compare/v0.10.2...v0.10.3)
+### [Version 0.10.3](https://github.com/ant-design/pro-flow/compare/v0.10.2...v0.10.3)
 
 <sup>Released on **2023-10-24**</sup>
 
@@ -750,7 +750,7 @@
 
 </div>
 
-### [Version&nbsp;0.10.2](https://github.com/ant-design/pro-flow/compare/v0.10.1...v0.10.2)
+### [Version 0.10.2](https://github.com/ant-design/pro-flow/compare/v0.10.1...v0.10.2)
 
 <sup>Released on **2023-10-24**</sup>
 
@@ -775,7 +775,7 @@
 
 </div>
 
-### [Version&nbsp;0.10.1](https://github.com/ant-design/pro-flow/compare/v0.10.0...v0.10.1)
+### [Version 0.10.1](https://github.com/ant-design/pro-flow/compare/v0.10.0...v0.10.1)
 
 <sup>Released on **2023-10-23**</sup>
 
@@ -800,7 +800,7 @@
 
 </div>
 
-## [Version&nbsp;0.10.0](https://github.com/ant-design/pro-flow/compare/v0.9.0...v0.10.0)
+## [Version 0.10.0](https://github.com/ant-design/pro-flow/compare/v0.9.0...v0.10.0)
 
 <sup>Released on **2023-10-23**</sup>
 
@@ -825,7 +825,7 @@
 
 </div>
 
-## [Version&nbsp;0.9.0](https://github.com/ant-design/pro-flow/compare/v0.8.0...v0.9.0)
+## [Version 0.9.0](https://github.com/ant-design/pro-flow/compare/v0.8.0...v0.9.0)
 
 <sup>Released on **2023-10-19**</sup>
 
@@ -850,7 +850,7 @@
 
 </div>
 
-## [Version&nbsp;0.8.0](https://github.com/ant-design/pro-flow/compare/v0.7.0...v0.8.0)
+## [Version 0.8.0](https://github.com/ant-design/pro-flow/compare/v0.7.0...v0.8.0)
 
 <sup>Released on **2023-10-07**</sup>
 
@@ -875,7 +875,7 @@
 
 </div>
 
-## [Version&nbsp;0.7.0](https://github.com/ant-design/pro-flow/compare/v0.6.1...v0.7.0)
+## [Version 0.7.0](https://github.com/ant-design/pro-flow/compare/v0.6.1...v0.7.0)
 
 <sup>Released on **2023-09-20**</sup>
 
@@ -913,7 +913,7 @@
 
 </div>
 
-### [Version&nbsp;0.6.1](https://github.com/ant-design/pro-flow/compare/v0.6.0...v0.6.1)
+### [Version 0.6.1](https://github.com/ant-design/pro-flow/compare/v0.6.0...v0.6.1)
 
 <sup>Released on **2023-09-18**</sup>
 
@@ -938,7 +938,7 @@
 
 </div>
 
-## [Version&nbsp;0.6.0](https://github.com/ant-design/pro-flow/compare/v0.5.0...v0.6.0)
+## [Version 0.6.0](https://github.com/ant-design/pro-flow/compare/v0.5.0...v0.6.0)
 
 <sup>Released on **2023-09-18**</sup>
 
@@ -963,7 +963,7 @@
 
 </div>
 
-### [Version&nbsp;0.4.2](https://github.com/ant-design/pro-flow/compare/v0.4.1...v0.4.2)
+### [Version 0.4.2](https://github.com/ant-design/pro-flow/compare/v0.4.1...v0.4.2)
 
 <sup>Released on **2023-08-07**</sup>
 
@@ -988,7 +988,7 @@
 
 </div>
 
-### [Version&nbsp;0.4.1](https://github.com/ant-design/pro-flow/compare/v0.4.0...v0.4.1)
+### [Version 0.4.1](https://github.com/ant-design/pro-flow/compare/v0.4.0...v0.4.1)
 
 <sup>Released on **2023-08-07**</sup>
 
@@ -1005,7 +1005,7 @@
 
 </div>
 
-## [Version&nbsp;0.4.0](https://github.com/ant-design/pro-flow/compare/v0.3.3...v0.4.0)
+## [Version 0.4.0](https://github.com/ant-design/pro-flow/compare/v0.3.3...v0.4.0)
 
 <sup>Released on **2023-07-26**</sup>
 
@@ -1030,7 +1030,7 @@
 
 </div>
 
-### [Version&nbsp;0.3.3](https://github.com/ant-design/pro-flow/compare/v0.3.2...v0.3.3)
+### [Version 0.3.3](https://github.com/ant-design/pro-flow/compare/v0.3.2...v0.3.3)
 
 <sup>Released on **2023-07-12**</sup>
 
@@ -1055,7 +1055,7 @@
 
 </div>
 
-### [Version&nbsp;0.3.2](https://github.com/ant-design/pro-flow/compare/v0.3.1...v0.3.2)
+### [Version 0.3.2](https://github.com/ant-design/pro-flow/compare/v0.3.1...v0.3.2)
 
 <sup>Released on **2023-07-11**</sup>
 
@@ -1072,7 +1072,7 @@
 
 </div>
 
-### [Version&nbsp;0.3.1](https://github.com/ant-design/pro-flow/compare/v0.3.0...v0.3.1)
+### [Version 0.3.1](https://github.com/ant-design/pro-flow/compare/v0.3.0...v0.3.1)
 
 <sup>Released on **2023-07-09**</sup>
 
@@ -1087,7 +1087,7 @@
 
 #### What's fixed
 
-- 优化 select 等浮层组件的逻辑, closes [#5](https://github.com/ant-design/pro-flow/issues/5) ([7721d46](https://github.com/ant-design/pro-flow/commit/7721d46))
+- 优化 select 等浮层组件的逻辑，closes [#5](https://github.com/ant-design/pro-flow/issues/5) ([7721d46](https://github.com/ant-design/pro-flow/commit/7721d46))
 
 </details>
 
@@ -1097,7 +1097,7 @@
 
 </div>
 
-## [Version&nbsp;0.3.0](https://github.com/ant-design/pro-flow/compare/v0.2.0...v0.3.0)
+## [Version 0.3.0](https://github.com/ant-design/pro-flow/compare/v0.2.0...v0.3.0)
 
 <sup>Released on **2023-07-03**</sup>
 
@@ -1122,7 +1122,7 @@
 
 </div>
 
-## [Version&nbsp;0.2.0](https://github.com/ant-design/pro-flow/compare/v0.1.1...v0.2.0)
+## [Version 0.2.0](https://github.com/ant-design/pro-flow/compare/v0.1.1...v0.2.0)
 
 <sup>Released on **2023-06-30**</sup>
 
@@ -1155,7 +1155,7 @@
 
 </div>
 
-## [Version&nbsp;0.2.0-beta.1](https://github.com/ant-design/pro-flow/compare/v0.1.1...v0.2.0-beta.1)
+## [Version 0.2.0-beta.1](https://github.com/ant-design/pro-flow/compare/v0.1.1...v0.2.0-beta.1)
 
 <sup>Released on **2023-06-18**</sup>
 
@@ -1188,7 +1188,7 @@
 
 </div>
 
-### [Version&nbsp;0.1.1](https://github.com/ant-design/pro-flow/compare/v0.1.0...v0.1.1)
+### [Version 0.1.1](https://github.com/ant-design/pro-flow/compare/v0.1.0...v0.1.1)
 
 <sup>Released on **2023-06-14**</sup>
 
@@ -1213,7 +1213,7 @@
 
 </div>
 
-## [Version&nbsp;0.1.0](https://github.com/ant-design/pro-flow/compare/v0.0.1...v0.1.0)
+## [Version 0.1.0](https://github.com/ant-design/pro-flow/compare/v0.0.1...v0.1.0)
 
 <sup>Released on **2023-06-13**</sup>
 

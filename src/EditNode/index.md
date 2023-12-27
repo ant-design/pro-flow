@@ -36,22 +36,22 @@ pro-flow-editor 提供 NodeField 组件，可以搭配 EditNode 使用，两者�
 
 ### EditNode.Preview 预览组件
 
-| 属性名                | 类型                                | 描述                       | 默认值 | 必选 |
-| --------------------- | ----------------------------------- | -------------------------- | ------ | ---- |
-| title                 | `string`                            | 标题                       | -      | -    |
-| onTitleChange         | `(title: string) => void`           | 标题变化时的回调函数       | -      | -    |
-| extra                 | `ReactNode`                         | 标题右侧区域               | -      | -    |
-| children              | `ReactNode`                         | 子元素 ReactNode           | -      | -    |
-| active                | `boolean`                           | 是否激活状态               | -      | -    |
-| collapsedKeys         | `string[]`                          | 折叠的键数组               | `[]`   | -    |
-| onCollapsedKeysChange | `(collapsedKeys: string[]) => void` | 折叠键数组变化时的回调函数 | -      | -    |
-| style                 | `CSSProperties`                     | 自定义样式                 | -      | -    |
-| className             | `string`                            | 自定义类名                 | -      | -    |
+| 属性名                   | 类型                                  | 描述            | 默认值  | 必选 |
+| --------------------- | ----------------------------------- | ------------- | ---- | -- |
+| title                 | `string`                            | 标题            | -    | -  |
+| onTitleChange         | `(title: string) => void`           | 标题变化时的回调函数    | -    | -  |
+| extra                 | `ReactNode`                         | 标题右侧区域        | -    | -  |
+| children              | `ReactNode`                         | 子元素 ReactNode | -    | -  |
+| active                | `boolean`                           | 是否激活状态        | -    | -  |
+| collapsedKeys         | `string[]`                          | 折叠的键数组        | `[]` | -  |
+| onCollapsedKeysChange | `(collapsedKeys: string[]) => void` | 折叠键数组变化时的回调函数 | -    | -  |
+| style                 | `CSSProperties`                     | 自定义样式         | -    | -  |
+| className             | `string`                            | 自定义类名         | -    | -  |
 
 ### EditNode 组件
 
 在 Preview 基础上：
 
-| 属性名 | 类型     | 描述    | 默认值 | 必选 |
-| ------ | -------- | ------- | ------ | ---- |
-| id     | `string` | 节点 Id | -      | 是   |
+| 属性名 | 类型       | 描述    | 默认值 | 必选 |
+| --- | -------- | ----- | --- | -- |
+| id  | `string` | 节点 Id | -   | 是  |

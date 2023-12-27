@@ -16,11 +16,11 @@ description:
 
 ## APIs
 
-| 属性名    | 类型            | 描述               | 默认值       | 必选 |
-| --------- | --------------- | ------------------ | ------------ | ---- |
-| className | `string`        | 自定义类名         | -            | -    |
-| visible   | `boolean`       | 是否展示           | -            | -    |
-| position  | `PanelPosition` | 面板在画布中的位置 | 'top-center' | -    |
+| 属性名       | 类型              | 描述        | 默认值          | 必选 |
+| --------- | --------------- | --------- | ------------ | -- |
+| className | `string`        | 自定义类名     | -            | -  |
+| visible   | `boolean`       | 是否展示      | -            | -  |
+| position  | `PanelPosition` | 面板在画布中的位置 | 'top-center' | -  |
 
 ### PanelPosition
 

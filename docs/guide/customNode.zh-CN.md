@@ -56,8 +56,7 @@ const nodes = [
 ];
 ```
 
-然后你就可以得到如下的自定义节点效果。
-<code src="./demos/customNode/index.tsx"></code>
+然后你就可以得到如下的自定义节点效果。 <code src="./demos/customNode/index.tsx"></code>
 
 ## 使用多个 Handle
 
@@ -95,5 +94,4 @@ const nodes = [
 ];
 ```
 
-效果如下：
-<code src="./demos/customNode/multiHandle.tsx"></code>
+效果如下： <code src="./demos/customNode/multiHandle.tsx"></code>
