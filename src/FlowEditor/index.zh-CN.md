@@ -129,25 +129,25 @@ FlowEditor 为数据驱动解决方案，需搭配 [useFlowEditor](/api-docs/use
 
 ### FlowEditor
 
-| 属性名          | 类型                                   | 描述               | 默认值 | 必选 |
-| --------------- | -------------------------------------- | ------------------ | ------ | ---- |
-| defaultViewport | `Viewport`                             | 画布的初始窗口位置 | -      | -    |
-| flowProps       | `ComponentProps<typeof ReactFlow>`     | reactflow props    | -      | -    |
-| onNodesInit     | `(editor: FlowEditorInstance) => void` | 节点加载完成回调   | -      | -    |
-| className       | `string`                               | 边数据             | -      | -    |
-| style           | `CSSProperties`                        | 节点数据           | -      | -    |
-| children        | `React.ReactNode`                      | 边数据             | -      | -    |
-| nodeTypes       | NodeTypes`                             | 节点类型           | -      | -    |
-| miniMap         | `boolean`                              | 边数据             | -      | -    |
-| background      | `boolean`                              | 节点数据           | -      | -    |
+| 属性名             | 类型                                     | 描述              | 默认值 | 必选 |
+| --------------- | -------------------------------------- | --------------- | --- | -- |
+| defaultViewport | `Viewport`                             | 画布的初始窗口位置       | -   | -  |
+| flowProps       | `ComponentProps<typeof ReactFlow>`     | reactflow props | -   | -  |
+| onNodesInit     | `(editor: FlowEditorInstance) => void` | 节点加载完成回调        | -   | -  |
+| className       | `string`                               | 边数据             | -   | -  |
+| style           | `CSSProperties`                        | 节点数据            | -   | -  |
+| children        | `React.ReactNode`                      | 边数据             | -   | -  |
+| nodeTypes       | NodeTypes\`                            | 节点类型            | -   | -  |
+| miniMap         | `boolean`                              | 边数据             | -   | -  |
+| background      | `boolean`                              | 节点数据            | -   | -  |
 
 ### Viewport
 
-| 属性名 | 类型     | 描述     | 默认值 | 必选 |
-| ------ | -------- | -------- | ------ | ---- |
-| x      | `number` | x 坐标   | -      | -    |
-| y      | `number` | y 坐标   | -      | -    |
-| zoom   | `number` | 缩放比例 | -      | -    |
+| 属性名  | 类型       | 描述   | 默认值 | 必选 |
+| ---- | -------- | ---- | --- | -- |
+| x    | `number` | x 坐标 | -   | -  |
+| y    | `number` | y 坐标 | -   | -  |
+| zoom | `number` | 缩放比例 | -   | -  |
 
 ### ReactFlow Props
 

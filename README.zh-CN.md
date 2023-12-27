@@ -6,53 +6,53 @@
 
 <h1>ProFlow</h1>
 
-A Flow Editor Framework base on React-Flow.
+基于 React-Flow 的流程编辑器框架
 
 [![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-releasedate-shield]][github-releasedate-link] [![][github-action-test-shield]][github-action-test-link] [![][github-action-release-shield]][github-action-release-link] [![][codecov-shield]][codecov-link] <br/> [![][github-contributors-shield]][github-contributors-link] [![][github-forks-shield]][github-forks-link] [![][github-stars-shield]][github-stars-link] [![][github-issues-shield]][github-issues-link] [![][github-license-shield]][github-license-link] <br/> [![][ant-design-shield]][ant-design-link] [![][devops-dumi-shield]][devops-dumi-link] [![][devops-father-shield]][devops-father-link]
 
-English · [简体中文](./README.zh-CN.md) · [Changelog](./CHANGELOG.md) . [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
+[English](./README.md)・简体中文・[Changelog](./CHANGELOG.md) . [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
 
 ![](https://gw.alipayobjects.com/zos/kitchen/XkL0M58aSZ/pro-flow.webp)
 
 </div>
 
 <details>
-<summary><kbd>Table of contents</kbd></summary>
+<summary><kbd>目录</kbd></summary>
 
-#### TOC
+#### 目录
 
-- [📦 Installation](#-installation)
-  - [Compile with Next.js](#compile-with-nextjs)
-- [✨ Features](#-features)
-- [🔨 Usage](#-usage)
-  - [Add Data](#add-data)
-  - [Add Interaction](#add-interaction)
-- [🖥 Browser compatibility](#-browser-compatibility)
-- [⌨️ Local Development](#️-local-development)
-- [🤝 Contributing](#-contributing)
-- [🛣️ Ecosystem](#️-ecosystem)
+- [📦 安装](#-安装)
+  - [使用 Next.js 编译](#使用-nextjs-编译)
+- [✨ 特性](#-特性)
+- [🔨 使用](#-使用)
+  - [添加数据](#添加数据)
+  - [添加交互](#添加交互)
+- [🖥 浏览器兼容性](#-浏览器兼容性)
+- [⌨️ 本地开发](#️-本地开发)
+- [🤝 贡献](#-贡献)
+- [🛣️ 生态系统](#️-生态系统)
 
 ####
 
 </details>
 
-## 📦 Installation
+## 📦 安装
 
 > \[!IMPORTANT]
 >
-> This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+> 此包仅支持 [ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)。
 
-To install `@ant-design/pro-flow`, run the following command:
+要安装 `@ant-design/pro-flow`，请运行以下命令：
 
 ```bash
 $ pnpm install @ant-design/pro-flow
 ```
 
-### Compile with Next.js
+### 使用 Next.js 编译
 
 > \[!NOTE]
 >
-> By work correct with Next.js SSR, add `transpilePackages: ['@ant-design/pro-flow']` to `next.config.js`. For example:
+> 为了正确使用 Next.js SSR，请在 `next.config.js` 中添加 `transpilePackages: ['@ant-design/pro-flow']`。例如：
 
 ```js
 const nextConfig = {
@@ -62,27 +62,27 @@ const nextConfig = {
 
 <br/>
 
-## ✨ Features
+## ✨ 特性
 
-> \[!NOTE]
+> \[!TIP]
 >
-> ProFlow focuses on quickly setting up a flow node-editor framework. It aims to empower developers to easily create rich, dynamic, and intuitive flow editor interfaces.
+> ProFlow 专注于快速设置流程节点编辑器框架。它旨在赋予开发人员轻松创建丰富、动态和直观的流程编辑器界面的能力。
 
 [![](https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=644220380&image_size=auto&color_scheme=dark)](https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=644220380)
 
-**ProFlow is a canvas editor built on react-flow. It has the following features:**
+**ProFlow 是一款基于 react-flow 构建的画布编辑器。具有的特性如下：**
 
-- 💠 **Modern Node Design**: It features modern default nodes and grouped node components, making the interface more intuitive, readable, and user-friendly.
-- 🌐 **Out-of-the-box Components**: It supports components such as MiniMap, Inspector, and Loading, providing rich extension capabilities and customization options, allowing users to easily customize the canvas interface.
-- 🎨 **Automatic Layout Algorithm**: It comes with the dagre layout algorithm, allowing users to achieve automatic layout effects with just nodes and relationships, making it easy to achieve an aesthetically pleasing presentation of flowcharts.
-- 🖱️ **Flowchart Data Manipulation**: It provides the useFlowViewer feature, allowing users to easily manipulate and manage canvas-related data, achieving a personalized interactive experience.
-- 🧩 **Custom Nodes and Edges**: It supports the ability to customize nodes, custom edges, and provides additional attributes such as label, zoom, and selectType to meet personalized customization needs.
-- 📱 **Mobile-Friendly**: It defaults to providing touchpad interactive canvas logic in figma mode, adapting to mobile operations for a smoother user experience.
-- 🎨 **Canvas Editor Capabilities**: It provides out-of-the-box canvas editor capabilities, including rich canvas and node operation functions such as copy-paste, undo-redo, enhancing user operation efficiency and convenience.
+- 💠 **现代化节点设计**：拥有现代化设计的默认节点与成组节点组件，使界面更加直观、易读、易用。
+- 🌐 **开箱即用的组件**：支持 MiniMap、Inspector、Loading 等组件，提供丰富的扩展能力和定制化选项，让用户能够轻松定制画布界面。
+- 🎨 **自动布局算法**：内置了 dagre 布局算法，使得用户只需给出节点和关系，即可获得自动布局后的效果，轻松实现流程图的美观展现。
+- 🖱️ **流程图数据操作**：提供了 useFlowViewer 功能，让用户可以轻松操作和管理画布相关数据，实现个性化的交互体验。
+- 🧩 **自定义节点和边缘**：支持自定义节点、自定义边缘能力，并提供了额外的 label、zoom、selectType 等属性，满足个性化定制需求。
+- 📱 **移动端友好**：默认提供了 figma 模式的触摸板交互画布逻辑，适配移动端操作，使用户体验更加流畅。
+- 🎨 **画布编辑器能力**：提供开箱即用的画布编辑器能力，内置丰富的画布、节点操作功能，包括复制粘贴、撤销重做等功能，提升用户的操作效率和便利性。
 
 <br/>
 
-## 🔨 Usage
+## 🔨 使用
 
 ```jsx
 import { FlowView } from '@ant-design/pro-flow';
@@ -101,7 +101,7 @@ function App() {
 export default App;
 ```
 
-### Add Data
+### 添加数据
 
 ```js
 export const nodes = [
@@ -145,7 +145,7 @@ export const edges = [
 ];
 ```
 
-### Add Interaction
+### 添加交互
 
 ```js
 import { FlowView } from '@ant-design/pro-flow';
@@ -167,26 +167,26 @@ export default App;
 
 <br/>
 
-## 🖥 Browser compatibility
+## 🖥 浏览器兼容性
 
 > \[!NOTE]
 >
-> - Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
+> - 现代浏览器和 Internet Explorer 11（需要[polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11)）
 > - [Electron](https://www.electronjs.org/)
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                              | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                         | last 2 versions                                                                                                                                                     |
+| Edge                                                                                                                                              | 最近 2 个版本                                                                                                                                           | 最近 2 个版本                                                                                                                                           | 最近 2 个版本                                                                                                                                           | 最近 2 个版本                                                                                                                                                       |
 
 <br/>
 
-## ⌨️ Local Development
+## ⌨️ 本地开发
 
-You can use Github Codespaces for online development:
+您可以使用 Github Codespaces 进行在线开发：
 
 [![][github-codespace-shield]][github-codespace-link]
 
-Or clone it for local development:
+或者克隆它进行本地开发：
 
 ```bash
 $ git clone https://github.com/ant-design/pro-flow.git
@@ -197,17 +197,17 @@ $ pnpm dev
 
 <br/>
 
-## 🤝 Contributing
+## 🤝 贡献
 
 > \[!IMPORTANT]
 >
-> Join our collaborative ecosystem. Your contributions are the heartbeat of our project. Here's how you can be an integral part of our vibrant community:
+> 加入我们的协作生态系统。您的贡献是我们项目的心脏。以下是您如何成为我们充满活力的社区的重要组成部分：
 
-- **Integrate and Innovate**: Incorporate Ant Design Pro, umi, and ProFlow into your projects. Your real-world usage and feedback are invaluable to us.
-- **Voice Your Insights**: Encounter a glitch? Have a query? Your perspectives matter. Share them by submitting [issues][github-issues-link] and help us enhance the user experience.
-- **Shape the Future**: Have code enhancements or feature ideas? We invite you to propose [pull requests][pr-welcome-link] and contribute directly to the evolution of our codebase.
+- **整合和创新**：将 Ant Design Pro、umi 和 ProFlow 整合到您的项目中。您的实际使用和反馈对我们至关重要。
+- **发表您的见解**：遇到了问题？有疑问？您的观点很重要。通过提交[问题][github-issues-link]来分享它们，帮助我们提升用户体验。
+- **塑造未来**：有代码增强或功能想法吗？我们邀请您提出[拉取请求][pr-welcome-link]，直接为我们的代码库发展做出贡献。
 
-Every contribution, big or small, is celebrated. Join us in our mission to refine and elevate the world of open-source enterprise UI components. 😃
+每一次贡献，无论大小，都值得庆祝。加入我们，共同致力于完善和提升开源企业 UI 组件的世界。 😃
 
 [![][pr-welcome-shield]][pr-welcome-link]
 
@@ -236,12 +236,12 @@ Every contribution, big or small, is celebrated. Join us in our mission to refin
 
 <br/>
 
-## 🛣️ Ecosystem
+## 🛣️ 生态系统
 
-- **[ProComponents](https://github.com/ant-design/pro-components)** - Designed for Enterprise-Level Application, Use Ant Design like a Pro!.
-- **[ProEditor](https://github.com/ant-design/pro-editor)** - The Ultimate Editor UI Framework and Components.
-- **[ProFlow](https://github.com/ant-design/pro-flow)** - A Flow Editor Framework base on React-Flow.
-- **[ProChat](https://github.com/ant-design/pro-chat)** - Components Library for Quickly Building LLM Chat Interfaces.
+- **[ProComponents](https://github.com/ant-design/pro-components)** - 专为企业级应用设计，像专业人士一样使用 Ant Design！
+- **[ProEditor](https://github.com/ant-design/pro-editor)** - 终极编辑器 UI 框架和组件。
+- **[ProFlow](https://github.com/ant-design/pro-flow)** - 基于 React-Flow 的流程编辑器框架。
+- **[ProChat](https://github.com/ant-design/pro-chat)** - 用于快速构建 LLM 聊天界面的组件库。
 
 <br/>
 
@@ -251,7 +251,7 @@ Every contribution, big or small, is celebrated. Join us in our mission to refin
 
 Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/> This project is [MIT](./LICENSE) licensed.
 
-<!-- LINK GROUP -->
+<!-- 链接组 -->
 
 [ant-design-link]: https://ant.design
 [ant-design-shield]: https://img.shields.io/badge/-Ant%20Design-1677FF?labelColor=black&logo=antdesign&style=flat-square

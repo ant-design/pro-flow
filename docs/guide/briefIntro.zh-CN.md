@@ -67,10 +67,9 @@ export default () => {
 
 ### 高灵活度
 
-ProFlow 支持自定义节点类型。自定义的节点为 React 组件，所以可以实现任何你需要的东西。
-<code src="./demos/baseIntro/customerNode.tsx"></code>
+ProFlow 支持自定义节点类型。自定义的节点为 React 组件，所以可以实现任何你需要的东西。 <code src="./demos/baseIntro/customerNode.tsx"></code>
 
-## 特性 3.完善的基本功能
+## 特性 3. 完善的基本功能
 
 ### 无极缩放的 label
 

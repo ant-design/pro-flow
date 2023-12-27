@@ -20,8 +20,7 @@ ProFlow 中的节点是一个 React 组件。这意味着它可以渲染您喜�
 
 ### Custom Nodes - 自定义节点
 
-[自定义节点使用说明](/components/customNodeDoc)
-<code src="./demos/baseIntro/customerNode.tsx"></code>
+[自定义节点使用说明](/components/customNodeDoc) <code src="./demos/baseIntro/customerNode.tsx"></code>
 
 ## Edges - 边缘
 

@@ -12,7 +12,7 @@ description:
 
 ## 自动布局
 
-当你使用 FlowView 组件传入 nodes 和 edges 列表后，FlowView 会自动梳理节点之间的逻辑关系，并给出一个自动布局结果渲染在画布上,比如下面这段关系渲染后的结果如下。
+当你使用 FlowView 组件传入 nodes 和 edges 列表后，FlowView 会自动梳理节点之间的逻辑关系，并给出一个自动布局结果渲染在画布上，比如下面这段关系渲染后的结果如下。
 
 <code src="./demos/autoLayout/demo1.tsx"></code>
 
