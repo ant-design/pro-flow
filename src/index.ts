@@ -1,14 +1,14 @@
 import {
   BaseEdge,
+  Connection,
+  EdgeChange,
   EdgeLabelRenderer,
   EdgeProps,
   Handle,
+  NodeChange,
   Position,
   getBezierPath,
   getSmoothStepPath,
-  type Connection,
-  type EdgeChange,
-  type NodeChange,
 } from 'reactflow';
 
 export * from './Background';
@@ -36,13 +36,13 @@ export { default as RadiusEdge } from './RadiusEdge';
 export * from './constants';
 export {
   BaseEdge,
+  Connection,
+  EdgeChange,
   EdgeLabelRenderer,
+  EdgeProps,
   Handle,
+  NodeChange,
+  Position,
   getBezierPath,
   getSmoothStepPath,
-  type Connection,
-  type EdgeChange,
-  type EdgeProps,
-  type NodeChange,
-  type Position,
 };
