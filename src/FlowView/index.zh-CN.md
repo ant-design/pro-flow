@@ -7,7 +7,7 @@ group:
   order: 1
 title: FlowView 基础画布容器
 order: 1
-description:
+description: 基础画布容器
 ---
 
 ## default
