@@ -6,6 +6,9 @@ import {
   Position,
   getBezierPath,
   getSmoothStepPath,
+  type Connection,
+  type EdgeChange,
+  type NodeChange,
 } from 'reactflow';
 
 export * from './Background';
@@ -35,8 +38,11 @@ export {
   BaseEdge,
   EdgeLabelRenderer,
   Handle,
-  Position,
   getBezierPath,
   getSmoothStepPath,
+  type Connection,
+  type EdgeChange,
   type EdgeProps,
+  type NodeChange,
+  type Position,
 };
