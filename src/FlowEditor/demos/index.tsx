@@ -22,7 +22,6 @@ const StringRender: FC = (node: any) => {
         type={'target'}
         position={Position.Left}
       />
-
       {node.data.title}
       <Handle
         id={typeof handles?.source === 'string' ? handles?.source : id}

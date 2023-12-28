@@ -1,8 +1,11 @@
 import {
   BaseEdge,
+  Connection,
+  EdgeChange,
   EdgeLabelRenderer,
   EdgeProps,
   Handle,
+  NodeChange,
   Position,
   getBezierPath,
   getSmoothStepPath,
@@ -33,10 +36,13 @@ export { default as RadiusEdge } from './RadiusEdge';
 export * from './constants';
 export {
   BaseEdge,
+  Connection,
+  EdgeChange,
   EdgeLabelRenderer,
+  EdgeProps,
   Handle,
+  NodeChange,
   Position,
   getBezierPath,
   getSmoothStepPath,
-  type EdgeProps,
 };
