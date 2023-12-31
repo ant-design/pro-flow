@@ -1,4 +1,5 @@
 import { createStyles } from 'antd-style';
+import { isNull } from 'lodash-es';
 import { rgba } from 'polished';
 import { memo, ReactNode } from 'react';
 import { Center } from 'react-layout-kit';
@@ -54,9 +55,10 @@ const useStyles = createStyles(({ css, token }) => ({
 interface CanvasLoadingProps {
   children?: ReactNode;
   loading?: boolean;
+  tip?: string | null;
 }
 
-const CanvasLoading = memo<CanvasLoadingProps>(({ children, loading }) => {
+const CanvasLoading = memo<CanvasLoadingProps>(({ children, loading, tip = '画布初始化...' }) => {
   const { styles } = useStyles();
 
   const content = (
@@ -64,8 +66,7 @@ const CanvasLoading = memo<CanvasLoadingProps>(({ children, loading }) => {
       <Center width={100} height={100}>
         <div className={styles.loader}></div>
       </Center>
-
-      <div className={styles.tip}>画布初始化...</div>
+      {!isNull(tip) && <div className={styles.tip}>{tip}</div>}
     </Center>
   );
 
