@@ -4,7 +4,7 @@ import { createStyles } from 'antd-style';
 import React from 'react';
 import { Flexbox } from 'react-layout-kit';
 import { MiniMap as FlowMiniMap, useReactFlow, useViewport } from 'reactflow';
-import { Language, MiniMapPosition } from '..';
+import { Language, MiniMapPosition } from '../constants';
 
 const useStyles = createStyles(({ css, token }, props: { x: number; y: number }) => {
   const { x, y } = props;
