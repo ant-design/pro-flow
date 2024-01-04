@@ -1,4 +1,11 @@
-export { BaseEdge, EdgeLabelRenderer, Handle, getBezierPath, getSmoothStepPath } from 'reactflow';
+export {
+  BaseEdge,
+  EdgeLabelRenderer,
+  Handle,
+  Position,
+  getBezierPath,
+  getSmoothStepPath,
+} from 'reactflow';
 export { default as Background } from './Background';
 export { default as BasicNode } from './BasicNode';
 export { default as CanvasLoading } from './CanvasLoading';
@@ -23,6 +30,6 @@ export * from './Input';
 export * from './MiniMap';
 export * from './constants';
 
-export type { Connection, EdgeChange, EdgeProps, NodeChange, Position } from 'reactflow';
+export type { Connection, EdgeChange, EdgeProps, NodeChange } from 'reactflow';
 export type { FlowEditorStoreProviderProps } from './FlowStoreProvider';
 export type { ExtraAction } from './NodeField';
