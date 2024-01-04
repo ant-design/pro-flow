@@ -92,12 +92,12 @@ export enum SelectType {
 
 #### Connection
 
-| 属性名       | 类型    | 描述  | 默认值               | 必选 |
-| ------------ | ------- | ----- | -------------------- | ---- | --- |
-| source       | `string | null` | 来源节点 id          | -    | -   |
-| target       | `string | null` | 目标节点 id          | -    | -   |
-| sourceHandle | `string | null` | 来源节点的 Handle id | -    | -   |
-| targetHandle | `string | null` | 目标节点的 Handle id | -    | -   |
+| 属性名       | 类型             | 描述                 | 默认值 | 必选 |
+| ------------ | ---------------- | -------------------- | ------ | ---- |
+| source       | `string \| null` | 来源节点 id          | -      | -    |
+| target       | `string \| null` | 目标节点 id          | -      | -    |
+| sourceHandle | `string \| null` | 来源节点的 Handle id | -      | -    |
+| targetHandle | `string \| null` | 目标节点的 Handle id | -      | -    |
 
 ### FlowViewEdge
 
