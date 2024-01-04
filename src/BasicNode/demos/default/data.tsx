@@ -13,7 +13,7 @@ const ApiScore: React.FC<{ score: number }> = ({ score }) => {
       percent={score === 0 ? 1 : score * 20}
       strokeColor={score * 20 > 60 ? '#30a46c' : '#e5484d'}
       format={() => `${score}`}
-      size={[28, 6]}
+      size={28}
     />
   );
 };
