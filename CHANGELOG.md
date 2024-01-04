@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.0.1](https://github.com/ant-design/pro-flow/compare/v1.0.0...v1.0.1)
+
+<sup>Released on **2024-01-04**</sup>
+
+#### 🐛 修复
+
+- Vercel workflow, constants export. add CanvasLoading tips..
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Vercel workflow, constants export. add CanvasLoading tips., closes [#73](https://github.com/ant-design/pro-flow/issues/73) [#67](https://github.com/ant-design/pro-flow/issues/67) ([dbf9b07](https://github.com/ant-design/pro-flow/commit/dbf9b07))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;1.0.0](https://github.com/ant-design/pro-flow/compare/v0.23.1...v1.0.0)
 
 <sup>Released on **2023-12-28**</sup>
