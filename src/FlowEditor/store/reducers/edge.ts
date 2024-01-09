@@ -1,6 +1,7 @@
 import { produce } from 'immer';
 import { Connection, Edge } from 'reactflow';
 
+import { merge } from 'lodash-es';
 import { generateEdgeId } from '../../utils/edge';
 
 export type EdgesState = Record<string, Edge>;
@@ -68,7 +69,23 @@ export const edgesReducer = (state: EdgesState, payload: EdgeDispatch): EdgesSta
     case 'updateEdge':
       return produce(state, (draftState) => {
         const { id, edge } = payload;
+        console.log(draftState[id]);
         draftState[id] = { ...draftState[id], ...edge };
+      });
+
+    case 'updateEdgeData':
+      return produce(state, (draftState) => {
+        const { newData, id, deepReplace } = payload;
+        draftState[id] = { ...draftState[id], data: newData };
+
+        if (!draftState[id]) return;
+
+        const edge = draftState[id] as Edge;
+        if (!deepReplace) {
+          draftState[id] = { ...draftState[id], ...edge, data: merge(edge.data, newData) };
+        } else {
+          draftState[id] = { ...draftState[id], ...edge, data: { ...edge.data, ...newData } };
+        }
       });
 
     case 'deleteEdge':
