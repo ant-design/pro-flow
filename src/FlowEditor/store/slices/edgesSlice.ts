@@ -9,6 +9,8 @@ import { EdgeDispatch, edgesReducer } from '../reducers/edge';
 export interface PublicEdgesAction {
   dispatchEdges: (payload: EdgeDispatch, options?: ActionOptions) => void;
   addEdges: (edges: Record<string, Edge>, options?: ActionOptions) => void;
+  deleteEdge: (id: string) => void;
+  updateEdge: (id: string, edge: Edge, options?: ActionOptions) => void;
 }
 export interface EdgesSlice extends PublicEdgesAction {
   internalUpdateEdges: (flattenEdges: FlattenEdges, payload: ActionPayload) => void;
@@ -61,5 +63,21 @@ export const edgesSlice: StateCreator<
           get().dispatchEdges({ type: 'deleteEdge', id: e.id });
       }
     });
+  },
+
+  deleteEdge: (id) => {
+    get().deselectElement(id);
+    get().dispatchEdges({ type: 'deleteEdge', id });
+  },
+
+  updateEdge: (id, edgeData, options) => {
+    get().dispatchEdges(
+      {
+        type: 'updateEdge',
+        id,
+        edge: edgeData,
+      },
+      options,
+    );
   },
 });

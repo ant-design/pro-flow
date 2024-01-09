@@ -21,6 +21,13 @@ interface UpdateEdgeAction {
   edge: Edge;
 }
 
+interface UpdateEdgeDataDispatch {
+  type: 'updateEdgeData';
+  id: string;
+  newData: any;
+  deepReplace?: boolean;
+}
+
 interface DeleteEdgeAction {
   type: 'deleteEdge';
   id: string;
@@ -36,7 +43,8 @@ export type EdgeDispatch =
   | BatchAddEdgesAction
   | UpdateEdgeAction
   | DeleteEdgeAction
-  | CreateEdgeFromConnectionAction;
+  | CreateEdgeFromConnectionAction
+  | UpdateEdgeDataDispatch;
 
 export const edgesReducer = (state: EdgesState, payload: EdgeDispatch): EdgesState => {
   switch (payload.type) {
