@@ -12,7 +12,7 @@ export const BtnGroup = () => {
       editor.addNode({
         id: `a${id}`,
         type: 'StringNode',
-        position: { x: 200, y: count * 100 },
+        position: { x: count * 200, y: 100 },
         data: {
           title: 'String Node',
           handles: {
