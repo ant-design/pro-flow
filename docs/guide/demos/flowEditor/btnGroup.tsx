@@ -21,6 +21,7 @@ export const BtnGroup = (props) => {
       <button
         onClick={() => {
           const nodes = editor.getFlattenNodes();
+          console.log(nodes);
           const index = nodes ? Object.keys(nodes).length + 1 : 1;
 
           editor.addNode({
@@ -38,6 +39,23 @@ export const BtnGroup = (props) => {
         }}
       >
         新增节点
+      </button>
+      <button
+        onClick={() => {
+          const nodes = editor.getFlattenNodes();
+          console.log(nodes);
+          const index = nodes ? Object.keys(nodes).length + 1 : 1;
+
+          editor.addEdges({
+            'a1-a2': {
+              id: 'a1-a2',
+              source: 'a1',
+              target: 'a2',
+            },
+          });
+        }}
+      >
+        新增连线
       </button>
       <button
         onClick={() => {

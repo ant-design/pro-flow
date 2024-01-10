@@ -1,12 +1,13 @@
 import { createStyles, cx } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { debounce, throttle } from 'lodash-es';
-import { JSXElementConstructor, forwardRef, useEffect, useState } from 'react';
+import { JSXElementConstructor, forwardRef, useCallback, useEffect, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import ReactFlow, {
   Background,
   BackgroundVariant,
   Connection,
+  Edge,
   EdgeChange,
   Node,
   NodeChange,
@@ -70,8 +71,17 @@ export interface FlowEditorAppProps {
   onNodesInit?: (editor: FlowEditorInstance) => void;
   onNodesInitChange?: (init: boolean) => void;
   beforeNodesChange?: (changes: NodeChange[]) => boolean;
+
+  // edges 事件
   beforeEdgesChange?: (changes: EdgeChange[]) => boolean;
+  onEdgesChange?: (changes: EdgeChange[]) => void;
+  afterEdgeChange?: (changes: EdgeChange[]) => void;
+  // connection 事件
   beforeConnect?: (connection: Connection) => boolean;
+  onConnect?: (connection: Connection) => void;
+  afterConnect?: (edge: Edge) => void;
+
+  onNodesChange?: (changes: NodeChange[]) => void;
   style?: React.CSSProperties;
   flowProps?: ComponentProps<typeof ReactFlow>;
   className?: string;
@@ -94,8 +104,14 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       miniMap = true,
       onNodesInit,
       beforeNodesChange = () => true,
-      beforeEdgesChange = () => true,
+
       beforeConnect = () => true,
+      onConnect = () => {},
+      afterConnect = () => {},
+
+      beforeEdgesChange = () => true,
+      onEdgesChange,
+      afterEdgeChange = () => {},
     },
     ref,
   ) => {
@@ -112,7 +128,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       updateEdgesOnEdgeChange,
       onViewPortChange,
       onElementSelectChange,
-      onEdgesChange,
+      // onEdgesChange,
       dispatchNodes,
     ] = useStore((s) => [
       s.onNodesChange,
@@ -120,7 +136,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       s.updateEdgesOnEdgeChange,
       s.onViewPortChange,
       s.onElementSelectChange,
-      s.onEdgesChange,
+      // s.onEdgesChange,
       s.dispatchNodes,
     ]);
 
@@ -150,6 +166,55 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
         onNodesInit?.(editor);
       }
     }, [nodesInitialized]);
+
+    const handleEdgesChange = useCallback((changes: EdgeChange[]) => {
+      if (!beforeEdgesChange(changes)) {
+        return;
+      }
+
+      // reactflow 的 edges change 事件，只有 select 和 remove
+      updateEdgesOnEdgeChange(changes);
+
+      // 选择逻辑 nodes 和 edges 一致
+      changes.forEach((c) => {
+        switch (c.type) {
+          case 'select':
+            onElementSelectChange(c.id, c.selected);
+        }
+      });
+
+      if (onEdgesChange) {
+        onEdgesChange(changes);
+      }
+
+      if (afterEdgeChange) {
+        afterEdgeChange(changes);
+      }
+    }, []);
+
+    const handleConnect = useCallback((connection: Connection) => {
+      if (!beforeConnect(connection)) {
+        return;
+      }
+
+      if (onConnect) {
+        onConnect(connection);
+      }
+
+      const edge = updateEdgesOnConnection(connection);
+
+      if (afterConnect && edge) {
+        // 触发 edges change 事件
+        handleEdgesChange([
+          {
+            item: edge,
+            type: 'add',
+          },
+        ]);
+
+        afterConnect(edge);
+      }
+    }, []);
 
     return (
       <Flexbox height={'100%'} width={'100%'} style={{ position: 'relative' }}>
@@ -210,31 +275,9 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
               throttle(onNodesChange, 50)(changes);
             }
           }}
-          onEdgesChange={(changes) => {
-            if (!beforeEdgesChange(changes)) {
-              return;
-            }
-
-            updateEdgesOnEdgeChange(changes);
-
-            // 选择逻辑 nodes 和 edges 一致
-            changes.forEach((c) => {
-              switch (c.type) {
-                case 'select':
-                  onElementSelectChange(c.id, c.selected);
-              }
-            });
-
-            if (onEdgesChange) {
-              onEdgesChange(changes);
-            }
-          }}
-          onConnect={(connection) => {
-            if (!beforeConnect(connection)) {
-              return;
-            }
-            updateEdgesOnConnection(connection);
-          }}
+          onEdgesChange={handleEdgesChange}
+          // Connect 相关逻辑
+          onConnect={handleConnect}
           disableKeyboardA11y={true}
           proOptions={{ hideAttribution: true }}
         >

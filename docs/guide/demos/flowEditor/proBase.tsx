@@ -29,7 +29,32 @@ const ProFlowDemo = () => {
 
   return (
     <div className={styles.container}>
-      <FlowEditor nodeTypes={{ StringNode: StringRender }} miniMap={false} devtools={true}>
+      <FlowEditor
+        nodeTypes={{ StringNode: StringRender }}
+        miniMap={false}
+        devtools={true}
+        beforeConnect={(e) => {
+          console.log('beforeConnect', e);
+          return true;
+        }}
+        onConnect={(e) => {
+          console.log('onConnect', e);
+        }}
+        afterConnect={(e) => {
+          console.log('afterConnect', e);
+          editor.selectElement(e.id);
+        }}
+        beforeEdgesChange={(e) => {
+          console.log('beforeEdgesChange', e);
+          return true;
+        }}
+        onEdgesChange={(e) => {
+          console.log('onEdgesChange', e);
+        }}
+        afterEdgeChange={(e) => {
+          console.log('afterEdgeChange', e);
+        }}
+      >
         <FlowPanel position="top-center">
           <BtnGroup editor={editor} />
         </FlowPanel>

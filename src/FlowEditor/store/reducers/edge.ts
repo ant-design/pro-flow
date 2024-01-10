@@ -1,8 +1,7 @@
 import { produce } from 'immer';
-import { Connection, Edge } from 'reactflow';
+import { Edge } from 'reactflow';
 
 import { merge } from 'lodash-es';
-import { generateEdgeId } from '../../utils/edge';
 
 export type EdgesState = Record<string, Edge>;
 
@@ -36,7 +35,7 @@ interface DeleteEdgeAction {
 
 interface CreateEdgeFromConnectionAction {
   type: 'createEdgeFromConnection';
-  connection: Connection;
+  edge: Edge;
 }
 
 export type EdgeDispatch =
@@ -95,18 +94,9 @@ export const edgesReducer = (state: EdgesState, payload: EdgeDispatch): EdgesSta
 
     case 'createEdgeFromConnection':
       return produce(state, (draftState) => {
-        const { source, target, sourceHandle, targetHandle } = payload.connection;
-        if (!source || !target) return;
+        const edge = payload.edge;
 
-        const edgeId = generateEdgeId(source, target, sourceHandle, targetHandle);
-
-        draftState[edgeId] = {
-          id: edgeId,
-          source: source,
-          target: target,
-          sourceHandle,
-          targetHandle,
-        };
+        draftState[edge.id] = edge;
       });
 
     default:
