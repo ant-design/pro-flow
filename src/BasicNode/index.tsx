@@ -2,7 +2,6 @@ import { SelectType } from '@/FlowView/constants';
 import { getClsFromSelectType } from '@/utils';
 import React from 'react';
 import { Handle, Position } from 'reactflow';
-import styled from 'styled-components';
 import { useStyles } from './styles';
 
 interface BloodNodeProps {
@@ -23,22 +22,11 @@ interface BloodNodeProps {
   handleType?: 'input' | 'output' | 'none' | ' both';
 }
 
-const zoomNum = (num: number, zoom: number, limitMax?: boolean) => {
+export const zoomNum = (num: number, zoom: number, limitMax?: boolean) => {
   if (limitMax) return zoom > 1 ? num : num / zoom;
 
   return num / zoom;
 };
-
-export const ArtboardTitle = styled.div<{ zoom: number }>`
-  position: absolute;
-  z-index: 10;
-  top: -${({ zoom }) => zoomNum(24, zoom, true)}px;
-  padding: ${({ zoom }) => `${2 / zoom}px ${1 / zoom}px ${2 / zoom}px 0`};
-  color: rgba(0, 0, 0, 0.45);
-  border-radius: 4px;
-  font-size: ${({ zoom }) => `${14 / zoom}px`};
-  white-space: nowrap;
-`;
 
 const BasicNode: React.FC<{
   data: BloodNodeProps;
@@ -63,9 +51,20 @@ const BasicNode: React.FC<{
       ) : null}
       <div>
         {label && (
-          <ArtboardTitle zoom={zoom}>
+          <div
+            style={{
+              position: 'absolute',
+              zIndex: 10,
+              top: `-${zoomNum(24, zoom, true)}px`,
+              padding: `${2 / zoom}px ${1 / zoom}px ${2 / zoom}px 0`,
+              color: `rgba(0, 0, 0, 0.45)`,
+              borderRadius: `4px`,
+              fontSize: `${14 / zoom}px`,
+              whiteSpace: `nowrap`,
+            }}
+          >
             {zoom <= 0.1 ? `${String(label).substring(0, 3)}...` : label}
-          </ArtboardTitle>
+          </div>
         )}
         <div className={cx(styles.nodeWrap, styles[getClsFromSelectType(selectType)], className)}>
           <img className={'img'} src={logo} alt="" />
