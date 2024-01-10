@@ -1,18 +1,12 @@
-import { ArtboardTitle } from '@/BasicNode';
+import { zoomNum } from '@/BasicNode';
 import { NodeMapItem, SelectType } from '@/FlowView/constants';
 import { BasicGroupNodeData, BasicNodeData } from '@/constants';
 import { getClsFromSelectType } from '@/utils';
 import { cx } from 'antd-style';
 import React from 'react';
 import { Handle, Position } from 'reactflow';
-import styled from 'styled-components';
 import { useStyles } from './styles';
 
-const Wrap = styled.div`
-  width: 357px;
-  height: 632px;
-  position: relative;
-`;
 export interface BasicNodeGroupProps {
   id?: string;
   zoom?: number;
@@ -62,15 +56,32 @@ const BasicNodeGroup: React.FC<{
   const nodeList = convertMappingNode(_data as BasicGroupNodeData[]);
 
   return (
-    <Wrap>
+    <div
+      style={{
+        width: '357px',
+        height: '632px',
+        position: 'relative',
+      }}
+    >
       {handleType === 'output' || handleType === 'both' ? (
         <Handle type="target" position={Position.Left} style={{ top: 41.5, left: -6 }} />
       ) : null}
       <div>
         {label && (
-          <ArtboardTitle zoom={zoom}>
+          <div
+            style={{
+              position: 'absolute',
+              zIndex: 10,
+              top: `-${zoomNum(24, zoom, true)}px`,
+              padding: `${2 / zoom}px ${1 / zoom}px ${2 / zoom}px 0`,
+              color: `rgba(0, 0, 0, 0.45)`,
+              borderRadius: `4px`,
+              fontSize: `${14 / zoom}px`,
+              whiteSpace: `nowrap`,
+            }}
+          >
             {zoom <= 0.1 ? `${String(label).substring(0, 3)}...` : label}
-          </ArtboardTitle>
+          </div>
         )}
         <div className={cx(styles.groupWrap, styles[getClsFromSelectType(selectType)])}>
           {nodeList!.map((_node, index) => {
@@ -97,7 +108,7 @@ const BasicNodeGroup: React.FC<{
       {handleType === 'input' || handleType === 'both' ? (
         <Handle type="source" position={Position.Right} style={{ top: 41.5, right: -6 }} />
       ) : null}
-    </Wrap>
+    </div>
   );
 };
 
