@@ -3,7 +3,7 @@
  * defaultShowCode: true
  */
 import { FlowEditor, FlowEditorProvider, FlowPanel, useFlowEditor } from '@ant-design/pro-flow';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { StringRender } from './StringNode';
 import { BtnGroup } from './btnGroup';
 import useStyles from './css/probase.style';
@@ -11,8 +11,10 @@ import useStyles from './css/probase.style';
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
   const { styles } = useStyles();
+  const [optHistory, setOptHistory] = useState<string[]>([]);
 
   useEffect(() => {
+    console.log(editor);
     editor.addNode({
       id: 'a1',
       type: 'StringNode',
@@ -53,6 +55,16 @@ const ProFlowDemo = () => {
         }}
         afterEdgeChange={(e) => {
           console.log('afterEdgeChange', e);
+        }}
+        beforeNodesChange={(e) => {
+          console.log('beforeNodesChange', e);
+          return true;
+        }}
+        onNodesChange={(e) => {
+          console.log('onNodesChange', e);
+        }}
+        afterNodesChange={(e) => {
+          console.log('afterNodesChange', e);
         }}
       >
         <FlowPanel position="top-center">

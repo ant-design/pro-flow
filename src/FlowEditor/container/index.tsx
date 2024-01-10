@@ -14,12 +14,16 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
     {
       devtools,
       onNodesInit,
-      beforeNodesChange,
 
       // edge change
       beforeEdgesChange,
       onEdgesChange,
       afterEdgeChange,
+
+      // node change
+      beforeNodesChange,
+      onNodesChange,
+      afterNodesChange,
 
       // Connect
       beforeConnect,
@@ -51,6 +55,8 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
             beforeConnect={beforeConnect}
             onEdgesChange={onEdgesChange}
             afterEdgeChange={afterEdgeChange}
+            onNodesChange={onNodesChange}
+            afterNodesChange={afterNodesChange}
             onConnect={onConnect}
             afterConnect={afterConnect}
             contextMenuEnabled={contextMenuEnabled}

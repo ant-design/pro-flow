@@ -70,8 +70,11 @@ export interface FlowEditorAppProps {
   contextMenuEnabled?: boolean;
   onNodesInit?: (editor: FlowEditorInstance) => void;
   onNodesInitChange?: (init: boolean) => void;
-  beforeNodesChange?: (changes: NodeChange[]) => boolean;
 
+  // nodes 事件
+  beforeNodesChange?: (changes: NodeChange[]) => boolean;
+  onNodesChange?: (changes: NodeChange[]) => void;
+  afterNodesChange?: (changes: NodeChange[]) => void;
   // edges 事件
   beforeEdgesChange?: (changes: EdgeChange[]) => boolean;
   onEdgesChange?: (changes: EdgeChange[]) => void;
@@ -81,7 +84,6 @@ export interface FlowEditorAppProps {
   onConnect?: (connection: Connection) => void;
   afterConnect?: (edge: Edge) => void;
 
-  onNodesChange?: (changes: NodeChange[]) => void;
   style?: React.CSSProperties;
   flowProps?: ComponentProps<typeof ReactFlow>;
   className?: string;
@@ -104,6 +106,8 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       miniMap = true,
       onNodesInit,
       beforeNodesChange = () => true,
+      onNodesChange = () => {},
+      afterNodesChange = () => {},
 
       beforeConnect = () => true,
       onConnect = () => {},
@@ -123,7 +127,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     const editor = useFlowEditor();
 
     const [
-      onNodesChange,
+      // onNodesChange,
       updateEdgesOnConnection,
       updateEdgesOnEdgeChange,
       onViewPortChange,
@@ -131,7 +135,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       // onEdgesChange,
       dispatchNodes,
     ] = useStore((s) => [
-      s.onNodesChange,
+      // s.onNodesChange,
       s.updateEdgesOnConnection,
       s.updateEdgesOnEdgeChange,
       s.onViewPortChange,
@@ -166,6 +170,41 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
         onNodesInit?.(editor);
       }
     }, [nodesInitialized]);
+
+    const handleNodesChange = useCallback((changes: NodeChange[]) => {
+      if (!beforeNodesChange(changes)) {
+        return;
+      }
+      // 选择逻辑 nodes 和 edges 一致
+      changes.forEach((c) => {
+        switch (c.type) {
+          case 'add':
+            dispatchNodes({ type: 'addNode', node: c.item });
+            break;
+          case 'position':
+            // 结束拖拽时，会触发一次 position，此时 dragging 为 false
+            if (!c.dragging) break;
+
+            dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
+
+            break;
+
+          case 'remove':
+            dispatchNodes({ type: 'deleteNode', id: c.id });
+            break;
+          case 'select':
+            onElementSelectChange(c.id, c.selected);
+        }
+      });
+
+      if (onNodesChange) {
+        throttle(onNodesChange, 50)(changes);
+      }
+
+      if (afterNodesChange) {
+        afterNodesChange(changes);
+      }
+    }, []);
 
     const handleEdgesChange = useCallback((changes: EdgeChange[]) => {
       if (!beforeEdgesChange(changes)) {
@@ -245,36 +284,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
           selectionKeyCode={['Meta', 'Shift']}
           multiSelectionKeyCode={['Meta', 'Shift']}
           selectNodesOnDrag
-          onNodesChange={(changes) => {
-            if (!beforeNodesChange(changes)) {
-              return;
-            }
-            // 选择逻辑 nodes 和 edges 一致
-            changes.forEach((c) => {
-              switch (c.type) {
-                case 'add':
-                  dispatchNodes({ type: 'addNode', node: c.item });
-                  break;
-                case 'position':
-                  // 结束拖拽时，会触发一次 position，此时 dragging 为 false
-                  if (!c.dragging) break;
-
-                  dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
-
-                  break;
-
-                case 'remove':
-                  dispatchNodes({ type: 'deleteNode', id: c.id });
-                  break;
-                case 'select':
-                  onElementSelectChange(c.id, c.selected);
-              }
-            });
-
-            if (onNodesChange) {
-              throttle(onNodesChange, 50)(changes);
-            }
-          }}
+          onNodesChange={handleNodesChange}
           onEdgesChange={handleEdgesChange}
           // Connect 相关逻辑
           onConnect={handleConnect}
