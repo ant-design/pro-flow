@@ -7,6 +7,7 @@ export {
   getSmoothStepPath,
 } from 'reactflow';
 export { default as Background } from './Background';
+export { default as BasicGroupNode } from './BasicGroupNode';
 export { default as BasicNode } from './BasicNode';
 export { default as CanvasLoading } from './CanvasLoading';
 export { default as EditNode } from './EditNode';

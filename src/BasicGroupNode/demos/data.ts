@@ -46,22 +46,6 @@ export const nodes: FlowViewNode[] = [
           describe: 'XXX_XXX_XXX_API',
         },
       },
-      {
-        id: 'a10',
-        data: {
-          title: 'XXXX产品',
-          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-          describe: '2031030213014',
-        },
-      },
-      {
-        id: 'a11',
-        data: {
-          title: 'XXXX产品',
-          logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-          describe: '2031030213014',
-        },
-      },
     ],
   },
   {

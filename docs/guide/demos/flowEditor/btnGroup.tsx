@@ -1,5 +1,36 @@
-export const BtnGroup = (props) => {
-  const { editor } = props;
+import { useFlowEditor } from '@ant-design/pro-flow';
+import { useCallback, useEffect, useState } from 'react';
+
+export const BtnGroup = () => {
+  const editor = useFlowEditor();
+  const [count, setCount] = useState(0);
+
+  const addMockNode = useCallback(() => {
+    if (editor) {
+      const id = Math.random();
+
+      editor.addNode({
+        id: `a${id}`,
+        type: 'StringNode',
+        position: { x: count * 200, y: 100 },
+        data: {
+          title: 'String Node',
+          handles: {
+            source: 'a1-source',
+            target: 'a1-target',
+          },
+        },
+      });
+
+      setCount((c) => c + 1);
+    }
+  }, [editor, count]);
+
+  useEffect(() => {
+    if (editor) {
+      addMockNode();
+    }
+  }, []);
 
   return (
     <>
@@ -18,27 +49,7 @@ export const BtnGroup = (props) => {
         取消全选
       </button>
       <br />
-      <button
-        onClick={() => {
-          const nodes = editor.getFlattenNodes();
-          const index = nodes ? Object.keys(nodes).length + 1 : 1;
-
-          editor.addNode({
-            id: `a${index}`,
-            type: 'StringNode',
-            position: { x: index * 200, y: 100 },
-            data: {
-              title: `String Node ${index}`,
-              handles: {
-                source: `a${index}-source`,
-                target: `a${index}-target`,
-              },
-            },
-          });
-        }}
-      >
-        新增节点
-      </button>
+      <button onClick={addMockNode}>新增节点</button>
       <button
         onClick={() => {
           editor.getSelectedKeys().forEach((id) => {

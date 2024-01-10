@@ -55,8 +55,8 @@ const BasicNodeGroup: React.FC<{
     data: _data,
   } = data;
 
-  if ((_data as BasicGroupNodeData[]).length < 7) {
-    return <div className={styles.groupWrap}>数组长度必须大于等于7！</div>;
+  if ((_data as BasicGroupNodeData[]).length < 5) {
+    return <div className={styles.groupWrap}>数组长度必须大于等于5！</div>;
   }
 
   const nodeList = convertMappingNode(_data as BasicGroupNodeData[]);

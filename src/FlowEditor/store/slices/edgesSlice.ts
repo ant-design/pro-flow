@@ -2,6 +2,7 @@ import isEqual from 'fast-deep-equal';
 import { Connection, Edge, EdgeChange } from 'reactflow';
 import { StateCreator } from 'zustand';
 
+import { generateEdgeId } from '@/FlowEditor/utils/edge';
 import { ActionOptions, ActionPayload, FlattenEdges } from '../../types';
 import { FlowEditorStore } from '../actions';
 import { EdgeDispatch, edgesReducer } from '../reducers/edge';
@@ -20,7 +21,7 @@ export interface PublicEdgesAction {
 }
 export interface EdgesSlice extends PublicEdgesAction {
   internalUpdateEdges: (flattenEdges: FlattenEdges, payload: ActionPayload) => void;
-  updateEdgesOnConnection: (connection: Connection) => void;
+  updateEdgesOnConnection: (connection: Connection) => Edge | undefined;
   updateEdgesOnEdgeChange: (changes: EdgeChange[]) => void;
 }
 
@@ -59,7 +60,23 @@ export const edgesSlice: StateCreator<
   },
 
   updateEdgesOnConnection: (connection) => {
-    get().dispatchEdges({ type: 'createEdgeFromConnection', connection });
+    const { source, target, sourceHandle, targetHandle } = connection;
+
+    if (!source || !target) return;
+
+    const edgeId = generateEdgeId(source, target, sourceHandle, targetHandle);
+
+    const edge: Edge = {
+      id: edgeId,
+      source: source,
+      target: target,
+      sourceHandle,
+      targetHandle,
+    };
+
+    get().dispatchEdges({ type: 'addEdge', edge });
+
+    return edge;
   },
 
   updateEdgesOnEdgeChange: (changes) => {
