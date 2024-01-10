@@ -1,5 +1,30 @@
 # Changelog
 
+## [Version&nbsp;1.2.0](https://github.com/ant-design/pro-flow/compare/v1.1.0...v1.2.0)
+
+<sup>Released on **2024-01-10**</sup>
+
+#### ✨ 新特性
+
+- 新增 connect、edges、nodes 的 onChange 回调，修复 FlowEditor Demo bug..
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- 新增 connect、edges、nodes 的 onChange 回调，修复 FlowEditor Demo bug., closes [#77](https://github.com/ant-design/pro-flow/issues/77) ([bde06cc](https://github.com/ant-design/pro-flow/commit/bde06cc))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ## [Version&nbsp;1.1.0](https://github.com/ant-design/pro-flow/compare/v1.0.1...v1.1.0)
 
 <sup>Released on **2024-01-09**</sup>
