@@ -169,6 +169,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
         setFlowInit(true);
         onNodesInit?.(editor);
       }
+      setFlowInit(true);
     }, [nodesInitialized]);
 
     const handleNodesChange = useCallback((changes: NodeChange[]) => {
