@@ -31,6 +31,6 @@ export * from './Input';
 export * from './MiniMap';
 export * from './constants';
 
-export type { Connection, EdgeChange, EdgeProps, NodeChange, XYPosition } from 'reactflow';
+export type { Connection, EdgeChange, EdgeProps, NodeChange } from 'reactflow';
 export type { FlowEditorStoreProviderProps } from './FlowStoreProvider';
 export type { ExtraAction } from './NodeField';
