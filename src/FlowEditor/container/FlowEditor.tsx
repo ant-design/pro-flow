@@ -1,7 +1,7 @@
 import { createStyles, cx } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { debounce, throttle } from 'lodash-es';
-import { JSXElementConstructor, forwardRef, useCallback, useEffect, useState } from 'react';
+import { JSXElementConstructor, forwardRef, useCallback, useEffect, useMemo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import ReactFlow, {
   Background,
@@ -120,11 +120,24 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     ref,
   ) => {
     const { theme, styles } = useStyles();
-    const [flowInit, setFlowInit] = useState(false);
 
     const nodes: Node[] = useStore(flowEditorSelectors.nodeList, isEqual);
     const edges = useStore(flowEditorSelectors.edgeList, isEqual);
+
     const editor = useFlowEditor();
+    const nodesInitialized = useNodesInitialized();
+
+    const flowInit = useMemo(() => {
+      if (nodesInitialized) {
+        return true;
+      }
+
+      if (nodes.length > 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }, [nodes, nodesInitialized]);
 
     const [
       // onNodesChange,
@@ -154,8 +167,6 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       onChange: onViewPortChange ? debounce(onViewPortChange, 300) : undefined,
     });
 
-    const nodesInitialized = useNodesInitialized();
-
     useEffect(() => {
       // 先把画布的 viewport 设置好
       if (!defaultViewport) {
@@ -166,7 +177,6 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
 
       // 然后设定初始化节点的相关状态
       if (nodesInitialized) {
-        setFlowInit(true);
         onNodesInit?.(editor);
       }
     }, [nodesInitialized]);
