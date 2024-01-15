@@ -10,7 +10,7 @@ export interface FlowEditorInstance extends PublicStoreAction {
   getFlattenEdges: () => FlattenEdges;
   getSelectedKeys: () => string[];
   reactflow?: ReactFlowInstance;
-  scrennToFlowPosition: (position: XYPosition) => XYPosition;
+  screenToFlowPosition: (position: XYPosition) => XYPosition;
 }
 
 export const useFlowEditor = (): FlowEditorInstance => {
