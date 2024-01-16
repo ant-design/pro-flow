@@ -1,6 +1,6 @@
-import { FlowViewNode } from '@ant-design/pro-flow';
+import { BasicGroupNodeData, FlowViewNode } from '@ant-design/pro-flow';
 
-export const nodes: FlowViewNode[] = [
+export const nodes: FlowViewNode<BasicGroupNodeData[]>[] = [
   {
     id: 'd1',
     label: 'group1',
