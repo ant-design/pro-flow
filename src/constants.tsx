@@ -35,7 +35,7 @@ export interface DefaultNodeData {
 
 export interface BasicNodeData {
   title: string;
-  describe: string;
+  description: string;
   logo: string;
   titleSlot?: {
     type: 'left' | 'right';
@@ -43,15 +43,11 @@ export interface BasicNodeData {
   };
 }
 
+export type BasicNodeProps = NodeProps<BasicNodeData>;
+
 export interface BasicGroupNodeData {
   id: string;
   data: BasicNodeData;
-}
-
-export interface NodeTypeDataMap {
-  default: DefaultNodeData;
-  BasicNode: BasicNodeData;
-  BasicNodeGroup: BasicGroupNodeData[];
 }
 
 export interface FlowViewNode<T = any, U extends string | undefined = string | undefined> {
