@@ -1,5 +1,30 @@
 # Changelog
 
+### [Version&nbsp;1.2.2](https://github.com/ant-design/pro-flow/compare/v1.2.1...v1.2.2)
+
+<sup>Released on **2024-01-16**</sup>
+
+#### 🐛 修复
+
+- Flow view docs.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Flow view docs, closes [#84](https://github.com/ant-design/pro-flow/issues/84) ([7932a62](https://github.com/ant-design/pro-flow/commit/7932a62))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version&nbsp;1.2.1](https://github.com/ant-design/pro-flow/compare/v1.2.0...v1.2.1)
 
 <sup>Released on **2024-01-10**</sup>
