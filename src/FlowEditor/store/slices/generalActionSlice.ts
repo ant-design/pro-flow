@@ -117,7 +117,6 @@ export const generalActionSlice: StateCreator<
   },
 
   deselectElement: (id) => {
-    console.log(get().selectedKeys.filter((k) => k !== id));
     get().internalUpdateSelection(
       get().selectedKeys.filter((k) => k !== id),
       {

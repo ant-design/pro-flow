@@ -11,6 +11,7 @@ export interface PublicEdgesAction {
   dispatchEdges: (payload: EdgeDispatch, options?: ActionOptions) => void;
   addEdges: (edges: Record<string, Edge>, options?: ActionOptions) => void;
   deleteEdge: (id: string) => void;
+  deleteEdges: (ids: string[]) => void;
   updateEdge: (id: string, edge: Edge, options?: ActionOptions) => void;
   updateEdgeData: <T extends object>(
     id: string,
@@ -92,6 +93,13 @@ export const edgesSlice: StateCreator<
   deleteEdge: (id) => {
     get().deselectElement(id);
     get().dispatchEdges({ type: 'deleteEdge', id });
+  },
+
+  deleteEdges: (ids) => {
+    ids.forEach((id) => {
+      get().deselectElement(id);
+      get().dispatchEdges({ type: 'deleteEdge', id });
+    });
   },
 
   updateEdgeData: (id, newData, deepReplace = false, options) => {
