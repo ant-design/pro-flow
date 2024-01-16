@@ -147,6 +147,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       onElementSelectChange,
       // onEdgesChange,
       dispatchNodes,
+      deselectElement,
     ] = useStore((s) => [
       // s.onNodesChange,
       s.updateEdgesOnConnection,
@@ -155,6 +156,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       s.onElementSelectChange,
       // s.onEdgesChange,
       s.dispatchNodes,
+      s.deselectElement,
     ]);
 
     const instance = useReactFlow();
@@ -200,6 +202,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
             break;
 
           case 'remove':
+            deselectElement(c.id);
             dispatchNodes({ type: 'deleteNode', id: c.id });
             break;
           case 'select':

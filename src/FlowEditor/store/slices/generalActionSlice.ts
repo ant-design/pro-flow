@@ -117,6 +117,7 @@ export const generalActionSlice: StateCreator<
   },
 
   deselectElement: (id) => {
+    console.log(get().selectedKeys.filter((k) => k !== id));
     get().internalUpdateSelection(
       get().selectedKeys.filter((k) => k !== id),
       {
@@ -131,6 +132,7 @@ export const generalActionSlice: StateCreator<
 
   deleteSelection: () => {
     const { selectedKeys, flattenEdges, flattenNodes, dispatchNodes, dispatchEdges } = get();
+    console.log(get());
 
     selectedKeys.forEach((id) => {
       if (flattenNodes[id]) dispatchNodes({ type: 'deleteNode', id });

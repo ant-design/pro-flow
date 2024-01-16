@@ -83,6 +83,7 @@ export const edgesSlice: StateCreator<
     changes.forEach((e) => {
       switch (e.type) {
         case 'remove':
+          get().deselectElement(e.id);
           get().dispatchEdges({ type: 'deleteEdge', id: e.id });
       }
     });
