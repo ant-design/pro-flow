@@ -43,8 +43,6 @@ export interface BasicNodeData {
   };
 }
 
-export type BasicNodeProps = NodeProps<BasicNodeData>;
-
 export interface BasicGroupNodeData {
   id: string;
   data: BasicNodeData;
