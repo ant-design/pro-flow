@@ -1,6 +1,6 @@
 import { useMemoizedFn } from 'ahooks';
 import { useCallback, useMemo } from 'react';
-import { ReactFlowInstance, useReactFlow } from 'reactflow';
+import { ReactFlowInstance, XYPosition, useReactFlow } from 'reactflow';
 import { useStoreApi } from '../store';
 import { PublicStoreAction } from '../store/slices';
 import { FlattenEdges, FlattenNodes } from '../types';
@@ -10,6 +10,7 @@ export interface FlowEditorInstance extends PublicStoreAction {
   getFlattenEdges: () => FlattenEdges;
   getSelectedKeys: () => string[];
   reactflow?: ReactFlowInstance;
+  screenToFlowPosition: (position: XYPosition) => XYPosition;
 }
 
 export const useFlowEditor = (): FlowEditorInstance => {

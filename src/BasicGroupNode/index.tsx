@@ -92,7 +92,7 @@ const BasicNodeGroup: React.FC<{
             };
             _node.title = data.title;
             _node.logo = data.logo;
-            _node.des = data.describe;
+            _node.des = data.description;
             return GroupItem(_node);
           })}
           <div className={`${styles.btnWrap} buttonWrap`}></div>
