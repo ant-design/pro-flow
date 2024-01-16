@@ -131,9 +131,9 @@ export const generalActionSlice: StateCreator<
   },
 
   deleteSelection: () => {
-    const { selectedKeys, flattenEdges, flattenNodes, dispatchNodes, dispatchEdges } = get();
-    console.log(get());
-
+    const { selectedKeys, flattenEdges, flattenNodes, dispatchNodes, dispatchEdges, deselectAll } =
+      get();
+    deselectAll();
     selectedKeys.forEach((id) => {
       if (flattenNodes[id]) dispatchNodes({ type: 'deleteNode', id });
       if (flattenEdges[id]) dispatchEdges({ type: 'deleteEdge', id });
