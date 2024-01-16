@@ -18,25 +18,25 @@ description: 基础画布容器
 
 ### FlowView
 
-| 属性名            | 类型                                             | 描述           | 默认值 | 必选 |
-| ----------------- | ------------------------------------------------ | -------------- | ------ | ---- |
-| nodes             | `FlowViewNode`                                   | 边数据         | -      | -    |
-| edges             | `FlowViewEdge`                                   | 节点数据       | -      | -    |
-| className         | `string`                                         | 边数据         | -      | -    |
-| style             | `CSSProperties`                                  | 节点数据       | -      | -    |
-| miniMap           | `boolean`                                        | 边数据         | -      | -    |
-| autoLayout        | `boolean`                                        | 自动布局       | true   | -    |
-| background        | `boolean`                                        | 节点数据       | -      | -    |
-| children          | `React.ReactNode`                                | 边数据         | -      | -    |
-| nodeTypes         | `Record<string, React.ComponentType<NodeProps>>` | 节点类型       | -      | -    |
-| edgeTypes         | `Record<string, React.ComponentType<EdgeProps>>` | 边缘类型       | -      | -    |
-| minZoom           | `number`                                         | 最小缩放比例   | -      | -    |
-| maxZoom           | `number`                                         | 最大缩放比例   | -      | -    |
-| stepLessZooming   | `boolean`                                        | 无级缩放监听   | -      | -    |
-| layoutOptions     | `LayoutOptions`                                  | 自动布局参数   | -      | -    |
-| beforeNodesChange | `(changes: NodeChange[]) => boolean`             | 节点变化前回调 | -      | -    |
-| beforeEdgesChange | `(changes: EdgeChange[]) => boolean`             | 边缘变化前回调 | -      | -    |
-| beforeConnect     | `(connection: Connection) => boolean`            | 连接前回调     | -      | -    |
+| 属性名            | 类型                                             | 描述             | 默认值 | 必选 |
+| ----------------- | ------------------------------------------------ | ---------------- | ------ | ---- |
+| nodes             | `FlowViewNode`                                   | 边数据           | -      | -    |
+| edges             | `FlowViewEdge`                                   | 节点数据         | -      | -    |
+| className         | `string`                                         | 类名             | -      | -    |
+| style             | `CSSProperties`                                  | 样式             | -      | -    |
+| miniMap           | `boolean`                                        | 是否开启小地图   | -      | -    |
+| autoLayout        | `boolean`                                        | 自动布局         | true   | -    |
+| background        | `boolean`                                        | 是否打开默认背景 | -      | -    |
+| children          | `React.ReactNode`                                | 子组件           | -      | -    |
+| nodeTypes         | `Record<string, React.ComponentType<NodeProps>>` | 节点类型         | -      | -    |
+| edgeTypes         | `Record<string, React.ComponentType<EdgeProps>>` | 边缘类型         | -      | -    |
+| minZoom           | `number`                                         | 最小缩放比例     | -      | -    |
+| maxZoom           | `number`                                         | 最大缩放比例     | -      | -    |
+| stepLessZooming   | `boolean`                                        | 无级缩放监听     | -      | -    |
+| layoutOptions     | `LayoutOptions`                                  | 自动布局参数     | -      | -    |
+| beforeNodesChange | `(changes: NodeChange[]) => boolean`             | 节点变化前回调   | -      | -    |
+| beforeEdgesChange | `(changes: EdgeChange[]) => boolean`             | 边缘变化前回调   | -      | -    |
+| beforeConnect     | `(connection: Connection) => boolean`            | 连接前回调       | -      | -    |
 
 #### LayoutOptions
 
