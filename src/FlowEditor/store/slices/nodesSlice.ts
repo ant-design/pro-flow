@@ -29,11 +29,13 @@ export interface PublicNodesAction {
    */
   deleteNode: (id: string) => void;
   /**
-   * 更新节点元数据
-   * @param id 要更新的节点 id
-   * @param key 要更新的元数据键名
-   * @param value 要更新的元数据值
-   * @param options 节点操作的选项
+   * 删除节点元素
+   * @param id 要删除的节点 id
+   */
+  deleteNodes: (ids: string[]) => void;
+  /**
+   * 批量删除节点
+   * @param ids 要批量删除的节点 id
    */
   updateNodeMeta: <T extends keyof MetaData>(
     id: string,
@@ -153,5 +155,11 @@ export const nodesSlice: StateCreator<
   deleteNode: (id) => {
     get().deselectElement(id);
     get().dispatchNodes({ type: 'deleteNode', id });
+  },
+  deleteNodes: (ids) => {
+    ids.forEach((id) => {
+      get().deselectElement(id);
+      get().dispatchNodes({ type: 'deleteNode', id });
+    });
   },
 });

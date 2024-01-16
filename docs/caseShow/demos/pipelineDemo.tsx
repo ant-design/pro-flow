@@ -6,11 +6,12 @@ import {
   FlowView,
   FlowViewProvider,
   Handle,
+  NodeProps,
   Position,
+  SelectType,
   useFlowViewer,
 } from '@ant-design/pro-flow';
 import { FC, useCallback } from 'react';
-import { SelectType } from '../../../src';
 import useStyles from './index.style';
 
 interface PipeNodeChild {
@@ -32,9 +33,7 @@ interface PipeNode {
 const nodeWidth = 170;
 const nodeHeight = 500;
 
-export const PipeNode: FC<{
-  data: PipeNode;
-}> = ({ data }) => {
+export const PipeNode: FC<NodeProps<PipeNode>> = ({ data }) => {
   const { stepTitle, title, des, logo, needSwitch = false, children = [], selectType } = data;
   const { styles } = useStyles();
 

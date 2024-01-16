@@ -1,4 +1,4 @@
-import { FlowViewEdge, FlowViewNode, MiniMapPosition, NodeTypeDataMap } from '@/constants';
+import { FlowViewEdge, FlowViewNode, MiniMapPosition } from '@/constants';
 import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Edge, Node, ReactFlowProvider, useReactFlow } from 'reactflow';
 import { LayoutOptions, NodeMapping, SelectType } from '../constants';
@@ -35,7 +35,7 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
 
   const flowDataAdapter = useCallback(
     (
-      initNodes: FlowViewNode<keyof NodeTypeDataMap>[],
+      initNodes: FlowViewNode[],
       initEdges: FlowViewEdge[],
       zoom: number,
       autoLayout: boolean,

@@ -39,7 +39,7 @@ export const nodes: FlowViewNode[] = [
     id: 'a1',
     label: '12345',
     data: {
-      title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
+      title: 'XXX_API_ddddddddddddddddddddddddddddddƒddddddddddddddddddddddddb1',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
       description: 'XXX_XXX_XXX_API',
     },
@@ -102,7 +102,7 @@ export const nodes: FlowViewNode[] = [
         id: 'a5',
         data: {
           title: 'XXX数据源',
-          describe: 'cksadjfnf',
+          description: 'cksadjfnf',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
         },
       },
@@ -111,7 +111,7 @@ export const nodes: FlowViewNode[] = [
         data: {
           title: 'XXX_API',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-          describe: 'XXX_XXX_XXX_API',
+          description: 'XXX_XXX_XXX_API',
         },
       },
       {
@@ -119,14 +119,14 @@ export const nodes: FlowViewNode[] = [
         data: {
           title: 'XXXX产品',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-          describe: '2031030213014',
+          description: '2031030213014',
         },
       },
       {
         id: 'a8',
         data: {
           title: 'XXX数据源',
-          describe: 'cksadjfnf',
+          description: 'cksadjfnf',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
         },
       },
@@ -135,7 +135,7 @@ export const nodes: FlowViewNode[] = [
         data: {
           title: 'XXX_API',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
-          describe: 'XXX_XXX_XXX_API',
+          description: 'XXX_XXX_XXX_API',
         },
       },
       {
@@ -143,7 +143,7 @@ export const nodes: FlowViewNode[] = [
         data: {
           title: 'XXXX产品',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-          describe: '2031030213014',
+          description: '2031030213014',
         },
       },
       {
@@ -151,7 +151,7 @@ export const nodes: FlowViewNode[] = [
         data: {
           title: 'XXXX产品',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
-          describe: '2031030213014',
+          description: '2031030213014',
         },
       },
     ],
