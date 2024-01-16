@@ -1,4 +1,4 @@
-import { BasicNodeData, FlowViewEdge, FlowViewNode } from '@ant-design/pro-flow';
+import { FlowViewEdge, FlowViewNode } from '@ant-design/pro-flow';
 import { Progress } from 'antd';
 import useStyles from './index.style';
 
@@ -34,7 +34,7 @@ const DangerLogo: React.FC = () => {
   );
 };
 
-export const nodes: FlowViewNode<BasicNodeData>[] = [
+export const nodes: FlowViewNode[] = [
   {
     id: 'a1',
     label: '12345',
@@ -102,7 +102,7 @@ export const nodes: FlowViewNode<BasicNodeData>[] = [
         id: 'a5',
         data: {
           title: 'XXX数据源',
-          describe: 'cksadjfnf',
+          description: 'cksadjfnf',
           logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*jWDsQ5GTmHMAAAAAAAAAAAAADvuvAQ/original',
         },
       },
