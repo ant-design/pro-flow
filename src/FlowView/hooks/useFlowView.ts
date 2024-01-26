@@ -33,11 +33,14 @@ export const useFlowViewer = () => {
     flowViewRef,
   } = useContext(FlowViewContext);
 
-  const getNode = useCallback((nodeId: string) => {
-    if (reactFlowInstance) {
-      return reactFlowInstance.getNode(nodeId);
-    }
-  }, []);
+  const getNode = useCallback(
+    (nodeId: string) => {
+      if (reactFlowInstance) {
+        return reactFlowInstance.getNode(nodeId);
+      }
+    },
+    [reactFlowInstance],
+  );
 
   const getNodes = useCallback(() => {
     if (reactFlowInstance) {

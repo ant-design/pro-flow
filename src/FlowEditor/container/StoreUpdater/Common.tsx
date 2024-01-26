@@ -13,6 +13,8 @@ export interface CommonUpdaterProps
       | 'flattenNodes'
       | 'onFlattenNodesChange'
       | 'onNodesChange'
+      | 'beforeNodesChange'
+      | 'afterNodesChange'
       | 'onFlattenEdgesChange'
       | 'onNodesTreeChange'
     >
@@ -27,6 +29,8 @@ export interface CommonUpdaterProps
 const CommonStoreUpdater: FC<CommonUpdaterProps> = ({
   onFlattenNodesChange,
   onNodesChange,
+  beforeNodesChange,
+  afterNodesChange,
   onEdgesChange,
   onFlattenEdgesChange,
   onNodesTreeChange,
@@ -46,6 +50,9 @@ const CommonStoreUpdater: FC<CommonUpdaterProps> = ({
   useStoreUpdater('onFlattenEdgesChange', onFlattenEdgesChange);
 
   useStoreUpdater('onNodesChange', onNodesChange);
+  useStoreUpdater('beforeNodesChange', beforeNodesChange);
+  useStoreUpdater('afterNodesChange', afterNodesChange);
+
   useStoreUpdater('onEdgesChange', onEdgesChange);
   useStoreUpdater('onNodesTreeChange', onNodesTreeChange);
 

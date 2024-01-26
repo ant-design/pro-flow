@@ -27,6 +27,8 @@ export const useFlowEditor = (): FlowEditorInstance => {
     onEdgesChange,
     onFlattenEdgesChange,
     onNodesChange,
+    beforeNodesChange,
+    afterNodesChange,
     onViewPortChange,
     onNodesTreeChange,
     onSelectionChange,

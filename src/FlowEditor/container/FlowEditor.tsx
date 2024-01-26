@@ -1,6 +1,6 @@
 import { createStyles, cx } from 'antd-style';
 import isEqual from 'fast-deep-equal';
-import { debounce, throttle } from 'lodash-es';
+import { debounce } from 'lodash-es';
 import { JSXElementConstructor, forwardRef, useCallback, useEffect, useMemo } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import ReactFlow, {
@@ -10,7 +10,6 @@ import ReactFlow, {
   Edge,
   EdgeChange,
   Node,
-  NodeChange,
   NodeTypes,
   SelectionMode,
   Viewport,
@@ -72,9 +71,9 @@ export interface FlowEditorAppProps {
   onNodesInitChange?: (init: boolean) => void;
 
   // nodes 事件
-  beforeNodesChange?: (changes: NodeChange[]) => boolean;
-  onNodesChange?: (changes: NodeChange[]) => void;
-  afterNodesChange?: (changes: NodeChange[]) => void;
+  // beforeNodesChange?: (changes: NodeChange[]) => boolean;
+  // onNodesChange?: (changes: NodeChange[]) => void;
+  // afterNodesChange?: (changes: NodeChange[]) => void;
   // edges 事件
   beforeEdgesChange?: (changes: EdgeChange[]) => boolean;
   onEdgesChange?: (changes: EdgeChange[]) => void;
@@ -105,9 +104,9 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       background = true,
       miniMap = true,
       onNodesInit,
-      beforeNodesChange = () => true,
-      onNodesChange = () => {},
-      afterNodesChange = () => {},
+      // beforeNodesChange = () => true,
+      // onNodesChange = () => {},
+      // afterNodesChange = () => {},
 
       beforeConnect = () => true,
       onConnect = () => {},
@@ -140,23 +139,19 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     }, [nodes, nodesInitialized]);
 
     const [
-      // onNodesChange,
+      handleNodesChange,
       updateEdgesOnConnection,
       updateEdgesOnEdgeChange,
       onViewPortChange,
       onElementSelectChange,
       // onEdgesChange,
-      dispatchNodes,
-      deselectElement,
     ] = useStore((s) => [
-      // s.onNodesChange,
+      s.handleNodesChange,
       s.updateEdgesOnConnection,
       s.updateEdgesOnEdgeChange,
       s.onViewPortChange,
       s.onElementSelectChange,
       // s.onEdgesChange,
-      s.dispatchNodes,
-      s.deselectElement,
     ]);
 
     const instance = useReactFlow();
@@ -183,41 +178,43 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       }
     }, [nodesInitialized]);
 
-    const handleNodesChange = useCallback((changes: NodeChange[]) => {
-      if (!beforeNodesChange(changes)) {
-        return;
-      }
-      // 选择逻辑 nodes 和 edges 一致
-      changes.forEach((c) => {
-        switch (c.type) {
-          case 'add':
-            dispatchNodes({ type: 'addNode', node: c.item });
-            break;
-          case 'position':
-            // 结束拖拽时，会触发一次 position，此时 dragging 为 false
-            if (!c.dragging) break;
+    // const handleNodesChange = useCallback(
+    //   (changes: NodeChange[]) => {
+    //     if (!get().beforeNodesChange(changes)) {
+    //       return;
+    //     }
+    //     // 选择逻辑 nodes 和 edges 一致
+    //     changes.forEach((c) => {
+    //       switch (c.type) {
+    //         case 'add':
+    //           dispatchNodes({ type: 'addNode', node: c.item });
+    //           break;
+    //         case 'position':
+    //           // 结束拖拽时，会触发一次 position，此时 dragging 为 false
+    //           if (!c.dragging) break;
 
-            dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
+    //           dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
 
-            break;
+    //           break;
+    //         case 'remove':
+    //           deselectElement(c.id);
+    //           dispatchNodes({ type: 'deleteNode', id: c.id });
+    //           break;
+    //         case 'select':
+    //           onElementSelectChange(c.id, c.selected);
+    //       }
+    //     });
 
-          case 'remove':
-            deselectElement(c.id);
-            dispatchNodes({ type: 'deleteNode', id: c.id });
-            break;
-          case 'select':
-            onElementSelectChange(c.id, c.selected);
-        }
-      });
+    //     if (onNodesChange) {
+    //       throttle(onNodesChange, 50)(changes);
+    //     }
 
-      if (onNodesChange) {
-        throttle(onNodesChange, 50)(changes);
-      }
-
-      if (afterNodesChange) {
-        afterNodesChange(changes);
-      }
-    }, []);
+    //     if (afterNodesChange) {
+    //       afterNodesChange(changes);
+    //     }
+    //   },
+    //   [onNodesChange],
+    // );
 
     const handleEdgesChange = useCallback((changes: EdgeChange[]) => {
       if (!beforeEdgesChange(changes)) {

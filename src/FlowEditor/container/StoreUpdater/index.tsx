@@ -16,6 +16,8 @@ const StoreUpdater: FC<StoreUpdaterProps> = ({
   flattenNodes,
   onFlattenNodesChange,
   onNodesChange,
+  beforeNodesChange,
+  afterNodesChange,
   flattenEdges,
   onEdgesChange,
   onFlattenEdgesChange,
@@ -55,6 +57,8 @@ const StoreUpdater: FC<StoreUpdaterProps> = ({
       editorRef={editorRef}
       onEdgesChange={onEdgesChange}
       onNodesChange={onNodesChange}
+      beforeNodesChange={beforeNodesChange}
+      afterNodesChange={afterNodesChange}
       onNodesTreeChange={onNodesTreeChange}
       onFlattenEdgesChange={onFlattenEdgesChange}
       onFlattenNodesChange={onFlattenNodesChange}

@@ -1,7 +1,8 @@
 import isEqual from 'fast-deep-equal';
-import { Node } from 'reactflow';
+import { Node, NodeChange } from 'reactflow';
 import { StateCreator } from 'zustand';
 
+import { convertChange } from '@/FlowEditor/utils/convertChange';
 import { ActionOptions, ActionPayload, FlattenNodes, MetaData, NodeState } from '../../types';
 import { FlowEditorStore } from '../actions';
 import { NodeDispatch, nodeReducer } from '../reducers/node';
@@ -86,6 +87,7 @@ export interface PublicNodesAction {
 
 export interface NodesSlice extends PublicNodesAction {
   internalUpdateNodes: (flattenNodes: FlattenNodes, payload: ActionPayload) => void;
+  handleNodesChange: (changes: NodeChange[]) => void;
 }
 
 export const nodesSlice: StateCreator<
@@ -103,16 +105,32 @@ export const nodesSlice: StateCreator<
   },
 
   dispatchNodes: (payload, { recordHistory = true } = { recordHistory: true }) => {
+    const { beforeNodesChange, onNodesChange, afterNodesChange, internalUpdateNodes, yjsDoc } =
+      get();
     const { type, ...res } = payload;
+    const changes = convertChange(payload);
+
     const flattenNodes = nodeReducer(get().flattenNodes, payload);
     if (isEqual(flattenNodes, get().flattenNodes)) return;
 
-    get().internalUpdateNodes(flattenNodes, {
+    console.log('dispatch here');
+
+    if (beforeNodesChange && !beforeNodesChange(changes)) {
+      return;
+    }
+
+    if (onNodesChange) {
+      onNodesChange(changes);
+    }
+
+    if (afterNodesChange) {
+      afterNodesChange(changes);
+    }
+
+    internalUpdateNodes(flattenNodes, {
       type: `dispatchFlattenNodes/${type}`,
       payload: res,
     });
-
-    const { yjsDoc } = get();
 
     if (recordHistory) {
       yjsDoc.recordHistoryData(
@@ -147,19 +165,55 @@ export const nodesSlice: StateCreator<
   },
 
   addNode: (node) => {
-    get().dispatchNodes({ type: 'addNode', node });
+    get().dispatchNodes({
+      type: 'addNode',
+      node,
+    });
   },
   addNodes: (nodes, options) => {
-    get().dispatchNodes({ type: 'addNodes', nodes }, options);
+    get().dispatchNodes(
+      {
+        type: 'addNodes',
+        nodes,
+      },
+      options,
+    );
   },
   deleteNode: (id) => {
     get().deselectElement(id);
     get().dispatchNodes({ type: 'deleteNode', id });
   },
+
   deleteNodes: (ids) => {
     ids.forEach((id) => {
       get().deselectElement(id);
       get().dispatchNodes({ type: 'deleteNode', id });
+    });
+  },
+
+  handleNodesChange: (changes) => {
+    const { dispatchNodes, onElementSelectChange, deselectElement } = get();
+    changes.forEach((c) => {
+      switch (c.type) {
+        case 'add':
+          dispatchNodes({
+            type: 'addNode',
+            node: c.item,
+          });
+          break;
+        case 'position':
+          // 结束拖拽时，会触发一次 position，此时 dragging 为 false
+          if (!c.dragging) break;
+
+          dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
+          break;
+        case 'remove':
+          deselectElement(c.id);
+          dispatchNodes({ type: 'deleteNode', id: c.id });
+          break;
+        case 'select':
+          onElementSelectChange(c.id, c.selected);
+      }
     });
   },
 });

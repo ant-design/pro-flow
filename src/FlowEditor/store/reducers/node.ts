@@ -52,6 +52,13 @@ interface UpdateNodeDataDispatch {
   deepReplace?: boolean;
 }
 
+interface UpdateNodeDataDispatch {
+  type: 'updateNodeData';
+  id: string;
+  newData: any;
+  deepReplace?: boolean;
+}
+
 export type NodeDispatch =
   | AddNodeDispatch
   | BatchAddNodesDispatch
