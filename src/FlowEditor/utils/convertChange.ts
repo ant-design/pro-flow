@@ -1,7 +1,8 @@
-import { NodeChange } from 'reactflow';
+import { EdgeChange, NodeChange } from 'reactflow';
+import { EdgeDispatch } from '../store/reducers/edge';
 import { NodeDispatch } from '../store/reducers/node';
 
-export function convertChange(c: NodeDispatch): NodeChange[] {
+export function convertNodeChange(c: NodeDispatch): NodeChange[] {
   switch (c.type) {
     case 'addNode': {
       return [
@@ -31,6 +32,35 @@ export function convertChange(c: NodeDispatch): NodeChange[] {
           id: c.id,
           type: 'position',
           position: c.position,
+        },
+      ];
+    }
+    default:
+      return [];
+  }
+}
+
+export function convertEdgeChange(c: EdgeDispatch): EdgeChange[] {
+  switch (c.type) {
+    case 'addEdge': {
+      return [
+        {
+          item: c.edge,
+          type: 'add',
+        },
+      ];
+    }
+    case 'addEdges': {
+      return Object.keys(c.edges).map((key) => ({
+        item: c.edges[key],
+        type: 'add',
+      }));
+    }
+    case 'deleteEdge': {
+      return [
+        {
+          id: c.id,
+          type: 'remove',
         },
       ];
     }

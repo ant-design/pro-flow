@@ -10,6 +10,8 @@ export interface CommonUpdaterProps
       FlowEditorStore,
       | 'flattenEdges'
       | 'onEdgesChange'
+      | 'beforeEdgesChange'
+      | 'afterEdgesChange'
       | 'flattenNodes'
       | 'onFlattenNodesChange'
       | 'onNodesChange'
@@ -32,6 +34,8 @@ const CommonStoreUpdater: FC<CommonUpdaterProps> = ({
   beforeNodesChange,
   afterNodesChange,
   onEdgesChange,
+  beforeEdgesChange,
+  afterEdgesChange,
   onFlattenEdgesChange,
   onNodesTreeChange,
   editorRef,
@@ -54,6 +58,9 @@ const CommonStoreUpdater: FC<CommonUpdaterProps> = ({
   useStoreUpdater('afterNodesChange', afterNodesChange);
 
   useStoreUpdater('onEdgesChange', onEdgesChange);
+  useStoreUpdater('beforeEdgesChange', beforeEdgesChange);
+  useStoreUpdater('afterEdgesChange', afterEdgesChange);
+
   useStoreUpdater('onNodesTreeChange', onNodesTreeChange);
 
   // 将 store 传递到外部

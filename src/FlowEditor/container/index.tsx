@@ -16,9 +16,9 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
       onNodesInit,
 
       // edge change
-      beforeEdgesChange,
-      onEdgesChange,
-      afterEdgeChange,
+      // beforeEdgesChange,
+      // onEdgesChange,
+      // afterEdgeChange,
 
       // node change
       // beforeNodesChange,
@@ -51,10 +51,10 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
             background={background}
             onNodesInit={onNodesInit}
             // beforeNodesChange={beforeNodesChange}
-            beforeEdgesChange={beforeEdgesChange}
+            // beforeEdgesChange={beforeEdgesChange}
             beforeConnect={beforeConnect}
-            onEdgesChange={onEdgesChange}
-            afterEdgeChange={afterEdgeChange}
+            // onEdgesChange={onEdgesChange}
+            // afterEdgeChange={afterEdgeChange}
             // onNodesChange={onNodesChange}
             // afterNodesChange={afterNodesChange}
             onConnect={onConnect}

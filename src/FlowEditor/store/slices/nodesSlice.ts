@@ -2,7 +2,7 @@ import isEqual from 'fast-deep-equal';
 import { Node, NodeChange } from 'reactflow';
 import { StateCreator } from 'zustand';
 
-import { convertChange } from '@/FlowEditor/utils/convertChange';
+import { convertNodeChange } from '@/FlowEditor/utils/convertChange';
 import { ActionOptions, ActionPayload, FlattenNodes, MetaData, NodeState } from '../../types';
 import { FlowEditorStore } from '../actions';
 import { NodeDispatch, nodeReducer } from '../reducers/node';
@@ -108,7 +108,7 @@ export const nodesSlice: StateCreator<
     const { beforeNodesChange, onNodesChange, afterNodesChange, internalUpdateNodes, yjsDoc } =
       get();
     const { type, ...res } = payload;
-    const changes = convertChange(payload);
+    const changes = convertNodeChange(payload);
 
     const flattenNodes = nodeReducer(get().flattenNodes, payload);
     if (isEqual(flattenNodes, get().flattenNodes)) return;

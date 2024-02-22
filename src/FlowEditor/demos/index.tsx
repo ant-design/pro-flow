@@ -90,6 +90,21 @@ const ProFlowDemo = () => {
         // onFlattenNodesChange={(e) => {
         //   console.log(e);
         // }}
+
+        // onEdgesChange done
+        beforeEdgesChange={(edges) => {
+          console.log('beforeEdgesChange', edges);
+          return true;
+        }}
+        onEdgesChange={(edges) => {
+          console.log('onEdgesChange', edges);
+        }}
+        afterEdgesChange={(edges) => {
+          console.log('afterEdgesChange', edges);
+        }}
+        onFlattenEdgesChange={(e) => {
+          console.log('flattenEdgesChange', e);
+        }}
       >
         <FlowPanel>
           <button

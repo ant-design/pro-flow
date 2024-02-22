@@ -104,17 +104,10 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       background = true,
       miniMap = true,
       onNodesInit,
-      // beforeNodesChange = () => true,
-      // onNodesChange = () => {},
-      // afterNodesChange = () => {},
 
       beforeConnect = () => true,
       onConnect = () => {},
       afterConnect = () => {},
-
-      beforeEdgesChange = () => true,
-      onEdgesChange,
-      afterEdgeChange = () => {},
     },
     ref,
   ) => {
@@ -140,17 +133,15 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
 
     const [
       handleNodesChange,
+      handleEdgesChange,
       updateEdgesOnConnection,
-      updateEdgesOnEdgeChange,
       onViewPortChange,
-      onElementSelectChange,
       // onEdgesChange,
     ] = useStore((s) => [
       s.handleNodesChange,
+      s.handleEdgesChange,
       s.updateEdgesOnConnection,
-      s.updateEdgesOnEdgeChange,
       s.onViewPortChange,
-      s.onElementSelectChange,
       // s.onEdgesChange,
     ]);
 
@@ -216,30 +207,30 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     //   [onNodesChange],
     // );
 
-    const handleEdgesChange = useCallback((changes: EdgeChange[]) => {
-      if (!beforeEdgesChange(changes)) {
-        return;
-      }
+    // const handleEdgesChange = useCallback((changes: EdgeChange[]) => {
+    //   if (!beforeEdgesChange(changes)) {
+    //     return;
+    //   }
 
-      // reactflow 的 edges change 事件，只有 select 和 remove
-      updateEdgesOnEdgeChange(changes);
+    //   // reactflow 的 edges change 事件，只有 select 和 remove
+    //   updateEdgesOnEdgeChange(changes);
 
-      // 选择逻辑 nodes 和 edges 一致
-      changes.forEach((c) => {
-        switch (c.type) {
-          case 'select':
-            onElementSelectChange(c.id, c.selected);
-        }
-      });
+    //   // 选择逻辑 nodes 和 edges 一致
+    //   changes.forEach((c) => {
+    //     switch (c.type) {
+    //       case 'select':
+    //         onElementSelectChange(c.id, c.selected);
+    //     }
+    //   });
 
-      if (onEdgesChange) {
-        onEdgesChange(changes);
-      }
+    //   if (onEdgesChange) {
+    //     onEdgesChange(changes);
+    //   }
 
-      if (afterEdgeChange) {
-        afterEdgeChange(changes);
-      }
-    }, []);
+    //   if (afterEdgeChange) {
+    //     afterEdgeChange(changes);
+    //   }
+    // }, []);
 
     const handleConnect = useCallback((connection: Connection) => {
       if (!beforeConnect(connection)) {

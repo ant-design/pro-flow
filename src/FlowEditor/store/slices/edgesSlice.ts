@@ -1,8 +1,8 @@
+import { convertEdgeChange } from '@/FlowEditor/utils/convertChange';
+import { generateEdgeId } from '@/FlowEditor/utils/edge';
 import isEqual from 'fast-deep-equal';
 import { Connection, Edge, EdgeChange } from 'reactflow';
 import { StateCreator } from 'zustand';
-
-import { generateEdgeId } from '@/FlowEditor/utils/edge';
 import { ActionOptions, ActionPayload, FlattenEdges } from '../../types';
 import { FlowEditorStore } from '../actions';
 import { EdgeDispatch, edgesReducer } from '../reducers/edge';
@@ -22,6 +22,7 @@ export interface PublicEdgesAction {
 }
 export interface EdgesSlice extends PublicEdgesAction {
   internalUpdateEdges: (flattenEdges: FlattenEdges, payload: ActionPayload) => void;
+  handleEdgesChange: (changes: EdgeChange[]) => void;
   updateEdgesOnConnection: (connection: Connection) => Edge | undefined;
   updateEdgesOnEdgeChange: (changes: EdgeChange[]) => void;
 }
@@ -39,10 +40,27 @@ export const edgesSlice: StateCreator<
   },
   dispatchEdges: (payload, { recordHistory = true } = { recordHistory: true }) => {
     const { type, ...res } = payload;
+
+    const { beforeEdgesChange, onEdgesChange, afterEdgesChange, internalUpdateEdges, yjsDoc } =
+      get();
+
+    const changes = convertEdgeChange(payload);
+
+    console.log(payload);
     const flattenEdges = edgesReducer(get().flattenEdges, payload);
     if (isEqual(flattenEdges, get().flattenEdges)) return;
 
-    const { internalUpdateEdges, yjsDoc } = get();
+    if (beforeEdgesChange && !beforeEdgesChange(changes)) {
+      return;
+    }
+
+    if (onEdgesChange) {
+      onEdgesChange(changes);
+    }
+
+    if (afterEdgesChange) {
+      afterEdgesChange(changes);
+    }
 
     internalUpdateEdges(flattenEdges, {
       type: `dispatchFlattenEdges/${type}`,
@@ -123,5 +141,28 @@ export const edgesSlice: StateCreator<
       },
       options,
     );
+  },
+
+  handleEdgesChange: (changes) => {
+    const { dispatchEdges, onElementSelectChange, deselectElement } = get();
+
+    console.log(changes);
+
+    changes.forEach((c) => {
+      switch (c.type) {
+        case 'add':
+          dispatchEdges({
+            type: 'addEdge',
+            edge: c.item,
+          });
+          break;
+        case 'remove':
+          deselectElement(c.id);
+          dispatchEdges({ type: 'deleteEdge', id: c.id });
+          break;
+        case 'select':
+          onElementSelectChange(c.id, c.selected);
+      }
+    });
   },
 });

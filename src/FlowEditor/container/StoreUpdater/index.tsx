@@ -20,6 +20,8 @@ const StoreUpdater: FC<StoreUpdaterProps> = ({
   afterNodesChange,
   flattenEdges,
   onEdgesChange,
+  beforeEdgesChange,
+  afterEdgesChange,
   onFlattenEdgesChange,
   onNodesTreeChange,
   onViewPortChange,
@@ -58,6 +60,8 @@ const StoreUpdater: FC<StoreUpdaterProps> = ({
       onEdgesChange={onEdgesChange}
       onNodesChange={onNodesChange}
       beforeNodesChange={beforeNodesChange}
+      beforeEdgesChange={beforeEdgesChange}
+      afterEdgesChange={afterEdgesChange}
       afterNodesChange={afterNodesChange}
       onNodesTreeChange={onNodesTreeChange}
       onFlattenEdgesChange={onFlattenEdgesChange}
