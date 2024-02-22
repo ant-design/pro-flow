@@ -76,28 +76,30 @@ const ProFlowDemo = () => {
     <div className={styles.container}>
       <FlowEditor
         nodeTypes={nodeTypes}
-        beforeNodesChange={(nodes) => {
-          console.log('beforeNodesChange', nodes);
-          return true;
-        }}
-        onNodesChange={(nodes) => {
-          console.log('onNodesChange', nodes);
-        }}
-        afterNodesChange={(nodes) => {
-          console.log('afterNodesChange', nodes);
-        }}
-        onFlattenNodesChange={(e) => {
-          console.log(e);
-        }}
+        // onNodesChange done
+        // beforeNodesChange={(nodes) => {
+        //   console.log('beforeNodesChange', nodes);
+        //   return true;
+        // }}
+        // onNodesChange={(nodes) => {
+        //   console.log('onNodesChange', nodes);
+        // }}
+        // afterNodesChange={(nodes) => {
+        //   console.log('afterNodesChange', nodes);
+        // }}
+        // onFlattenNodesChange={(e) => {
+        //   console.log(e);
+        // }}
       >
         <FlowPanel>
-          {/* <button
+          <button
+            type={'button'}
             onClick={() => {
               editor.deleteNode('a1');
             }}
           >
             remove
-          </button> */}
+          </button>
         </FlowPanel>
       </FlowEditor>
     </div>

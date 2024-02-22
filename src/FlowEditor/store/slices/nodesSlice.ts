@@ -113,8 +113,6 @@ export const nodesSlice: StateCreator<
     const flattenNodes = nodeReducer(get().flattenNodes, payload);
     if (isEqual(flattenNodes, get().flattenNodes)) return;
 
-    console.log('dispatch here');
-
     if (beforeNodesChange && !beforeNodesChange(changes)) {
       return;
     }
