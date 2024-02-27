@@ -143,7 +143,14 @@ export const edgesSlice: StateCreator<
   },
 
   handleEdgesChange: (changes) => {
-    const { dispatchEdges, onElementSelectChange, deselectElement } = get();
+    const {
+      beforeEdgesChange,
+      onEdgesChange,
+      afterEdgesChange,
+      dispatchEdges,
+      onElementSelectChange,
+      deselectElement,
+    } = get();
 
     changes.forEach((c) => {
       switch (c.type) {
@@ -158,7 +165,19 @@ export const edgesSlice: StateCreator<
           dispatchEdges({ type: 'deleteEdge', id: c.id });
           break;
         case 'select':
+          if (beforeEdgesChange && !beforeEdgesChange(changes)) {
+            return;
+          }
+
+          if (onEdgesChange) {
+            onEdgesChange(changes);
+          }
+
           onElementSelectChange(c.id, c.selected);
+
+          if (afterEdgesChange) {
+            afterEdgesChange(changes);
+          }
       }
     });
   },

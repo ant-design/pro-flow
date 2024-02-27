@@ -192,7 +192,14 @@ export const nodesSlice: StateCreator<
   },
 
   handleNodesChange: (changes) => {
-    const { dispatchNodes, onElementSelectChange, deselectElement } = get();
+    const {
+      beforeNodesChange,
+      onNodesChange,
+      afterNodesChange,
+      dispatchNodes,
+      onElementSelectChange,
+      deselectElement,
+    } = get();
 
     changes.forEach((c) => {
       switch (c.type) {
@@ -213,7 +220,19 @@ export const nodesSlice: StateCreator<
           dispatchNodes({ type: 'deleteNode', id: c.id });
           break;
         case 'select':
+          if (beforeNodesChange && !beforeNodesChange(changes)) {
+            return;
+          }
+
+          if (onNodesChange) {
+            onNodesChange(changes);
+          }
+
           onElementSelectChange(c.id, c.selected);
+
+          if (afterNodesChange) {
+            afterNodesChange(changes);
+          }
       }
     });
   },

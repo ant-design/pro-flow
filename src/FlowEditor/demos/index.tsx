@@ -73,10 +73,6 @@ const ProFlowDemo = (props: { nodes: [] }) => {
     });
   }, [editor]);
 
-  useEffect(() => {
-    console.log(nodes);
-  }, [nodes]);
-
   const handleConnect = useCallback(
     (connection) => {
       console.log('onConnect: ', connection);
@@ -85,9 +81,21 @@ const ProFlowDemo = (props: { nodes: [] }) => {
     [nodes],
   );
 
-  const handleEdgesChange = useCallback(() => {
-    console.log('onEdgesChange', nodes);
-  }, [nodes]);
+  const handleEdgesChange = useCallback(
+    (change) => {
+      // console.log('onEdgesChange', nodes);
+      console.log(change);
+    },
+    [nodes],
+  );
+
+  const handleNodesChange = useCallback(
+    (change) => {
+      // console.log('onEdgesChange', nodes);
+      console.log(change);
+    },
+    [nodes],
+  );
 
   return (
     <div className={styles.container}>
@@ -114,6 +122,7 @@ const ProFlowDemo = (props: { nodes: [] }) => {
         //   return true;
         // }}
         onEdgesChange={handleEdgesChange}
+        onNodesChange={handleNodesChange}
         // afterEdgesChange={(edges) => {
         //   console.log('afterEdgesChange', edges);
         // }}
