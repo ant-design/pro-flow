@@ -72,11 +72,13 @@ const BasicNodeGroup: React.FC<{
             style={{
               position: 'absolute',
               zIndex: 10,
-              top: `-${zoomNum(24, zoom, true)}px`,
-              padding: `${2 / zoom}px ${1 / zoom}px ${2 / zoom}px 0`,
+              transform: `translate(0, -${zoomNum(20, zoom, true)}px) scale(${1 / zoom})`,
+              // top: `-${zoomNum(24, zoom, true)}px`,
+              // padding: `${2 / zoom}px ${1 / zoom}px ${2 / zoom}px 0`,
               color: `rgba(0, 0, 0, 0.45)`,
               borderRadius: `4px`,
-              fontSize: `${14 / zoom}px`,
+              // fontSize: `${14 / zoom}px`,
+              fontSize: `${14}px`,
               whiteSpace: `nowrap`,
             }}
           >

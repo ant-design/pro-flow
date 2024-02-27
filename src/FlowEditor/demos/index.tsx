@@ -9,7 +9,7 @@ import {
   Position,
   useFlowEditor,
 } from '@ant-design/pro-flow';
-import { FC, useEffect } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import useStyles from './index.style';
 
 const StringRender: FC = (node: any) => {
@@ -35,7 +35,8 @@ const StringRender: FC = (node: any) => {
 
 const nodeTypes = { StringNode: StringRender };
 
-const ProFlowDemo = () => {
+const ProFlowDemo = (props: { nodes: [] }) => {
+  const nodes = props.nodes;
   const editor = useFlowEditor();
   const { styles } = useStyles();
 
@@ -72,6 +73,22 @@ const ProFlowDemo = () => {
     });
   }, [editor]);
 
+  useEffect(() => {
+    console.log(nodes);
+  }, [nodes]);
+
+  const handleConnect = useCallback(
+    (connection) => {
+      console.log('onConnect: ', connection);
+      console.log(nodes);
+    },
+    [nodes],
+  );
+
+  const handleEdgesChange = useCallback(() => {
+    console.log('onEdgesChange', nodes);
+  }, [nodes]);
+
   return (
     <div className={styles.container}>
       <FlowEditor
@@ -92,19 +109,19 @@ const ProFlowDemo = () => {
         // }}
 
         // onEdgesChange done
-        beforeEdgesChange={(edges) => {
-          console.log('beforeEdgesChange', edges);
-          return true;
-        }}
-        onEdgesChange={(edges) => {
-          console.log('onEdgesChange', edges);
-        }}
-        afterEdgesChange={(edges) => {
-          console.log('afterEdgesChange', edges);
-        }}
-        onFlattenEdgesChange={(e) => {
-          console.log('flattenEdgesChange', e);
-        }}
+        // beforeEdgesChange={(edges) => {
+        //   console.log('beforeEdgesChange', edges);
+        //   return true;
+        // }}
+        onEdgesChange={handleEdgesChange}
+        // afterEdgesChange={(edges) => {
+        //   console.log('afterEdgesChange', edges);
+        // }}
+        // onFlattenEdgesChange={(e) => {
+        //   console.log('flattenEdgesChange', e);
+        // }}
+
+        onConnect={handleConnect}
       >
         <FlowPanel>
           <button
@@ -122,9 +139,18 @@ const ProFlowDemo = () => {
 };
 
 const FlowDemo = () => {
+  const [nodes, setNodes] = useState([]);
+
+  useEffect(() => {
+    setNodes([
+      {
+        aaa: 123,
+      },
+    ]);
+  }, []);
   return (
     <FlowEditorProvider>
-      <ProFlowDemo />
+      <ProFlowDemo nodes={nodes} />
     </FlowEditorProvider>
   );
 };

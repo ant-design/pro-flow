@@ -232,29 +232,32 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     //   }
     // }, []);
 
-    const handleConnect = useCallback((connection: Connection) => {
-      if (!beforeConnect(connection)) {
-        return;
-      }
+    const handleConnect = useCallback(
+      (connection: Connection) => {
+        if (!beforeConnect(connection)) {
+          return;
+        }
 
-      if (onConnect) {
-        onConnect(connection);
-      }
+        if (onConnect) {
+          onConnect(connection);
+        }
 
-      const edge = updateEdgesOnConnection(connection);
+        const edge = updateEdgesOnConnection(connection);
 
-      if (afterConnect && edge) {
-        // 触发 edges change 事件
-        handleEdgesChange([
-          {
-            item: edge,
-            type: 'add',
-          },
-        ]);
+        if (afterConnect && edge) {
+          // 触发 edges change 事件
+          handleEdgesChange([
+            {
+              item: edge,
+              type: 'add',
+            },
+          ]);
 
-        afterConnect(edge);
-      }
-    }, []);
+          afterConnect(edge);
+        }
+      },
+      [onConnect, beforeConnect, afterConnect],
+    );
 
     return (
       <Flexbox height={'100%'} width={'100%'} style={{ position: 'relative' }}>

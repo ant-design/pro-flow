@@ -46,7 +46,6 @@ export const edgesSlice: StateCreator<
 
     const changes = convertEdgeChange(payload);
 
-    console.log(payload);
     const flattenEdges = edgesReducer(get().flattenEdges, payload);
     if (isEqual(flattenEdges, get().flattenEdges)) return;
 
@@ -145,8 +144,6 @@ export const edgesSlice: StateCreator<
 
   handleEdgesChange: (changes) => {
     const { dispatchEdges, onElementSelectChange, deselectElement } = get();
-
-    console.log(changes);
 
     changes.forEach((c) => {
       switch (c.type) {

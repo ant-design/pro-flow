@@ -168,6 +168,7 @@ export const nodesSlice: StateCreator<
       node,
     });
   },
+
   addNodes: (nodes, options) => {
     get().dispatchNodes(
       {
@@ -177,6 +178,7 @@ export const nodesSlice: StateCreator<
       options,
     );
   },
+
   deleteNode: (id) => {
     get().deselectElement(id);
     get().dispatchNodes({ type: 'deleteNode', id });
@@ -191,6 +193,7 @@ export const nodesSlice: StateCreator<
 
   handleNodesChange: (changes) => {
     const { dispatchNodes, onElementSelectChange, deselectElement } = get();
+
     changes.forEach((c) => {
       switch (c.type) {
         case 'add':
