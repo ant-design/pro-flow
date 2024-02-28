@@ -16,10 +16,9 @@ nodes.push({
   },
 });
 
-for (let i = 1; i < 200; i += 1) {
+for (let i = 1; i < 1000; i += 1) {
   nodes.push({
     id: `a${i}`,
-    label: `节点${i}`,
     data: {
       title: `节点${i}`,
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
@@ -50,13 +49,7 @@ function App() {
         height: '800px',
       }}
     >
-      <FlowView
-        minZoom={0.01}
-        stepLessZooming={false}
-        nodes={nodes}
-        edges={edges}
-        stepLessZooming={true}
-      ></FlowView>
+      <FlowView minZoom={0.01} stepLessZooming={false} nodes={nodes} edges={edges}></FlowView>
     </div>
   );
 }

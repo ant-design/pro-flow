@@ -8,7 +8,6 @@ import ReactFlow, {
   BackgroundVariant,
   Connection,
   Edge,
-  EdgeChange,
   Node,
   NodeTypes,
   SelectionMode,
@@ -75,9 +74,9 @@ export interface FlowEditorAppProps {
   // onNodesChange?: (changes: NodeChange[]) => void;
   // afterNodesChange?: (changes: NodeChange[]) => void;
   // edges 事件
-  beforeEdgesChange?: (changes: EdgeChange[]) => boolean;
-  onEdgesChange?: (changes: EdgeChange[]) => void;
-  afterEdgeChange?: (changes: EdgeChange[]) => void;
+  // beforeEdgesChange?: (changes: EdgeChange[]) => boolean;
+  // onEdgesChange?: (changes: EdgeChange[]) => void;
+  // afterEdgeChange?: (changes: EdgeChange[]) => void;
   // connection 事件
   beforeConnect?: (connection: Connection) => boolean;
   onConnect?: (connection: Connection) => void;

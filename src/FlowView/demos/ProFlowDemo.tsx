@@ -64,7 +64,6 @@ const ProFlowDemo = () => {
         nodeTypes={nodeTypes}
         onEdgesChange={onEdgesChange}
         onNodesChange={onNodesChange}
-        stepLessZooming={true}
       ></FlowView>
     </div>
   );
