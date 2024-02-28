@@ -88,6 +88,11 @@ export interface PublicNodesAction {
 export interface NodesSlice extends PublicNodesAction {
   internalUpdateNodes: (flattenNodes: FlattenNodes, payload: ActionPayload) => void;
   handleNodesChange: (changes: NodeChange[]) => void;
+  nodesChangeLifecycle: (
+    changes: NodeChange[],
+    doSomething?: (...args: any) => void,
+    doSomethingParams?: any,
+  ) => void;
 }
 
 export const nodesSlice: StateCreator<
@@ -105,25 +110,14 @@ export const nodesSlice: StateCreator<
   },
 
   dispatchNodes: (payload, { recordHistory = true } = { recordHistory: true }) => {
-    const { beforeNodesChange, onNodesChange, afterNodesChange, internalUpdateNodes, yjsDoc } =
-      get();
+    const { nodesChangeLifecycle, internalUpdateNodes, yjsDoc } = get();
     const { type, ...res } = payload;
     const changes = convertNodeChange(payload);
 
     const flattenNodes = nodeReducer(get().flattenNodes, payload);
     if (isEqual(flattenNodes, get().flattenNodes)) return;
 
-    if (beforeNodesChange && !beforeNodesChange(changes)) {
-      return;
-    }
-
-    if (onNodesChange) {
-      onNodesChange(changes);
-    }
-
-    if (afterNodesChange) {
-      afterNodesChange(changes);
-    }
+    nodesChangeLifecycle(changes);
 
     internalUpdateNodes(flattenNodes, {
       type: `dispatchFlattenNodes/${type}`,
@@ -192,14 +186,7 @@ export const nodesSlice: StateCreator<
   },
 
   handleNodesChange: (changes) => {
-    const {
-      beforeNodesChange,
-      onNodesChange,
-      afterNodesChange,
-      dispatchNodes,
-      onElementSelectChange,
-      deselectElement,
-    } = get();
+    const { dispatchNodes, onElementSelectChange, deselectElement, nodesChangeLifecycle } = get();
 
     changes.forEach((c) => {
       switch (c.type) {
@@ -220,20 +207,31 @@ export const nodesSlice: StateCreator<
           dispatchNodes({ type: 'deleteNode', id: c.id });
           break;
         case 'select':
-          if (beforeNodesChange && !beforeNodesChange(changes)) {
-            return;
-          }
-
-          if (onNodesChange) {
-            onNodesChange(changes);
-          }
-
-          onElementSelectChange(c.id, c.selected);
-
-          if (afterNodesChange) {
-            afterNodesChange(changes);
-          }
+          nodesChangeLifecycle(changes, onElementSelectChange, {
+            id: c.id,
+            selected: true,
+          });
       }
     });
+  },
+
+  nodesChangeLifecycle: (changes, doSomething, doSomethingParams) => {
+    const { beforeNodesChange, onNodesChange, afterNodesChange } = get();
+
+    if (beforeNodesChange && !beforeNodesChange(changes)) {
+      return;
+    }
+
+    if (onNodesChange) {
+      onNodesChange(changes);
+    }
+
+    if (doSomething) {
+      doSomething(...doSomethingParams);
+    }
+
+    if (afterNodesChange) {
+      afterNodesChange(changes);
+    }
   },
 });
