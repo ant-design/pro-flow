@@ -244,14 +244,6 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
         const edge = updateEdgesOnConnection(connection);
 
         if (afterConnect && edge) {
-          // 触发 edges change 事件
-          handleEdgesChange([
-            {
-              item: edge,
-              type: 'add',
-            },
-          ]);
-
           afterConnect(edge);
         }
       },
