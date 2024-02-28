@@ -4,12 +4,11 @@
 import {
   FlowEditor,
   FlowEditorProvider,
-  FlowPanel,
   Handle,
   Position,
   useFlowEditor,
 } from '@ant-design/pro-flow';
-import { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import useStyles from './index.style';
 
 const StringRender: FC = (node: any) => {
@@ -35,8 +34,7 @@ const StringRender: FC = (node: any) => {
 
 const nodeTypes = { StringNode: StringRender };
 
-const ProFlowDemo = (props: { nodes: [] }) => {
-  const nodes = props.nodes;
+const ProFlowDemo = () => {
   const editor = useFlowEditor();
   const { styles } = useStyles();
 
@@ -73,30 +71,6 @@ const ProFlowDemo = (props: { nodes: [] }) => {
     });
   }, [editor]);
 
-  const handleConnect = useCallback(
-    (connection) => {
-      console.log('onConnect: ', connection);
-      console.log(nodes);
-    },
-    [nodes],
-  );
-
-  const handleEdgesChange = useCallback(
-    (change) => {
-      // console.log('onEdgesChange', nodes);
-      console.log(change);
-    },
-    [nodes],
-  );
-
-  const handleNodesChange = useCallback(
-    (change) => {
-      // console.log('onEdgesChange', nodes);
-      console.log(change);
-    },
-    [nodes],
-  );
-
   return (
     <div className={styles.container}>
       <FlowEditor
@@ -121,45 +95,22 @@ const ProFlowDemo = (props: { nodes: [] }) => {
         //   console.log('beforeEdgesChange', edges);
         //   return true;
         // }}
-        onEdgesChange={handleEdgesChange}
-        onNodesChange={handleNodesChange}
+
         // afterEdgesChange={(edges) => {
         //   console.log('afterEdgesChange', edges);
         // }}
         // onFlattenEdgesChange={(e) => {
         //   console.log('flattenEdgesChange', e);
         // }}
-
-        onConnect={handleConnect}
-      >
-        <FlowPanel>
-          <button
-            type={'button'}
-            onClick={() => {
-              editor.deleteNode('a1');
-            }}
-          >
-            remove
-          </button>
-        </FlowPanel>
-      </FlowEditor>
+      ></FlowEditor>
     </div>
   );
 };
 
 const FlowDemo = () => {
-  const [nodes, setNodes] = useState([]);
-
-  useEffect(() => {
-    setNodes([
-      {
-        aaa: 123,
-      },
-    ]);
-  }, []);
   return (
     <FlowEditorProvider>
-      <ProFlowDemo nodes={nodes} />
+      <ProFlowDemo />
     </FlowEditorProvider>
   );
 };
