@@ -12,8 +12,17 @@ export interface FlowEditorState {
   selectedKeys: string[];
 
   onSelectionChange?: (selection: string[]) => void;
+
+  // nodes change 相关事件
   onNodesChange?: (nodeChanges: NodeChange[]) => void;
+  beforeNodesChange?: (nodeChanges: NodeChange[]) => boolean;
+  afterNodesChange?: (nodeChanges: NodeChange[]) => void;
+
+  // edges change 相关事件
   onEdgesChange?: (edges: EdgeChange[]) => void;
+  beforeEdgesChange?: (edges: EdgeChange[]) => boolean;
+  afterEdgesChange?: (edges: EdgeChange[]) => void;
+
   onNodesTreeChange?: (nodesTree: FlowTreeNode[]) => void;
   onViewPortChange?: (viewport: Viewport) => void;
 

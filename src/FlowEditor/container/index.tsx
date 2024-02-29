@@ -16,14 +16,14 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
       onNodesInit,
 
       // edge change
-      beforeEdgesChange,
-      onEdgesChange,
-      afterEdgeChange,
+      // beforeEdgesChange,
+      // onEdgesChange,
+      // afterEdgeChange,
 
       // node change
-      beforeNodesChange,
-      onNodesChange,
-      afterNodesChange,
+      // beforeNodesChange,
+      // onNodesChange,
+      // afterNodesChange,
 
       // Connect
       beforeConnect,
@@ -50,13 +50,13 @@ const FlowEditor = forwardRef<any, FlowEditorProps>(
             miniMap={miniMap}
             background={background}
             onNodesInit={onNodesInit}
-            beforeNodesChange={beforeNodesChange}
-            beforeEdgesChange={beforeEdgesChange}
+            // beforeNodesChange={beforeNodesChange}
+            // beforeEdgesChange={beforeEdgesChange}
             beforeConnect={beforeConnect}
-            onEdgesChange={onEdgesChange}
-            afterEdgeChange={afterEdgeChange}
-            onNodesChange={onNodesChange}
-            afterNodesChange={afterNodesChange}
+            // onEdgesChange={onEdgesChange}
+            // afterEdgeChange={afterEdgeChange}
+            // onNodesChange={onNodesChange}
+            // afterNodesChange={afterNodesChange}
             onConnect={onConnect}
             afterConnect={afterConnect}
             contextMenuEnabled={contextMenuEnabled}
