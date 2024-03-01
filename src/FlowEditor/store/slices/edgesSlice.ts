@@ -25,11 +25,6 @@ export interface EdgesSlice extends PublicEdgesAction {
   handleEdgesChange: (changes: EdgeChange[]) => void;
   updateEdgesOnConnection: (connection: Connection) => Edge | undefined;
   updateEdgesOnEdgeChange: (changes: EdgeChange[]) => void;
-  edgesChangeLifecycle: (
-    changes: EdgeChange[],
-    doSomething?: (...args: any) => void,
-    doSomethingParams?: any,
-  ) => void;
 }
 
 export const edgesSlice: StateCreator<
@@ -46,14 +41,25 @@ export const edgesSlice: StateCreator<
   dispatchEdges: (payload, { recordHistory = true } = { recordHistory: true }) => {
     const { type, ...res } = payload;
 
-    const { edgesChangeLifecycle, internalUpdateEdges, yjsDoc } = get();
+    const { beforeEdgesChange, onEdgesChange, afterEdgesChange, internalUpdateEdges, yjsDoc } =
+      get();
 
     const changes = convertEdgeChange(payload);
 
     const flattenEdges = edgesReducer(get().flattenEdges, payload);
     if (isEqual(flattenEdges, get().flattenEdges)) return;
 
-    edgesChangeLifecycle(changes);
+    if (beforeEdgesChange && !beforeEdgesChange(changes)) {
+      return;
+    }
+
+    if (onEdgesChange) {
+      onEdgesChange(changes);
+    }
+
+    if (afterEdgesChange) {
+      afterEdgesChange(changes);
+    }
 
     internalUpdateEdges(flattenEdges, {
       type: `dispatchFlattenEdges/${type}`,
@@ -137,7 +143,14 @@ export const edgesSlice: StateCreator<
   },
 
   handleEdgesChange: (changes) => {
-    const { dispatchEdges, onElementSelectChange, edgesChangeLifecycle, deselectElement } = get();
+    const {
+      dispatchEdges,
+      onElementSelectChange,
+      beforeEdgesChange,
+      onEdgesChange,
+      afterEdgesChange,
+      deselectElement,
+    } = get();
 
     changes.forEach((c) => {
       switch (c.type) {
@@ -152,31 +165,20 @@ export const edgesSlice: StateCreator<
           dispatchEdges({ type: 'deleteEdge', id: c.id });
           break;
         case 'select':
-          edgesChangeLifecycle(changes, onElementSelectChange, {
-            id: c.id,
-            selected: c.selected,
-          });
+          if (beforeEdgesChange && !beforeEdgesChange(changes)) {
+            return;
+          }
+
+          if (onEdgesChange) {
+            onEdgesChange(changes);
+          }
+
+          onElementSelectChange(c.id, c.selected);
+
+          if (afterEdgesChange) {
+            afterEdgesChange(changes);
+          }
       }
     });
-  },
-
-  edgesChangeLifecycle: (changes, doSomething, doSomethingParams) => {
-    const { beforeEdgesChange, onEdgesChange, afterEdgesChange } = get();
-
-    if (beforeEdgesChange && !beforeEdgesChange(changes)) {
-      return;
-    }
-
-    if (onEdgesChange) {
-      onEdgesChange(changes);
-    }
-
-    if (doSomething) {
-      doSomething(...doSomethingParams);
-    }
-
-    if (afterEdgesChange) {
-      afterEdgesChange(changes);
-    }
   },
 });
