@@ -68,7 +68,7 @@ export const edgesReducer = (state: EdgesState, payload: EdgeDispatch): EdgesSta
     case 'updateEdge':
       return produce(state, (draftState) => {
         const { id, edge } = payload;
-        console.log(draftState[id]);
+
         draftState[id] = { ...draftState[id], ...edge };
       });
 

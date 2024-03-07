@@ -1,7 +1,7 @@
 import { createStyles, cx } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { debounce } from 'lodash-es';
-import { JSXElementConstructor, forwardRef, useCallback, useEffect, useMemo } from 'react';
+import { JSXElementConstructor, forwardRef, useCallback, useEffect, useMemo, useRef } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import ReactFlow, {
   Background,
@@ -117,6 +117,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     const editor = useFlowEditor();
 
     const nodesInitialized = useNodesInitialized();
+    const firstRender = useRef(false);
 
     const flowInit = useMemo(() => {
       if (nodesInitialized) {
@@ -155,6 +156,10 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     });
 
     useEffect(() => {
+      if (firstRender.current) {
+        return;
+      }
+      firstRender.current = true;
       // 先把画布的 viewport 设置好
       if (!defaultViewport) {
         instance.fitView();
@@ -167,69 +172,6 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
         onNodesInit?.(editor);
       }
     }, [nodesInitialized]);
-
-    // const handleNodesChange = useCallback(
-    //   (changes: NodeChange[]) => {
-    //     if (!get().beforeNodesChange(changes)) {
-    //       return;
-    //     }
-    //     // 选择逻辑 nodes 和 edges 一致
-    //     changes.forEach((c) => {
-    //       switch (c.type) {
-    //         case 'add':
-    //           dispatchNodes({ type: 'addNode', node: c.item });
-    //           break;
-    //         case 'position':
-    //           // 结束拖拽时，会触发一次 position，此时 dragging 为 false
-    //           if (!c.dragging) break;
-
-    //           dispatchNodes({ type: 'updateNodePosition', position: c.position, id: c.id });
-
-    //           break;
-    //         case 'remove':
-    //           deselectElement(c.id);
-    //           dispatchNodes({ type: 'deleteNode', id: c.id });
-    //           break;
-    //         case 'select':
-    //           onElementSelectChange(c.id, c.selected);
-    //       }
-    //     });
-
-    //     if (onNodesChange) {
-    //       throttle(onNodesChange, 50)(changes);
-    //     }
-
-    //     if (afterNodesChange) {
-    //       afterNodesChange(changes);
-    //     }
-    //   },
-    //   [onNodesChange],
-    // );
-
-    // const handleEdgesChange = useCallback((changes: EdgeChange[]) => {
-    //   if (!beforeEdgesChange(changes)) {
-    //     return;
-    //   }
-
-    //   // reactflow 的 edges change 事件，只有 select 和 remove
-    //   updateEdgesOnEdgeChange(changes);
-
-    //   // 选择逻辑 nodes 和 edges 一致
-    //   changes.forEach((c) => {
-    //     switch (c.type) {
-    //       case 'select':
-    //         onElementSelectChange(c.id, c.selected);
-    //     }
-    //   });
-
-    //   if (onEdgesChange) {
-    //     onEdgesChange(changes);
-    //   }
-
-    //   if (afterEdgeChange) {
-    //     afterEdgeChange(changes);
-    //   }
-    // }, []);
 
     const handleConnect = useCallback(
       (connection: Connection) => {
