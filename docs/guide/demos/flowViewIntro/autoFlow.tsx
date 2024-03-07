@@ -14,12 +14,6 @@ function App() {
       <FlowView
         nodes={nodes}
         edges={edges}
-        layoutOptions={{
-          rankdir: 'BT',
-          align: 'DL',
-          nodesep: 1000,
-          ranksep: 500,
-        }}
         onEdgeClick={(e, edge) => {
           console.log(edge);
         }}
