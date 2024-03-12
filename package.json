@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5",
-    "@ant-design/pro-editor": "latest",
+    "@ant-design/pro-editor": "0.41.0",
     "@babel/runtime": "^7",
     "@dagrejs/dagre": "^1.0.4",
     "@dnd-kit/core": "^6.1.0",
