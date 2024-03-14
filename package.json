@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-flow",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "A React based Flow components",
   "keywords": [
     "flow",
@@ -63,7 +63,7 @@
     "@ant-design/icons": "^5",
     "@ant-design/pro-editor": "0.41.0",
     "@babel/runtime": "^7",
-    "@dagrejs/dagre": "^1.0.4",
+    "@dagrejs/dagre": "1.0.4",
     "@dnd-kit/core": "^6.1.0",
     "@floating-ui/react": "^0.24",
     "ahooks": "^3",
