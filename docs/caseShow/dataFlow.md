@@ -1,10 +1,12 @@
 ---
-nav: 案例展示
-order: 100
+nav:
+  title: 案例展示
+  order: 100
 group:
   title: 场景展示
   order: 1
 title: 数据流程图
+order: 1
 description:
 ---
 
