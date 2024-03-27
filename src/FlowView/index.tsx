@@ -83,7 +83,8 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   const { zoom } = useViewport();
 
   useEffect(() => {
-    flowDataAdapter!(nodes, edges, 1, autoLayout, layoutOptions);
+    const _zoom = zoom ? zoom : 1;
+    flowDataAdapter!(nodes, edges, _zoom, autoLayout, layoutOptions);
   }, [nodes, edges]);
 
   useEffect(() => {

@@ -49,6 +49,7 @@ export const nodes: FlowViewNode[] = [
     id: 'b1',
     label: ' API',
     data: {
+      isDanger: true,
       title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
       description: 'XXX_XXX_XXX_API',
@@ -98,6 +99,7 @@ export const nodes: FlowViewNode[] = [
     id: 'c2',
     label: '产品',
     data: {
+      isDanger: true,
       title: 'XXXX产品',
       logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*ezaYT4wYRBwAAAAAAAAAAAAADvuvAQ/original',
       description: '2031030213014',
