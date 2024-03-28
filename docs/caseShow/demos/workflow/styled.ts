@@ -9,6 +9,12 @@ const useStyles = createStyles(() => {
       flexDirection: 'column',
     },
     aside: {
+      width: '200px',
+      height: '100%',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      zIndex: 10000000,
       borderRight: '1px solid #eee',
       padding: '15px 10px',
       fontSize: '12px',
@@ -41,6 +47,26 @@ const useStyles = createStyles(() => {
     },
     selectall: {
       marginTop: '10px',
+    },
+    textNode: {
+      width: '300px',
+      height: '300px',
+      background: '#fff',
+      borderRadius: '10px',
+      border: '1px solid #ddd',
+      display: 'flex',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      h1: {
+        margin: 0,
+        padding: '10px',
+        borderBottom: '1px solid #ddd',
+        fontSize: '',
+      },
+      textarea: {
+        width: '280px',
+        height: '200px',
+      },
     },
   };
 });

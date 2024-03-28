@@ -7,14 +7,12 @@ import {
   EditNode,
   FlowEditor,
   FlowEditorProvider,
-  FlowPanel,
-  Inspector,
   useFlowEditor,
 } from '@ant-design/pro-flow';
-import { Button } from 'antd';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { StringRender } from '/docs/guide/demos/flowEditor/StringNode';
 
+import TextNode from './nodes/textNode';
 import Sidebar from './sidebar';
 import useStyles from './styled';
 
@@ -22,6 +20,7 @@ let id = 0;
 const getId = () => `node_${id++}`;
 
 const nodeTypes = {
+  TextNode: TextNode,
   StringNode: StringRender,
   BasicNode: BasicNode,
   EditNode: EditNode,
@@ -29,7 +28,6 @@ const nodeTypes = {
 const ProFlowDemo = () => {
   const editor = useFlowEditor();
   const { styles } = useStyles();
-  const [open, setOpen] = useState(false);
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
@@ -71,7 +69,7 @@ const ProFlowDemo = () => {
   useEffect(() => {
     editor.addNode({
       id: 'a1',
-      type: 'EditNode',
+      type: 'TextNode',
       position: { x: 200, y: 100 },
       data: {
         title: '123',
@@ -87,17 +85,11 @@ const ProFlowDemo = () => {
         flowProps={{
           onDrop,
           onDragOver,
-          onPaneClick: () => setOpen(false),
         }}
         miniMap={false}
         devtools={true}
       >
-        <FlowPanel position={'top-center'}>
-          <Button onClick={() => setOpen(true)}>Open Nodes Inspector</Button>
-        </FlowPanel>
-        <Inspector open={open} onClick={() => setOpen(false)}>
-          <Sidebar />
-        </Inspector>
+        <Sidebar />
       </FlowEditor>
     </div>
   );

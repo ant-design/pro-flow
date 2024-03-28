@@ -10,13 +10,20 @@ export default () => {
 
   return (
     <div className={styles.aside}>
-      <div className={styles.description}>您可以将这些节点拖到上面的画布中</div>
+      <div className={styles.description}>您可以将这些节点拖到左侧的画布中</div>
       <div
         className={cx(styles.dndnode, styles.input)}
         onDragStart={(event) => onDragStart(event, 'StringNode')}
         draggable
       >
         String Node
+      </div>
+      <div
+        className={cx(styles.dndnode, styles.input)}
+        onDragStart={(event) => onDragStart(event, 'TextNode')}
+        draggable
+      >
+        Text Node
       </div>
       <div
         className={styles.dndnode}

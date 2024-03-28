@@ -7,13 +7,13 @@ const useStyles = createStyles(() => {
       height: '600px',
     },
     stringNode: {
-      width: '150px',
-      height: '30px',
+      width: '200px',
+      height: '50px',
       textAlign: 'center',
       backgroundColor: 'white',
       border: '1px solid aqua',
       borderRadius: '4px',
-      lineHeight: '30px',
+      lineHeight: '50px',
     },
     selected: {
       border: '1px solid #007bff',
