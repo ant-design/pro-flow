@@ -10,4 +10,4 @@ description:
 
 ## Default
 
-<code src="./demos/pipelineDemo.tsx" ></code>
+<code src="./demos/pipeline/multiPipe/pipelineDemo.tsx" ></code>

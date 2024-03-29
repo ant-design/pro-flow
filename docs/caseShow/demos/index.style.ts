@@ -5,7 +5,7 @@ const useStyles = createStyles(() => {
     pipeNodeWrap: {
       width: '260px',
       minHeight: '100px',
-      backgroundColor: '#f6f8fa',
+      backgroundColor: 'white',
       padding: '16px',
       boxSizing: 'border-box',
       borderRadius: '8px',
@@ -25,6 +25,7 @@ const useStyles = createStyles(() => {
       boxSizing: 'border-box',
       border: '1px solid rgba(0, 0, 0, 0.08)',
       borderRadius: '8px',
+      backgroundColor: 'white',
     },
     mainBox: {
       width: '100%',

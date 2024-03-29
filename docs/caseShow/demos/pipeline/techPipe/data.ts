@@ -1,104 +1,8 @@
-/**
- * compact: true
- */
-import {
-  Background,
-  FlowView,
-  FlowViewProvider,
-  Handle,
-  Position,
-  useFlowViewer,
-} from '@ant-design/pro-flow';
-import { FC, useCallback } from 'react';
-import useStyles from './techPipeLine.style';
-
-interface PipeNodeChild {
-  title: string;
-  logo?: string;
-  id: string;
-}
-
-interface PipeNode {
-  title: string;
-  logo: string;
-  des?: string;
-  children?: PipeNodeChild[];
-}
-
 const nodeWidth = 250;
 const nodeHeight = 150;
 const edgeType = 'bezier';
 
-const PipeNode: FC<{
-  data: PipeNode;
-}> = ({ data }) => {
-  const { title, des, logo, children = [] } = data;
-  const { styles } = useStyles();
-
-  return (
-    <div className={styles.techUIpipeNodeWrap}>
-      <div className={styles.pipeNode}>
-        <div className={styles.mainBox}>
-          <div className={styles.logo}>
-            <img src={logo} alt="" />
-          </div>
-          <div className={styles.title}>{title}</div>
-          <div className={styles.subLogo}>
-            <img
-              src={
-                'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Rg0cQpidn8cAAAAAAAAAAAAADvl6AQ/original'
-              }
-              alt=""
-            />
-          </div>
-        </div>
-
-        {children.length > 0 && (
-          <div className={styles.children}>
-            {children.map((item, index) => (
-              <>
-                <div className={styles.childrenBox} key={index}>
-                  <Handle
-                    id={`${item.id}-target`}
-                    type="target"
-                    position={Position.Left}
-                    style={{
-                      opacity: 0,
-                    }}
-                  />
-
-                  {item.logo && (
-                    <div className={styles.logo}>
-                      <img src={item.logo} alt="" />
-                    </div>
-                  )}
-
-                  <div className={styles.wrap}>
-                    <div className={styles.lineTitle}>{item.title}</div>
-                  </div>
-                  <Handle
-                    id={`${item.id}-source`}
-                    type="source"
-                    position={Position.Right}
-                    style={{
-                      opacity: 0,
-                    }}
-                  />
-                </div>
-              </>
-            ))}
-          </div>
-        )}
-
-        {des && <div className={styles.des}>{des}</div>}
-      </div>
-    </div>
-  );
-};
-
-const nodeTypes = { pipeNode: PipeNode };
-
-const nodes = [
+export const nodes = [
   {
     id: 'a1',
     type: 'pipeNode',
@@ -198,7 +102,7 @@ const nodes = [
   },
 ];
 
-const edges = [
+export const edges = [
   {
     id: 'edge-1',
     source: 'a1',
@@ -296,43 +200,3 @@ const edges = [
     targetHandle: 'a4-2-target',
   },
 ];
-
-function App() {
-  const flowViewer = useFlowViewer();
-  const { styles } = useStyles();
-
-  const handleClick = useCallback(
-    (e, n) => {
-      flowViewer?.zoomToNode(n.id, 1000);
-    },
-    [flowViewer],
-  );
-
-  const handlePaneClick = useCallback(() => {
-    // flowViewer?.zoomToNode(n.id, 1000);
-  }, [flowViewer]);
-  return (
-    <div className={styles.container}>
-      <FlowView
-        onNodeClick={handleClick}
-        onPaneClick={handlePaneClick}
-        nodes={nodes}
-        edges={edges}
-        nodeTypes={nodeTypes}
-        background={false}
-      >
-        <Background color="#F6F8FB" variant="none" style={{ background: '#F6F8FB' }} />
-      </FlowView>
-    </div>
-  );
-}
-
-function ProApp() {
-  return (
-    <FlowViewProvider>
-      <App />
-    </FlowViewProvider>
-  );
-}
-
-export default ProApp;

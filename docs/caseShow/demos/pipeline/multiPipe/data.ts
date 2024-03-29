@@ -1,103 +1,7 @@
-/**
- * compact: true
- */
-import {
-  Background,
-  FlowView,
-  FlowViewProvider,
-  Handle,
-  NodeProps,
-  Position,
-  SelectType,
-  useFlowViewer,
-} from '@ant-design/pro-flow';
-import { FC, useCallback } from 'react';
-import useStyles from './index.style';
-
-interface PipeNodeChild {
-  title: string;
-  des: string;
-  logo: string;
-}
-
-interface PipeNode {
-  stepTitle: string;
-  title: string;
-  des: string;
-  logo: string;
-  needSwitch?: boolean;
-  children?: PipeNodeChild[];
-  selectType?: SelectType;
-}
-
 const nodeWidth = 170;
 const nodeHeight = 500;
 
-export const PipeNode: FC<NodeProps<PipeNode>> = ({ data }) => {
-  const { stepTitle, title, des, logo, needSwitch = false, children = [], selectType } = data;
-  const { styles } = useStyles();
-
-  return (
-    <div className={'pipeNodeWrap' + ` pipeNode-${selectType}`}>
-      <Handle
-        type="target"
-        position={Position.Left}
-        style={{
-          opacity: 0,
-          top: 30,
-          left: 3,
-        }}
-      />
-      <div className={styles.stepTitle}>{stepTitle}</div>
-      <div className={styles.pipeNode}>
-        <div className={styles.mainBox}>
-          <div className={styles.logo}>
-            <img src={logo} alt="" />
-          </div>
-          <div className={styles.wrap}>
-            <div className={styles.title}>{title}</div>
-            <div className={styles.des}>{des}</div>
-          </div>
-          {needSwitch && (
-            <div className={styles.pipeNodeRight}>
-              <div className={styles.switch}>
-                <div className={styles.switchIcon}></div>
-              </div>
-            </div>
-          )}
-        </div>
-        {children.length > 0 && (
-          <div className={styles.children}>
-            {children.map((item, index) => (
-              <div className={styles.childrenBox} key={index}>
-                <div className={styles.logo}>
-                  <img src={item.logo} alt="" />
-                </div>
-                <div className={styles.wrap}>
-                  <div className={styles.title}>{item.title}</div>
-                  <div className={styles.des}>{item.des}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        style={{
-          top: 30,
-          right: 3,
-          opacity: 0,
-        }}
-      />
-    </div>
-  );
-};
-
-const nodeTypes = { pipeNode: PipeNode };
-
-const nodes = [
+export const nodes = [
   {
     id: 'a1',
     type: 'pipeNode',
@@ -120,6 +24,8 @@ const nodes = [
           title: 'NPM 组件初始化',
           logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original',
           des: '30秒',
+          leftHandle: false,
+          rightHandle: true,
         },
         {
           title: '同步成员（仅子组件生...',
@@ -232,15 +138,71 @@ const nodes = [
       des: '未开始',
     },
   },
+  // {
+  //   id: 'a7',
+  //   type: 'pipeNode',
+  //   width: nodeWidth,
+  //   height: nodeHeight,
+  //   data: {
+  //     title: '同步至埋点平台',
+  //     logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Em_PQoTrMDgAAAAAAAAAAAAADvl6AQ/original',
+  //     des: '未开始',
+  //   },
+  // },
+  // {
+  //   id: 'a8',
+  //   type: 'pipeNode',
+  //   width: nodeWidth,
+  //   height: nodeHeight,
+  //   data: {
+  //     title: '同步至埋点平台',
+  //     logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Em_PQoTrMDgAAAAAAAAAAAAADvl6AQ/original',
+  //     des: '未开始',
+  //   },
+  // },
+  // {
+  //   id: 'a9',
+  //   type: 'pipeNode',
+  //   width: nodeWidth,
+  //   height: nodeHeight,
+  //   data: {
+  //     title: '同步至埋点平台',
+  //     logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Em_PQoTrMDgAAAAAAAAAAAAADvl6AQ/original',
+  //     des: '未开始',
+  //   },
+  // },
 ];
 
-const edges = [
+export const edges = [
   {
     id: 'e1',
     source: 'a1',
     target: 'a2',
     animated: true,
+    sourceHandle: 'a1',
+    targetHandle: 'a2',
   },
+  // {
+  //   id: 'e1-a7',
+  //   source: 'a1',
+  //   target: 'a7',
+  //   sourceHandle: 'a1-NPM 组件初始化-source',
+  //   targetHandle: 'a7',
+  // },
+  // {
+  //   id: 'e1-a8',
+  //   source: 'a1',
+  //   target: 'a8',
+  //   sourceHandle: 'a1-NPM 组件初始化-source',
+  //   targetHandle: 'a8',
+  // },
+  // {
+  //   id: 'e1-a9',
+  //   source: 'a1',
+  //   target: 'a9',
+  //   sourceHandle: 'a1-NPM 组件初始化-source',
+  //   targetHandle: 'a9',
+  // },
   {
     id: 'e2',
     source: 'a2',
@@ -266,44 +228,3 @@ const edges = [
     animated: true,
   },
 ];
-
-function App() {
-  const flowViewer = useFlowViewer();
-  const { styles } = useStyles();
-
-  const handleClick = useCallback(
-    (e, n) => {
-      flowViewer?.zoomToNode(n.id, 1000);
-    },
-    [flowViewer],
-  );
-
-  const handlePaneClick = useCallback(() => {
-    // flowViewer?.zoomToNode(n.id, 1000);
-  }, [flowViewer]);
-
-  return (
-    <div className={styles.container}>
-      <FlowView
-        onNodeClick={handleClick}
-        onPaneClick={handlePaneClick}
-        nodes={nodes}
-        edges={edges}
-        nodeTypes={nodeTypes}
-        background={false}
-      >
-        <Background color="white" variant="none" style={{ background: 'white' }} />
-      </FlowView>
-    </div>
-  );
-}
-
-function ProApp() {
-  return (
-    <FlowViewProvider>
-      <App />
-    </FlowViewProvider>
-  );
-}
-
-export default ProApp;

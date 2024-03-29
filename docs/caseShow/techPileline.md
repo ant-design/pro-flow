@@ -12,4 +12,4 @@ description:
 
 ## Default
 
-<code src="./demos/techPipeline.tsx" ></code>
+<code src="./demos/pipeline/techPipe/techPipeline.tsx" ></code>
