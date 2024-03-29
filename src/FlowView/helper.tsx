@@ -30,6 +30,7 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
     } = node;
 
     mapping[node.id] = {
+      ...node,
       id: node.id,
       data: node.data,
       select,
@@ -46,8 +47,8 @@ export function convertMappingFrom(nodes: FlowViewNode[], edges: FlowViewEdge[],
 
   edges.forEach((edge) => {
     const { source, target } = edge;
-    mapping[source].right?.push(target);
-    mapping[target].left?.push(source);
+    if (mapping[source]) mapping[source].right?.push(target);
+    if (mapping[target]) mapping[target].left?.push(source);
   });
 
   return mapping;
@@ -247,6 +248,7 @@ export const getRenderData = (
     const { width, height } = getWidthAndHeight(node);
 
     renderNodes.push({
+      ...node,
       sourcePosition: Position.Right,
       targetPosition: Position.Left,
       id: node.id!,

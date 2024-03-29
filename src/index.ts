@@ -3,6 +3,8 @@ export {
   EdgeLabelRenderer,
   Handle,
   Position,
+  applyEdgeChanges,
+  applyNodeChanges,
   getBezierPath,
   getSmoothStepPath,
 } from 'reactflow';

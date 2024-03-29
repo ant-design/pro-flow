@@ -70,6 +70,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
       BasicNode: BasicNode,
       BasicNodeGroup: BasicNodeGroup,
       default: DefaultNode,
+      group: 'group',
     };
   }, []);
 

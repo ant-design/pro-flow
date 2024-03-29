@@ -17,3 +17,7 @@ description:
 ## 管道图
 
 <code src="./demos/pipeline/techPipe/techPipeline.tsx" ></code>
+
+## 任务管道图
+
+<code src="./demos/pipeline/taskPipeline/index.tsx" ></code>
