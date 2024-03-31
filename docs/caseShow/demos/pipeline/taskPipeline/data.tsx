@@ -12,6 +12,7 @@ export const nodes = [
   {
     id: 'A',
     type: 'StageNode',
+    position: { x: 100, y: 100 },
     data: {
       title: '配置校验',
       extra: <div style={{ cursor: 'pointer', marginRight: '10px' }}>+</div>,
@@ -39,6 +40,7 @@ export const nodes = [
   {
     id: 'B',
     type: 'StageNode',
+    position: { x: 400, y: 100 },
     data: {
       title: '多任务并行',
       children: [
@@ -69,6 +71,7 @@ export const nodes = [
   {
     id: 'C',
     type: 'StageNode',
+    position: { x: 700, y: 100 },
     data: {
       title: '阶段名称',
       children: [
@@ -95,6 +98,7 @@ export const nodes = [
   {
     id: 'D',
     type: 'StageNode',
+    position: { x: 1000, y: 100 },
     data: {
       title: '阶段名称',
       children: [

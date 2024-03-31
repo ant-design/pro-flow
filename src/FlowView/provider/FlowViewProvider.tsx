@@ -20,6 +20,7 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
     nodesep: 100,
     ranksep: 200,
   });
+
   const flowViewRef = useRef();
 
   const convertRenderData = useCallback(() => {
@@ -29,6 +30,7 @@ const ProviderInner: FC<{ children: ReactNode }> = ({ children }) => {
       autoLayout,
       layoutOptions,
     );
+
     setNodes(_nodes);
     setEdges(_edges);
   }, [mapping, initEdges, autoLayout, layoutOptions]);
