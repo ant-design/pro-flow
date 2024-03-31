@@ -17,7 +17,7 @@ const StageNode: FC<FlowViewNode> = (node) => {
       </div>
       <div className="taskNodes">
         {taskNodes.map((taskNode: any) => {
-          return <TaskNode data={taskNode} />;
+          return <TaskNode data={taskNode} key={taskNode.id} />;
         })}
       </div>
     </div>

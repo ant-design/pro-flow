@@ -41,8 +41,8 @@ const PipeNode: FC<{
         {children.length > 0 && (
           <div className={styles.children}>
             {children.map((item, index) => (
-              <>
-                <div className={styles.childrenBox} key={index}>
+              <div key={item.title + index}>
+                <div className={styles.childrenBox}>
                   <Handle
                     id={`${item.id}-target`}
                     type="target"
@@ -70,7 +70,7 @@ const PipeNode: FC<{
                     }}
                   />
                 </div>
-              </>
+              </div>
             ))}
           </div>
         )}

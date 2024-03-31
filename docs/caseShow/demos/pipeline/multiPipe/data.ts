@@ -33,7 +33,7 @@ export const nodes = [
           des: '0秒',
         },
         {
-          title: '注册部署平台',
+          title: '注册部署',
           logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*sko9RoPu-HgAAAAAAAAAAAAADvl6AQ/original',
           des: '0秒',
         },

@@ -55,7 +55,7 @@ export const PipeNode: FC<NodeProps<PipeNode>> = ({ id, data }) => {
         {children.length > 0 && (
           <div className={styles.children}>
             {children.map((item, index) => (
-              <div style={{ position: 'relative' }} key={item.title + ''}>
+              <div style={{ position: 'relative' }} key={item.title + index}>
                 {item.leftHandle && (
                   <Handle
                     type="target"
