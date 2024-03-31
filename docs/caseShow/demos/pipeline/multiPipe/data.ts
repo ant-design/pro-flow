@@ -138,39 +138,6 @@ export const nodes = [
       des: '未开始',
     },
   },
-  // {
-  //   id: 'a7',
-  //   type: 'pipeNode',
-  //   width: nodeWidth,
-  //   height: nodeHeight,
-  //   data: {
-  //     title: '同步至埋点平台',
-  //     logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Em_PQoTrMDgAAAAAAAAAAAAADvl6AQ/original',
-  //     des: '未开始',
-  //   },
-  // },
-  // {
-  //   id: 'a8',
-  //   type: 'pipeNode',
-  //   width: nodeWidth,
-  //   height: nodeHeight,
-  //   data: {
-  //     title: '同步至埋点平台',
-  //     logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Em_PQoTrMDgAAAAAAAAAAAAADvl6AQ/original',
-  //     des: '未开始',
-  //   },
-  // },
-  // {
-  //   id: 'a9',
-  //   type: 'pipeNode',
-  //   width: nodeWidth,
-  //   height: nodeHeight,
-  //   data: {
-  //     title: '同步至埋点平台',
-  //     logo: 'https://mdn.alipayobjects.com/huamei_d2ejos/afts/img/A*Em_PQoTrMDgAAAAAAAAAAAAADvl6AQ/original',
-  //     des: '未开始',
-  //   },
-  // },
 ];
 
 export const edges = [
@@ -182,27 +149,6 @@ export const edges = [
     sourceHandle: 'a1',
     targetHandle: 'a2',
   },
-  // {
-  //   id: 'e1-a7',
-  //   source: 'a1',
-  //   target: 'a7',
-  //   sourceHandle: 'a1-NPM 组件初始化-source',
-  //   targetHandle: 'a7',
-  // },
-  // {
-  //   id: 'e1-a8',
-  //   source: 'a1',
-  //   target: 'a8',
-  //   sourceHandle: 'a1-NPM 组件初始化-source',
-  //   targetHandle: 'a8',
-  // },
-  // {
-  //   id: 'e1-a9',
-  //   source: 'a1',
-  //   target: 'a9',
-  //   sourceHandle: 'a1-NPM 组件初始化-source',
-  //   targetHandle: 'a9',
-  // },
   {
     id: 'e2',
     source: 'a2',

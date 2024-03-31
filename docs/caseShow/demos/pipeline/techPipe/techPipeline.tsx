@@ -20,8 +20,8 @@ const nodeTypes = { pipeNode: PipeNode };
 function App() {
   const flowViewer = useFlowViewer();
   const { styles } = useStyles();
-  const [_nodes, setNodes, onNodesChange] = useNodesState([...nodes]);
-  const [_edges, setEdges, onEdgesChange] = useEdgesState([...edges]);
+  const [_nodes, , onNodesChange] = useNodesState([...nodes]);
+  const [_edges, , onEdgesChange] = useEdgesState([...edges]);
 
   const handleClick = useCallback(
     (e, n) => {
