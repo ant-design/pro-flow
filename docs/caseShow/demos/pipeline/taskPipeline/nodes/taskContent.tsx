@@ -1,4 +1,3 @@
-import { green, red } from '@ant-design/colors';
 import { CheckCircleFilled, ClockCircleFilled, CloseCircleFilled } from '@ant-design/icons';
 import useStyles from './styled';
 
@@ -8,7 +7,7 @@ export const TaskContent = () => {
   return (
     <ul className={styles.taskContent}>
       <li>
-        <CheckCircleFilled style={{ color: green[5], fontSize: 14 }} />
+        <CheckCircleFilled style={{ color: '#008000', fontSize: 14 }} />
         <div>
           <span>七尼尼 已完成</span>
           <span>43s</span>
@@ -16,7 +15,7 @@ export const TaskContent = () => {
       </li>
       <li />
       <li>
-        <CheckCircleFilled style={{ color: green[5], fontSize: 14 }} />
+        <CheckCircleFilled style={{ color: '#008000', fontSize: 14 }} />
         <div>
           <span>lydon 已完成</span>
           <span>43s</span>
@@ -24,7 +23,7 @@ export const TaskContent = () => {
       </li>
       <li />
       <li>
-        <CloseCircleFilled style={{ color: red[5], fontSize: 14 }} />
+        <CloseCircleFilled style={{ color: '#ff4000', fontSize: 14 }} />
         <div>
           <span>青霓 审批不通过</span>
           <span>43s</span>

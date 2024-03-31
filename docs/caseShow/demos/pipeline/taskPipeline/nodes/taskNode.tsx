@@ -1,4 +1,3 @@
-import { green } from '@ant-design/colors';
 import { CheckCircleFilled } from '@ant-design/icons';
 import { Handle, Position } from '@ant-design/pro-flow';
 import { useState } from 'react';
@@ -35,7 +34,7 @@ const TaskNode = (props: { data: TaskNodeC }) => {
         className={styles.taskNode}
         style={{ justifyContent: `${data.children ? 'space-between' : 'flex-start'}` }}
       >
-        <CheckCircleFilled style={{ color: green[5], fontSize: 14 }} />
+        <CheckCircleFilled style={{ color: '#008000', fontSize: 14 }} />
         <div className="title">{data.title}</div>
         {data.children && (
           <div

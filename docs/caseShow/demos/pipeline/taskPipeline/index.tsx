@@ -6,10 +6,10 @@ import { Background, FlowView, applyEdgeChanges, applyNodeChanges } from '@ant-d
 import { useCallback, useState } from 'react';
 import { edges, nodes } from './data';
 import StageNode from './nodes/stageNode';
-import taskNode from './nodes/taskNode';
+import TaskNode from './nodes/taskNode';
 import useStyles from './styled';
 
-const nodeTypes = { taskNode, StageNode };
+const nodeTypes = { TaskNode, StageNode };
 
 function App() {
   const { styles } = useStyles();
