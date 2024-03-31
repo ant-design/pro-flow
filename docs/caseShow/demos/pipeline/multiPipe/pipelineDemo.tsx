@@ -1,7 +1,14 @@
 /**
  * compact: true
  */
-import { Background, FlowView, FlowViewProvider, useFlowViewer } from '@ant-design/pro-flow';
+import {
+  Background,
+  FlowView,
+  FlowViewProvider,
+  useEdgesState,
+  useFlowViewer,
+  useNodesState,
+} from '@ant-design/pro-flow';
 import { useCallback } from 'react';
 import useStyles from '../../index.style';
 import { edges, nodes } from './data.ts';
@@ -12,6 +19,8 @@ const nodeTypes = { pipeNode: PipeNode };
 function App() {
   const flowViewer = useFlowViewer();
   const { styles } = useStyles();
+  const [_nodes, setNodes, onNodesChange] = useNodesState([...nodes]);
+  const [_edges, setEdges, onEdgesChange] = useEdgesState([...edges]);
 
   const handleClick = useCallback(
     (e, n) => {
@@ -23,9 +32,11 @@ function App() {
   return (
     <div className={styles.container}>
       <FlowView
-        // onNodeClick={handleClick}
-        nodes={nodes}
-        edges={edges}
+        onNodeClick={handleClick}
+        nodes={_nodes}
+        edges={_edges}
+        onEdgesChange={onEdgesChange}
+        onNodesChange={onNodesChange}
         nodeTypes={nodeTypes}
         background={false}
       >

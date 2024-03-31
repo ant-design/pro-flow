@@ -39,7 +39,7 @@ function App() {
           ranksep: 50,
         }}
       >
-        <Background color="#D0C0F7" variant="none" style={{ background: '#D0C0F7' }} />
+        <Background color="#f1f1f1" variant="none" style={{ background: '#f1f1f1' }} />
       </FlowView>
     </div>
   );
