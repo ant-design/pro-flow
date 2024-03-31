@@ -8,7 +8,7 @@ import { nodes as _nodes, edges } from './data/data2';
 
 function App() {
   const { styles } = useStyles();
-  const [nodes, setNodes, onNodesChange] = useNodesState(_nodes);
+  const [nodes, , onNodesChange] = useNodesState(_nodes);
 
   return (
     <div className={styles.container}>

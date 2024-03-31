@@ -44,8 +44,8 @@ description: 基础画布容器
 | ------- | ------------------------------ | -------- | ------ | ---- |
 | rankdir | `'TB' \| 'BT' \| 'LR' \| 'RL'` | 布局样式 | -      | -    |
 | align   | `'UL' \| 'DL' \| 'UR' \| 'DR'` | 左右对齐 | -      | -    |
-| nodesep | `number`                       | 列间距   | -      | -    |
-| ranksep | `number`                       | 行间距   | -      | -    |
+| nodesep | `number`                       | 行间距   | -      | -    |
+| ranksep | `number`                       | 列间距   | -      | -    |
 
 ### FlowViewNode
 
