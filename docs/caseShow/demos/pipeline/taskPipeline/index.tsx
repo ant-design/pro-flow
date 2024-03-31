@@ -4,17 +4,12 @@
 
 import { Background, FlowView, applyEdgeChanges, applyNodeChanges } from '@ant-design/pro-flow';
 import { useCallback, useState } from 'react';
-// import ReactFlow, { applyEdgeChanges, applyNodeChanges, Background } from 'reactflow';
 import { edges, nodes } from './data';
 import StageNode from './nodes/stageNode';
 import taskNode from './nodes/taskNode';
 import useStyles from './styled';
 
 const nodeTypes = { taskNode, StageNode };
-
-const rfStyle = {
-  backgroundColor: '#D0C0F7',
-};
 
 function App() {
   const { styles } = useStyles();
@@ -40,21 +35,12 @@ function App() {
         nodes={_nodes}
         edges={_edges}
         background={false}
-        autoLayout={true}
+        layoutOptions={{
+          ranksep: 50,
+        }}
       >
         <Background color="#D0C0F7" variant="none" style={{ background: '#D0C0F7' }} />
       </FlowView>
-      {/* <ReactFlow
-        nodes={_nodes}
-        edges={_edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        fitView
-        style={rfStyle}
-        attributionPosition="top-right"
-      >
-        <Background />
-      </ReactFlow> */}
     </div>
   );
 }

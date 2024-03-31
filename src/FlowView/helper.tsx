@@ -79,6 +79,10 @@ export function setNodePosition(
   const g = new Dagre.graphlib.Graph().setDefaultEdgeLabel(() => ({}));
 
   g.setGraph({
+    rankdir: 'LR',
+    align: 'UL',
+    nodesep: 100,
+    ranksep: 200,
     ...layoutOptions,
   });
 
