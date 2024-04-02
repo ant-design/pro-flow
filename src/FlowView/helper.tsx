@@ -161,6 +161,7 @@ export function getRenderEdges(edges: FlowViewEdge[]) {
     } = edge;
 
     return {
+      ...edge,
       id,
       source,
       target,

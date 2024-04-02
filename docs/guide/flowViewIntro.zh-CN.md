@@ -82,6 +82,10 @@ const nodes = [
 
 <code src='./demos/flowViewIntro/dragableNode.tsx'></code>
 
+<!-- ## 成组节点
+
+<code src='./demos/flowViewIntro/groupNode.tsx'></code> -->
+
 ## 参数配置
 
 ### FlowView
