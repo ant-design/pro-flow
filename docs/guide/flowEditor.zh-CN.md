@@ -10,11 +10,11 @@ order: 2
 description:
 ---
 
-# FlowView - 图展示组件
+# FlowEditor - 图编辑组件
 
 ## 基本用法
 
-引入 FlowView 组件，即可在页面上获得一块带有小地图能力的的画布。
+引入 FlowEditor 组件，即可在页面上获得一块带有小地图能力的的画布。
 
 ```js
 import { FlowEditor } from '@ant-design/pro-flow';

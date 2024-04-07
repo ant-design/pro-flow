@@ -3,10 +3,12 @@ export {
   EdgeLabelRenderer,
   Handle,
   Position,
+  SmoothStepEdge,
   applyEdgeChanges,
   applyNodeChanges,
   getBezierPath,
   getSmoothStepPath,
+  getStraightPath,
 } from 'reactflow';
 export { default as Background } from './Background';
 export { default as BasicGroupNode } from './BasicGroupNode';

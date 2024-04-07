@@ -11,7 +11,7 @@ import {
 } from '@ant-design/pro-flow';
 import { useCallback } from 'react';
 import useStyles from '../../index.style';
-import { edges, nodes } from './data.ts';
+import { edges, nodes } from './data';
 import { PipeNode } from './pipeNode';
 
 const nodeTypes = { pipeNode: PipeNode };
