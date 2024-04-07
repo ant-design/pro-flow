@@ -48,10 +48,18 @@ export interface NodeMapItem<T = any, U extends string | undefined = string | un
 }
 
 export interface LayoutOptions {
-  rankdir?: 'TB' | 'BT' | 'LR' | 'RL';
-  align?: 'UL' | 'DL' | 'UR' | 'DR';
-  nodesep?: number;
-  ranksep?: number;
+  width?: number | undefined;
+  height?: number | undefined;
+  compound?: boolean | undefined;
+  rankdir?: string | undefined;
+  align?: string | undefined;
+  nodesep?: number | undefined;
+  edgesep?: number | undefined;
+  ranksep?: number | undefined;
+  marginx?: number | undefined;
+  marginy?: number | undefined;
+  acyclicer?: string | undefined;
+  ranker?: string | undefined;
 }
 
 export type NodeMapping = Record<string, NodeMapItem>;
