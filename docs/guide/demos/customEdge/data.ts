@@ -17,6 +17,15 @@ export const nodes = [
       description: 'XXX_XXX_XXX_API',
     },
   },
+  {
+    id: 'a3',
+    label: 'a3',
+    data: {
+      title: 'XXX_API_ddddddddddddddddddddddddddddddddddddddddddddddddddddddb1',
+      logo: 'https://mdn.alipayobjects.com/huamei_ntgeqc/afts/img/A*kgyiRKi04eUAAAAAAAAAAAAADvuvAQ/original',
+      description: 'XXX_XXX_XXX_API',
+    },
+  },
 ];
 
 export const getEdges = (className) => [
@@ -24,6 +33,13 @@ export const getEdges = (className) => [
     id: 'e1',
     source: 'a1',
     target: 'a2',
+    type: 'buttonEdge',
+    className,
+  },
+  {
+    id: 'e2',
+    source: 'a1',
+    target: 'a3',
     type: 'buttonEdge',
     className,
   },

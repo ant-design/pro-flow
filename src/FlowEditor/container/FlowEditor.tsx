@@ -166,8 +166,9 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       } else {
         instance.setViewport(defaultViewport);
       }
+    }, [nodesInitialized]);
 
-      // 然后设定初始化节点的相关状态
+    useEffect(() => {
       if (nodesInitialized) {
         onNodesInit?.(editor);
       }

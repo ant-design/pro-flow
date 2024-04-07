@@ -148,6 +148,18 @@ export const edges = [
     animated: true,
     sourceHandle: 'a1',
     targetHandle: 'a2',
+    markerEnd: {
+      type: 'arrow',
+    },
+    label: (
+      <div style={{ color: 'red', width: '200px', height: '100px', backgroundColor: 'red' }}>
+        123
+      </div>
+    ),
+    markerStart: {
+      type: 'arrow',
+      // orient: 'auto-start-reverse'
+    },
   },
   {
     id: 'e2',
