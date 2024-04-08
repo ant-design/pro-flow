@@ -6,17 +6,19 @@ const onEdgeClick = (evt, id) => {
   alert(` ${id}`);
 };
 
-export default function CustomEdge({
-  id,
-  sourceX,
-  sourceY,
-  targetX,
-  targetY,
-  sourcePosition,
-  targetPosition,
-  style = {},
-  markerEnd,
-}: EdgeProps) {
+export default function CustomEdge(edge: EdgeProps) {
+  const {
+    id,
+    sourceX,
+    sourceY,
+    targetX,
+    targetY,
+    sourcePosition,
+    targetPosition,
+    style = {},
+    markerEnd,
+  } = edge;
+
   const [edgePath, labelX, labelY] = getBezierPath({
     sourceX,
     sourceY,
@@ -25,10 +27,16 @@ export default function CustomEdge({
     targetY,
     targetPosition,
   });
+
   const { styles } = useStyles();
   return (
     <>
-      <BaseEdge path={edgePath} markerEnd={markerEnd} style={style} />
+      <BaseEdge
+        className={edge.data.className}
+        path={edgePath}
+        markerEnd={markerEnd}
+        style={style}
+      />
       <EdgeLabelRenderer>
         <div
           style={{
