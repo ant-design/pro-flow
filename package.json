@@ -69,6 +69,7 @@
     "ahooks": "^3",
     "antd": "^5",
     "antd-style": "^3",
+    "color": "^4.2.3",
     "fast-deep-equal": "^3",
     "immer": "^10",
     "lodash-es": "^4",
@@ -79,6 +80,8 @@
     "react-layout-kit": "^1",
     "reactflow": "^11.10.0",
     "use-merge-value": "^1",
+    "y-protocols": "^1.0.6",
+    "y-webrtc": "^10.3.0",
     "yjs": "^13",
     "zustand": "^4.4.1",
     "zustand-utils": "^1.3.1"
