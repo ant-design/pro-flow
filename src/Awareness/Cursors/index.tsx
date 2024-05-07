@@ -1,17 +1,17 @@
-import isEqual from 'fast-deep-equal';
-import { memo } from 'react';
+import { memo, useContext } from 'react';
 
+import { StoreContext } from '../store';
 import Cursor from './Cursor';
 
-import type { AwarenessState } from '../store';
-import { useStore } from '../store';
+// import { useStore } from '../store';
 
 const Cursors = memo(() => {
-  const awarenessStates = useStore<AwarenessState[]>(
-    (s) => s.awarenessStates?.filter((a) => a.active && a.user.id !== s.currentUser.id),
-    isEqual,
-  );
+  // const awarenessStates = useStore<AwarenessState[]>(
+  //   (s) => s.awarenessStates?.filter((a) => a.active && a.user.id !== s.currentUser.id),
+  //   isEqual,
+  // );
 
+  const { awarenessStates } = useContext(StoreContext)!;
   return (
     <>
       {awarenessStates?.map((a) => {
