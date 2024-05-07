@@ -14,7 +14,8 @@ Awareness 代表着用户在应用内的运动和行为。用户能够实时看�
 
 ## 代码演示
 
-<!-- <code src="./demos/Cursor.tsx" title="Awareness.Cursor" description="协同角色的指针"></code> -->
+<code src="./demos/demo.tsx" title="Awareness.Cursor" description="协同角色的指针"></code>
+
 <!-- <code src="./demos/Avatar.tsx" title="Awareness.Avatar" description="协同用户"></code> -->
 
 ## API

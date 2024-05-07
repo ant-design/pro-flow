@@ -1,7 +1,7 @@
 import Color from 'color';
 import { memo } from 'react';
 
-import { createStyles } from '@/theme';
+// import { createStyles } from '@/theme';
 import CursorSvg from './CursorSvg';
 
 const useStyles = createStyles(({ css }) => ({

@@ -1,7 +1,7 @@
 import { memo, useContext } from 'react';
 
+import { Awareness } from '@ant-design/pro-editor';
 import { StoreContext } from '../store';
-import Cursor from './Cursor';
 
 // import { useStore } from '../store';
 
@@ -11,14 +11,18 @@ const Cursors = memo(() => {
   //   isEqual,
   // );
 
-  const { awarenessStates } = useContext(StoreContext)!;
+  const { awarenessStates, currentUser } = useContext(StoreContext)!;
   return (
     <>
-      {awarenessStates?.map((a) => {
-        const { cursor, user } = a;
+      {awarenessStates
+        .filter((a) => a.active && a.user.id !== currentUser.id)
+        ?.map((a) => {
+          const { cursor, user } = a;
 
-        return <Cursor key={user.id} position={cursor} color={user.color} name={user.name} />;
-      })}
+          return (
+            <Awareness.Cursor key={user.id} position={cursor} color={user.color} name={user.name} />
+          );
+        })}
     </>
   );
 });

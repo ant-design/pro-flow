@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import type { WebrtcProvider } from 'y-webrtc';
 import Avatars from './Avatars';
+// import Cursors from './Cursors';
 import Cursors from './Cursors';
 import { StoreContext, User, useCreateStore } from './store';
-
 export interface AwarenessProps {
   provider: WebrtcProvider;
   avatars?: boolean;
