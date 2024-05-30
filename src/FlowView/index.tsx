@@ -147,7 +147,6 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
   return (
     <>
       <ReactFlow
-        {...flowProps}
         ref={flowViewRef as any}
         className={cx(styles.container, className)}
         onNodeDragStart={handleNodeDragStart}
@@ -165,6 +164,7 @@ const FlowView: React.FC<Partial<FlowViewProps>> = (props) => {
         fitView
         minZoom={minZoom}
         maxZoom={maxZoom}
+        {...flowProps}
       >
         {miniMap && (
           <MiniMap

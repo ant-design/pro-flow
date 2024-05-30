@@ -73,36 +73,7 @@ const ProFlowDemo = () => {
 
   return (
     <div className={styles.container}>
-      <FlowEditor
-        nodeTypes={nodeTypes}
-        // onNodesChange done
-        // beforeNodesChange={(nodes) => {
-        //   console.log('beforeNodesChange', nodes);
-        //   return true;
-        // }}
-        // onNodesChange={(nodes) => {
-        //   console.log('onNodesChange', nodes);
-        // }}
-        // afterNodesChange={(nodes) => {
-        //   console.log('afterNodesChange', nodes);
-        // }}
-        // onFlattenNodesChange={(e) => {
-        //   console.log(e);
-        // }}
-
-        // onEdgesChange done
-        // beforeEdgesChange={(edges) => {
-        //   console.log('beforeEdgesChange', edges);
-        //   return true;
-        // }}
-
-        // afterEdgesChange={(edges) => {
-        //   console.log('afterEdgesChange', edges);
-        // }}
-        // onFlattenEdgesChange={(e) => {
-        //   console.log('flattenEdgesChange', e);
-        // }}
-      ></FlowEditor>
+      <FlowEditor nodeTypes={nodeTypes}></FlowEditor>
     </div>
   );
 };
