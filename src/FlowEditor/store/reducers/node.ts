@@ -76,11 +76,17 @@ export const nodeReducer = (state: FlattenNodes, action: NodeDispatch): FlattenN
         const { nodes } = action;
         if (!nodes) return;
 
-        Object.keys(nodes).forEach((id) => {
-          if (!draftState[id]) {
-            draftState[id] = nodes[id];
-          }
-        });
+        if (Array.isArray(nodes)) {
+          nodes.forEach((node) => {
+            draftState[node.id] = node;
+          });
+        } else if (typeof nodes === 'object') {
+          Object.keys(nodes).forEach((id) => {
+            if (!draftState[id]) {
+              draftState[id] = nodes[id];
+            }
+          });
+        }
       });
 
     case 'deleteNode':
