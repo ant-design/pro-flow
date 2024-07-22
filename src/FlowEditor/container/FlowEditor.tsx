@@ -88,6 +88,7 @@ export interface FlowEditorAppProps {
   children?: React.ReactNode;
   background?: boolean;
   miniMap?: boolean;
+  hotkeyManager?: boolean;
 }
 
 const FlowEditor = forwardRef<any, FlowEditorAppProps>(
@@ -102,6 +103,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
       children,
       background = true,
       miniMap = true,
+      hotkeyManager = true,
       onNodesInit,
 
       beforeConnect = () => true,
@@ -148,7 +150,7 @@ const FlowEditor = forwardRef<any, FlowEditorAppProps>(
     const instance = useReactFlow();
 
     // 添加快捷键监听
-    useHotkeyManager();
+    useHotkeyManager(hotkeyManager);
 
     // 抛出 viewport 变化的事件
     useOnViewportChange({

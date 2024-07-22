@@ -9,6 +9,7 @@ import { EdgeDispatch, edgesReducer } from '../reducers/edge';
 
 export interface PublicEdgesAction {
   dispatchEdges: (payload: EdgeDispatch, options?: ActionOptions) => void;
+  addEdge: (edge: Edge) => void;
   addEdges: (edges: Record<string, Edge>, options?: ActionOptions) => void;
   deleteEdge: (id: string) => void;
   deleteEdges: (ids: string[]) => void;
@@ -73,6 +74,10 @@ export const edgesSlice: StateCreator<
       );
     }
   },
+  addEdge: (edge) => {
+    get().dispatchEdges({ type: 'addEdge', edge: edge });
+  },
+
   addEdges: (edges, options) => {
     get().dispatchEdges({ type: 'addEdges', edges: edges }, options);
   },
