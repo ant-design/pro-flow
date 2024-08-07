@@ -58,11 +58,17 @@ export const edgesReducer = (state: EdgesState, payload: EdgeDispatch): EdgesSta
         const { edges } = payload;
         if (!edges) return;
 
-        Object.keys(edges).forEach((id) => {
-          if (!draftState[id]) {
-            draftState[id] = edges[id];
-          }
-        });
+        if (Array.isArray(edges)) {
+          edges.forEach((edge) => {
+            draftState[edge.id] = edge;
+          });
+        } else if (typeof edges === 'object') {
+          Object.keys(edges).forEach((id) => {
+            if (!draftState[id]) {
+              draftState[id] = edges[id];
+            }
+          });
+        }
       });
 
     case 'updateEdge':
