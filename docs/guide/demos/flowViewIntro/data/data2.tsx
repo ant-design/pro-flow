@@ -29,11 +29,13 @@ export const edges = [
     id: 'a1-a2',
     source: 'a1',
     target: 'a2',
+    label: <div>1231123</div>,
   },
   {
     id: 'a1-a3',
     source: 'a1',
     target: 'a3',
     type: 'radius',
+    label: <div>1231123</div>,
   },
 ];
