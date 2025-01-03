@@ -1,10 +1,9 @@
 /**
  * compact: true
  */
-import { FlowView } from '@ant-design/pro-flow';
+import { FlowView, SwimLaneProps, SwimlaneBackground } from '@ant-design/pro-flow';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
-import SwimlaneBackground from '../components/SwimBg';
 
 const useStyles = createStyles(({ css }) => ({
   container: css`
@@ -20,44 +19,46 @@ const BackgroundDemo = memo(() => {
     <div className={styles.container}>
       <FlowView nodes={[]} edges={[]} miniMap={false} background={false}>
         <SwimlaneBackground
-          lanes={[
-            {
-              id: '1',
-              label: 'Swimlane 1',
-              labelColor: '#FECCCB',
-            },
-            {
-              id: '2',
-              label: 'Swimlane 2',
-              labelColor: '#FDCDE6',
-            },
-            {
-              id: '3',
-              label: 'Swimlane 3',
-              labelColor: '#CEFFE7',
-            },
-            {
-              id: '4',
+          lanes={
+            [
+              {
+                id: '1',
+                label: 'Swimlane 1',
+                labelColor: '#FECCCB',
+              },
+              {
+                id: '2',
+                label: 'Swimlane 2',
+                labelColor: '#FDCDE6',
+              },
+              {
+                id: '3',
+                label: 'Swimlane 3',
+                labelColor: '#CEFFE7',
+              },
+              {
+                id: '4',
 
-              label: 'Swimlane 4',
-              labelColor: '#CDFECE',
-            },
-            {
-              id: '5',
-              label: 'Swimlane 5',
-              labelColor: '#E7FFCC',
-            },
-            {
-              id: '6',
-              label: 'Swimlane 6',
-              labelColor: '#CEFFE7',
-            },
-            {
-              id: '7',
-              label: 'Swimlane 7',
-              labelColor: '#CBE5FF',
-            },
-          ]}
+                label: 'Swimlane 4',
+                labelColor: '#CDFECE',
+              },
+              {
+                id: '5',
+                label: 'Swimlane 5',
+                labelColor: '#E7FFCC',
+              },
+              {
+                id: '6',
+                label: 'Swimlane 6',
+                labelColor: '#CEFFE7',
+              },
+              {
+                id: '7',
+                label: 'Swimlane 7',
+                labelColor: '#CBE5FF',
+              },
+            ] as SwimLaneProps[]
+          }
         ></SwimlaneBackground>
       </FlowView>
     </div>

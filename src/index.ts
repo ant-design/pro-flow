@@ -11,6 +11,7 @@ export {
   getStraightPath,
 } from 'reactflow';
 export { default as Background } from './Background';
+export { default as SwimlaneBackground } from './Background/components/SwimBg';
 export { default as BasicGroupNode } from './BasicGroupNode';
 export { default as BasicNode } from './BasicNode';
 export { default as CanvasLoading } from './CanvasLoading';
@@ -44,5 +45,6 @@ export type {
   NodeChange,
   NodeProps,
 } from 'reactflow';
+export type { SwimLaneProps, SwimlaneBackgroundProps } from './Background/components/SwimBg';
 export type { FlowEditorStoreProviderProps } from './FlowStoreProvider';
 export type { ExtraAction } from './NodeField';

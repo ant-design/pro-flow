@@ -43,3 +43,22 @@ description:
 | lines  | `string` | 线   | -      | -    |
 | dots   | `string` | 点   | -      | -    |
 | cross  | `string` | 十字 | -      | -    |
+
+### Swim Background Props
+
+| 属性名    | 类型                  | 描述     | 默认值 | 必选 |
+| --------- | --------------------- | -------- | ------ | ---- |
+| lanes     | `SwimLaneProps[]`     | 泳道列表 | -      | -    |
+| className | `string`              | 类名     | -      | -    |
+| style     | `React.CSSProperties` | 样式     | -      | -    |
+
+### Swim Lane Props
+
+| 属性名          | 类型                  | 描述       | 默认值 | 必选 |
+| --------------- | --------------------- | ---------- | ------ | ---- |
+| id              | `string]`             | id         | -      | -    |
+| label           | `string`              | 标签       | -      | -    |
+| labelColor      | `string`              | 标签的背景 | -      | -    |
+| backgroundColor | `string`              | 泳道的背景 | -      | -    |
+| width           | `string`              | 宽度       | -      | -    |
+| style           | `React.CSSProperties` | 样式       | -      | -    |
