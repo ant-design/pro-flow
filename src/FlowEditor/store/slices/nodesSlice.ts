@@ -23,7 +23,7 @@ export interface PublicNodesAction {
    * @param index 要添加到的位置，默认为末尾
    */
   addNode: (node: Node, index?: number) => void;
-  addNodes: (nodes: Record<string, Node>, options?: ActionOptions) => void;
+  addNodes: (nodes: Record<string, Node> | Node[], options?: ActionOptions) => void;
   /**
    * 移除指定 id 的节点
    * @param id 要移除的节点 id
@@ -170,10 +170,17 @@ export const nodesSlice: StateCreator<
   },
 
   addNodes: (nodes, options) => {
+    const _nodes = Array.isArray(nodes)
+      ? nodes.reduce((acc: Record<string, Node>, node) => {
+          acc[node.id] = node;
+          return acc;
+        }, {})
+      : nodes;
+
     get().dispatchNodes(
       {
         type: 'addNodes',
-        nodes,
+        nodes: _nodes,
       },
       options,
     );

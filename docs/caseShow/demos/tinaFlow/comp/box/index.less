@@ -1,0 +1,126 @@
+.box {
+  // width: 600px;
+  // height: 500px;
+  // height: 100%;
+  // border: 1px solid #666;
+  position: relative;
+  // background-color: cyan;
+  transition: width 0.2s, height 0.2s;
+  &-move {
+    transition: width 0.05s, height 0.05s;
+    // 不能选中
+    user-select: none;
+  }
+  .box-holder {
+    position: absolute;
+    &-mousedown {
+      background-color: rgba(27, 110, 197, 0.7);
+    }
+    &:hover {
+      background-color: rgba(27, 110, 197, 0.7);
+    }
+    &-left, &-right {
+      top: 0;
+      bottom: 0;
+      width: 8px;
+      &:hover {
+        cursor: col-resize;
+      }
+    }
+    &-left {
+      left: 0;
+    }
+    &-right {
+      right: 0;
+    }
+
+    &-top, &-bottom {
+      left: 0;
+      right: 0;
+      height: 8px;
+      &:hover {
+        cursor: row-resize;
+      }
+    }
+    &-top {
+      top: 0;
+    }
+    &-bottom {
+      bottom: 0;
+    }
+  }
+
+  .expander {
+    z-index: 99;
+    position: absolute;
+    opacity: 0.7;
+    border: 12px solid transparent;
+    // width: 12px;
+    // height: 64px;
+    color: rgba(0, 10, 26, .45);
+    cursor: pointer;
+    transition: opacity 0.3s;
+    box-sizing: border-box;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-100%, -50%);
+    }
+    &:hover {
+      opacity: 1;
+    }
+    &-left, &-right {
+      top: 50%;
+      width: 12px;
+      height: 64px;
+      svg {
+        top: 50%;
+      }
+    }
+    &-left {
+      left: 0;
+      transform: translate(-100%, -50%);
+      border-right: 12px solid #d1d0d0;
+      svg {
+        right: 25%;
+        transform: translate(0, -50%);
+      }
+    }
+    &-right {
+      right: 0;
+      transform: translate(100%, -50%);
+      border-left: 12px solid #d1d0d0;
+      svg {
+        left: 0;
+        transform: translate(-100%, -50%);
+      }
+    }
+    &-top, &-bottom {
+      left: 50%;
+      width: 64px;
+      height: 12px;
+      svg {
+        left: 50%;
+      }
+    }
+    &-top {
+      top: 0;
+      transform: translate(-50%, -100%);
+      border-bottom: 12px solid #d1d0d0;
+      svg {
+        bottom: 25%;
+        transform: translate(-50%, -11%) rotate(-90deg);
+      }
+    }
+    &-bottom {
+      bottom: 0;
+      transform: translate(-50%, 100%);
+      border-top: 12px solid #d1d0d0;
+      svg {
+        top: 25%;
+        transform: translate(-50%, -89%) rotate(90deg);
+      }
+    }
+  }
+}

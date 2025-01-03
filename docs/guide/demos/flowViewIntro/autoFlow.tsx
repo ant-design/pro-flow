@@ -4,7 +4,7 @@
  */
 import { FlowView } from '@ant-design/pro-flow';
 import useStyles from './css/index.style';
-import { edges, nodes } from './data/data2';
+import { edges, nodes } from './data/data2.tsx';
 
 function App() {
   const { styles } = useStyles();

@@ -28,7 +28,7 @@ export interface TextAreaProps extends AntdTextAreaProps {
 }
 
 export const TextArea = memo<TextAreaProps>(
-  forwardRef(({ className, type = 'ghost', ...props }, ref) => {
+  forwardRef(({ className, type = 'ghost', ...props }, ref: any) => {
     const { styles, cx } = useStyles();
 
     return (

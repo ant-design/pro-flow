@@ -78,6 +78,7 @@ export const generalActionSlice: StateCreator<
     set({ selectedKeys }, false, payload);
     get().onSelectionChange?.(selectedKeys);
   },
+
   onElementSelectChange: (id, selected) => {
     if (selected) {
       get().selectElement(id);
@@ -101,12 +102,14 @@ export const generalActionSlice: StateCreator<
       payload: { id },
     });
   },
+
   selectElements: (ids, expendSelection = false) => {
     get().internalUpdateSelection(expendSelection ? [...get().selectedKeys, ...ids] : ids, {
       type: 'selection/selectElements',
       payload: { ids },
     });
   },
+
   selectAll: () => {
     const nodes = get().reactflow.getNodes();
     const edges = get().reactflow.getEdges();
@@ -125,6 +128,7 @@ export const generalActionSlice: StateCreator<
       },
     );
   },
+
   deselectAll: () => {
     get().internalUpdateSelection([], { type: 'selection/deselectAll', payload: {} });
   },
@@ -160,6 +164,7 @@ export const generalActionSlice: StateCreator<
 
     return selectedElements;
   },
+
   paste: async () => {
     const clipboardItems = await navigator.clipboard.read();
 
