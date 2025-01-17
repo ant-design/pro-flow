@@ -1,5 +1,5 @@
 import { ZoomInOutlined, ZoomOutOutlined } from '@ant-design/icons';
-import { BoxSelect, ClipboardList } from 'lucide-react';
+import { BoxSelectIcon, ClipboardList } from 'lucide-react';
 import { useMemo } from 'react';
 import { useReactFlow } from 'reactflow';
 
