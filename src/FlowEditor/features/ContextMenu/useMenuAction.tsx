@@ -1,5 +1,5 @@
 import { ZoomInOutlined, ZoomOutOutlined } from '@ant-design/icons';
-import { BoxSelect, ClipboardList } from 'lucide-react';
+import { BoxSelectIcon, ClipboardList } from 'lucide-react';
 import { useMemo } from 'react';
 import { useReactFlow } from 'reactflow';
 
@@ -26,7 +26,7 @@ export const useMenuActions = () => {
       selectAll: {
         key: 'selectAll',
         label: '选择全部',
-        icon: <BoxSelect size={size} />,
+        icon: <BoxSelectIcon size={size} />,
         onClick: selectAll,
         shortcut: ['meta', 'A'],
       },
